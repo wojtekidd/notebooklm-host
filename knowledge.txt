@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-04-02 09:32 UTC
-Commit: 96dd744cebdc0f00c7db65c97e8e4084f1ab4190
+Last updated: 2026-04-02 09:38 UTC
+Commit: 681d65efff397e147b02c8e44d0289ea35016694
 Files included: 4
 ================================================================
 
@@ -520,10 +520,8 @@ Removes the need for end users to switch between apps/tools to boost productivit
 Key factsabout CKEditor AI
 
 
-State-of-the-art LLMs and custom models
-We focus on leading providers (OpenAI, Anthropic, Google) as well as your own custom or fine-tuned LLM
-Connect custom LLMs on the backend via MCP — available in On-Premises distribution since March 2026
-Supports AI agents: integrate with your existing agent infrastructure on the backend, then trigger and interact via AI Chat or programmatically
+State-of-the-art LLMs
+We focus on leading providers (OpenAI, Anthropic, Google) as well as your own LLM
 We are committed to updating support for new models
 CKEditor AI is the only AI writing assistant that generates HTML
 Even companies with powerful document-editing software like Google and Microsoft support only markdown-formatted output from their AI Chats
@@ -653,6 +651,33 @@ Tool designed for helping withthat final step when working on content.
 Clear indication what and where will be changed
 Familiar UI, known form Track Changes
 Showing suggested changes directly on the document
+
+Translate with AI Translate
+
+Reviews: as the name suggests, reviewing the content, the final touch, focused on presenting those changes inline
+
+Dedicated content translation mode for translating the entire document in one go.
+Translate entire documents into any language with AI-powered changes you can review before applying.
+AI Translate
+10 built-in languages ready to use: English, Spanish, French, German, Chinese (Simplified), Japanese, Russian, Portuguese, Korean, and Italian.
+
+
+Original content preserved in the sidebar for easy reference and comparison.
+Translation displayed as inline suggestions directly in the document.
+AI Translate
+Translate entire documents into any language with AI-powered changes you can review before applying.
+
+Original snippets shown alongside the translated text for quick side-by-side comparison.
+Review each translated segment separately - verify accuracy before applying.
+AI Translate
+Translate entire documents into any language with AI-powered changes you can review before applying.
+
+AI Translate
+Translate entire documents into any language with AI-powered changes you can review before applying.
+Formatting and structure preserved - headings, lists, tables, and styles remain intact.
+Seamlessly continue the editing workflow with the editor’s features.
+
+Once accepted, translated content becomes fully editable - continue working as usual.
 
 On-premises and MCP support
 
@@ -798,7 +823,6 @@ Undo history, comments, collaboration markers, and more. All need to survive eve
 
 Handle multiple usersediting while AI is responding
 RTC and AI working on the samedocument without conflicts or data loss
-AI in production requires more than a simple AI PoC
 Diff structured content, not strings
 Make AI work with your content rules
 Support multiple AI modelswithout rewriting your integration
@@ -808,33 +832,27 @@ Let users review what AIchanged before it takes effect
 Accept, reject, or modify each change individually, with full undo/redo trail
 Make AI feel instant
 Streaming, batching, caching for results in seconds
-48
+AI in production requires more than a simple AI PoC
 
 Your infrastructure, your services, and your models:
 Any AI model. We normalize the behaviour across all of them.
 Your security perimeter. Data never leaves your environment.
 Your application, your brand! Our infrastructure disappears into it.
-Between the model and your users, there's an integration layer that makes or breaks the experience
 CKEditor AI Service [Docker]
 Customer Infrastructure
 AI-augmented writing and editing experience:
 Let users review what AI changed before it takes effect.
 Apply AI changes using rich text diffs without destroying doc state.
-Every edge case handled: tables, lists, RTL, paste from Word.
+Every edge case handled: tables, lists, RTL, paste from Word.   
 AI Integration Layer that connects an LLM to a document:
 Handle multiple users editing while AI is responding.
 Avoid sending a 50K-character doc back and forth to fix one word.
 Keep costs manageable with optimized response speed.
 We deliver best-in-class AI-augmented authoring on top of your ecosystem
 CKEditor 5 AI
+Between the model and your users, there's an integration layer that makes or breaks the experience
+ 
 
-AI delivers real value when it's embedded inside the applications you already run
-CKEditor Enterprise AI-Powered Writing, Collaboration and Governance Layer
-Enterprise governance 
-Model-agnostic
-UI building blocks
-Configurable APIs
-Backend built for AI workloads
 Anthropic
 Open AI
 Google
@@ -847,6 +865,13 @@ Custom App
 Any model. Any application. One infrastructure layer for trust, collaboration, and governance.
 Custom Model
 Knowledge Base
+CKEditor Enterprise AI-Powered Writing, Collaboration and Governance Layer
+Enterprise governance 
+Model-agnostic
+UI building blocks
+Configurable APIs
+Backend built for AI workloads
+AI delivers real value when it's embedded inside the applications you already run
 
 Future plans
 
