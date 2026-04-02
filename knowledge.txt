@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-04-02 11:03 UTC
-Commit: f3a3798bea1ba095c13e3e4651141e80fec842b7
+Last updated: 2026-04-02 12:35 UTC
+Commit: 16bc54de4b802609f9ecd750a5daf25f2da97ef8
 Files included: 5
 ================================================================
 
@@ -494,7 +494,7 @@ CKEditor AI Overview slide deck - useful for conversations with leads/customers
 
 
 ================================================================
-FILE: ./features/ckeditor ai/CKEditor AI Overview .txt
+FILE: ./features/ckeditor ai/CKEditor AI Overview.txt
 ================================================================
 
     CKEditor AI
@@ -1028,77 +1028,6 @@ Optimizing and improving the way CKEditor AI Chat currently handles deep researc
 
 
 
-
-[Q1 2026] On-premises distribution
-
-[Q1 2026] Support for connecting Custom AI Models to enable integrators to use their own infrastructure and preferred LLMs they prefer.
-[Q1 2026] Custom Tools, MCP to allow integrators to extend the capabilities of this feature and integrate with other tools in their ecosystem.
-[Q2+] Context Enhancements to allow searching through large knowledge bases, accessing data from popular apps, pre-loading context and mentioning specific sources
-[Q1-Q2] External Context for AI Review
-Extending integration capabilities
-We’re aiming to bring CKEditor AI to the on-premise offer in Q1 2026.
-It will provide full control over the used infrastructure and tooling.
-It will be possible to use your own LLM vendor API keys
-We are going to explore possibilities to enable connecting customers’ fine-tuned, custom models either as main LLMs responsible for generating responses, or as a specialized tool that can be invoked to answer domain-specific questions.
-We’re exploring how to leverage possibilities of MCP and what tools and APIs our customers would like to connect with CKEditor AI
-We understand that providing the appropriate context for AI is key to success. We plan to explore ways to connect RAG systems into CKEditor AI to enable searching through your knowledge base to get relevant information for AI.
-When discussing any topic with AI, context is very important to ensure reasonable responses, that’s why we’re putting a strong emphasis on this aspect, exploring the possibility of adding context to a conversation automatically right from the start. 
-The context can be stored in many places - internal database, local hard drive of each user but also an external application like Google Drive, CKBox, Teams, Asana etc. - we’re also exploring how can we effectively connect these services to CKEditor AI.
-
-Constantly improving Developer Experience, to ensure the integration is as fast and easy as possible
-
-Support for multiple editors on one page and multi-root editorsEnabling the embed and use CKEditor AI in customers’ applicationwithout the presence of CKEditor 5 on the same page (chat-only experience)
-Extending integration capabilities
-We’re constantly working on the Developer Experience (which includes demos, documentation, guides) to ensure that they include all the information needed for a quick integration without any setbacks.
-Right now we’re supporting just one editor on page, but we’re looking into how can we approach the situation of multiple CKEditor 5 instances on a single page as well as support for a Multiroot editor type.
-We’re also exploring the possibility of embedding the CKEditor AI as a knowledge base chat, to make it easier to brainstorm about ideas, data and other points of interest directly within the customer application, without the need of switching between multiple applications or browser windows.
-
-
-
-
-[Q2-Q4] Making LLMs understand available CKEditor 5 features, to further expand on the use possibilities of CKEditor AI.
-Extending currently available CKEditor 5 features with AI capabilities
-
-Deeper integration with CKEditor 5
-
-
-We want to teach CKEditor AI how to effectively use all of the CKEditor 5 features for increased productivity (e.g. highlighting content or creating a set of semantic blockquotes that are styled properly)
-CKEditor 5 is a robust rich-text editor with lots of features. We’re looking into all of them to determine which of them could benefit from incorporating CKEditor AI into them (e.g. automatic generation of “alt” text for images).
-
-[Q2 candidate] Translating documents in an interface that makes it easy to review proposed changes
-
-Tools for data visualization to enhance presentation of large datasets within the document[Q2 candidate] Customizable AI Profiles to maintain consistent AI responses that arealigned with company policies, voice and tone
-New features
-Translating documents involves changes to the content that need to be presented in a readable format that makes it easy to understand what was changed. We’re making sure that translating documents with CKEditor AI is not only of high quality when it comes to the output, but also the user interface.
-Presenting documents that contain a lot of structured data is not easy and reading large tables can be cumbersome. We want to introduce built in tools for data visualization to help lowering the barrier of entry and provide a quick, high quality overview of the data.
-By providing customizable AI Profiles, we want to help companies create and maintain a consistent voice and tone across all the documents that are created within their internal application using CKEditor 5 and CKEditor AI.
-
-Predefined commands for repeatable tasks that require additional follow-up conversations 
-
-AI-powered templates for increased productivity when creating recurring documents
-AI-powered content blocks that can update their contents automatically when the information source changes
-New features
-Often users have their own set of prompts that are making them more productive that can be shared across the whole organization (or a specific department). Predefined commands is a feature which we are considering to help with such cases. Predefined commands could result in a set of suggestions to adjust the content of the document or be a good data exploration starter (e.g. “Summarize the business goals progress from last month based on the report”) - a short label, but with an extensive prompt underneath.
-AI-Powered templates feature will add an additional functional layer to static HTML templates. Not only can they define the structure of content and dynamic information placement (e.g. Merge Fields) but also - sources of the data which would be fetched by AI from many sources and aggregated into the template.
-Dynamic content blocks generated by AI that are quick to insert within the document. E.g. “AI Summary” that will be updated after the document changes, to ensure that it’s always accurate.
-
-
-
-CKEditor AI with an Idea generator to enhance the contents of a documentand provide additional perspective
-AI-powered dedicated draft generator for creating initial drafts of documents based on vague ideas that can be expanded upon
-
-New features
-If we’re not sure whether a document is finished or it could use some more refinement, additional information or data - we could ask AI to generate some ideas to explore based on the current state of the document.
-Generating drafts with AI can be a great way to start work when we’re not really sure how to begin writing. Instead of using a prompt in the chat, having an option that is dedicated for such occasion can yield much better results.
-
-
-
-CKEditor AI available in comments as a discussion partner
-Document structure and formatting review checks in AI Review
-
-New features
-We’re considering the option to allow for turning on the availability of CKEditor AI in the comments to discuss a specific topic.
-Currently AI Review is focused around the contents of the documents - grammar, readability etc. We want to expand this functionality by adding checks for document structure and formatting, which is especially important when creating reports that require to contain specific sections or that need to be formatted in a certain way (e.g. lawyer documents, medical researches etc.)
 
 
 ================================================================
