@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-04-02 13:21 UTC
-Commit: 0322c46793539e47f4d8d0e03e0bd9132987de5a
+Last updated: 2026-04-07 08:32 UTC
+Commit: 9be2a31aa18c6b83a68594f218d0833ee34cd874
 Files included: 6
 ================================================================
 
@@ -12,7 +12,7 @@ FILE: ./features/ckeditor ai/AI-competitive-comparison.md
 
 # AI Features: CKEditor vs. Competitors
 
-**Last updated:** April 2026 (Froala updated to reflect 5.1 AI Assist plugin release)
+**Last updated:** April 2026 (Froala updated to reflect 5.1 AI Assist plugin; TinyMCE updated to reflect current AI Chat, Review, Actions, and permissions)
 **Scope:** AI capabilities only — writing assistance, LLM integration, customization, and deployment
 **Editors covered:** CKEditor, TinyMCE, Tiptap, Froala, Quill, ProseMirror, Lexical
 
@@ -28,27 +28,27 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 
 | Feature | CKEditor | TinyMCE | Tiptap | Froala | Quill | ProseMirror | Lexical |
 |---|---|---|---|---|---|---|---|
-| **Native AI writing assistance** | ✅ Deep integration | ✅ Add-on | ✅ Platform tier | ✅ AI Assist plugin (5.1, 2026) | ❌ | ❌ | ❌ |
-| **AI Chat interface** | ✅ Full chat with context, reasoning, web search | ⚠️ Limited — pre-built commands only | ✅ Conversational AI included | ✅ In-editor popup with chat and text actions | ❌ | ❌ | ❌ |
-| **Inline AI commands / Quick Actions** | ✅ On selected text — rewrite, simplify, expand, fix grammar | ✅ Pre-built commands | ✅ Slash command-based | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
-| **AI Review (on-demand quality check)** | ✅ Grammar, tone, style, clarity — inline suggestions | ❌ Not confirmed | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
+| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ✅ Platform tier | ✅ AI Assist plugin (5.1, 2026) | ❌ | ❌ | ❌ |
+| **AI Chat interface** | ✅ Full chat with context, reasoning, web search | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ✅ Conversational AI included | ✅ In-editor popup with chat and text actions | ❌ | ❌ | ❌ |
+| **Inline AI commands / Quick Actions** | ✅ On selected text — rewrite, simplify, expand, fix grammar | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Slash command-based | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
+| **AI Review (on-demand quality check)** | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
 | **AI Agent (autonomous document editing)** | ⚠️ Partial via MCP (On-Premises, March 2026) | ❌ | ✅ Reads, plans, edits documents — launched May 2025 | ❌ | ❌ | ❌ | ❌ |
-| **Multi-LLM provider support** | ✅ OpenAI, Anthropic, Google Gemini | ✅ OpenAI, Azure OpenAI, Gemini, AWS Bedrock | ✅ Configurable | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
-| **Bring your own LLM / API key** | ✅ On-Premises (March 2026) | ✅ Yes | ✅ Yes | ✅ Yes — direct browser connection or via custom backend | ❌ | ❌ | ❌ |
-| **Custom prompts & commands** | ✅ Custom Quick Actions and Reviews | ⚠️ Limited | ✅ AI Toolkit (beta, Sept 2025) | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
-| **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Limited — pre-built UI only | ✅ Headless — full UI control | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
-| **Context injection (files, URLs, text)** | ✅ Inject documents, URLs, or reference content into chat | ❌ Not confirmed | ⚠️ Not prominently featured | ❌ | ❌ | ❌ | ❌ |
-| **AI Chat history (per document)** | ✅ Persistent, renameable, resumable per document | ❌ | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
-| **Model selection per user** | ✅ Users choose model; integrators define available options | ❌ | ⚠️ Partial | ⚠️ Custom metadata (user ID, model settings) passed per request | ❌ | ❌ | ❌ |
-| **AI Profiles (tone, style, vocabulary presets)** | ✅ Predefined AI behavior per use case or team | ❌ | ❌ | ⚠️ Basic tone options only | ❌ | ❌ | ❌ |
-| **Web search in AI Chat** | ✅ Yes | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Multi-LLM provider support** | ✅ OpenAI, Anthropic, Google Gemini | ✅ OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini + Auto mode | ✅ Configurable | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
+| **Bring your own LLM / API key** | ✅ On-Premises (March 2026) | ⚠️ Managed API only — no BYOLLM; on-prem with custom models in early access (mid-2026) | ✅ Yes | ✅ Yes — direct browser connection or via custom backend | ❌ | ❌ | ❌ |
+| **Custom prompts & commands** | ✅ Custom Quick Actions and Reviews | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ AI Toolkit (beta, Sept 2025) | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
+| **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
+| **Context injection (files, URLs, text)** | ✅ Inject documents, URLs, or reference content into chat | ✅ File uploads (PDF, DOCX, images, MD, HTML, text), URLs, custom external data sources | ⚠️ Not prominently featured | ❌ | ❌ | ❌ | ❌ |
+| **AI Chat history (per document)** | ✅ Persistent, renameable, resumable per document | ✅ Persistent, filterable, organized by date; 12-month retention | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
+| **Model selection per user** | ✅ Users choose model; integrators define available options | ✅ User model switching configurable; availability controlled per subscription tier via JWT | ⚠️ Partial | ⚠️ Custom metadata (user ID, model settings) passed per request | ❌ | ❌ | ❌ |
+| **AI Profiles (tone, style, vocabulary presets)** | ❌ Not yet available | ❌ | ❌ | ⚠️ Basic tone options only | ❌ | ❌ | ❌ |
+| **Web search in AI Chat** | ✅ Yes | ✅ Yes — real-time web search + reasoning mode in Chat | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **MCP integration** | ✅ On-Premises (March 2026) — connect tools, data sources, agents | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **AI response interception / content control** | ✅ Full control via custom endpoints and permissions | ❌ | ⚠️ Partial | ✅ Intercept, validate, filter, or reject AI responses before insertion | ❌ | ❌ | ❌ |
-| **Rich text format preservation** | ✅ AI works with full HTML — preserves all editor formatting | ⚠️ Partial | ⚠️ Markdown-only in AI Agent | ⚠️ Not confirmed — extent of HTML preservation unclear | ❌ | ❌ | ❌ |
-| **RBAC for AI features** | ✅ Per-user, per-tier, per-feature access control | ❌ | ⚠️ Partial | ⚠️ User consent flag required (aiSupplementalTermsAccepted); deeper RBAC not confirmed | ❌ | ❌ | ❌ |
-| **On-premises AI deployment** | ✅ Available (March 2026) | ❌ SaaS only | ✅ Self-hostable (paid tier) | ✅ On-premises license available; self-hosted models keep data on your servers | ✅ (but no AI features) | ✅ (but no AI features) | ✅ (but no AI features) |
-| **AI usage monitoring & analytics** | ✅ Insights Panel in Customer Portal | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Deep integration with editor features** | ✅ Works with 300+ CKEditor features natively | ⚠️ Partial | ⚠️ Limited — markdown-based AI layer | ⚠️ Plugin-based — integration depth with core editor features not confirmed | ❌ | ❌ | ❌ |
+| **AI response interception / content control** | ✅ Full control via custom endpoints and permissions | ✅ Accept/reject individual suggestions with diff view and preview; bulk apply/skip | ⚠️ Partial | ✅ Intercept, validate, filter, or reject AI responses before insertion | ❌ | ❌ | ❌ |
+| **Rich text format preservation** | ✅ AI works with full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at full HTML level | ⚠️ Markdown-only in AI Agent | ⚠️ Not confirmed — extent of HTML preservation unclear | ❌ | ❌ | ❌ |
+| **RBAC for AI features** | ✅ Per-user, per-tier, per-feature access control | ✅ JWT-based hierarchical permissions — per-user, per-model, per-provider, per-feature | ⚠️ Partial | ⚠️ User consent flag required (aiSupplementalTermsAccepted); deeper RBAC not confirmed | ❌ | ❌ | ❌ |
+| **On-premises AI deployment** | ✅ Available (March 2026) | ⚠️ Early access — on-prem AI roadmap for mid-2026; editor self-hostable but AI is cloud-only today | ✅ Self-hostable (paid tier) | ✅ On-premises license available; self-hosted models keep data on your servers | ✅ (but no AI features) | ✅ (but no AI features) | ✅ (but no AI features) |
+| **AI usage monitoring & analytics** | ✅ Insights Panel in Customer Portal | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Deep integration with editor features** | ✅ Works with 300+ CKEditor features natively | ⚠️ Plugin layer — integration depth with all core editor features not fully confirmed | ⚠️ Limited — markdown-based AI layer | ⚠️ Plugin-based — integration depth with core editor features not confirmed | ❌ | ❌ | ❌ |
 
 ---
 
@@ -57,7 +57,7 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 | Editor | AI Depth | LLM Flexibility | Developer Control | Deployment Options | Overall |
 |---|---|---|---|---|---|
 | **CKEditor** | Full: chat, review, quick actions, profiles, context injection | OpenAI, Anthropic, Gemini + BYOLLM (On-Prem) | Full UI and prompt configurability, RBAC, MCP | SaaS + On-Premises | **Strong** |
-| **TinyMCE** | Pre-built commands, multi-LLM support | OpenAI, Azure, Gemini, Bedrock + BYOAK | Limited UI and prompt customization | SaaS only | **Moderate** |
+| **TinyMCE** | AI Chat (history, file/URL context, web search, reasoning), AI Review (5 types + custom), customizable Quick Actions | OpenAI (GPT-5), Anthropic (Claude 4.6/4.5), Gemini; managed API — no BYOLLM today | JWT-based RBAC; custom prompts/actions via config; programmatic REST API; limited UI structural override | SaaS; on-prem AI in early access (mid-2026) | **Strong (with caveats)** |
 | **Tiptap** | Generation, AI Agent, custom building blocks | Configurable + BYOLLM | High (headless) — build your own AI UX | SaaS + Self-hosted (paid) | **Strong (build-it-yourself)** |
 | **Froala** | AI Assist (5.1): in-editor chat popup, inline commands, tone adjustment, translation | OpenAI, self-hosted models, custom backends | Moderate — custom request handler, response interception, programmatic API | On-premises license available with self-hosted model support | **Moderate (growing)** |
 | **Quill** | None | None | None | Open source (no AI) | **None** |
@@ -68,20 +68,20 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 
 ## Key Differentiators: Where CKEditor AI Stands Apart
 
-**1. Production-ready, out of the box**
-CKEditor AI is a complete, integrated product — not a set of building blocks. Teams get AI Chat, AI Review, Quick Actions, AI Profiles, and context injection without building the infrastructure themselves. Tiptap's AI Toolkit gives developers low-level primitives to assemble their own experience; CKEditor ships the assembled experience.
+**1. Rich text format preservation**
+CKEditor AI is the only solution confirmed to fully understand and preserve HTML formatting during AI edits. Tiptap's AI Agent works with simplified markdown. TinyMCE's HTML preservation at the AI layer is not explicitly documented. CKEditor AI works natively with the same document model the editor uses — all 300+ features stay intact after every AI operation.
 
-**2. Rich text format preservation**
-CKEditor AI is the only solution that fully understands and preserves HTML formatting during AI edits. Tiptap's AI Agent works with simplified markdown. TinyMCE's AI Assistant applies changes as text overlays. CKEditor AI works natively with the same document model the editor uses — all 300+ features stay intact.
+**2. MCP integration**
+As of April 2026, CKEditor is the only editor in this market with native MCP support. This enables connecting external tools, data sources, and AI agents to the editor's backend — accessible via AI Chat or programmatically. No competitor has shipped this.
 
-**3. MCP integration**
-As of March 2026, CKEditor is the only editor in this market with native MCP support. This enables connecting external tools, data sources, and AI agents to the editor's backend — accessible via AI Chat or programmatically. No competitor has shipped this.
+**3. On-premises AI with custom LLM support — available now**
+CKEditor's On-Premises distribution supports custom LLMs and MCP-connected models, available since March 2026. TinyMCE's on-premises AI is in early access with a mid-2026 roadmap. Froala supports self-hosted models but without the governance layer. CKEditor is the only editor where on-prem AI with BYOLLM is production-ready today.
 
-**4. AI governance built in**
-RBAC for AI features, per-user model selection controls, usage monitoring through the Customer Portal, and enterprise-grade telemetry are included. TinyMCE and Tiptap have no equivalent governance layer.
+**4. AI usage monitoring & analytics**
+The Customer Portal Insights Panel gives integrators visibility into per-operation AI usage and credit consumption. TinyMCE and Tiptap have no confirmed equivalent. This matters for enterprise deployments managing cost governance across large user bases.
 
-**5. On-premises AI with custom LLM support**
-CKEditor's On-Premises distribution supports custom LLMs and MCP-connected models — full data sovereignty with no vendor lock-in. TinyMCE has no on-premises option. Tiptap's self-hosted tier supports BYOLLM but has no governance or monitoring equivalent.
+**6. Complete out-of-the-box product vs. assembly required**
+TinyMCE now has strong AI depth, but the UI framework is Tiny's own with limited structural customization. Tiptap's AI Toolkit gives developers low-level building blocks. CKEditor ships a complete, configurable AI product — Chat, Review, Quick Actions, Profiles — that works with all 300+ editor features without additional assembly.
 
 ---
 
@@ -91,7 +91,7 @@ CKEditor's On-Premises distribution supports custom LLMs and MCP-connected model
 
 ---
 
-*Review this document quarterly. Tiptap's AI roadmap moves quickly — validate their AI Agent and AI Toolkit status before using this in a competitive conversation. Froala's AI story changed significantly with the 5.1 release; re-validate before sales calls.*
+*Review this document quarterly. TinyMCE's AI has expanded significantly — validate their on-prem AI status and BYOLLM availability before sales calls, as both are expected mid-2026. Tiptap's AI roadmap also moves quickly — confirm AI Agent and AI Toolkit status. Froala's AI story changed with 5.1; re-validate depth of HTML preservation and RBAC before using in a competitive conversation.*
 
 
 ================================================================
@@ -112,7 +112,7 @@ CKEditor AI
 Tailor AI behavior to your application, content, and workflow
 
 Bring AI directly into your editor with fully integrated UI and features that help users brainstorm, rewrite, polish and revise content without context switching.
-Empower teams with prebuilt and editable AI profiles and commands that match your use case.
+Empower teams with prebuilt and editable AI commands that match your use case.
 Store and reuse complex prompts for structured, repeatable tasks. Create tone, structure, and vocabulary presets for consistent output.
 Reduce time-to-market for AI-driven content features while cutting operational risk and years of development.
 
@@ -254,7 +254,7 @@ Solution: AI Chat History preserves conversations per document, allowing teams t
 Optimized AI for Different Use CasesPain Point: One-size-fits-all models don’t suit every task; power users want control while integrators need cost management.
 Solution: Model Selection enables users to choose the best-fit LLM for their task while integrators define which models are available per plan or product tier.
 Personalized, Efficient AI InteractionsPain Point: Rewriting prompts and adjusting tone or structure manually reduces productivity.
-Solution: AI Profiles and Custom Commands let users define tone, structure, and reuse task-specific prompts, saving time and increasing output consistency.
+Solution: Custom Commands let users define tone, structure, and reuse task-specific prompts, saving time and increasing output consistency.
 
 
 Customer Pain Points to Address
