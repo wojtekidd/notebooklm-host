@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-04-07 08:32 UTC
-Commit: 9be2a31aa18c6b83a68594f218d0833ee34cd874
-Files included: 6
+Last updated: 2026-04-07 08:52 UTC
+Commit: b7967a231374fee4fb9e1270fe2036971a7d8ebe
+Files included: 9
 ================================================================
 
 
@@ -1695,3 +1695,747 @@ FILE: ./features/ckeditor ai/ckeditorai-urls.md
 - https://ckeditor.com/docs/cs/latest/guides/ckeditor-ai/overview.html
 - https://ckeditor.com/blog/why-embedded-ai-wins-over-saas-overlays/
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/
+
+================================================================
+FILE: ./research/README.md
+================================================================
+
+# Research
+
+This folder contains competitive intelligence, market data, and customer insights to inform strategy and messaging.
+
+## Structure
+
+```
+research/
+├── competitors/        # Competitor analysis and battlecards
+├── market-data/        # Industry reports, TAM/SAM analysis, trends
+└── customer-insights/  # Win/loss interviews, survey data, persona docs
+```
+
+## What Goes Where
+
+| Subfolder | Content Types |
+|-----------|--------------|
+| `competitors/` | Per-competitor deep dives, feature comparisons, positioning battlecards, pricing intel |
+| `market-data/` | Third-party reports, analyst coverage, search trend data, category sizing |
+| `customer-insights/` | Buyer personas, win/loss analysis, NPS data, sales call summaries, ICP definitions |
+
+## Naming Convention
+
+```
+competitors/  →  competitor-name-analysis-YYYY-MM.md
+market-data/  →  topic-source-YYYY.md
+customer-insights/  →  insight-type-YYYY-MM.md
+```
+
+Examples:
+- `competitors/tinymce-battlecard-2026-03.md`
+- `market-data/rich-text-editor-market-2026.md`
+- `customer-insights/developer-persona-2026.md`
+
+## Notes
+
+- Competitor files should be reviewed and updated at least quarterly
+- Cross-reference findings with active campaign messaging in `campaigns/`
+- Customer insights should inform the ICP and persona sections in `brand/`
+
+
+================================================================
+FILE: ./research/competitive-analysis.md
+================================================================
+
+# CKEditor Competitive Analysis
+
+**Last updated:** April 2026 (TinyMCE AI section updated; Froala AI updated to reflect 5.1 AI Assist plugin)
+**Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical
+
+---
+
+## How to Use This Document
+
+This analysis is written from CKEditor's perspective. It is designed to:
+- Inform positioning and messaging decisions
+- Equip sales and customer success with battlecard-level context
+- Identify where CKEditor wins, where it faces real competition, and where gaps exist
+
+For sales battlecards, see `research/competitors/`. For persona-level messaging, see `brand/personas/`.
+
+---
+
+## Market Snapshot
+
+The rich text editor market is consolidating around three buying patterns:
+
+1. **Build-it-yourself** — teams pick a low-level toolkit (ProseMirror, Lexical, Slate) and assemble their own editor. High control, high cost.
+2. **Open-source-and-extend** — teams start with Quill or Tiptap's OSS core and extend with plugins or third-party services. Medium control, medium cost, variable long-term risk.
+3. **Commercial platform** — teams license a complete, supported editor (CKEditor, TinyMCE, Froala). Lower integration effort, predictable vendor relationship, enterprise compliance coverage.
+
+CKEditor competes across all three patterns. For pattern 1 and 2 buyers who are growing beyond DIY, CKEditor is the graduation path. For pattern 3 buyers, the primary competitor is TinyMCE.
+
+**Key market trends (2025–2026):**
+- Collaboration features (real-time and async) are no longer a differentiator — they're a baseline expectation
+- AI writing assistance is rapidly becoming a buying criterion, especially in enterprise
+- CMS as a use case is declining (from ~44% to ~31% of deployments); growth is in DMS, SaaS productivity tools, and AI-powered content workflows
+- Compliance and security are the top buying criteria for enterprise deals — ahead of features
+- No competitor has native MCP (Model Context Protocol) integration as of March 2026
+
+---
+
+## CKEditor Positioning Summary
+
+Before analyzing competitors, here is CKEditor's position in the market:
+
+| Dimension | CKEditor |
+|-----------|----------|
+| **Licensing** | Commercial (OSS core available) |
+| **Target audience** | Developers building content-critical applications; enterprise buyers |
+| **Collaboration** | Native real-time + async — the only editor with both built in |
+| **AI** | CKEditor AI: deeply integrated, custom LLM support, full UI control |
+| **Enterprise** | SOC 2 Type 2, enterprise SLAs, 70+ engineers, 1,100+ customers, 20+ years |
+| **Unique claim** | The only AI-powered rich text editor your application will ever need |
+
+---
+
+## Competitor Profiles
+
+---
+
+### 1. TinyMCE
+
+**Vendor:** Tiny Technologies (formerly Ephox)
+**Model:** Proprietary SaaS, usage-based pricing
+
+#### Target Audience
+The broadest audience of any competitor. TinyMCE has 1.5 million+ developers using the free tier, with a paying customer base concentrated in small-to-medium companies. Primary use cases: CMS (31%), Document Management Systems (13%), LMS, CRM, and internal tools. 74% of paying customers by revenue are companies under $50M. This is a developer-first product with an enterprise tier layered on top.
+
+#### Key Features
+- 100+ features covering the full range of rich text editing needs
+- PowerPaste — high-accuracy pasting from Word, Google Docs, and Excel
+- TinyMCE AI — full AI platform: Chat (history, file/URL context, web search, reasoning), Review (5 built-in types + custom via API), Quick Actions (built-in + customizable); supports OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini; JWT-based RBAC
+- Suggested Edits (track changes) — added in TinyMCE 8
+- Comments with threaded replies and Mentions
+- Revision History
+- PDF and Word export
+- Spell Checker Pro (13+ languages)
+
+#### Pricing Model
+Usage-based, charged per "editor load" — the number of times a user loads the editor in a session. Additional features (PDF export, Word import/export) are priced as add-ons. Enterprise pricing available on request. The model creates unpredictable costs at scale, which is a friction point for high-traffic applications.
+
+#### Unique Positioning
+Market leader by adoption. TinyMCE leans on breadth of use ("350 million downloads") and a long track record. Its 2025 positioning has shifted toward AI-driven editing and expansion beyond CMS into DMS and productivity tools — a response to a market trend it was slow to lead.
+
+#### Marketing Approach
+Developer surveys and industry reports (they publish an annual "State of Rich Text Editors" survey), use-case-focused content, enterprise case studies, and competitive comparison content. Their marketing volume is high — they have the resources to be everywhere in developer content channels.
+
+#### Collaboration Readiness
+| Feature | Status |
+|---------|--------|
+| Real-time collaboration | **No** — not native; requires third-party infrastructure (Yjs/Liveblocks) |
+| Async collaboration (comments) | **Yes** — threaded comments, mentions |
+| Track changes | **Yes** — "Suggested Edits" (added TinyMCE 8) |
+| Revision history | **Yes** |
+
+Real-time collaboration is TinyMCE's most significant structural gap. It is not native and requires customers to build or integrate their own infrastructure. This is the clearest head-to-head differentiator CKEditor holds.
+
+#### AI Readiness
+| Feature | Status |
+|---------|--------|
+| AI Chat (with history) | **Yes** — full conversational AI with persistent history, file/URL context injection, web search, reasoning mode |
+| AI Review | **Yes** — 5 built-in types (Proofread/Correctness, Clarity, Readability, Length, Tone & Style) + custom reviews definable via API |
+| AI Quick Actions | **Yes** — built-in set + fully customizable via `tinymceai_quickactions_custom` config |
+| LLM support | **Yes** — OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini; Auto mode selects best model per request |
+| Bring your own LLM | **Partial** — managed API only today; on-premises AI with custom model support in early access (mid-2026 roadmap) |
+| Custom prompts / UI | **Yes for prompts** — custom Quick Actions and Reviews via config/API; **Limited for UI** — Tiny's own UI framework, limited structural override |
+| RBAC for AI | **Yes** — JWT-based hierarchical permissions: per-user, per-model, per-provider, per-feature granularity |
+| AI Profiles | **No** — not available in either editor |
+| MCP integration | **No** |
+| On-premises AI | **Early access** — mid-2026 roadmap; editor is self-hostable today but AI is cloud-only |
+| AI usage monitoring | **Not confirmed** |
+
+⚠️ **Updated April 2026:** TinyMCE AI has expanded significantly. The previous characterization of "pre-built commands, limited customization" no longer reflects the product. TinyMCE now has full AI Chat with context injection and history, a robust Review system, customizable Quick Actions, JWT-based RBAC, and multi-LLM support including Anthropic models. The remaining gaps vs. CKEditor are: no MCP, no on-prem AI today (mid-2026 roadmap), unconfirmed HTML preservation at the AI layer, and no usage analytics.
+
+#### Strengths vs. CKEditor
+- Largest installed base and developer community — more Stack Overflow answers, more tutorials
+- Strong async collaboration features (comments, track changes, revision history)
+- PowerPaste is genuinely strong and well-regarded
+- Large marketing budget and content presence
+
+#### Weaknesses vs. CKEditor
+- **No native real-time collaboration** — this is a major product gap for any team building collaborative applications
+- Usage-based pricing creates cost unpredictability at scale
+- AI features are an integration layer, not deeply woven into the editing experience
+- Narrower API control for developers who need custom behavior
+- CKEditor's enterprise credentials (SOC 2 Type 2) are more clearly documented
+
+#### The Battlecard Argument
+> TinyMCE is the default choice because it's familiar, not because it's the best choice for what you're building. If real-time collaboration is on your roadmap — and it will be — TinyMCE requires you to build that infrastructure yourself. CKEditor includes it, backed by a team that has been building collaborative editing for over a decade.
+
+---
+
+### 2. Tiptap
+
+**Vendor:** Tiptap GmbH (Germany)
+**Model:** Hybrid — open-source core (MIT), commercial platform for collaboration and AI features
+
+#### Target Audience
+Developers building modern, custom editor experiences — particularly in SaaS products, knowledge management tools, and AI-native applications. Tiptap has strong traction with teams building Notion-like editors and with technical buyers who want a headless, composable foundation. Company size skews toward growth-stage SaaS (50–500 employees), though enterprise-tier options exist.
+
+#### Key Features
+- Headless architecture — zero opinionated UI, maximum customization
+- 100+ community and official extensions
+- Content AI: generation, AI Agent (reads and edits documents), AI Toolkit (bring-your-own)
+- Real-time collaboration via Yjs (native to the platform tier)
+- Inline and document-level comments
+- Revision history and document versioning
+- Import/Export: DOCX, ODT, Markdown
+- Offline editing with sync on reconnect
+
+#### Pricing Model
+Tiered SaaS: $49/month (500 documents), $149/month (5,000 documents), $999/month (50,000 documents), enterprise on request. The open-source core is free and self-hostable; collaboration, comments, AI, and history features require the platform subscription. Document-count-based pricing is predictable but can become expensive at scale for large document libraries.
+
+#### Unique Positioning
+The "developer's editor" — unopinionated, extensible, built for teams that want to own the experience completely. Tiptap competes on developer experience and AI integration, not on out-of-the-box features or compliance credentials.
+
+#### Marketing Approach
+Developer-first: high-quality documentation, active GitHub presence (open-source core), blog with detailed release notes. Comparison content positions Tiptap against TinyMCE and Lexical. Community engagement is strong; Tiptap benefits from the goodwill of its open-source contribution.
+
+#### Collaboration Readiness
+| Feature | Status |
+|---------|--------|
+| Real-time collaboration | **Yes** — native via Yjs, live cursors, offline sync |
+| Async collaboration (comments) | **Yes** — inline and document-level comments (platform tier) |
+| Track changes | **Partial** — revision history available; track changes less prominent |
+| Revision history | **Yes** |
+
+Tiptap's collaboration story is strong and is one of the reasons it is gaining ground on TinyMCE. However, collaboration features are platform-tier only — not available on the free OSS core. This creates an upsell friction point that CKEditor avoids.
+
+#### AI Readiness
+| Feature | Status |
+|---------|--------|
+| Native AI writing assistance | **Yes** — Content AI with generation, refinement, translation |
+| AI Agent | **Yes** — reads documents, answers questions, edits based on tasks (launched May 2025) |
+| Custom LLM support | **Yes** — bring-your-own-LLM supported |
+| Custom prompts / UI | **Yes** — AI Toolkit (beta as of Sept 2025) for custom AI building blocks |
+| MCP integration | **No** |
+
+Tiptap's AI story is the most aggressive among competitors. The AI Agent — which can read and act on document content — is ahead of where most editors are in 2026. This is the area where Tiptap will most credibly challenge CKEditor's AI positioning.
+
+#### Strengths vs. CKEditor
+- Headless architecture gives maximum frontend flexibility — strong appeal to React developers
+- AI Agent capability is genuinely differentiated
+- SOC 2 Type 2 certified, strong enterprise security story
+- Developer experience is excellent; DX is a conscious priority
+- Open-source core lowers the barrier to evaluation
+
+#### Weaknesses vs. CKEditor
+- Collaboration and AI features require the paid platform — the free version is incomplete for production use
+- Document-count pricing model can become expensive for large deployments
+- Younger company (less track record) and smaller customer base than CKEditor
+- Enterprise compliance story (beyond SOC 2) is less comprehensive than CKEditor's
+- Less proven at Fortune 500 scale; CKEditor's 20+ year track record is a harder asset to match
+- No equivalent to CKBox (file management and image serving)
+
+#### The Battlecard Argument
+> Tiptap is the best editor for teams that want to build everything themselves and have the engineering resources to do it. If your team is evaluating Tiptap, they are likely evaluating whether to assemble a collaboration + AI stack from parts. CKEditor delivers the same customizability with the full collaboration and AI stack already integrated, a 20-year track record, and an enterprise support structure Tiptap can't yet match.
+
+---
+
+### 3. Quill
+
+**Vendor:** Community-maintained open source
+**Model:** 100% open source, BSD licensed, free
+
+#### Target Audience
+Developers who need a lightweight, modular rich text editor for relatively simple use cases — content platforms, forums, blogs, and user-generated content interfaces. Historically popular for its clean API and Delta document model. Currently declining as a serious option for new production systems.
+
+#### Key Features
+- Delta-based document model (predictable, easy to reason about)
+- Modular API with format/module extension points
+- Track changes and comments (advanced features)
+- Revision history
+- PDF and Word export
+- Markdown input/output
+- Paste from Word and Google Docs
+
+#### Pricing Model
+Free. No commercial tier. No vendor.
+
+#### Unique Positioning
+Once positioned as the modern, lightweight alternative to TinyMCE. That positioning has aged: Quill's last meaningful release was September 2019. The project is largely in maintenance mode. Its primary value proposition now is zero cost and zero lock-in — which matters only if you're prepared to accept the maintenance burden.
+
+#### Collaboration Readiness
+| Feature | Status |
+|---------|--------|
+| Real-time collaboration | **No** — not native; requires third-party infrastructure |
+| Async collaboration (comments) | **Partial** — available but not actively developed |
+| Track changes | **Partial** — present but limited |
+| Revision history | **Partial** |
+
+Quill's collaboration story is incomplete and largely unmaintained. Any team building collaborative features on Quill is building on top of a foundation that has not been updated in years.
+
+#### AI Readiness
+| Feature | Status |
+|---------|--------|
+| Native AI writing assistance | **No** |
+| MCP integration | **No** |
+
+No AI features. No roadmap for AI features. Quill is not a viable foundation for AI-assisted writing.
+
+#### Strengths vs. CKEditor
+- Zero cost — appeals to teams with no editor budget
+- Delta document model is genuinely elegant and developer-friendly
+- No vendor dependency or licensing concerns
+
+#### Weaknesses vs. CKEditor
+- **Effectively unmaintained** since 2019 — this is disqualifying for most production use cases
+- No real-time collaboration
+- No AI features and no credible roadmap for them
+- No commercial support, SLAs, or security patching
+- Teams that choose Quill will likely need to migrate within 2–3 years as requirements grow
+
+#### The Battlecard Argument
+> Quill is a historical choice, not a current one. Teams still running Quill are managing a migration risk, not an asset. CKEditor is the natural migration destination: the Delta → CKEditor data model transition is well-documented, and you gain collaboration, AI, and enterprise support without rebuilding the editing experience.
+
+---
+
+### 4. ProseMirror
+
+**Vendor:** Community-maintained open source (created by Marijn Haverbeke)
+**Model:** 100% open source, MIT licensed, free
+
+#### Target Audience
+Senior engineers and teams building highly sophisticated, deeply customized editors who are willing to invest significant development time for complete control. ProseMirror is less a product and more a low-level toolkit. It is the foundation on which Tiptap and several other editors are built. It is not a realistic option for teams that need to ship quickly or that lack dedicated editor engineering expertise.
+
+#### Key Features
+- Collaborative editing at the core — designed with conflict-free real-time collaboration built in from the ground up
+- Extensible schema system — define your own document structures
+- Plugin system for all non-core functionality
+- Operational transformation-based conflict resolution
+- Inspectable editor state (document is a plain JSON object)
+- Highly stable, extremely well-maintained by its creator
+
+#### Pricing Model
+Free. MIT licensed. No commercial version.
+
+#### Unique Positioning
+The technically correct choice for teams that need total control and have the engineering resources to build on top of it. ProseMirror's reputation is built on correctness, stability, and depth — not ease of use. It does not compete for the same buyer as CKEditor or TinyMCE.
+
+#### Collaboration Readiness
+| Feature | Status |
+|---------|--------|
+| Real-time collaboration | **Yes** — built into the core architecture; conflict resolution is native |
+| Async collaboration (comments) | **No** — not built in; requires custom implementation |
+| Track changes | **No** — not built in |
+| Revision history | **No** — not built in |
+
+ProseMirror's real-time collaboration architecture is technically superior to most competitors — it was designed for it from day one. However, async features (comments, track changes, history) are entirely absent from the library and require full custom development. This makes it a strong foundation but not a complete solution.
+
+#### AI Readiness
+| Feature | Status |
+|---------|--------|
+| Native AI writing assistance | **No** |
+| MCP integration | **No** |
+
+No AI features. ProseMirror's philosophy is to provide the minimum necessary toolkit; AI integration would be built by the consumer.
+
+#### Strengths vs. CKEditor
+- Complete architectural freedom — no constraints imposed by the library
+- Technically rigorous real-time collaboration built in at the core
+- MIT licensed with no commercial restrictions
+- Exceptional stability and long-term maintenance by a respected author
+
+#### Weaknesses vs. CKEditor
+- **Extremely high integration cost** — weeks to months of senior engineering time to build a production-ready editor
+- No async collaboration features (comments, track changes, history) — all custom development
+- No AI capabilities
+- No commercial support, SLAs, or enterprise compliance
+- Documentation assumes expert-level knowledge; steep onboarding curve
+- Most teams using ProseMirror eventually rebuild what CKEditor ships with
+
+#### The Battlecard Argument
+> ProseMirror is the right choice if you want to build a rich text editor. CKEditor is the right choice if you want to ship one. Teams that start on ProseMirror directly often spend 6–12 months building features that CKEditor ships with out of the box — collaboration, AI assistance, paste from Word, spell check, file management. ProseMirror is a legitimate foundation; CKEditor is a production-ready platform built on that same foundation.
+
+---
+
+### 5. Froala
+
+**Vendor:** Froala (commercial, proprietary)
+**Model:** Perpetual license + annual subscription, tiered by use case
+
+#### Target Audience
+Enterprise organizations prioritizing a polished, lightweight out-of-the-box experience. Froala has a strong Fortune 100 customer list (Samsung, Apple, IBM, Amazon, eBay, Intel) and markets primarily to enterprise design, media, and technology teams. It is not targeting developer-builders in the way Tiptap or ProseMirror do; it targets enterprise buyers who want a finished editor.
+
+#### Key Features
+- 100+ features with emphasis on performance (40ms load time claim)
+- Real-time collaboration via Codox.io integration
+- Track changes built-in
+- AI integration (Google Gemini) for content optimization and SEO
+- Markdown support
+- Smart paste from Word and Excel
+- Autosave
+- GDPR-compliant, XSS protection built in
+- Unminified source code available at the top tier
+
+#### Pricing Model
+License-based, not usage-based. Three tiers: Basic ($899/year, single product, max 3 domains), Pro (multiple application types), Architect (top tier with unminified source access). All licenses include 12 months of updates and support. Perpetual licensing is available — a meaningful differentiator for enterprise buyers who cannot accept ongoing SaaS fees or cloud dependencies. Not permitted for use in open-source projects.
+
+#### Unique Positioning
+"Enterprise-grade HTML editor" — positioned on performance, security, and Fortune 100 brand credibility. Froala's marketing leans heavily on its customer list. The license model (perpetual, no per-load pricing) is a deliberate contrast to TinyMCE's usage-based approach.
+
+#### Marketing Approach
+Case studies featuring recognizable brands (ArtStation, etc.), blog content on industry trends, competitive comparisons vs. TinyMCE. Lower marketing volume than TinyMCE; relies more on enterprise sales motion than content marketing.
+
+#### Collaboration Readiness
+| Feature | Status |
+|---------|--------|
+| Real-time collaboration | **Partial** — via Codox.io partnership, not native infrastructure |
+| Async collaboration (comments) | **Partial** — not prominently featured |
+| Track changes | **Yes** — built in |
+| Revision history | **Not confirmed** |
+
+Froala's real-time collaboration is a partnership integration (Codox.io), not a native capability. This creates the same structural dependency problem as TinyMCE: the editor vendor and the collaboration infrastructure are separate, meaning support, scaling, and reliability involve two different parties.
+
+#### AI Readiness
+| Feature | Status |
+|---------|--------|
+| Native AI writing assistance | **Yes** — AI Assist plugin (Froala 5.1, 2026): in-editor chat popup, inline commands, tone adjustment, translation |
+| Custom LLM support | **Yes** — OpenAI, self-hosted models, or custom backend |
+| Custom prompts / UI | **Partial** — custom tone presets; programmatic API to trigger AI; response interception before insertion |
+| MCP integration | **No** |
+
+⚠️ **Updated April 2026:** Froala's AI story changed significantly with the 5.1 release. The previous Gemini-only / SEO-only positioning no longer applies. Froala now has a multi-LLM AI Assist plugin with an in-editor chat popup, inline Quick Actions, tone adjustment, and a developer API for customizing AI behavior. It is not yet at CKEditor's depth (no AI Review, no context injection, no persistent chat history, no RBAC, no MCP), but it is no longer a non-competitor in AI.
+
+#### Strengths vs. CKEditor
+- Perpetual licensing option — valuable for regulated industries and on-premises deployments
+- Performance-first architecture; lightweight despite feature count
+- Fortune 100 customer list lends credibility in enterprise sales
+- Track changes built in
+
+#### Weaknesses vs. CKEditor
+- Real-time collaboration is a third-party integration, not native
+- AI features are narrow (SEO/optimization only) vs. CKEditor's full writing assistance suite
+- Smaller developer community and ecosystem than CKEditor or TinyMCE
+- Proprietary with no open-source component — no community contribution or transparency
+- SOC 2 / HIPAA compliance documentation not clearly published
+- Cannot be used in open-source projects — limits evaluation in developer communities
+
+#### The Battlecard Argument
+> Froala is a polished editor with strong enterprise aesthetics and a clean license model. Where it falls short is the collaboration and AI story: real-time collaboration depends on a third-party service, and AI features are limited to SEO optimization. CKEditor's native collaboration infrastructure and fully configurable AI writing suite represent a more complete platform for teams that need both today.
+
+---
+
+### 6. Lexical
+
+**Vendor:** Meta Open Source
+**Model:** 100% open source, MIT licensed, free
+
+#### Target Audience
+Developers building high-performance, modern text editors at significant scale — primarily in social platforms, messaging applications, and productivity tools. Lexical is Meta's production editor, powering writing surfaces across Facebook, Workplace, Messenger, WhatsApp, and Instagram. Its target is the engineer who needs absolute control and is prepared to build on a minimal core.
+
+#### Key Features
+- Extremely lightweight core: 22KB min+gzip
+- Plugin-based architecture — all features are plugins, including core formatting
+- Predictable state model — editor state is synchronized with the view layer
+- Serialization: JSON, Markdown, HTML import/export
+- Framework integrations: React (official), Vue/Angular (community)
+- Collaborative editing via Yjs (external integration)
+- Accessibility as a first-class design goal
+
+#### Pricing Model
+Free. MIT licensed. Maintained by Meta's open-source team.
+
+#### Unique Positioning
+"Meta-scale reliability in a 22KB core." Lexical's credibility comes entirely from where it's deployed — billions of users on Meta's platforms. It positions on performance, reliability, and the legitimacy of Meta's engineering investment, not on features or developer experience.
+
+#### Collaboration Readiness
+| Feature | Status |
+|---------|--------|
+| Real-time collaboration | **No** — not native; requires Yjs or custom CRDT/WebSocket infrastructure |
+| Async collaboration (comments) | **No** |
+| Track changes | **No** |
+| Revision history | **No** |
+
+Lexical has no native collaboration features of any kind. Real-time collaboration requires third-party infrastructure (Liveblocks or a custom Yjs setup). For any team with collaboration requirements, Lexical is a starting point for a significant custom build, not a complete solution.
+
+#### AI Readiness
+| Feature | Status |
+|---------|--------|
+| Native AI writing assistance | **No** |
+| MCP integration | **No** |
+
+No AI features. Lexical's philosophy is a minimal, predictable core — AI integration is left entirely to the application developer.
+
+#### Strengths vs. CKEditor
+- 22KB core — smallest footprint of any option considered; matters for performance-critical applications
+- Meta's production pedigree at billions of users — reliability is not theoretical
+- Zero cost and MIT license — no vendor risk
+- Modern architecture; more future-proof than older codebases
+- Excellent accessibility focus
+
+#### Weaknesses vs. CKEditor
+- No collaboration features of any kind — everything is a custom build
+- No AI features
+- Ecosystem is less mature; community plugins are newer and less battle-tested than CKEditor's
+- No commercial support, SLAs, or compliance coverage
+- React-first; official integrations for other frameworks lag behind
+- "Build everything yourself" model is only viable for teams with significant editor engineering capacity
+
+#### The Battlecard Argument
+> Lexical is the right foundation if your use case is a social feed or a messaging input and your team has the engineering bandwidth to build on top of it. It is not a complete editor — it's a framework for building one. For teams that need collaboration, AI writing assistance, and enterprise compliance without a multi-month custom build, CKEditor delivers all of that on a foundation that has been in production for over 20 years.
+
+---
+
+## Head-to-Head Comparison
+
+### Feature Matrix
+
+| Feature | CKEditor | TinyMCE | Tiptap | Quill | ProseMirror | Froala | Lexical |
+|---------|----------|---------|--------|-------|-------------|--------|---------|
+| **Real-time collaboration** | ✅ Native | ❌ Third-party | ✅ Native (paid) | ❌ Third-party | ✅ Native (low-level) | ⚠️ Third-party | ❌ Third-party |
+| **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ |
+| **Track changes** | ✅ | ✅ | ⚠️ Partial | ⚠️ Limited | ❌ | ✅ | ❌ |
+| **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ |
+| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ✅ Platform tier | ❌ | ❌ | ⚠️ SEO only | ❌ |
+| **Custom LLM support** | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **MCP integration** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **SOC 2 Type 2** | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ Not confirmed | ❌ |
+| **Enterprise SLAs** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| **Import from Word** | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | ❌ |
+| **Export to PDF/Word** | ✅ | ✅ (add-on) | ✅ | ⚠️ | ❌ | ✅ | ❌ |
+| **File management (CKBox)** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Spell check** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Open source core** | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| **Self-hostable** | ✅ | ❌ | ✅ (paid) | ✅ | ✅ | ✅ | ✅ |
+| **20+ year track record** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+
+### Collaboration Readiness Score
+
+| Editor | Real-time | Async | Overall |
+|--------|-----------|-------|---------|
+| **CKEditor** | ✅ Native, production-ready | ✅ Full (comments, track changes, history) | **Strong** |
+| TinyMCE | ❌ Third-party only | ✅ Full | **Partial** |
+| Tiptap | ✅ Native (paid tier) | ✅ (paid tier) | **Strong (with cost)** |
+| Quill | ❌ Third-party | ⚠️ Limited, unmaintained | **Weak** |
+| ProseMirror | ✅ Native (low-level) | ❌ Not built in | **Partial** |
+| Froala | ⚠️ Third-party (Codox.io) | ⚠️ Limited | **Partial** |
+| Lexical | ❌ Third-party | ❌ Not built in | **Weak** |
+
+### AI Readiness Score
+
+| Editor | AI Depth | Custom LLM | UI Control | Overall |
+|--------|----------|------------|------------|---------|
+| **CKEditor** | Ideation, drafting, refinement, translation; context injection; MCP | ✅ | ✅ Full — RBAC, MCP, usage analytics | **Strong** |
+| TinyMCE | Chat (history, file/URL context, web search, reasoning), Review (5 types + custom), Quick Actions (customizable) | ⚠️ Managed API; BYOLLM via on-prem in early access (mid-2026) | ✅ JWT-based RBAC; custom prompts/actions; limited UI override | **Strong (with caveats)** |
+| Tiptap | Generation, AI Agent, custom toolkit | ✅ | ✅ | **Strong** |
+| Quill | None | ❌ | ❌ | **None** |
+| ProseMirror | None | ❌ | ❌ | **None** |
+| Froala | SEO / content optimization only | ❌ | Limited | **Weak** |
+| Lexical | None | ❌ | ❌ | **None** |
+
+---
+
+## Strategic Positioning by Competitive Scenario
+
+### CKEditor vs. TinyMCE
+**Win condition:** Real-time collaboration requirement, deeper AI integration need, or enterprise buyer who values SOC 2 documentation and a cleaner compliance story.
+**Risk:** TinyMCE has larger developer mindshare and more community content. CKEditor must win on capability and enterprise trust, not awareness.
+**Key message:** TinyMCE has async collaboration. CKEditor has both. When real-time collaboration lands on the roadmap — and it will — TinyMCE requires a separate infrastructure project. CKEditor includes it.
+
+### CKEditor vs. Tiptap
+**Win condition:** Enterprise buyer who needs proven scale and compliance depth; buyer who wants a complete platform rather than assembling from parts; buyer evaluating total cost of ownership including platform subscription costs at document scale.
+**Risk:** Tiptap's AI Agent is genuinely competitive and its developer experience is excellent. Technical buyers may prefer Tiptap's headless flexibility.
+**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship with enterprise backing and a 20-year track record. Tiptap's collaboration and AI features require the paid platform; CKEditor's are native. CKEditor's SOC 2, SLA, and Fortune 500 track record fills gaps that Tiptap cannot yet address.
+
+### CKEditor vs. ProseMirror / Lexical
+**Win condition:** Any buyer who has estimated the engineering cost of building on a low-level toolkit and is willing to pay for integration speed and ongoing maintenance savings.
+**Risk:** These tools have zero cost and attract developers who want full control. CKEditor must make the TCO argument credible — not dismiss the value of control.
+**Key message:** ProseMirror and Lexical are frameworks for building a rich text editor. CKEditor is a rich text editor. Six to twelve months of engineering to build what CKEditor ships with is the real cost of "free."
+
+### CKEditor vs. Quill
+**Win condition:** Any production use case. Quill has been effectively unmaintained since 2019.
+**Risk:** Legacy deployments. Teams already running Quill may defer migration.
+**Key message:** Quill was a good choice in 2016. In 2026, it is a migration risk. CKEditor offers a documented migration path and delivers the collaboration and AI features Quill will never have.
+
+### CKEditor vs. Froala
+**Win condition:** Teams that need real-time collaboration, deeper AI, or a more active developer community.
+**Risk:** Froala's perpetual license model appeals to regulated industries that cannot accept SaaS. CKEditor's on-premises deployment option is the counter here.
+**Key message:** Froala's collaboration depends on Codox.io; CKEditor's is native. Froala's AI is narrow (SEO); CKEditor's covers the full writing workflow. CKEditor's open-source community is a transparency and sustainability signal Froala cannot offer.
+
+---
+
+## MCP Integration — Market Gap Analysis
+
+As of March 2026, **no editor in this competitive set has native MCP (Model Context Protocol) integration.** MCP would allow the editor to act as an MCP client or server — enabling AI assistants (Claude, ChatGPT, Copilot) to read, write, and interact with document content through a standardized protocol.
+
+This represents a genuine first-mover opportunity. The market is moving toward AI-native content workflows where editors are not just writing surfaces but active participants in AI pipelines. The team that ships a production-ready MCP integration first owns that positioning in a market where AI-assisted writing is rapidly becoming table-stakes.
+
+---
+
+## Summary: Where CKEditor Wins
+
+| Buying scenario | CKEditor's position |
+|-----------------|---------------------|
+| Enterprise, compliance-first | Strongest in market (SOC 2 Type 2, 20+ years, Fortune 500, enterprise SLAs) |
+| Real-time + async collaboration required | Only complete native solution — no third-party infrastructure required |
+| AI writing assistance, full control | Deep integration with custom LLM support and full UI configurability |
+| Team growing past DIY (from ProseMirror/Lexical/Quill) | Natural graduation path; features they were building are already shipped |
+| Migration from TinyMCE | Native real-time collaboration, stronger AI, cleaner compliance documentation |
+| File management + editor in one | CKBox integration is unique — no direct competitor bundles this |
+| Deployment flexibility | Cloud, on-premises, hybrid — more options than TinyMCE or Tiptap |
+
+---
+
+*This document should be reviewed and updated quarterly. For the latest pricing details, always check vendor websites directly — pricing models in this market change frequently.*
+
+
+================================================================
+FILE: ./research/competitors/ckeditor-vs-tinymce.md
+================================================================
+
+# CKEditor vs. TinyMCE
+
+**Last updated:** April 2026 (TinyMCE AI section fully updated to reflect current Chat, Review, Actions, RBAC, and model support)
+**Source:** Extracted from `research/competitive-analysis.md`
+
+---
+
+## Market Context
+
+The commercial rich text editor market consolidates around a "commercial platform" buying pattern — teams license a complete, supported editor to reduce integration effort and get enterprise compliance coverage. **In this segment, the primary head-to-head competitor for CKEditor is TinyMCE.**
+
+For pattern 3 buyers moving away from build-it-yourself or open-source-and-extend approaches, both CKEditor and TinyMCE are on the shortlist.
+
+---
+
+## TinyMCE Profile
+
+**Vendor:** Tiny Technologies (formerly Ephox)
+**Model:** Proprietary SaaS, usage-based pricing
+
+### Target Audience
+
+The broadest audience of any competitor. TinyMCE has 1.5 million+ developers using the free tier, with a paying customer base concentrated in small-to-medium companies. Primary use cases: CMS (31%), Document Management Systems (13%), LMS, CRM, and internal tools. 74% of paying customers by revenue are companies under $50M. Developer-first product with an enterprise tier layered on top.
+
+### Key Features
+
+- 100+ features covering the full range of rich text editing needs
+- PowerPaste — high-accuracy pasting from Word, Google Docs, and Excel
+- TinyMCE AI — full AI platform: Chat (with history, file/URL context, web search, reasoning), Review (5 built-in types + custom), Quick Actions (built-in + customizable); supports OpenAI, Anthropic, and Google Gemini models
+- Suggested Edits (track changes) — added in TinyMCE 8
+- Comments with threaded replies and Mentions
+- Revision History
+- PDF and Word export
+- Spell Checker Pro (13+ languages)
+
+### Pricing Model
+
+Usage-based, charged per "editor load" — the number of times a user loads the editor in a session. Additional features (PDF export, Word import/export) are priced as add-ons. Enterprise pricing available on request. The model creates unpredictable costs at scale, which is a friction point for high-traffic applications.
+
+### Marketing Approach
+
+Developer surveys and industry reports (they publish an annual "State of Rich Text Editors" survey), use-case-focused content, enterprise case studies, and competitive comparison content. High marketing volume with strong presence in developer content channels.
+
+---
+
+## Feature-by-Feature Comparison
+
+| Feature | CKEditor | TinyMCE |
+|---------|----------|---------|
+| **Real-time collaboration** | ✅ Native | ❌ Third-party required |
+| **Async comments** | ✅ | ✅ |
+| **Track changes** | ✅ | ✅ (Suggested Edits, added TinyMCE 8) |
+| **Revision history** | ✅ | ✅ |
+| **AI writing assistance** | ✅ Deep integration | ✅ Add-on |
+| **Custom LLM support** | ✅ | ✅ |
+| **MCP integration** | ✅ | ❌ |
+| **SOC 2 Type 2** | ✅ | ✅ |
+| **Enterprise SLAs** | ✅ | ✅ |
+| **Import from Word** | ✅ | ✅ |
+| **Export to PDF/Word** | ✅ | ✅ (add-on) |
+| **File management (CKBox)** | ✅ | ❌ |
+| **Spell check** | ✅ | ✅ |
+| **Open source core** | ✅ | ❌ |
+| **Self-hostable** | ✅ | ❌ |
+| **20+ year track record** | ✅ | ✅ |
+| **Pricing model** | Predictable | Usage-based (per editor load) |
+
+---
+
+## Collaboration Readiness
+
+| Feature | CKEditor | TinyMCE |
+|---------|----------|---------|
+| Real-time collaboration | ✅ Native, production-ready | ❌ Third-party infrastructure required (Yjs/Liveblocks) |
+| Async comments | ✅ Full | ✅ Threaded comments, mentions |
+| Track changes | ✅ | ✅ "Suggested Edits" (TinyMCE 8) |
+| Revision history | ✅ | ✅ |
+| **Overall** | **Strong** | **Partial** |
+
+Real-time collaboration is TinyMCE's most significant structural gap. It is not native and requires customers to build or integrate their own infrastructure. This is the clearest head-to-head differentiator CKEditor holds.
+
+---
+
+## AI Readiness
+
+| Feature | CKEditor | TinyMCE |
+|---------|----------|---------|
+| AI Chat (with history) | ✅ Full chat, context injection, web search, reasoning | ✅ Full chat, file/URL context, web search, reasoning mode |
+| AI Review | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in review types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API |
+| Inline AI Quick Actions | ✅ On selected text — rewrite, simplify, expand, fix grammar | ✅ Built-in set + fully customizable via config |
+| Context injection (files, URLs) | ✅ Documents, URLs, reference content | ✅ PDF, DOCX, images, MD, HTML, text; URLs; custom external sources |
+| Model support | ✅ OpenAI, Anthropic, Google Gemini + Auto | ✅ OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini + Auto mode |
+| Bring your own LLM | ✅ On-Premises (GA, March 2026) | ⚠️ Managed API only; on-prem with custom models in early access (mid-2026) |
+| Custom prompts / commands | ✅ Custom Quick Actions and Reviews | ✅ Custom Quick Actions via config; custom Reviews via API |
+| RBAC for AI features | ✅ Per-user, per-tier, per-feature access control | ✅ JWT-based hierarchical permissions — per-user, per-model, per-provider, per-feature |
+| AI Profiles | ❌ Not yet available | ❌ |
+| Web search in AI | ✅ | ✅ |
+| MCP integration | ✅ On-Premises (March 2026) | ❌ |
+| On-premises AI deployment | ✅ Available (March 2026) | ⚠️ Early access — mid-2026 roadmap |
+| Rich text HTML preservation | ✅ Full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at HTML level |
+| AI usage monitoring | ✅ Customer Portal Insights Panel | ❌ Not confirmed |
+| **Overall** | **Strong** | **Strong (with caveats)** |
+
+⚠️ **Important update (April 2026):** TinyMCE's AI has expanded significantly beyond "pre-built commands." It now has full Chat with history and context injection, a multi-type Review system, customizable Quick Actions, JWT-based RBAC, and support for Anthropic and Gemini models alongside OpenAI. The key remaining gaps vs. CKEditor are: no MCP integration, no on-prem AI today (mid-2026 roadmap), unconfirmed HTML preservation at the AI layer, and no AI usage analytics.
+
+---
+
+## Where CKEditor Wins
+
+- **No native real-time collaboration in TinyMCE** — this is a major product gap for any team building collaborative applications. TinyMCE requires building this infrastructure separately; CKEditor includes it.
+- **MCP integration** — CKEditor has it; TinyMCE does not. First-mover advantage in AI-native content workflows.
+- **On-premises AI available now** — CKEditor's on-prem AI with custom LLM support is GA (March 2026). TinyMCE's on-prem AI is on the roadmap for mid-2026.
+- **Rich text HTML preservation** — CKEditor AI works natively with the full HTML document model. TinyMCE's HTML preservation at the AI layer is not explicitly confirmed.
+- **AI usage monitoring** — CKEditor's Customer Portal Insights Panel gives per-operation visibility. TinyMCE has no confirmed equivalent.
+- **Pricing predictability** — TinyMCE's per-editor-load model creates unpredictable costs at scale. CKEditor's model is more predictable.
+- **Open-source core + self-hostable** — CKEditor offers transparency and deployment flexibility TinyMCE cannot match.
+- **File management** — CKBox integration is unique; TinyMCE has no equivalent.
+
+## Where TinyMCE Wins
+
+- **Developer mindshare** — largest installed base, more Stack Overflow answers, more tutorials, stronger community content presence.
+- **Async collaboration** — strong comments, track changes, and revision history.
+- **PowerPaste** — genuinely well-regarded for paste fidelity from Word and Google Docs.
+- **AI breadth** — TinyMCE AI now covers Chat, Review, Quick Actions, RBAC, and multi-LLM including Anthropic. The gap has narrowed materially.
+- **Marketing reach** — large budget and content volume means more awareness among developers evaluating options.
+
+---
+
+## The Battlecard Argument
+
+> TinyMCE is the default choice because it's familiar, not because it's the best choice for what you're building. If real-time collaboration is on your roadmap — and it will be — TinyMCE requires you to build that infrastructure yourself. CKEditor includes it, backed by a team that has been building collaborative editing for over a decade.
+
+---
+
+## Win Condition Summary
+
+**When CKEditor wins:** Real-time collaboration requirement, deeper AI integration need, or enterprise buyer who values SOC 2 documentation, cleaner compliance story, or predictable pricing at scale.
+
+**Risk to manage:** TinyMCE has larger developer mindshare and more community content. CKEditor must win on capability and enterprise trust, not awareness.
+
+**Key message:** TinyMCE has async collaboration. CKEditor has both. When real-time collaboration lands on the roadmap — and it will — TinyMCE requires a separate infrastructure project. CKEditor includes it.
+
+---
+
+*For the full competitive landscape across all editors, see `research/competitive-analysis.md`. For persona-level messaging, see `brand/personas/`.*
+
