@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-04-07 14:02 UTC
-Commit: 9e7923b2bb7ffcd2e5827498109fb6542a40c987
+Last updated: 2026-04-13 12:31 UTC
+Commit: e6027ca3a1ccddaff5682a92eab95e376147ce32
 Files included: 10
 ================================================================
 
@@ -2212,7 +2212,7 @@ FILE: ./research/competitive-analysis.md
 
 # CKEditor Competitive Analysis
 
-**Last updated:** April 2026 (TinyMCE AI section updated; Froala AI updated to reflect 5.1 AI Assist plugin)
+**Last updated:** April 2026 (TinyMCE AI section updated; Froala AI updated to reflect 5.1 AI Assist plugin; Tiptap updated to reflect 3.0 stable, AI Toolkit launch, Server AI Toolkit, pricing restructure, and 2026 roadmap)
 **Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical
 
 ---
@@ -2349,18 +2349,30 @@ Developers building modern, custom editor experiences — particularly in SaaS p
 #### Key Features
 - Headless architecture — zero opinionated UI, maximum customization
 - 100+ community and official extensions
-- Content AI: generation, AI Agent (reads and edits documents), AI Toolkit (bring-your-own)
+- Tiptap 3.0 stable (released July 2025 after 24 months in beta)
+- Content AI: AI Toolkit (agents read, insert, and patch documents with schema awareness, suggestion-based reviews, multi-doc support); Server AI Toolkit (background processing, batch operations, no browser required — restricted beta); legacy AI Suggestion/AI Agent/AI Assistant deprecated and replaced
+- AI Generation — tab-triggered autocompletion, text/image generation (included in free tier)
+- UI Components library — pre-built interface elements to accelerate editor UI development
+- Tiptap Pages — page-based layouts with headers/footers (alpha, launched September 2025)
 - Real-time collaboration via Yjs (native to the platform tier)
 - Inline and document-level comments
+- Native suggestion mode (tracked changes-style human and AI inline suggestions)
 - Revision history and document versioning
-- Import/Export: DOCX, ODT, Markdown
+- Import/Export: DOCX, ODT, bidirectional Markdown; PDF export
 - Offline editing with sync on reconnect
+- Tiptap Flex — AI-native writing UI being productized as an embeddable platform capability (2026 roadmap)
 
 #### Pricing Model
-Tiered SaaS: $49/month (500 documents), $149/month (5,000 documents), $999/month (50,000 documents), enterprise on request. The open-source core is free and self-hostable; collaboration, comments, AI, and history features require the platform subscription. Document-count-based pricing is predictable but can become expensive at scale for large document libraries.
+Restructured in June 2025. Now four tiers:
+- **Start** — free; up to 500 cloud documents, 2 environments, 2 developer licenses, inline AI extension included, simple DOCX import/export, community support
+- **Team** — price not publicly listed; up to 5,000 cloud documents, Pages, webhooks, API access, email support
+- **Business** — price not publicly listed; up to 50,000 cloud documents, limited Slack support, beta access
+- **Enterprise** — custom pricing; unlimited scale, cloud or on-premises, custom auth/storage/AI model integration, SOC 2 Type II, SLA-backed uptime
+
+The open-source core is free and self-hostable; collaboration, comments, AI Toolkit, history, and Pages require the platform subscription. The free Start tier now includes basic AI (inline generation), which lowers the barrier to initial evaluation. Collaboration and advanced AI remain paid-tier only. Specific monthly prices for Team and Business are no longer listed publicly.
 
 #### Unique Positioning
-The "developer's editor" — unopinionated, extensible, built for teams that want to own the experience completely. Tiptap competes on developer experience and AI integration, not on out-of-the-box features or compliance credentials.
+The "developer's editor" — unopinionated, extensible, built for teams that want to own the experience completely. Tiptap's 2026 strategic mission is to become "the document layer around the database" — documents as first-class queryable objects with versioning, permissions, and server-side validation, without mountains of glue code. Tiptap competes on developer experience and AI integration depth, not on out-of-the-box features or compliance credentials.
 
 #### Marketing Approach
 Developer-first: high-quality documentation, active GitHub presence (open-source core), blog with detailed release notes. Comparison content positions Tiptap against TinyMCE and Lexical. Community engagement is strong; Tiptap benefits from the goodwill of its open-source contribution.
@@ -2378,28 +2390,35 @@ Tiptap's collaboration story is strong and is one of the reasons it is gaining g
 #### AI Readiness
 | Feature | Status |
 |---------|--------|
-| Native AI writing assistance | **Yes** — Content AI with generation, refinement, translation |
-| AI Agent | **Yes** — reads documents, answers questions, edits based on tasks (launched May 2025) |
-| Custom LLM support | **Yes** — bring-your-own-LLM supported |
-| Custom prompts / UI | **Yes** — AI Toolkit (beta as of Sept 2025) for custom AI building blocks |
+| Native AI writing assistance | **Yes** — AI Generation (tab autocompletion, text/image generation, custom commands); included in free tier |
+| AI Toolkit (agents) | **Yes** — launched November 2025; agents read, insert, and patch documents with schema awareness, suggestion-based reviews, real-time streaming, multi-doc support; integrates with Vercel AI SDK, LangChain.js, OpenAI, Anthropic, Mastra |
+| Server AI Toolkit | **Yes (restricted beta)** — backend document editing without browser; background processing, batch operations, document automation |
+| Suggestion mode for AI edits | **Yes** — Google Docs-style accept/reject workflow for AI-generated changes; full audit trail |
+| Custom LLM support | **Yes** — any text-generating model including open-source and self-hosted; no data sent to Tiptap |
+| Custom prompts / UI | **Yes** — AI Toolkit provides tools and pre-built workflows (proofreading, content insertion, comment management) |
+| Legacy AI extensions | **Deprecated** — AI Suggestion, AI Changes, and AI Assistant are being phased out in 2026; maintenance only, no new features |
 | MCP integration | **No** |
 
-Tiptap's AI story is the most aggressive among competitors. The AI Agent — which can read and act on document content — is ahead of where most editors are in 2026. This is the area where Tiptap will most credibly challenge CKEditor's AI positioning.
+⚠️ **Updated April 2026:** Tiptap's AI story has accelerated significantly. The AI Toolkit launched in November 2025 (no longer beta) and is more capable than the previous AI Agent — it supports multi-document operations, schema-aware editing, streaming, and full suggestion-mode review workflows. The Server AI Toolkit adds background/batch processing without a browser. Legacy AI extensions (AI Suggestion, AI Changes, AI Assistant) are being deprecated and replaced. This is the area where Tiptap is most aggressively closing the gap on CKEditor.
 
 #### Strengths vs. CKEditor
 - Headless architecture gives maximum frontend flexibility — strong appeal to React developers
-- AI Agent capability is genuinely differentiated
-- SOC 2 Type 2 certified, strong enterprise security story
+- AI Toolkit is genuinely differentiated: schema-aware agents, suggestion-mode reviews, Server AI Toolkit for backend automation
+- SOC 2 Type II certified (Enterprise tier), strong enterprise security story
+- Tiptap 3.0 stable (July 2025) signals platform maturity after years in beta
 - Developer experience is excellent; DX is a conscious priority
-- Open-source core lowers the barrier to evaluation
+- Free Start tier now includes inline AI — lower barrier to evaluation than before
+- Open-source core lowers the barrier to evaluation; additional Pro extensions open-sourced June 2025
+- Native suggestion mode allows both humans and AI to propose tracked changes with justification
 
 #### Weaknesses vs. CKEditor
-- Collaboration and AI features require the paid platform — the free version is incomplete for production use
-- Document-count pricing model can become expensive for large deployments
+- Collaboration and advanced AI features require the paid platform — the free version is incomplete for production use
+- Team and Business pricing is no longer publicly listed, making evaluation harder; pricing can become expensive at scale for large document libraries
 - Younger company (less track record) and smaller customer base than CKEditor
 - Enterprise compliance story (beyond SOC 2) is less comprehensive than CKEditor's
 - Less proven at Fortune 500 scale; CKEditor's 20+ year track record is a harder asset to match
 - No equivalent to CKBox (file management and image serving)
+- Tiptap Pages (page-based layout) still in alpha — not production-ready for document-heavy workflows
 
 #### The Battlecard Argument
 > Tiptap is the best editor for teams that want to build everything themselves and have the engineering resources to do it. If your team is evaluating Tiptap, they are likely evaluating whether to assemble a collaboration + AI stack from parts. CKEditor delivers the same customizability with the full collaboration and AI stack already integrated, a 20-year track record, and an enterprise support structure Tiptap can't yet match.
@@ -2661,8 +2680,8 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 | **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ |
 | **Track changes** | ✅ | ✅ | ⚠️ Partial | ⚠️ Limited | ❌ | ✅ | ❌ |
 | **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ |
-| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ✅ Platform tier | ❌ | ❌ | ⚠️ SEO only | ❌ |
-| **Custom LLM support** | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ✅ AI Toolkit (paid) + AI Generation (free) | ❌ | ❌ | ✅ AI Assist plugin (5.1) | ❌ |
+| **Custom LLM support** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | **MCP integration** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **SOC 2 Type 2** | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ Not confirmed | ❌ |
 | **Enterprise SLAs** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
@@ -2692,7 +2711,7 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 |--------|----------|------------|------------|---------|
 | **CKEditor** | Ideation, drafting, refinement, translation; context injection; MCP | ✅ | ✅ Full — RBAC, MCP, usage analytics | **Strong** |
 | TinyMCE | Chat (history, file/URL context, web search, reasoning), Review (5 types + custom), Quick Actions (customizable) | ⚠️ Managed API; BYOLLM via on-prem in early access (mid-2026) | ✅ JWT-based RBAC; custom prompts/actions; limited UI override | **Strong (with caveats)** |
-| Tiptap | Generation, AI Agent, custom toolkit | ✅ | ✅ | **Strong** |
+| Tiptap | AI Toolkit (schema-aware agents, suggestion reviews, streaming); Server AI Toolkit (backend/batch, restricted beta); AI Generation (free tier) | ✅ (any model incl. self-hosted; no data to Tiptap) | ✅ (tools + pre-built workflows; suggestion-mode review) | **Strong** |
 | Quill | None | ❌ | ❌ | **None** |
 | ProseMirror | None | ❌ | ❌ | **None** |
 | Froala | SEO / content optimization only | ❌ | Limited | **Weak** |
@@ -2709,8 +2728,8 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 
 ### CKEditor vs. Tiptap
 **Win condition:** Enterprise buyer who needs proven scale and compliance depth; buyer who wants a complete platform rather than assembling from parts; buyer evaluating total cost of ownership including platform subscription costs at document scale.
-**Risk:** Tiptap's AI Agent is genuinely competitive and its developer experience is excellent. Technical buyers may prefer Tiptap's headless flexibility.
-**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship with enterprise backing and a 20-year track record. Tiptap's collaboration and AI features require the paid platform; CKEditor's are native. CKEditor's SOC 2, SLA, and Fortune 500 track record fills gaps that Tiptap cannot yet address.
+**Risk:** Tiptap's AI story has gotten materially stronger — AI Toolkit (launched Nov 2025) and Server AI Toolkit (restricted beta) give it schema-aware agent capabilities and backend document automation. Tiptap 3.0 stable (July 2025) removes the "still in beta" objection. Developer experience is excellent. The free tier now includes basic AI, lowering the evaluation barrier further.
+**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship with enterprise backing and a 20-year track record. Tiptap's collaboration and advanced AI features require the paid platform — and pricing for Team/Business is no longer public. CKEditor's SOC 2, SLA, and Fortune 500 track record fills gaps that Tiptap cannot yet address. Watch the Server AI Toolkit closely — if it reaches stable and ships MCP integration, Tiptap's AI positioning will challenge CKEditor's more directly.
 
 ### CKEditor vs. ProseMirror / Lexical
 **Win condition:** Any buyer who has estimated the engineering cost of building on a low-level toolkit and is willing to pay for integration speed and ongoing maintenance savings.
@@ -2725,7 +2744,7 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 ### CKEditor vs. Froala
 **Win condition:** Teams that need real-time collaboration, deeper AI, or a more active developer community.
 **Risk:** Froala's perpetual license model appeals to regulated industries that cannot accept SaaS. CKEditor's on-premises deployment option is the counter here.
-**Key message:** Froala's collaboration depends on Codox.io; CKEditor's is native. Froala's AI is narrow (SEO); CKEditor's covers the full writing workflow. CKEditor's open-source community is a transparency and sustainability signal Froala cannot offer.
+**Key message:** Froala's collaboration depends on Codox.io; CKEditor's is native. Froala's AI Assist (5.1) is now a real feature but lacks AI Review, context injection, persistent chat history, RBAC, and MCP — CKEditor's AI covers the full writing workflow. CKEditor's open-source community is a transparency and sustainability signal Froala cannot offer.
 
 ---
 
