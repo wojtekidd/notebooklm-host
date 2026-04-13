@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-04-13 12:31 UTC
-Commit: e6027ca3a1ccddaff5682a92eab95e376147ce32
+Last updated: 2026-04-13 12:39 UTC
+Commit: c8e1792e6a207d8b0046518feb7abd56367b6da4
 Files included: 10
 ================================================================
 
@@ -12,7 +12,7 @@ FILE: ./features/ckeditor ai/AI-competitive-comparison.md
 
 # AI Features: CKEditor vs. Competitors
 
-**Last updated:** April 2026 (Froala updated to reflect 5.1 AI Assist plugin; TinyMCE updated to reflect current AI Chat, Review, Actions, and permissions)
+**Last updated:** April 2026 (Froala updated to reflect 5.1 AI Assist plugin; TinyMCE updated to reflect current AI Chat, Review, Actions, and permissions; Tiptap updated to reflect AI Toolkit launch Nov 2025, Server AI Toolkit restricted beta, legacy AI deprecations, and suggestion mode)
 **Scope:** AI capabilities only — writing assistance, LLM integration, customization, and deployment
 **Editors covered:** CKEditor, TinyMCE, Tiptap, Froala, Quill, ProseMirror, Lexical
 
@@ -28,14 +28,14 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 
 | Feature | CKEditor | TinyMCE | Tiptap | Froala | Quill | ProseMirror | Lexical |
 |---|---|---|---|---|---|---|---|
-| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ✅ Platform tier | ✅ AI Assist plugin (5.1, 2026) | ❌ | ❌ | ❌ |
-| **AI Chat interface** | ✅ Full chat with context, reasoning, web search | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ✅ Conversational AI included | ✅ In-editor popup with chat and text actions | ❌ | ❌ | ❌ |
+| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ✅ AI Toolkit (paid add-on, launched Nov 2025) + AI Generation (free tier); legacy AI Suggestion/AI Assistant/AI Changes deprecated | ✅ AI Assist plugin (5.1, 2026) | ❌ | ❌ | ❌ |
+| **AI Chat interface** | ✅ Full chat with context, reasoning, web search | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ No native chat UI — AI agent chatbots can be built with AI Toolkit; legacy AI Assistant deprecated | ✅ In-editor popup with chat and text actions | ❌ | ❌ | ❌ |
 | **Inline AI commands / Quick Actions** | ✅ On selected text — rewrite, simplify, expand, fix grammar | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Slash command-based | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
 | **AI Review (on-demand quality check)** | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
-| **AI Agent (autonomous document editing)** | ⚠️ Partial via MCP (On-Premises, March 2026) | ❌ | ✅ Reads, plans, edits documents — launched May 2025 | ❌ | ❌ | ❌ | ❌ |
+| **AI Agent (autonomous document editing)** | ⚠️ Partial via MCP (On-Premises, March 2026) | ❌ | ✅ AI Toolkit (Nov 2025) — schema-aware agents read, insert, and patch documents; multi-doc support; real-time streaming; suggestion-based reviews; Server AI Toolkit (restricted beta) adds background/batch processing without a browser | ❌ | ❌ | ❌ | ❌ |
 | **Multi-LLM provider support** | ✅ OpenAI, Anthropic, Google Gemini | ✅ OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini + Auto mode | ✅ Configurable | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
 | **Bring your own LLM / API key** | ✅ On-Premises (March 2026) | ⚠️ Managed API only — no BYOLLM; on-prem with custom models in early access (mid-2026) | ✅ Yes | ✅ Yes — direct browser connection or via custom backend | ❌ | ❌ | ❌ |
-| **Custom prompts & commands** | ✅ Custom Quick Actions and Reviews | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ AI Toolkit (beta, Sept 2025) | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
+| **Custom prompts & commands** | ✅ Custom Quick Actions and Reviews | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ AI Toolkit (launched Nov 2025) — tools and pre-built workflows (proofreading, content insertion, comment management); integrates with Vercel AI SDK, LangChain.js, OpenAI, Anthropic, Mastra | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
 | **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
 | **Context injection (files, URLs, text)** | ✅ Inject documents, URLs, or reference content into chat | ✅ File uploads (PDF, DOCX, images, MD, HTML, text), URLs, custom external data sources | ⚠️ Not prominently featured | ❌ | ❌ | ❌ | ❌ |
 | **AI Chat history (per document)** | ✅ Persistent, renameable, resumable per document | ✅ Persistent, filterable, organized by date; 12-month retention | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
@@ -43,8 +43,8 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 | **AI Profiles (tone, style, vocabulary presets)** | ❌ Not yet available | ❌ | ❌ | ⚠️ Basic tone options only | ❌ | ❌ | ❌ |
 | **Web search in AI Chat** | ✅ Yes | ✅ Yes — real-time web search + reasoning mode in Chat | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **MCP integration** | ✅ On-Premises (March 2026) — connect tools, data sources, agents | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **AI response interception / content control** | ✅ Full control via custom endpoints and permissions | ✅ Accept/reject individual suggestions with diff view and preview; bulk apply/skip | ⚠️ Partial | ✅ Intercept, validate, filter, or reject AI responses before insertion | ❌ | ❌ | ❌ |
-| **Rich text format preservation** | ✅ AI works with full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at full HTML level | ⚠️ Markdown-only in AI Agent | ⚠️ Not confirmed — extent of HTML preservation unclear | ❌ | ❌ | ❌ |
+| **AI response interception / content control** | ✅ Full control via custom endpoints and permissions | ✅ Accept/reject individual suggestions with diff view and preview; bulk apply/skip | ✅ Native suggestion mode — Google Docs-style accept/reject workflow for all AI edits; full audit trail | ✅ Intercept, validate, filter, or reject AI responses before insertion | ❌ | ❌ | ❌ |
+| **Rich text format preservation** | ✅ AI works with full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at full HTML level | ⚠️ AI Toolkit is Tiptap JSON schema-aware — operates on native document schema, not raw HTML; HTML-level preservation not confirmed | ⚠️ Not confirmed — extent of HTML preservation unclear | ❌ | ❌ | ❌ |
 | **RBAC for AI features** | ✅ Per-user, per-tier, per-feature access control | ✅ JWT-based hierarchical permissions — per-user, per-model, per-provider, per-feature | ⚠️ Partial | ⚠️ User consent flag required (aiSupplementalTermsAccepted); deeper RBAC not confirmed | ❌ | ❌ | ❌ |
 | **On-premises AI deployment** | ✅ Available (March 2026) | ⚠️ Early access — on-prem AI roadmap for mid-2026; editor self-hostable but AI is cloud-only today | ✅ Self-hostable (paid tier) | ✅ On-premises license available; self-hosted models keep data on your servers | ✅ (but no AI features) | ✅ (but no AI features) | ✅ (but no AI features) |
 | **AI usage monitoring & analytics** | ✅ Insights Panel in Customer Portal | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -58,7 +58,7 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 |---|---|---|---|---|---|
 | **CKEditor** | Full: chat, review, quick actions, profiles, context injection | OpenAI, Anthropic, Gemini + BYOLLM (On-Prem) | Full UI and prompt configurability, RBAC, MCP | SaaS + On-Premises | **Strong** |
 | **TinyMCE** | AI Chat (history, file/URL context, web search, reasoning), AI Review (5 types + custom), customizable Quick Actions | OpenAI (GPT-5), Anthropic (Claude 4.6/4.5), Gemini; managed API — no BYOLLM today | JWT-based RBAC; custom prompts/actions via config; programmatic REST API; limited UI structural override | SaaS; on-prem AI in early access (mid-2026) | **Strong (with caveats)** |
-| **Tiptap** | Generation, AI Agent, custom building blocks | Configurable + BYOLLM | High (headless) — build your own AI UX | SaaS + Self-hosted (paid) | **Strong (build-it-yourself)** |
+| **Tiptap** | AI Toolkit (schema-aware agents, streaming, multi-doc, suggestion reviews); Server AI Toolkit (backend/batch, restricted beta); AI Generation (free tier); legacy AI extensions deprecated | Any model incl. open-source and self-hosted; no data to Tiptap; Vercel AI SDK, LangChain.js, Anthropic, Mastra | High (headless) — build your own AI UX; native suggestion-mode review included | SaaS + Self-hosted (paid) | **Strong (build-it-yourself)** |
 | **Froala** | AI Assist (5.1): in-editor chat popup, inline commands, tone adjustment, translation | OpenAI, self-hosted models, custom backends | Moderate — custom request handler, response interception, programmatic API | On-premises license available with self-hosted model support | **Moderate (growing)** |
 | **Quill** | None | None | None | Open source (no AI) | **None** |
 | **ProseMirror** | None — AI left to the application developer | None built-in | Total (build everything yourself) | Open source (no AI) | **None** |
@@ -69,7 +69,7 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 ## Key Differentiators: Where CKEditor AI Stands Apart
 
 **1. Rich text format preservation**
-CKEditor AI is the only solution confirmed to fully understand and preserve HTML formatting during AI edits. Tiptap's AI Agent works with simplified markdown. TinyMCE's HTML preservation at the AI layer is not explicitly documented. CKEditor AI works natively with the same document model the editor uses — all 300+ features stay intact after every AI operation.
+CKEditor AI is the only solution confirmed to fully understand and preserve HTML formatting during AI edits. Tiptap's AI Toolkit is schema-aware (Tiptap JSON) — an improvement over the old markdown-only AI Agent — but HTML-level preservation at the AI layer is not confirmed. TinyMCE's HTML preservation at the AI layer is not explicitly documented. CKEditor AI works natively with the same document model the editor uses — all 300+ features stay intact after every AI operation.
 
 **2. MCP integration**
 As of April 2026, CKEditor is the only editor in this market with native MCP support. This enables connecting external tools, data sources, and AI agents to the editor's backend — accessible via AI Chat or programmatically. No competitor has shipped this.
@@ -91,7 +91,7 @@ TinyMCE now has strong AI depth, but the UI framework is Tiny's own with limited
 
 ---
 
-*Review this document quarterly. TinyMCE's AI has expanded significantly — validate their on-prem AI status and BYOLLM availability before sales calls, as both are expected mid-2026. Tiptap's AI roadmap also moves quickly — confirm AI Agent and AI Toolkit status. Froala's AI story changed with 5.1; re-validate depth of HTML preservation and RBAC before using in a competitive conversation.*
+*Review this document quarterly. TinyMCE's AI has expanded significantly — validate their on-prem AI status and BYOLLM availability before sales calls, as both are expected mid-2026. Tiptap's AI roadmap moves quickly — AI Toolkit launched Nov 2025 (stable); watch the Server AI Toolkit for stable release and any MCP integration announcement, as that would narrow CKEditor's differentiator. Froala's AI story changed with 5.1; re-validate depth of HTML preservation and RBAC before using in a competitive conversation.*
 
 
 ================================================================
