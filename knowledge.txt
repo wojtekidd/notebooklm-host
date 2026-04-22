@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-04-13 12:39 UTC
-Commit: c8e1792e6a207d8b0046518feb7abd56367b6da4
+Last updated: 2026-04-22 15:10 UTC
+Commit: 5c15c3fbc8a3bd625cf9b30757d67dcfa5ebd8fb
 Files included: 10
 ================================================================
 
@@ -2160,6 +2160,7 @@ FILE: ./features/ckeditor ai/ckeditorai-urls.md
 - https://ckeditor.com/docs/cs/latest/guides/ckeditor-ai/overview.html
 - https://ckeditor.com/blog/why-embedded-ai-wins-over-saas-overlays/
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/
+- https://ckeditor.com/blog/what-is-ckeditor-ai/
 
 ================================================================
 FILE: ./research/README.md
