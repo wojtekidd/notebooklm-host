@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-04-22 15:10 UTC
-Commit: 5c15c3fbc8a3bd625cf9b30757d67dcfa5ebd8fb
+Last updated: 2026-05-21 07:46 UTC
+Commit: e5d7b79a9efa9c72fb645603337e1d912ade06c0
 Files included: 10
 ================================================================
 
@@ -489,6 +489,75 @@ How important is it to integrate with your existing backend systems or LLM infra
 What would success look like for you after implementing AI-powered editing?
 How would you measure ROI - faster time to market, reduced editing costs, improved content quality, higher engagement?
 Are you looking for a competitive advantage through content speed, quality, or personalization?
+
+Multi-Root and Multi-Editor Support [SHIPPED]
+
+AI Chat, AI Review, and AI Translate operate across all editing areas when content is split into separate regions — whether that's a single editor with multiple roots (e.g. title, subtitle, body) or multiple editors sharing a Context instance.
+
+Supported setups:
+- Multi-root editor: A single MultiRootEditor instance with multiple editable regions. AI features operate across all roots.
+- Multiple editors with shared Context: Several editors sharing a Context instance. AI features operate across all editors in the Context.
+
+Per-feature behavior:
+- AI Chat: Reads each root's content together with its label and description, then decides which root to address based on the user's prompt.
+- AI Review and AI Translate: Run across all roots simultaneously. Suggestions and translations land in the correct root and do not bleed across boundaries.
+
+Critical configuration — three properties must be set on each root for AI to work reliably:
+- Root name: Identifies the root in the model (multi-root editors only).
+- Label: The aria-label of the editable area. Users can reference this in prompts (e.g. "rewrite the introduction").
+- Description: A short explanation of what the root contains, e.g. "Main article body — the primary content."
+
+Without labels and descriptions, AI cannot reliably distinguish editing areas in multi-root or multi-editor setups.
+
+Additional requirement for Context-based setups: each editor must have a separate config.collaboration.channelId — AI throws an error without it.
+
+Status: Experimental. Breaking changes may appear in upcoming releases.
+Docs: https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-multi-root-multi-editor-support.html
+
+
+Programmatic Usage [SHIPPED]
+
+CKEditor AI can be controlled entirely through code — no built-in UI required. This enables custom workflows, external integrations, and backend automation beyond the standard editor toolbar.
+
+Two approaches:
+
+1. Front-End Editor API
+Trigger AI capabilities directly from the editor instance using plugin controllers.
+
+AI Chat:
+  aiChatController.sendMessage({ message: 'Your custom prompt here' })
+  aiChatController.startConversation()  // optionally pass { modelId: 'claude-4-sonnet' }
+  aiChatController.addSelectionToChatContext()
+
+AI Quick Actions:
+  aiActions.executeAction({ actionName: 'improve-writing' }, 'Improve writing')
+  aiActions.executeAction({ userMessage: 'Rewrite as haiku', model: 'agent-1' }, 'Make it a haiku')
+
+Authentication for frontend calls: editor.plugins.get('CloudServices').token.value
+
+2. REST API (https://ai.cke-cs.com)
+Call the AI service directly from frontend or backend — without an editor instance. Useful for:
+- Auto-generating titles or metadata outside the editor
+- Server-side bulk processing (e.g. compliance checks on publish)
+- Content pipelines and scheduled tasks
+
+Four endpoint types:
+- Actions: Stateless transforms (grammar fix, tone adjustment, translation)
+- Conversations: Multi-turn chat with history and file uploads
+- Reviews: Document analysis with specific improvement suggestions
+- Document Processing: Whole-document transformations — returns synchronous JSON (no stream parsing needed)
+
+Most endpoints return Server-Sent Events (SSE) streams. Document Processing is the exception and returns standard JSON.
+
+Architecture options for custom integrations:
+- REST API calls (SaaS and On-Premises)
+- MCP servers (On-Premises only)
+- Custom backend automation
+- Internal AI platform connections (on-demand, On-Premises)
+
+Note: The "Server-side API" 2026 roadmap item refers to expanded server-side endpoint coverage beyond what is already available. The front-end editor API and the REST API described above are live and documented.
+Docs: https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-programmatic.html
+
 
 Resources
 CKEditor AI Overview slide deck - useful for conversations with leads/customers
@@ -1001,7 +1070,8 @@ Expanding the horizon of what’s possible with CKEditor AI
 
 CKEditor AI Roadmap 2026
 
-Multi-root EnablementMaking sure CKEditor AI features are able to handle multi-root editor use cases
+Multi-root Enablement [SHIPPED]
+CKEditor AI features (AI Chat, AI Review, AI Translate) now operate across all editing areas in both multi-root and multi-editor setups. See the Internal Product Guide for configuration details and per-feature behavior.
 
 AI Comments
 Enabling CKEditor AI to reply to prompts by inserting comments inside the editor content
@@ -2161,6 +2231,8 @@ FILE: ./features/ckeditor ai/ckeditorai-urls.md
 - https://ckeditor.com/blog/why-embedded-ai-wins-over-saas-overlays/
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/
 - https://ckeditor.com/blog/what-is-ckeditor-ai/
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-programmatic.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-multi-root-multi-editor-support.html
 
 ================================================================
 FILE: ./research/README.md
