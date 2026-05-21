@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-05-21 07:46 UTC
-Commit: e5d7b79a9efa9c72fb645603337e1d912ade06c0
+Last updated: 2026-05-21 07:49 UTC
+Commit: 02d0e23ec74275e673fc0a38e3c903baf056f030
 Files included: 10
 ================================================================
 
@@ -2225,14 +2225,23 @@ FILE: ./features/ckeditor ai/ckeditorai-urls.md
 
 # Additional URL as resources for CKEditor AI product knowledge
 
+Website
 - https://ckeditor.com/ckeditor-5/capabilities/ai-features/
-- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-overview.html
-- https://ckeditor.com/docs/cs/latest/guides/ckeditor-ai/overview.html
 - https://ckeditor.com/blog/why-embedded-ai-wins-over-saas-overlays/
-- https://ckeditor.com/docs/ckeditor5/latest/features/ai/
 - https://ckeditor.com/blog/what-is-ckeditor-ai/
+
+Documentation
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-overview.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-chat.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-actions.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-review.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-translate.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-programmatic.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-multi-root-multi-editor-support.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-mcp.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-integration.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-deployment.html
 
 ================================================================
 FILE: ./research/README.md
