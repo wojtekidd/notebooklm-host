@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-05-26 08:44 UTC
-Commit: 3c4601ec3a12f872cfec5458ec36135d9a875787
+Last updated: 2026-05-26 12:59 UTC
+Commit: 5eb81814e09536aa70abfb051004293978b37b35
 Files included: 10
 ================================================================
 
@@ -2294,8 +2294,8 @@ FILE: ./research/competitive-analysis.md
 
 # CKEditor Competitive Analysis
 
-**Last updated:** April 2026 (TinyMCE AI section updated; Froala AI updated to reflect 5.1 AI Assist plugin; Tiptap updated to reflect 3.0 stable, AI Toolkit launch, Server AI Toolkit, pricing restructure, and 2026 roadmap)
-**Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical
+**Last updated:** May 2026 (TinyMCE 8.5.x security and localization updates; Tiptap Hocuspocus 4 stable release; Froala V5.2 with Filerobot integration and CSP compliance; Eddyter added as new competitor)
+**Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical, Eddyter
 
 ---
 
@@ -2339,7 +2339,7 @@ Before analyzing competitors, here is CKEditor's position in the market:
 | **Target audience** | Developers building content-critical applications; enterprise buyers |
 | **Collaboration** | Native real-time + async — the only editor with both built in |
 | **AI** | CKEditor AI: deeply integrated, custom LLM support, full UI control |
-| **Enterprise** | SOC 2 Type 2, enterprise SLAs, 70+ engineers, 1,100+ customers, 20+ years |
+| **Enterprise** | SOC 2 Type 2, HIPAA compliant, enterprise SLAs, 70+ engineers, 1,100+ customers, 20+ years |
 | **Unique claim** | The only AI-powered rich text editor your application will ever need |
 
 ---
@@ -2369,6 +2369,16 @@ The broadest audience of any competitor. TinyMCE has 1.5 million+ developers usi
 #### Pricing Model
 Usage-based, charged per "editor load" — the number of times a user loads the editor in a session. Additional features (PDF export, Word import/export) are priced as add-ons. Enterprise pricing available on request. The model creates unpredictable costs at scale, which is a friction point for high-traffic applications.
 
+TinyMCE AI is a **separate credit-based add-on** — not bundled into any editor plan. Pricing is on top of the base editor subscription:
+
+| AI Tier | Monthly | Annual | Credits/mo | Overage |
+|---------|---------|--------|------------|---------|
+| Starter | $160/mo | $133/mo | 100M | $7.50/5M |
+| Growth | $360/mo | $300/mo | 400M | $6.00/5M |
+| Scale | $560/mo | $467/mo | 800M | $5.00/5M |
+
+Enterprise pricing on request. Output tokens cost significantly more than input tokens. A team paying for a mid-tier TinyMCE editor plan plus AI Starter is looking at $300–$500+/month before any overage.
+
 #### Unique Positioning
 Market leader by adoption. TinyMCE leans on breadth of use ("350 million downloads") and a long track record. Its 2025 positioning has shifted toward AI-driven editing and expansion beyond CMS into DMS and productivity tools — a response to a market trend it was slow to lead.
 
@@ -2388,10 +2398,10 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 #### AI Readiness
 | Feature | Status |
 |---------|--------|
-| AI Chat (with history) | **Yes** — full conversational AI with persistent history, file/URL context injection, web search, reasoning mode |
+| AI Chat (with history) | **Yes** — full conversational AI with persistent history, file/URL context injection; web search and reasoning mode claimed in marketing, not confirmed in current documentation |
 | AI Review | **Yes** — 5 built-in types (Proofread/Correctness, Clarity, Readability, Length, Tone & Style) + custom reviews definable via API |
 | AI Quick Actions | **Yes** — built-in set + fully customizable via `tinymceai_quickactions_custom` config |
-| LLM support | **Yes** — OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini; Auto mode selects best model per request |
+| LLM support | **Yes** — OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini; model selectable at config or user level (Auto mode claimed in marketing, not confirmed in docs) |
 | Bring your own LLM | **Partial** — managed API only today; on-premises AI with custom model support in early access (mid-2026 roadmap) |
 | Custom prompts / UI | **Yes for prompts** — custom Quick Actions and Reviews via config/API; **Limited for UI** — Tiny's own UI framework, limited structural override |
 | RBAC for AI | **Yes** — JWT-based hierarchical permissions: per-user, per-model, per-provider, per-feature granularity |
@@ -2401,6 +2411,8 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 | AI usage monitoring | **Not confirmed** |
 
 ⚠️ **Updated April 2026:** TinyMCE AI has expanded significantly. The previous characterization of "pre-built commands, limited customization" no longer reflects the product. TinyMCE now has full AI Chat with context injection and history, a robust Review system, customizable Quick Actions, JWT-based RBAC, and multi-LLM support including Anthropic models. The remaining gaps vs. CKEditor are: no MCP, no on-prem AI today (mid-2026 roadmap), unconfirmed HTML preservation at the AI layer, and no usage analytics.
+
+⚠️ **Updated May 2026:** TinyMCE 8.5.0 (April 29) added a `content_language` option and improved inline diff styling in Suggested Edits and AI plugins. TinyMCE 8.5.1 (May 20) patched three stored XSS vulnerabilities. No change to on-premises AI status — still early access with a mid-2026 target.
 
 #### Strengths vs. CKEditor
 - Largest installed base and developer community — more Stack Overflow answers, more tutorials
@@ -2413,7 +2425,7 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 - Usage-based pricing creates cost unpredictability at scale
 - AI features are an integration layer, not deeply woven into the editing experience
 - Narrower API control for developers who need custom behavior
-- CKEditor's enterprise credentials (SOC 2 Type 2) are more clearly documented
+- CKEditor's enterprise credentials (SOC 2 Type 2, HIPAA compliant) are more clearly documented
 
 #### The Battlecard Argument
 > TinyMCE is the default choice because it's familiar, not because it's the best choice for what you're building. If real-time collaboration is on your roadmap — and it will be — TinyMCE requires you to build that infrastructure yourself. CKEditor includes it, backed by a team that has been building collaborative editing for over a decade.
@@ -2482,6 +2494,8 @@ Tiptap's collaboration story is strong and is one of the reasons it is gaining g
 | MCP integration | **No** |
 
 ⚠️ **Updated April 2026:** Tiptap's AI story has accelerated significantly. The AI Toolkit launched in November 2025 (no longer beta) and is more capable than the previous AI Agent — it supports multi-document operations, schema-aware editing, streaming, and full suggestion-mode review workflows. The Server AI Toolkit adds background/batch processing without a browser. Legacy AI extensions (AI Suggestion, AI Changes, AI Assistant) are being deprecated and replaced. This is the area where Tiptap is most aggressively closing the gap on CKEditor.
+
+⚠️ **Updated May 2026:** Hocuspocus 4 reached stable release on May 8, 2026. Hocuspocus is Tiptap's open-source collaboration backend (WebSocket server, conflict resolution, document persistence). Moving it from beta to stable is meaningful — it removes the "production-readiness" objection for teams evaluating Tiptap's real-time collaboration stack. No new AI features or MCP integration announced.
 
 #### Strengths vs. CKEditor
 - Headless architecture gives maximum frontend flexibility — strong appeal to React developers
@@ -2634,9 +2648,11 @@ Enterprise organizations prioritizing a polished, lightweight out-of-the-box exp
 
 #### Key Features
 - 100+ features with emphasis on performance (40ms load time claim)
-- Real-time collaboration via Codox.io integration
+- Real-time collaboration via Codox.io integration (native real-time collab announced as "coming soon" on V5.x roadmap)
 - Track changes built-in
-- AI integration (Google Gemini) for content optimization and SEO
+- AI Assist plugin (5.1): in-editor chat popup, inline commands, tone adjustment, translation; LLM-agnostic (routes to customer-controlled backend)
+- Filerobot image editor integration (V5.2, May 2026): in-editor advanced image editing (annotations, filters, resize, rotate, watermarks, crop)
+- Full CSP compliance (V5.2, May 2026): no `unsafe-inline` style-src directives required
 - Markdown support
 - Smart paste from Word and Excel
 - Autosave
@@ -2672,6 +2688,8 @@ Froala's real-time collaboration is a partnership integration (Codox.io), not a 
 
 ⚠️ **Updated April 2026:** Froala's AI story changed significantly with the 5.1 release. The previous Gemini-only / SEO-only positioning no longer applies. Froala now has a multi-LLM AI Assist plugin with an in-editor chat popup, inline Quick Actions, tone adjustment, and a developer API for customizing AI behavior. It is not yet at CKEditor's depth (no AI Review, no context injection, no persistent chat history, no RBAC, no MCP), but it is no longer a non-competitor in AI.
 
+⚠️ **Updated May 2026:** Froala V5.2 (May 13, 2026) introduced Filerobot image editor integration, full CSP compliance (enterprise-critical for strict security policies), and improved toolbar responsiveness. Real-time collaboration (cursor sync, simultaneous editing) was explicitly named as "coming soon" — the first public acknowledgment of native collab as an imminent feature. No compliance certifications (SOC 2, HIPAA) published. No AI Assist update beyond 5.1.
+
 #### Strengths vs. CKEditor
 - Perpetual licensing option — valuable for regulated industries and on-premises deployments
 - Performance-first architecture; lightweight despite feature count
@@ -2680,14 +2698,14 @@ Froala's real-time collaboration is a partnership integration (Codox.io), not a 
 
 #### Weaknesses vs. CKEditor
 - Real-time collaboration is a third-party integration, not native
-- AI features are narrow (SEO/optimization only) vs. CKEditor's full writing assistance suite
+- AI Assist (5.1) is now functional but shallow — no AI Review, no context injection, no chat history, no RBAC, no MCP vs. CKEditor's full writing assistance suite
 - Smaller developer community and ecosystem than CKEditor or TinyMCE
 - Proprietary with no open-source component — no community contribution or transparency
 - SOC 2 / HIPAA compliance documentation not clearly published
 - Cannot be used in open-source projects — limits evaluation in developer communities
 
 #### The Battlecard Argument
-> Froala is a polished editor with strong enterprise aesthetics and a clean license model. Where it falls short is the collaboration and AI story: real-time collaboration depends on a third-party service, and AI features are limited to SEO optimization. CKEditor's native collaboration infrastructure and fully configurable AI writing suite represent a more complete platform for teams that need both today.
+> Froala is a polished editor with strong enterprise aesthetics and a clean license model. Its AI Assist plugin (5.1) is now a real feature, but it lacks AI Review, context injection, persistent chat history, RBAC, and MCP — CKEditor's AI covers the full writing workflow. Real-time collaboration is still third-party (Codox.io), with native collab only on the roadmap. CKEditor's native collaboration infrastructure, fully configurable AI writing suite, and published SOC 2 / HIPAA compliance represent a more complete platform for teams that need all three today.
 
 ---
 
@@ -2752,28 +2770,111 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 
 ---
 
+### 7. Eddyter
+
+**Vendor:** Eddyter (startup, year of founding not confirmed)
+**Model:** SaaS, tiered subscription pricing; no self-hosting option
+
+#### Target Audience
+Modern React, Next.js, and Vue development teams building SaaS products who want a drop-in editor with managed infrastructure and AI included out of the box. Eddyter explicitly targets lighter-weight, speed-to-market buyers — not regulated enterprise or teams that need real-time collaboration. Their own comparison content positions CKEditor as the better choice for "regulated enterprise," while Eddyter targets "most modern SaaS apps."
+
+#### Key Features
+- Built on Meta's Lexical framework
+- AI-native: AI Chat Assistant, predictive autocomplete, tone refinement, content suggestions (included in premium tiers, not sold separately)
+- Advanced tables and slash commands
+- Clean HTML output
+- Managed file storage included in all paid plans (1 GB → 5 GB depending on tier)
+- React 18.2+ and 19.x compatibility; Next.js and Vue support; TypeScript-first APIs
+- "10-minute setup" via npm — three-step integration
+
+#### Pricing Model
+Transparent, self-serve subscription tiers — a deliberate contrast to CKEditor and TinyMCE's custom enterprise quoting:
+
+| Plan | Cost | Loads | Storage |
+|------|------|-------|---------|
+| Free | $0/mo | 100/mo | 100 MB |
+| Starter | $12/mo | 3,000/mo | 1 GB |
+| Pro | $29/mo | Unlimited | 2 GB |
+| AI Pro BYOK | $39/mo | Unlimited | 3 GB |
+| AI Pro Managed | $59/mo | Unlimited | 5 GB + 1,000 AI credits |
+
+Storage add-ons available at $5–$69/month. AI credit packs available as one-time purchases.
+
+#### Unique Positioning
+"Plug-and-play rich text editor SDK — 3x cheaper than TinyMCE, ready in 10 minutes." Eddyter's pitch is all-in-one simplicity: one subscription covers the editor, AI features, and file storage. No separate infrastructure to manage. Competes primarily on price and time-to-integration, not on feature depth or enterprise credentials.
+
+#### Marketing Approach
+SEO-heavy content marketing — extensive comparison blog posts positioning against TinyMCE, CKEditor, and Tiptap. Most content is self-authored comparison content that favors Eddyter. No significant third-party coverage or enterprise case studies found.
+
+#### Collaboration Readiness
+| Feature | Status |
+|---------|--------|
+| Real-time collaboration | **No** — not offered |
+| Async collaboration (comments) | **Not confirmed** |
+| Track changes | **Not confirmed** |
+| Revision history | **Not confirmed** |
+
+No real-time collaboration. Eddyter's own comparison content explicitly acknowledges this gap vs. CKEditor. For any team with collaborative editing requirements, Eddyter is not a viable option.
+
+#### AI Readiness
+| Feature | Status |
+|---------|--------|
+| AI Chat Assistant | **Yes** — included in AI Pro tiers |
+| Predictive autocomplete | **Yes** |
+| Tone refinement | **Yes** |
+| Content suggestions | **Yes** |
+| Custom LLM (BYOK) | **Yes** — AI Pro BYOK tier ($39/mo) |
+| Managed AI | **Yes** — AI Pro Managed tier ($59/mo, credit-based) |
+| AI Review | **Not confirmed** |
+| MCP integration | **No** |
+| RBAC for AI | **Not confirmed** |
+| On-premises AI | **No** |
+
+#### Strengths vs. CKEditor
+- Dramatically lower price point — transparent tiers starting at $12/mo vs. CKEditor's custom commercial pricing
+- Fast integration — 10-minute setup with minimal configuration
+- Managed infrastructure included — no separate file storage, CDN, or media management required
+- AI features bundled into subscription tiers, not add-on pricing
+- React 19.x and Next.js support is a strong signal for modern frontend teams
+
+#### Weaknesses vs. CKEditor
+- **No real-time collaboration** — disqualifying for any team building collaborative applications
+- No enterprise compliance credentials — SOC 2, HIPAA, GDPR coverage not documented; a blocker for regulated industries
+- No enterprise SLAs or dedicated support
+- No self-hosting option — SaaS-only creates data sovereignty concerns for regulated or security-sensitive customers
+- Built on Lexical (a third-party framework), which limits deep editor customization compared to CKEditor's native architecture
+- Young company with no established customer base, track record, or Fortune 500 references
+- Load-based pricing on lower tiers ($12/mo = 3,000 loads) creates cost uncertainty at scale
+- No confirmed equivalent to AI Review, context injection, MCP, or usage analytics
+
+#### The Battlecard Argument
+> Eddyter competes on price and setup speed, not capability depth. It is a credible option for a solo developer building a simple SaaS content field who wants something running in an afternoon. It is not a viable option for any team that needs real-time collaboration, enterprise compliance (SOC 2, HIPAA), data sovereignty, or a configurable AI writing suite. CKEditor is a platform; Eddyter is a widget. The comparison rarely survives a second conversation with an enterprise buyer.
+
+---
+
 ## Head-to-Head Comparison
 
 ### Feature Matrix
 
-| Feature | CKEditor | TinyMCE | Tiptap | Quill | ProseMirror | Froala | Lexical |
-|---------|----------|---------|--------|-------|-------------|--------|---------|
-| **Real-time collaboration** | ✅ Native | ❌ Third-party | ✅ Native (paid) | ❌ Third-party | ✅ Native (low-level) | ⚠️ Third-party | ❌ Third-party |
-| **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ |
-| **Track changes** | ✅ | ✅ | ⚠️ Partial | ⚠️ Limited | ❌ | ✅ | ❌ |
-| **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ |
-| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ✅ AI Toolkit (paid) + AI Generation (free) | ❌ | ❌ | ✅ AI Assist plugin (5.1) | ❌ |
-| **Custom LLM support** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| **MCP integration** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **SOC 2 Type 2** | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ Not confirmed | ❌ |
-| **Enterprise SLAs** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| **Import from Word** | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | ❌ |
-| **Export to PDF/Word** | ✅ | ✅ (add-on) | ✅ | ⚠️ | ❌ | ✅ | ❌ |
-| **File management (CKBox)** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Spell check** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Open source core** | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Self-hostable** | ✅ | ❌ | ✅ (paid) | ✅ | ✅ | ✅ | ✅ |
-| **20+ year track record** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Feature | CKEditor | TinyMCE | Tiptap | Quill | ProseMirror | Froala | Lexical | Eddyter |
+|---------|----------|---------|--------|-------|-------------|--------|---------|---------|
+| **Real-time collaboration** | ✅ Native | ❌ Third-party | ✅ Native (paid) | ❌ Third-party | ✅ Native (low-level) | ⚠️ Third-party | ❌ Third-party | ❌ No |
+| **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ | ❓ Not confirmed |
+| **Track changes** | ✅ | ✅ | ⚠️ Partial | ⚠️ Limited | ❌ | ✅ | ❌ | ❓ Not confirmed |
+| **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ | ❓ Not confirmed |
+| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ✅ AI Toolkit (paid) + AI Generation (free) | ❌ | ❌ | ✅ AI Assist plugin (5.1) | ❌ | ✅ Built-in (chat, autocomplete, tone) |
+| **Custom LLM support** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ (BYOK tier) |
+| **MCP integration** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **SOC 2 Type 2** | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ Not confirmed | ❌ | ❌ Not certified |
+| **HIPAA compliant** | ✅ | ❓ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Enterprise SLAs** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Import from Word** | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
+| **Export to PDF/Word** | ✅ | ✅ (add-on) | ✅ | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
+| **File management (CKBox)** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Managed storage |
+| **Spell check** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❓ Not confirmed |
+| **Open source core** | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **Self-hostable** | ✅ | ❌ | ✅ (paid) | ✅ | ✅ | ✅ | ✅ | ❌ SaaS only |
+| **20+ year track record** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ### Collaboration Readiness Score
 
@@ -2781,11 +2882,12 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 |--------|-----------|-------|---------|
 | **CKEditor** | ✅ Native, production-ready | ✅ Full (comments, track changes, history) | **Strong** |
 | TinyMCE | ❌ Third-party only | ✅ Full | **Partial** |
-| Tiptap | ✅ Native (paid tier) | ✅ (paid tier) | **Strong (with cost)** |
+| Tiptap | ✅ Native (paid tier; Hocuspocus 4 stable May 2026) | ✅ (paid tier) | **Strong (with cost)** |
 | Quill | ❌ Third-party | ⚠️ Limited, unmaintained | **Weak** |
 | ProseMirror | ✅ Native (low-level) | ❌ Not built in | **Partial** |
-| Froala | ⚠️ Third-party (Codox.io) | ⚠️ Limited | **Partial** |
+| Froala | ⚠️ Third-party (Codox.io); native collab on roadmap | ⚠️ Limited | **Partial** |
 | Lexical | ❌ Third-party | ❌ Not built in | **Weak** |
+| Eddyter | ❌ No | ❓ Not confirmed | **None** |
 
 ### AI Readiness Score
 
@@ -2796,8 +2898,9 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 | Tiptap | AI Toolkit (schema-aware agents, suggestion reviews, streaming); Server AI Toolkit (backend/batch, restricted beta); AI Generation (free tier) | ✅ (any model incl. self-hosted; no data to Tiptap) | ✅ (tools + pre-built workflows; suggestion-mode review) | **Strong** |
 | Quill | None | ❌ | ❌ | **None** |
 | ProseMirror | None | ❌ | ❌ | **None** |
-| Froala | SEO / content optimization only | ❌ | Limited | **Weak** |
+| Froala | AI Assist (5.1): chat, Quick Actions, tone, translation; LLM-agnostic | ✅ (customer-controlled backend) | ⚠️ Limited — custom tone presets, programmatic API | **Moderate** |
 | Lexical | None | ❌ | ❌ | **None** |
+| Eddyter | Chat, autocomplete, tone refinement, content suggestions | ✅ (BYOK tier) | ⚠️ Limited — no RBAC or usage analytics confirmed | **Moderate** |
 
 ---
 
@@ -2822,6 +2925,11 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 **Win condition:** Any production use case. Quill has been effectively unmaintained since 2019.
 **Risk:** Legacy deployments. Teams already running Quill may defer migration.
 **Key message:** Quill was a good choice in 2016. In 2026, it is a migration risk. CKEditor offers a documented migration path and delivers the collaboration and AI features Quill will never have.
+
+### CKEditor vs. Eddyter
+**Win condition:** Any enterprise, compliance-sensitive, or collaboration-requiring buyer — which is most of CKEditor's target market.
+**Risk:** Eddyter's transparent pricing and 10-minute setup narrative is compelling at first glance to developers who haven't defined their requirements yet. It can show up early in an evaluation.
+**Key message:** Eddyter doesn't have real-time collaboration. It doesn't have SOC 2 or HIPAA. It can't be self-hosted. It's a good widget for a simple SaaS content field. CKEditor is a production platform for teams that have enterprise requirements, need compliance documentation, or expect to ship collaborative editing. Those requirements emerge quickly — and switching editors mid-product is expensive.
 
 ### CKEditor vs. Froala
 **Win condition:** Teams that need real-time collaboration, deeper AI, or a more active developer community.
