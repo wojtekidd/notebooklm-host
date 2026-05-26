@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-05-21 07:49 UTC
-Commit: 02d0e23ec74275e673fc0a38e3c903baf056f030
+Last updated: 2026-05-26 08:44 UTC
+Commit: 3c4601ec3a12f872cfec5458ec36135d9a875787
 Files included: 10
 ================================================================
 
@@ -69,7 +69,7 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 ## Key Differentiators: Where CKEditor AI Stands Apart
 
 **1. Rich text format preservation**
-CKEditor AI is the only solution confirmed to fully understand and preserve HTML formatting during AI edits. Tiptap's AI Toolkit is schema-aware (Tiptap JSON) — an improvement over the old markdown-only AI Agent — but HTML-level preservation at the AI layer is not confirmed. TinyMCE's HTML preservation at the AI layer is not explicitly documented. CKEditor AI works natively with the same document model the editor uses — all 300+ features stay intact after every AI operation.
+CKEditor AI works natively with the same document model the editor uses — HTML in, HTML out — keeping all 300+ features intact after every AI operation. TinyMCE has also confirmed HTML-native output at the AI layer. Tiptap's AI Toolkit is schema-aware (Tiptap JSON) — an improvement over the old markdown-only AI Agent — but not HTML-native. Google, Microsoft, and most standalone AI tools still default to Markdown output.
 
 **2. MCP integration**
 As of April 2026, CKEditor is the only editor in this market with native MCP support. This enables connecting external tools, data sources, and AI agents to the editor's backend — accessible via AI Chat or programmatically. No competitor has shipped this.
@@ -672,7 +672,7 @@ https://ckeditor.com/ckeditor-5/demo/ai
 
 We take State-of-the-art LLMs and AI capabilities and integrate them with CKEditor.
 
-CKEditor AI is the only AI writing assistant that generates content in HTML format, compared to other products on the market that only work with Markdown (very limited formatting)
+CKEditor AI generates content in HTML format, not Markdown — preserving the rich text structure that most other AI writing assistants lose through Markdown's limited formatting support.
 Removes the need for end users to switch between apps/tools to boost productivity and make sure that they don’t send confidential data to unknown AI Chats.
 Key factsabout CKEditor AI
 
@@ -680,8 +680,8 @@ Key factsabout CKEditor AI
 State-of-the-art LLMs
 We focus on leading providers (OpenAI, Anthropic, Google) as well as your own LLM
 We are committed to updating support for new models
-CKEditor AI is the only AI writing assistant that generates HTML
-Even companies with powerful document-editing software like Google and Microsoft support only markdown-formatted output from their AI Chats
+CKEditor AI generates HTML natively — most other AI writing assistants still default to Markdown output
+Companies like Google and Microsoft still rely on Markdown-formatted output from their AI tools, which limits formatting fidelity in rich text contexts
 Combining AI with vast RTE capabilities is really challenging and our goal is to solve that problem for our customers
 Other tools that you may be aware of that don’t have HTML support (ChatGPT Canvas, Gemini Canvas, Google Docs with Gemini, Microsoft Copilot Pages, Type.ai, Lex.page and TipTap
 
@@ -2097,7 +2097,7 @@ Use this section to calibrate conversations. Don't lead with weaknesses, but don
 For full competitive detail, see [AI-competitive-comparison.md](../features/ckeditor%20ai/AI-competitive-comparison.md).
 
 ### Where we clearly lead
-- **HTML-native AI output** — only editor confirmed to fully preserve HTML formatting through AI edits. This is a genuine technical differentiator.
+- **HTML-native AI output** — generates and preserves full HTML formatting through every AI edit, keeping all 300+ editor features intact. Most competitors still default to Markdown output.
 - **On-premises AI with BYOLLM — production now** — TinyMCE on-prem AI is mid-2026. Froala has on-prem but no governance layer. We're shipping and production-tested.
 - **MCP integration** — no competitor has this as of April 2026.
 - **AI usage analytics** — the Insights Panel gives integrators visibility into per-operation usage and credit consumption. Competitors have no confirmed equivalent.
