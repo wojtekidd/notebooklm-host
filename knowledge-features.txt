@@ -1,9 +1,243 @@
 ================================================================
-CKEditor AI KNOWLEDGE BASE
+CKEditor FEATURES KNOWLEDGE BASE
 Last updated: 2026-05-27 09:40 UTC
 Commit: 115a5505ba96ba2f344abc529f2aa76339a6842c
-Files included: 10
+Files included: 23
 ================================================================
+
+
+================================================================
+FILE: ./features/ckbox/CKBox Product Guide.md
+================================================================
+
+# CKBox Product Guide
+
+# **Executive Summary:  Advantages of CKBox Integration**
+
+**For Developers**
+
+- **Architectural Agnosticism**: CKBox functions independently of the backend technology stack, allowing integration with any language including PHP, Node.js, Python, Laravel, or even Elixir, provided a JWT-based REST API endpoint is available.
+- **Modern Framework Synergy**: Native support for React, Vue, Angular, and Next.js ensures that CKBox integrates seamlessly into modern frontend architectures without the need for complex, manual wrappers.
+- **Security by Design**: Utilization of JSON Web Tokens (JWT) for authentication and authorization eliminates the need for managing user credentials directly within the file manager. Extended permission system guards file operations enabling multi-factor workflows.
+- **DevOps Efficiency**: The availability of both SaaS and Docker-based on-premises deployment options allows engineering teams to choose the model that best fits their security posture and maintenance capacity.
+
+**For End-Users**
+
+- **Streamlined Asset Lifecycle**: End-users benefit from hierarchical categories and folder, advanced search supported by AI semantic serach.
+- **Integrated Media Editing**: The built-in image editor allows for immediate cropping, resizing, and rotation within the content creation interface, removing the need for third-party software.
+- **Seamless Collaborative Workflows**: Support for multi-tenant workspaces ensures that individual users or departments can manage their own asset silos without visual clutter from other projects, maintaining focus and data privacy.
+- **Superior Mobile and Web Performance**: Automatic generation of responsive images and support for modern formats like WebP ensure that content creators deliver optimized visuals that load quickly on any device.
+
+**Business Value**
+
+**Infrastructure & Cost**
+
+- Cut bandwidth costs by up to 90% with automatic responsive image delivery via a global CDN — no manual optimization required
+- SaaS model eliminates infrastructure management, security patching, and manual backups — freeing IT resources for core priorities
+- Predictable, tiered pricing with storage and bandwidth included — no surprise egress fees at scale
+
+**Developer Productivity**
+
+- Integrate in under 5 minutes with any backend or modern frontend framework — no custom file uploader to build or maintain
+- Backend-agnostic design removes the need for costly, framework-specific workarounds
+- REST API and webhooks enable custom automations without rebuilding core functionality
+
+**Content Team Productivity**
+
+- Eliminates context switching — users browse, edit, and embed assets without leaving the editor
+- AI-powered semantic search and auto-generated tags reduce time spent hunting for files
+- Single source of truth for assets prevents version chaos, duplication, and brand inconsistency
+
+**Governance & Compliance**
+
+- Granular permissions and multi-tenant workspaces isolate assets by team, client, or project
+- Detailed audit logs and an insights panel give administrators full visibility into usage and storage
+- SOC 2 certified — suitable for regulated industries including finance, healthcare, and government
+- On-premises deployment available via Docker for organizations requiring full data sovereignty
+
+**SEO & Performance**
+
+- Automatic WebP and AVIF delivery improves page load speed and Core Web Vitals scores
+- AI-generated alt texts and metadata support WCAG accessibility standards and drive organic traffic
+****
+
+# **Basics: Product Identity and Core Functionalities**
+
+CKBox is a modern, high-performance Asset-Manager-As-A-Component solution designed to centralize and optimize the handling of media files within enterprise content ecosystems. As a dedicated service, it streamlines the entire lifecycle of media content - from initial ingestion and cloud storage to on-the-fly editing and high-speed delivery. While it serves as a native, premium companion to CKEditor 5, its architecture is built for versatility, allowing it to function as a standalone file management application or a compact upload widget embeddable in any web environment. The product distinguishes itself by moving beyond the limitations of traditional file explorers, offering a sophisticated interface that prioritizes user experience, searchability, and performance through modern web standards.
+
+The key functionalities of CKBox revolve around its backend-agnostic design and its focus on visual performance. It provides a full suite of asset’s operations, an integrated image editor, and advanced organizational features such as multi-tenant workspaces and private categories. One of its primary strengths is the ability to automatically serve responsive images via a globally distributed CDN, which significantly reduces bandwidth costs and improves SEO. Furthermore, CKBox offers flexible deployment models - both as a managed SaaS and a self-hosted on-premises for full data sovereignty when required while benefiting from modern features.
+****
+
+# **Customer Pain Points to Address in Sales Operations**
+
+- **Framework & Backend Compatibility**
+    - **Problem:** Developers waste significant time building custom file uploaders that must work across various frameworks like React or Vue and backend languages.
+    - **Solution:** CKBox is backend-agnostic and framework-ready, providing native components, webhooks integration and JWT-based authentication to streamline integration.
+- **Bandwidth Costs**
+    - **Problem:** Serving unoptimized, full-resolution images leads to slow mobile page loads and excessive bandwidth egress fees.
+    - **Solution:** Automated responsive image delivery and support for WebP/AVIF can save up to 90% in bandwidth costs.
+- **Version Control & Brand Consistency**
+    - **Problem:** Teams face "version chaos" and duplication of assets (especially while dragging images to editor content), leading to brand inconsistency and wasted resources.
+    - **Solution:** CKBox acts as a "Single Source of Truth," utilizing assets to ensure organizational consistency.
+- **Interface Responsiveness at Scale**
+    - **Problem:** File managers performance may degrade while working on thousands of high-resolution files.
+    - **Solution:** CKBox handles large number of files, across unlimited folders and workspaces
+- **Operational Context-Switching**
+    - **Problem:** Content creators lose productivity jumping between content-management applications and separate third-party image editors.
+    - **Solution:** Deep, native integration with CKEditor 5 allows users to browse, search, and edit images directly within the content creation workflow.
+- **IT Infrastructure Burden**
+    - **Problem:** Internal IT teams are overwhelmed by managing file infrastructure, manual backups, and security patches.
+    - **Solution:** The SaaS model offloads infrastructure maintenance, security updates, and automated backups
+- **Global Asset Delivery Latency**
+    - **Problem:** International users experience high latency when assets are served from a single centralized origin.
+    - **Solution:** CKBox SaaS provides instant integration with a global CDN, delivering files from edge locations nearest to the end-user.
+- **Granular Security & Multi-Tenancy**
+    - **Problem:** Standard cloud storage often lacks the ability to isolate assets between different departments, clients, or projects.
+    - **Solution:** Multi-tenant workspaces and configurable permissions allow administrators to separate and secure assets per user or group.
+- **Regulatory Data Sovereignty**
+    - **Problem:** Highly regulated industries require full control over their data and cannot use SaaS-only file management solutions.
+    - **Solution:** The on-premises version provides a Docker image for hosting on any cloud or internal data center.
+- **SEO & Accessibility Compliance**
+    - **Problem:** Missing alt tags and metadata harm search rankings and violate accessibility standards like WCAG.
+    - **Solution:** CKBox automatically generates and centralizes image alt texts, tags, improving site accessibility and SEO metrics.
+- **Auditability & Usage Insights**
+    - **Problem:** Administrators often lack visibility into user actions, storage growth, and system health for security audits.
+    - **Solution:** CKBox provides insights-panel + detailed audit logs and business metrics to monitor all asset actions.
+
+# FAQ
+
+| Question | Answer |
+| --- | --- |
+| **Is it a core or premium feature?** | CKBox is a premium feature of the CKEditor 5 ecosystem. Accessing CKBox requires activation of the CKBox add-on. |
+| **How is it hosted?** | CKBox offers two primary hosting methods. The SaaS version is hosted on AWS. The on-premises version allows customers to host the service themselves using Docker/K8 on their own infrastructure. |
+| **How much does it cost?** | CKBox is typically priced as an add-on. The starting price for the add-on is approximately $89 per month when billed annually, or $99 per month on a month-to-month basis. |
+| **How is it priced?** | The pricing is structured around tiers based on usage. The standard tier includes 100GB of storage and 100GB of bandwidth. Higher tiers, such as 200GB of storage and 250GB of bandwidth, are available for approximately $179 per month. |
+| **How is it licensed?** | CKBox is distributed under a commercial license and is protected by copyright law. This ensures professional support and regular security updates. |
+| **Is it an open source or closed source codebase?** | The CKBox codebase is closed source. While the CKEditor 5 core project is dual-licensed, premium features like CKBox are proprietary to ensure the inclusion of advanced, business-critical features like managed storage and professional processing. |
+
+# **Competitor Grid: Market Positioning**
+
+| **Competitor** | **Description** | **Target Audience** | **Key Strength** | **Are we creating or closing a competitive gap?** | **What’s different about our solution?** |
+| --- | --- | --- | --- | --- | --- |
+| **Bynder** | Enterprise brand management platform. | Large marketing and creative teams. | Brand portals and creative workflows . | Closing the gap on asset organization while creating a gap in developer flexibility. | Native, low-overhead integration as a component with text editors. |
+| **Acquia DAM** | Centralized DAM and PIM solution. | Large enterprises with complex governance . | Advanced metadata and lifecycle governance. | Closing the gap for structured enterprises. | Backend-agnostic and easier to deploy without heavy consulting. |
+| **Frontify** | Brand management and style guide platform . | Brand managers and design teams. | Brand consistency and style guides . | Creating a gap in specialized content creation workflows. | Focuses on the asset lifecycle *inside* the document creation process. |
+| **Uploadcare** | API-first file management and delivery. | Developers and technical teams. | Smart compression and device-aware delivery . | Creating a gap by providing a full "Assets Management" UI for non-technical users. | Native UI for browsing, searching and editing assets without building custom frontends. |
+| **Cloudinary** | AI-driven media processing and video platform. | Media-heavy teams and developers. | AI transformations and video transcoding. | Closing the gap on media automation. | Deeply integrated "frictionless" experience for editors within the CMS. |
+| **Google Drive** | Ubiquitous cloud storage and file sharing. | General users and small teams. | High accessibility and low barrier to entry. | Closing a massive gap in professional media delivery (CDN/SEO). | Automated responsive image delivery and professional image editing. |
+
+# Pricing
+
+| **Feature** | **Free** | **Essential** | **Professional** | **Custom** | **Trial (14 days)** |
+| --- | --- | --- | --- | --- | --- |
+| File Management | 🚫 | ✅ | ✅ | ✅ | ✅ |
+| Trash bin | 🚫 | ✅ | ✅ | ✅ | ✅ |
+| Categories / Folders | 🚫 | ✅ | ✅ | ✅ | ✅ |
+| Workspaces | 🚫 | 🚫 | ✅ | ✅ | ✅ |
+| Workspace templates | 🚫 | 🚫 | ✅ | ✅ | ✅ |
+| Private Categories | 🚫 | 🚫 | ✅ | ✅ | ✅ |
+| Permissions | 🚫 | 🚫 | ✅ | ✅ | ✅ |
+| Responsive images | 🚫 | ✅ | ✅ | ✅ | ✅ |
+| Image editing | 🚫 | 🚫 | ✅ | ✅ | ✅ |
+| REST API | 🚫 | 🚫 | ✅ | ✅ | ✅ |
+| Webhooks | 🚫 | 🚫 | ✅ | ✅ | ✅ |
+| SDK | 🚫 | ✅ | ✅ | ✅ | ✅ |
+| AI | 🚫 | 🚫 | ✅ | ✅ | ✅ |
+| CDN | 🚫 | ✅ | ✅ | ✅ | ✅ |
+| Storage | 🚫 | 100GB | 200GB | Custom | 200GB |
+| Bandwidth | 🚫 | 100GB | 250GB | Custom | 250GB |
+| Max image megapixels  | 🚫 | 50MP | unlimited | unlimited | unlimited |
+| Max file size | 🚫 | 5GB | 32GB | Custom | 32GB |
+| Storage overage | 🚫 | $0.5 per 1GB | $0.4 per 1GB | Custom | - |
+| Bandwidth overage | 🚫 | $0.5 per 1GB | $0.4 per 1GB | Custom | - |
+
+# CKBox vs Uploadcare
+
+| Aspect | CKBox | Uploadcare |
+| --- | --- | --- |
+| **Primary Purpose** | Standalone file and image management platform for any web application, featuring best-in-class native support for CKEditor 5. | Advanced image optimization, editing, and delivery |
+| **Core Strength** | File management, organization, and integration with CKEditor | Responsive image delivery, extensive URL API for on-the-fly image transformations, automated optimization, compression, video streaming. |
+| **Ease of Bootstrap / Integration** | High compatibility with CKEditor 5. Provides developer-friendly building blocks and offers an embeddable widget. Offers Frontend and backend SDKs and other integrations. | Compatibility with CKEditor 5. Offers Frontend and backend SDKs and other integrations. |
+| **Deployment** | SaaS + Self-Hosted | SaaS only |
+| **CDN Capabilities** | Assets are served via a secure, fast CDN. | Files are served via a secure, fast CDN. |
+| **Image Transformation** | Automatically generates `srcset` with multiple image sizes for fully responsive content in CKEditor 5. The built-in editor supports crop, rotate, flip, and resize (including specific presets for social media templates). Also performs on-the-fly format conversion/optimization. | Integrates via the "[Image Optimizer](https://ckeditor.com/docs/ckeditor5/latest/features/file-management/uploadcare.html#adding-image-editing-capabilities)" plugin for CKEditor 5. Provides a robust editing suite supporting crop, rotate, and flip, along with advanced color adjustments (brightness, exposure, gamma, contrast, saturation, vibrance, warmth) and creative filters. |
+| **Responsive Image Handling** | Provides a responsive images mechanism for CKEditor 5. Makes it easy to use responsive images served from a CDN. Supports out-of-the-box support for the most modern image formats. | Offers Image optimization features aim to deliver images with the smallest possible file size. |
+| **Storage** | SaaS allows storing assets on CKBox infra
+On-premises option  supporting storage types like S3, Azure Blob Storage, MySQL, Postgres, and local filesystem.  | Allows storing uploaded files on Uploadcare infrastructure or using own AWS S3 storage. |
+| Key infrastructure providers | AWS | AWS + Fastly |
+| **File Types Compatibility** | No limitation regarding file type. Whitelist available | No limitation regarding file type. Whitelist available |
+| **AI Features** | Automatic description, tag generation + Semantic Search | Background removal, object recognition, face-based transformations |
+| **Security** | Configurable permissions across workspaces, categories, files. Uses workspaces for data isolation and user separation. | Validation and moderation, signed uploads, signed URLs, unsafe content moderation, malware protection, and HIPAA workflows. Data separation via Uploadcare Projects |
+| **Compliance** | SOC2 | SOC2, HIPAA |
+| **Assets Management** | Offers a full asset management available in the CKBox UI. Features include customizable categories and tags, a search feature with multiple filters, productivity enhancements (recently used files), CRUD capabilities for files and folders, organization through workspaces, an administration panel, REST API access for custom automations, and detailed logs/Insights panel. | Limited file management in the UI however available via REST API. |
+| **Upload widgets** | Offers a dedicated Upload Widget designed to simplify application integration. Supports single and multi-file uploads with built-in validation, relying on a clean interface for drag-and-drop and local file selection. | Provides a widget that enhances applications with broad connectivity. Allows single or multi-file uploads from the local file system as well as external sources including camera, Dropbox, and Google Drive. |
+| **Video delivery** | Limited support, can serve videos via CDN | Offers a comprehensive video workflow via REST API including asynchronous processing jobs. Features include format conversion (MP4, WebM, OGG), resizing (scale, crop, pad), quality adjustment, trimming/cutting fragments, and automated thumbnail generation. Supports Adaptive Bitrate Streaming (HLS) for optimized playback across varying bandwidths. |
+| **CNAME** | ✅ | ✅ |
+| **Migration** | Available from CKFinder and EasyImage |  https://uploadcare.com/docs/delivery/proxy/ |
+
+================================================================
+FILE: ./features/ckbox/CKBox vs Image Optimizer positioning.md
+================================================================
+
+### CKBox
+
+Upload, manage, organize, and serve your files with a full digital asset management (DAM) experience.  
+
+### Image Optimizer by Uploadcare
+
+Advanced image upload and delivery solution to edit and serve images via a fast and powerful CDN.
+
+CKBox is the best option if:
+
+* You look for a ready-to-use application for teams with a UI that allows your end users to upload and organize files and media assets, as well as embed and distribute optimized images and files in your application  
+* You need a self-hosted solution
+
+Uploadcare is the best option if:
+
+* You look for an API-first image and file upload and delivery solution that will allow you to serve any files via a fast and powerful CDN  
+* You want to speed up 10x building your own media library and file uploader with your UI  by using ready-to-use components 
+
+**CKBox vs Image Optimizer by Uploadcare**
+
+| Feature/Aspect | CKBox | Image Optimizer by Uploadcare |
+| ----- | ----- | ----- |
+| **Primary Purpose** | Centralized file and image management for CKEditor | Advanced image optimization, editing, and delivery |
+| **Core Strength** | File management, organization, and integration with CKEditor | Responsive image delivery, non-destructive editing, compression |
+| **Editor Integration** | Deep integration with CKEditor 5; bi-directional data flow | CKEditor add-on, editor-based image manipulation |
+| **File Management** | Full DAM capabilities: organize by user, document, or workspace | Not a full file manager; focused on individual image handling |
+| **Image Optimization** | Built-in CDN with automatic responsive image optimization | Built-in CDN with automatic responsive image optimization |
+| **Editing Tools** | Browser-based editor for cropping, resizing, and rotating | Real-time image edits (resize, crop, rotate) \+ preconfigured filters with enhanced editing capabilities |
+| **Deployment Options** | SaaS and on-premises | SaaS only |
+| **Permissions & Workflows** | Granular role-based access control and user groups | No built-in access control features |
+| **Customization** | Fully brandable UI; extensive developer configuration options | Limited UI customization; focused on functionality |
+| **Integration Complexity** | Plug-and-play with CKEditor in under 5 minutes | Plug-and-play with CKEditor in under 5 minutes |
+| **Search & Discovery** | Advanced search and tagging for media reuse and deduplication | Lacks asset search or media library features |
+| **CDN & Delivery** | High-speed CDN, responsive image formats (WebP, AVIF) | High-speed CDN, responsive image formats (WebP, AVIF) |
+| **Security & Compliance** | SOC2 and GDPR compliance; suitable for regulated industries | SOC2, GDPR, HIPAA compliance, and additional unsafe content detection |
+| **Ideal Use Case** | Teams needing centralized file/image management within CKEditor | Teams needing fast, responsive image delivery with in-editor editing |
+| **End-User Experience** | Intuitive for content creators, supports pasting from multiple sources | Simple and fast image tweaking, directly in CKEditor |
+
+---
+
+**Summary**
+
+* **CKBox** is ideal for product teams requiring a **comprehensive asset management system** embedded in CKEditor. It supports scalable workflows, detailed permissions, and high-volume performance.
+
+* **Image Optimizer by Uploadcare** excels in delivering **high-performing, optimized images** within CKEditor, with a focus on real-time, non-destructive image edits and improving web performance metrics.
+
+Also related: 
+
+* [CKBox vs Uploadcare](https://docs.google.com/document/u/0/d/15Le2BXkC7V4QQdGjercjbny59RTTleOCuS6OJAjkd58/edit)  
+* [CKBox Product Page](https://docs.google.com/document/u/0/d/1RApCNX_ZGHU3fTBiRDh3jxvPZ7_S7l-Er-gr0Z2qmQI/edit)  
+* [CKEditor Image Optimizer by Uploadcare Product page](https://docs.google.com/document/u/0/d/1oC5gpFKl7xzf7ixKIdMXvcP59h7a-WYpKkBiixErB4E/edit)
+
+================================================================
+FILE: ./features/ckbox/ckbox-urls.md
+================================================================
+
+# Additional URL as resources for CKBox product knowledge
+- https://ckeditor.com/ckbox/
+- https://ckeditor.com/docs/ckbox/latest/guides/index.html 
 
 
 ================================================================
@@ -2244,872 +2478,1476 @@ Documentation
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-deployment.html
 
 ================================================================
-FILE: ./research/README.md
+FILE: ./features/collaboration/collaboration-product-guide.md
 ================================================================
 
-# Research
+# CKEditor Collaboration — Product Guide
 
-This folder contains competitive intelligence, market data, and customer insights to inform strategy and messaging.
+## Overview
 
-## Structure
+CKEditor's collaboration suite is the strongest premium differentiator in the product. It covers two modes that customers use in combination: **real-time (synchronous)** and **asynchronous** collaboration. Together they replace the need for Google Docs or Notion as an external editing layer — the entire collaborative workflow lives inside the customer's own application.
 
+Sales pitch framing: "Embed Google Docs-level collaboration directly into your product."
+
+---
+
+## Real-Time Collaboration (Synchronous)
+
+Multiple users edit the same document simultaneously. Changes appear instantly for all participants — no refresh, no merge conflicts.
+
+**How it works:**
+- Powered by CKEditor Cloud Services (managed infrastructure) or self-hosted via on-premises setup
+- Uses Operational Transformation (OT) to resolve concurrent edits
+- Works in React, Angular, Vue, and vanilla JS
+- Presence list shows who is currently in the document
+- Each user's cursor and selection is visible in a distinct colour
+
+**Key selling points:**
+- Drop-in: no need to build conflict resolution logic from scratch
+- Framework-agnostic — ready-made samples for React, Angular, Vue, Classic Editor, Document Editor
+- Works alongside all other CKEditor features (AI, Track Changes, Comments, etc.)
+- Cloud or on-premises — critical for regulated industries
+
+**Lead demo:** https://ckeditor.com/ckeditor-5/demo/collaboration/#real-time-collaboration
+Open two browser tabs simultaneously to show live co-editing.
+
+---
+
+## Asynchronous Collaboration
+
+Used when not everyone is online at the same time. Covers three sub-features that form a complete review-and-approval workflow:
+
+### Track Changes
+- Every edit (insert, delete, format change) is attributed to a named author with a timestamp
+- Reviewers accept or reject individual changes
+- Works as a governance mechanism — mandatory in legal, compliance, and contract workflows
+- Supports "track changes only" mode where some users can only suggest, not directly edit
+- **Key differentiator:** Track Changes as an audit trail is the #1 feature mentioned by document-centric customers (contracts, SOWs, compliance reports)
+
+**Demo:** https://ckeditor.com/ckeditor-5/demo/collaboration/#collaboration
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/track-changes/track-changes.html
+
+### Comments
+- Inline comments anchored to specific content ranges (not just line numbers)
+- Threaded replies on each comment
+- @mentions notify specific users
+- Comments outside the editor — annotations can appear in a sidebar panel, separate from the content, for cleaner review UIs
+- Comments survive content edits — the anchor moves with the text
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/comments/comments.html
+**Docs (sidebar pattern):** https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/comments/comments-outside-editor.html
+
+### Revision History
+- Full version timeline of a document — every save creates a named revision
+- Users can view, compare, and restore any previous version
+- Critical for audit trail requirements (legal, healthcare, regulated industries)
+- Described by customers as "critical" — it's one of the top reasons customers choose CKEditor over building their own
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/revision-history/revision-history.html
+
+---
+
+## Real-Time + Async Together
+
+The full collaboration story combines both modes:
+- Real-time editing for live sessions
+- Track Changes for review cycles (proposal → review → approval)
+- Comments for annotation and discussion
+- Revision History for audit and rollback
+
+This is the "complete audit trail story" — demo it as: live edit → leave comments → reviewer accepts/rejects via track changes → revision history shows the full record.
+
+---
+
+## Typical Customer Workflow (Document-Centric)
+
+Based on customer interviews (Gatekeeper, Ledger Run, Harbour, BIMCO, City Innovate, Big Pi Ventures):
+
+1. Document starts from a template or is imported from Word
+2. Split into sections — each section can be a separate editing area
+3. Role-based permissions: some users edit freely, others can only suggest changes
+4. Data from other modules (CRM, budget) is merged into the document via Merge Fields
+5. Document is shared with external parties (links, shared drives)
+6. Signature step closes the process
+
+**Quote from customer:** "If you're doing high volume at scale, you need collaboration in your product."
+
+---
+
+## Infrastructure
+
+- **Cloud (SaaS):** Managed by CKEditor Cloud Services — fastest to deploy, no infrastructure work
+- **On-premises:** Self-hosted collaboration server — required by regulated industries (healthcare, government, finance). Supports air-gapped environments.
+
+---
+
+## Licensing
+
+Part of the premium/commercial tier. Not available in the open-source build.
+
+---
+
+## Customer Proof
+
+- **Blooksy** — Book-writing platform. Collaboration features saved writers 120+ hours per year. Direct ROI story for collaborative authoring.
+  https://ckeditor.com/case-studies/blooksy/
+
+- **Rocketlane** — Customer onboarding platform. Built a collaborative document workspace in 9 months using CKEditor. Use with prospects anxious about build time — 9 months from concept to production.
+  https://ckeditor.com/case-studies/rocketlane/
+
+- **Spotlight** — Used CKEditor to optimise collaborative content creation workflows.
+  https://ckeditor.com/case-studies/spotlight/
+
+- **Agreemint** — Built a digital contract creation and management platform with zero custom editor development.
+  https://ckeditor.com/case-studies/agreemint/
+
+- **Placement** — Job-seeking platform with collaborative CV and career document editing.
+  https://ckeditor.com/case-studies/placement/
+
+- **Kin** — US insurance company. Regulated claims letters, state-specific templates, merge fields. 50% reduction in letter creation time, delivered in half the dev time.
+  https://ckeditor.com/case-studies/kin/
+
+---
+
+## Competitive Angle
+
+The primary comparison is Google Docs and Notion. The key differentiator: those are standalone tools — CKEditor embeds the same capability inside the customer's own product. Customers don't have to redirect users to an external service and lose context, branding, and control.
+
+Secondary comparison: building in-house. Real-time conflict resolution (OT/CRDT) is one of the hardest engineering problems in collaborative software. CKEditor provides it as a drop-in component backed by SLAs.
+
+---
+
+## Related Features Often Sold Together
+
+- **Merge Fields** — template-driven document generation with placeholders
+- **Restricted Editing** — role-based editing zones (e.g. only the signature block is editable)
+- **Export to PDF/Word** — collaborative documents often need to be exported for distribution
+- **CKEditor AI** — AI Review on collaboratively edited content before finalisation
+- **Pagination** — live page-break preview in document-centric workflows
+- **Import from Word** — bring existing contracts or templates into the editor
+
+
+================================================================
+FILE: ./features/collaboration/collaboration-urls.md
+================================================================
+
+# CKEditor Collaboration — URLs Reference
+
+## Demos
+
+- Real-Time Collaboration (lead demo — open two tabs): https://ckeditor.com/ckeditor-5/demo/collaboration/#real-time-collaboration
+- Asynchronous Collaboration (Track Changes + Comments + Revision History): https://ckeditor.com/ckeditor-5/demo/collaboration/#collaboration
+- Full collaboration demo page: https://ckeditor.com/ckeditor-5/demo/collaboration/
+
+## Docs
+
+- Real-Time Collaboration overview: https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/real-time-collaboration/real-time-collaboration.html
+- Track Changes: https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/track-changes/track-changes.html
+- Comments: https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/comments/comments.html
+- Comments Outside the Editor (sidebar pattern): https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/comments/comments-outside-editor.html
+- Revision History: https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/revision-history/revision-history.html
+
+## Code Examples
+
+- Collaborative Document Editor example: https://ckeditor.com/docs/ckeditor5/latest/examples/builds-custom/collaborative-document-editor.html
+- Document Editor build example: https://ckeditor.com/docs/ckeditor5/latest/examples/builds/document-editor.html
+
+## GitHub Samples (require setup — cloud services credentials needed)
+
+- Real-Time Collaboration with Classic Editor: https://github.com/ckeditor/ckeditor5-collaboration-samples/tree/master/real-time-collaboration-editor-classic
+- Real-Time Collaboration with Document Editor: https://github.com/ckeditor/ckeditor5-collaboration-samples/tree/master/real-time-collaboration-editor-document
+- Real-Time Collaboration for React: https://github.com/ckeditor/ckeditor5-collaboration-samples/tree/master/real-time-collaboration-for-react
+- Real-Time Collaboration for Angular: https://github.com/ckeditor/ckeditor5-collaboration-samples/tree/master/real-time-collaboration-for-angular
+- Real-Time Collaboration for Vue: https://github.com/ckeditor/ckeditor5-collaboration-samples/tree/master/real-time-collaboration-for-vue
+- Async Collaboration with Classic Editor: https://github.com/ckeditor/ckeditor5-collaboration-samples/tree/master/collaboration-editor-classic
+
+## Case Studies
+
+- Blooksy (120+ hours saved per year): https://ckeditor.com/case-studies/blooksy/
+- Rocketlane (9 months from concept to production): https://ckeditor.com/case-studies/rocketlane/
+- Spotlight: https://ckeditor.com/case-studies/spotlight/
+- Agreemint (contract platform, zero custom editor dev): https://ckeditor.com/case-studies/agreemint/
+- Placement (collaborative CV building): https://ckeditor.com/case-studies/placement/
+- Kin (regulated insurance letters, 50% faster): https://ckeditor.com/case-studies/kin/
+
+## Related Feature Docs
+
+- Restricted Editing: https://ckeditor.com/docs/ckeditor5/latest/features/restricted-editing.html
+- Merge Fields: https://ckeditor.com/docs/ckeditor5/latest/features/merge-fields.html
+- Pagination: https://ckeditor.com/docs/ckeditor5/latest/features/pagination/pagination.html
+- Footnotes: https://ckeditor.com/docs/ckeditor5/latest/features/footnotes.html
+
+
+================================================================
+FILE: ./features/core-editor/core-editor-guide.md
+================================================================
+
+# CKEditor 5 — Core Editor Product Guide
+
+## What CKEditor 5 Is
+
+CKEditor 5 is a rich text editor framework — not a single editor, but a composable system of plugins that developers configure into the exact editing experience their application needs. It ships as a JavaScript library with React, Angular, and Vue integrations, a headless mode for custom UIs, and a visual Builder tool for no-code configuration.
+
+It is available as SaaS (cloud-hosted) and on-premises (self-hosted), making it viable for any compliance profile.
+
+**One-line pitch:** The only rich text editor your application will ever need — drop it in, configure it, and never build or maintain editor infrastructure again.
+
+---
+
+## Editor Types
+
+CKEditor 5 ships five distinct UI configurations. The right one depends on where and how the editor appears in the product.
+
+### Classic Editor
+Traditional toolbar at the top, editor area below. The default choice for most applications — familiar to any Word or Google Docs user. Best for: blog editors, CMS authoring environments, document editors.
+
+### Balloon Editor
+Toolbar appears in a floating balloon above selected content — no persistent toolbar. Best for: in-page editing where UI real estate is tight, or where the editor needs to feel embedded rather than prominent.
+
+### Balloon Block Editor
+Extends the Balloon editor with a block-level toolbar on the left side (like Notion or Medium). Best for: note-taking apps, modern document-creation UIs, knowledge bases.
+
+### Inline Editor
+The editor activates in place when the user clicks on content — no visual frame. Best for: editing content directly on a page or inside a template, email editors, product tour authoring.
+
+### Document Editor (Decoupled)
+Separates the toolbar from the editing area — they can live in different parts of the DOM. Best for: word-processor-style layouts (like a page-within-a-page), contract editors, formal document platforms with paginated layout.
+
+### Multi-root Editor
+A single editor instance managing multiple independent editing areas simultaneously. Best for: structured content where different sections have different permissions or data bindings (e.g. headline, body, sidebar are separate roots). Available from Essential plan upward.
+
+### Headless Mode
+The full editing engine with no CKEditor UI at all. Developers build their own toolbar and UI on top. Best for: applications with a strong design system that cannot accommodate CKEditor's default look, or deeply embedded editors in design tools.
+
+**Demo:** https://ckeditor.com/ckeditor-5/demo/editor-types/
+
+---
+
+## Core Formatting Features (available across all plans)
+
+**Text-level formatting:**
+- Bold, italic, underline, strikethrough
+- Subscript, superscript
+- Inline code
+- Text highlight (background colour)
+- Font colour and font background colour
+- Font family and font size
+
+**Block-level formatting:**
+- Headings (H1–H6)
+- Block quote
+- Horizontal rule / divider
+- Code block with syntax highlighting
+
+**Lists:**
+- Bulleted lists
+- Numbered lists
+- Nested lists (multiple levels)
+- To-do lists (checkboxes)
+- Multi-level lists with legal-style numbering (1, 1.1, 1.1.1) — Essential+
+
+**Tables:**
+- Insert, delete, merge, and split cells
+- Resize rows and columns
+- Table and cell styling (borders, background, padding) — Essential+
+- Column resize — Essential+
+- Nested tables
+- Layout tables for email — Essential+
+
+**Images:**
+- Upload from device
+- Drag-and-drop upload
+- Alt text, captions, linking
+- Responsive images
+- Image resize — Essential+
+- Multiple image styles (inline, block, side)
+
+**Links:**
+- Insert and edit links
+- Autolink (URLs automatically become links)
+- Link decorators (open in new tab, add rel attributes)
+
+---
+
+## Content Handling
+
+**HTML support:**
+- General HTML Support (GHS) — allows any HTML element/attribute to pass through the editor without being stripped — Essential+
+- Full page HTML — edit complete HTML documents including `<head>` — Essential+
+- HTML embed — embed raw HTML blocks — Essential+
+- Source code editing — view and edit the underlying HTML — Essential+
+
+**Markdown:**
+- Markdown input/output — the editor can accept and output Markdown (free on all plans)
+- Autoformatting — type `**bold**` or `# Heading` and it converts automatically (free)
+
+**Paste handling:**
+- Paste from Word (basic) — free
+- Enhanced Paste from Word — Essential+ (full formatting retention)
+- Enhanced Paste from Excel — Essential+
+- Enhanced Paste from Google Docs — Essential+
+- Paste as plain text — free (strips all formatting)
+
+---
+
+## CKEditor Builder
+
+A visual configuration tool at https://ckeditor.com/ckeditor-5/builder/ — lets developers (or less technical users) configure the editor visually:
+- Add/remove plugins from the toolbar
+- Preview the editor live
+- Export the configuration as ready-to-use code
+- Available for all plans
+
+---
+
+## Framework Integrations
+
+Official first-party integrations:
+- **React** — `@ckeditor/ckeditor5-react`
+- **Angular** — `@ckeditor/ckeditor5-angular`
+- **Vue 3** — `@ckeditor/ckeditor5-vue`
+- **Drupal** — named integration, popular in CMS vertical
+
+All integrations support two-way data binding and reactive updates.
+
+---
+
+## Plugin Ecosystem
+
+CKEditor 5 has 100+ plugins. Developers include only what they need — no bloated bundles. The plugin system allows:
+- Custom plugins built using the CKEditor 5 framework
+- Extending existing plugins
+- Building custom toolbar items, commands, and UI elements
+- 1,000+ API methods for programmatic control
+
+The open-source GPL plugins (available for open-source projects) include: Page Break, Remove Format, Special Characters, Layout Tables, Column Resize, Image Resize, Simple Upload Adapter, Base64 Adapter, HTML Embed, Restricted Editing, Paste from Office, Word Count, Find and Replace, Bookmarks, Full Page HTML, Table and Cell Properties, List Properties, Multi-root Editor.
+
+---
+
+## Accessibility & Internationalisation
+
+- WCAG 2.1 AA compliant
+- Full keyboard navigation
+- Screen reader support
+- 38 professionally translated UI language packs (all plans)
+- Text Part Language plugin — mark individual text sections with their language for correct screen reader pronunciation
+
+---
+
+## Security & Compliance
+
+- SOC 2 Type 2 certified
+- HIPAA compliant architecture (Custom plan / on-premises)
+- GDPR-ready
+- On-premises deployment for full data sovereignty (Custom plan)
+- Read-only mode — lock the editor for viewing without editing (free)
+- Restricted Editing — define editing zones; some users can only edit designated areas (Essential+)
+
+---
+
+## Customer Proof
+
+- **Zendesk** — CKEditor powers the composer for millions of customer service agents across Zendesk's entire global product suite. Zendesk standardised on CKEditor to unify the editing experience across multiple products.
+  https://ckeditor.com/case-studies/zendesk/
+
+- **The Associated Press** — Built editorial workflow tooling on CKEditor. Speed of the editorial pipeline and CMS integration were decisive.
+
+- **Sulu** — Open-source Symfony CMS integrated CKEditor for a clean multilingual website editing UI.
+  https://ckeditor.com/case-studies/sulu/
+
+- **Kanbanize (Businessmap)** — Improved UX substantially by adding CKEditor for rich text in task cards and descriptions.
+  https://ckeditor.com/case-studies/kanbanize/
+
+---
+
+## Related Features Often Sold Alongside Core
+
+- **CKEditor AI** — AI Chat, Quick Actions, Review, Translate — sits directly inside the editor
+- **Collaboration** — real-time co-editing, Track Changes, Comments, Revision History
+- **Document Converters** — Export to PDF/Word, Import from Word
+- **CKBox** — file management and image storage
+- **Image Optimizer by Uploadcare** — CDN delivery, compression, and editing for images
+
+
+================================================================
+FILE: ./features/core-editor/core-editor-urls.md
+================================================================
+
+# CKEditor 5 Core Editor — URLs Reference
+
+## Main
+
+- CKEditor 5 homepage: https://ckeditor.com/ckeditor-5/
+- Features overview: https://ckeditor.com/ckeditor-5/features/
+- Capabilities overview: https://ckeditor.com/ckeditor-5/capabilities/
+- CKEditor Builder (visual configurator): https://ckeditor.com/ckeditor-5/builder/
+- Pricing: https://ckeditor.com/pricing
+- All demos: https://ckeditor.com/ckeditor-5/demo/
+
+## Key Demos
+
+- Feature-Rich Editor (broadest feature surface): https://ckeditor.com/ckeditor-5/demo/feature-rich/
+- Editor Types (Classic, Balloon, Balloon Block, Inline, Document): https://ckeditor.com/ckeditor-5/demo/editor-types/
+- Headless Editor: https://ckeditor.com/ckeditor-5/demo/headless/
+- Markdown Editor: https://ckeditor.com/ckeditor-5/demo/markdown/
+- Mobile-Friendly Editor: https://ckeditor.com/ckeditor-5/demo/mobile-support/
+- HTML Support: https://ckeditor.com/ckeditor-5/demo/html-support/
+
+## Docs — Getting Started
+
+- CKEditor 5 docs root: https://ckeditor.com/docs/ckeditor5/latest/
+- Quick start: https://ckeditor.com/docs/ckeditor5/latest/getting-started/
+- Architecture overview: https://ckeditor.com/docs/ckeditor5/latest/framework/guides/architecture/intro.html
+- Installing plugins: https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/installing-plugins.html
+- Toolbar configuration: https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html
+- Licensing and legal (GPL plugins list): https://ckeditor.com/docs/ckeditor5/latest/getting-started/licensing/license-and-legal.html
+- License key and activation: https://ckeditor.com/docs/ckeditor5/latest/support/licensing/license-key-and-activation.html
+
+## Docs — Core Features
+
+- Text formatting: https://ckeditor.com/docs/ckeditor5/latest/features/basic-styles.html
+- Tables: https://ckeditor.com/docs/ckeditor5/latest/features/tables/tables.html
+- Images: https://ckeditor.com/docs/ckeditor5/latest/features/images/images-overview.html
+- Lists: https://ckeditor.com/docs/ckeditor5/latest/features/lists/lists.html
+- Multi-level lists: https://ckeditor.com/docs/ckeditor5/latest/features/lists/multi-level-lists.html
+- Links: https://ckeditor.com/docs/ckeditor5/latest/features/link.html
+- Code blocks: https://ckeditor.com/docs/ckeditor5/latest/features/code-blocks.html
+- Block quote: https://ckeditor.com/docs/ckeditor5/latest/features/block-quote.html
+- Media embed: https://ckeditor.com/docs/ckeditor5/latest/features/media-embed.html
+- General HTML Support: https://ckeditor.com/docs/ckeditor5/latest/features/html/general-html-support.html
+- Markdown: https://ckeditor.com/docs/ckeditor5/latest/features/markdown.html
+- Restricted editing: https://ckeditor.com/docs/ckeditor5/latest/features/restricted-editing.html
+- Read-only mode: https://ckeditor.com/docs/ckeditor5/latest/api/module_core_editor_editor-Editor.html
+- Word count: https://ckeditor.com/docs/ckeditor5/latest/features/word-count.html
+
+## Docs — Editor Types
+
+- Classic Editor: https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/predefined-builds.html#classic-editor
+- Balloon Editor: https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/predefined-builds.html#balloon-editor
+- Balloon Block Editor: https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/predefined-builds.html#balloon-block-editor
+- Inline Editor: https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/predefined-builds.html#inline-editor
+- Document (Decoupled) Editor: https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/predefined-builds.html#document-editor
+- Multi-root Editor: https://ckeditor.com/docs/ckeditor5/latest/examples/framework/multi-root-editor.html
+
+## Docs — Examples
+
+- Full-featured editor: https://ckeditor.com/docs/ckeditor5/latest/examples/builds-custom/full-featured-editor.html
+- Document editor: https://ckeditor.com/docs/ckeditor5/latest/examples/builds/document-editor.html
+- Balloon block editor: https://ckeditor.com/docs/ckeditor5/latest/examples/builds/balloon-block-editor.html
+
+## Framework Integrations
+
+- React: https://ckeditor.com/ckeditor-5/react/
+- Angular: https://ckeditor.com/ckeditor-5/angular/
+- Vue: https://ckeditor.com/ckeditor-5/vue/
+- Drupal: https://ckeditor.com/drupal/
+
+## Case Studies
+
+- Zendesk: https://ckeditor.com/case-studies/zendesk/
+- Sulu CMS: https://ckeditor.com/case-studies/sulu/
+- Neos CMS: https://ckeditor.com/case-studies/neos/
+- Kanbanize/Businessmap: https://ckeditor.com/case-studies/kanbanize/
+- Plutio: https://ckeditor.com/case-studies/plutio/
+- Four Kitchens / Poets & Writers (Drupal): https://ckeditor.com/case-studies/four-kitchens/
+
+
+================================================================
+FILE: ./features/document-converters/document-converters-product-guide.md
+================================================================
+
+# CKEditor Document Converters — Product Guide
+
+## Overview
+
+Document Converters are a suite of server-side services that move content between CKEditor and Microsoft Office / PDF formats. They handle the hard part of format conversion — preserving styles, tables, images, lists, and layout — so developers don't have to.
+
+Three converters are available, each as an independent service:
+
+| Feature | Direction | Key use case |
+|---|---|---|
+| **Export to PDF** | Editor → PDF | Generate print-ready or shareable documents |
+| **Export to Word** | Editor → DOCX | Deliver editable Office files from web content |
+| **Import from Word** | DOCX → Editor | Bring existing Word documents into the editing workflow |
+
+---
+
+## Export to PDF
+
+Converts the editor's HTML content into a high-fidelity PDF. The conversion runs server-side — the editor sends HTML, the service returns a binary PDF.
+
+**What it preserves:**
+- Fonts, font sizes, colours
+- Tables with styling
+- Images
+- Lists (ordered, unordered, multi-level)
+- Headings and paragraph styles
+- Page breaks (works with the Pagination plugin for live preview)
+
+**Key selling points:**
+- Server-side — no browser printing quirks or inconsistent output
+- Works with CKEditor's Pagination plugin to show live page breaks in the editor before exporting
+- Available as cloud (managed) or on-premises (Docker container)
+- Used heavily in document-centric workflows: contracts, compliance reports, proposals
+
+**Lead demo:** https://ckeditor.com/export-to-pdf-word/#demo
+**Marketing page:** https://ckeditor.com/export-to-pdf-word/
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/converters/export-pdf.html
+
+---
+
+## Export to Word
+
+Converts the editor's HTML content into a DOCX file that opens natively in Microsoft Word.
+
+**What it preserves:**
+- Paragraph and character styles
+- Tables (including nested tables and cell styling)
+- Images
+- Lists
+- Headings
+- Fonts and colours
+
+**Key selling points:**
+- Customers who receive documents often still work in Word — this bridges the gap
+- Supports the full round-trip workflow: Import from Word → edit in CKEditor → Export to Word
+- Available as cloud or on-premises
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/converters/export-word.html
+**Supported HTML/CSS reference:** https://www.notion.so/740f906ae0a947ceaf4cc43484cf63b9
+
+---
+
+## Import from Word
+
+Converts a DOCX file into clean HTML that loads directly into the editor. Users upload a Word file; it becomes editable CKEditor content immediately.
+
+**What it handles:**
+- Lists, links, images, tables
+- Formatted content (bold, italic, underline, colours)
+- Multi-level lists
+- Large documents
+- Documents in multiple languages (note: Korean has known issues; .doc / Word 2003 format is not supported)
+
+**Key selling points:**
+- Critical for platforms where content starts life in Word (contracts, legal documents, academic content, compliance reports)
+- Removes the copy-paste friction and formatting loss of manual import
+- Part of the "Word parity" story — customers cite this alongside Revision History as a top reason they chose CKEditor
+
+**Lead demo:** https://ckeditor.com/import-from-word/demo/
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/converters/import-word/import-word.html
+
+**Known limitations:**
+- .doc (Word 2003) format is not supported — only .docx
+- Korean language content has known import issues
+- Large documents may occasionally have missing images or word-spacing issues
+
+---
+
+## Infrastructure & Licensing
+
+The converters run as **separate microservices** (Docker containers), independent from the CKEditor editor bundle itself.
+
+**Deployment options:**
+- **Cloud (SaaS):** Managed by CKEditor infrastructure — no setup needed, fastest to start
+- **On-premises:** Customer hosts Docker containers on their own infrastructure — required for regulated industries (healthcare, government, finance) and air-gapped environments
+
+**Licensing:**
+- License keys are document-volume based (not per-user)
+- License covers a specified number of conversions per month over a contract period
+- Each converter (PDF, Word export, Word import) can be licensed independently
+- License keys have an expiry date
+
+**How on-premises setup works:**
+1. Request a license key (specifying monthly volume × contract length for each converter)
+2. Receive: License Key, Expiry Date, Login credentials, Docker registry access
+3. Pull and run Docker containers using the provided credentials
+4. Configure the editor to point to the self-hosted service endpoint
+
+---
+
+## Typical Customer Workflows
+
+**Contract / legal document workflow:**
+Import from Word → edit with Track Changes and Comments → Export to PDF for signing or distribution
+
+**Report / compliance workflow:**
+Draft in CKEditor → Pagination plugin shows page layout → Export to PDF for submission
+
+**Template workflow:**
+Start from Word template → Import from Word → fill via Merge Fields → Export to PDF or Word
+
+**Full round-trip:**
+Import from Word → edit collaboratively → Export to Word for delivery to external parties still working in Office
+
+---
+
+## Related Features Often Sold Together
+
+- **Pagination** — live page-break preview in the editor; pairs directly with Export to PDF
+- **Paste from Office Enhanced** — for content pasted from Word/Excel (not file upload — clipboard-based)
+- **Track Changes** — add review workflow between import and export steps
+- **Merge Fields** — dynamic placeholders for template-driven document generation
+- **Revision History** — audit trail for documents that go through multiple export cycles
+- **Restricted Editing** — role-based editing zones in imported documents
+
+---
+
+## Customer Proof
+
+- **Agreemint** — Contract creation and management platform. Import from Word + Export to PDF is central to their workflow.
+  https://ckeditor.com/case-studies/agreemint/
+
+- **Kin** — US insurance company. Regulated claims letters with merge fields and export. 50% reduction in letter creation time.
+  https://ckeditor.com/case-studies/kin/
+
+- **Document-centric customers** (Gatekeeper, Ledger Run, Harbour, BIMCO): consistently cite Import from Word and Export to PDF/Word as the features they rely on most, alongside Track Changes and Revision History.
+
+---
+
+## Competitive Context
+
+**vs. TinyMCE:** TinyMCE offers equivalent converters. The key differentiator is that CKEditor's converters are deeply integrated with the full premium feature stack (Pagination, Merge Fields, Track Changes) — not bolt-on services.
+
+**vs. building in-house:** DOCX and PDF format conversion is notoriously complex — Office XML spec, font handling, image embedding. Customers who have tried to build this internally typically underestimate the maintenance cost as the spec evolves.
+
+
+================================================================
+FILE: ./features/document-converters/document-converters-urls.md
+================================================================
+
+# CKEditor Document Converters — URLs Reference
+
+## Marketing Pages
+
+- Export to PDF & Word (marketing + demo): https://ckeditor.com/export-to-pdf-word/
+- Import from Word (marketing): https://ckeditor.com/import-from-word/
+- Export to PDF/Word demo: https://ckeditor.com/export-to-pdf-word/#demo
+- Import from Word demo: https://ckeditor.com/import-from-word/demo/
+
+## Docs
+
+- Export to PDF: https://ckeditor.com/docs/ckeditor5/latest/features/converters/export-pdf.html
+- Export to Word: https://ckeditor.com/docs/ckeditor5/latest/features/converters/export-word.html
+- Import from Word: https://ckeditor.com/docs/ckeditor5/latest/features/converters/import-word/import-word.html
+- Supported HTML elements and CSS properties in Export to Word (Notion internal): https://www.notion.so/740f906ae0a947ceaf4cc43484cf63b9
+
+## Related Feature Docs
+
+- Pagination (pairs with Export to PDF): https://ckeditor.com/docs/ckeditor5/latest/features/pagination/pagination.html
+- Merge Fields (template workflows): https://ckeditor.com/docs/ckeditor5/latest/features/merge-fields.html
+- Paste from Office Enhanced (clipboard-based, separate from file converters): https://ckeditor.com/docs/ckeditor5/latest/features/pasting/paste-from-office-enhanced.html
+
+## Demos — Related
+
+- Merge Fields demo: https://ckeditor.com/ckeditor-5/demo/merge-fields/#demo
+- Source Code Editing and HTML Support: https://ckeditor.com/ckeditor-5/demo/html-support/
+- Document Editor example (word-processor layout): https://ckeditor.com/docs/ckeditor5/latest/examples/builds/document-editor.html
+
+## Case Studies
+
+- Agreemint (contract platform): https://ckeditor.com/case-studies/agreemint/
+- Kin (regulated insurance letters): https://ckeditor.com/case-studies/kin/
+
+## Internal Notion References
+
+- Document Converter (engineering repo and sub-pages): https://www.notion.so/9e36f244947b418d9b7a3d0666731dd1
+- PDF → HTML conversion research: https://www.notion.so/1c1bb9a6723280359ebac5a78e08c696
+- Document-Centric Applications use case (sales): https://www.notion.so/350bb9a672328091bb41cb4fb0e53c03
+
+
+================================================================
+FILE: ./features/feature-tiers.md
+================================================================
+
+# CKEditor 5 — Feature Tiers Reference
+
+Source of truth: https://ckeditor.com/pricing
+GPL/open-source plugins: https://ckeditor.com/docs/ckeditor5/latest/getting-started/licensing/license-and-legal.html
+
+---
+
+## Plans at a glance
+
+| | Free | Essential | Professional | Custom |
+|---|---|---|---|---|
+| Price (annual) | $0 | $144/mo | $289/mo | Contact sales |
+| Editor loads/mo | 1,000 | 5,000 | 20,000 | Custom |
+| Applications | 1 | 1 | 1 | Multiple |
+| Cloud region | US only | US or EU | US or EU | US or EU |
+| Support | Community | Professional (2 req/mo) | Professional (4 req/mo) | Enterprise (unlimited, white-glove) |
+| Watermark | Yes | No | No | No |
+
+---
+
+## Core Editing
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Block formatting (headings, quotes, dividers) | ✓ | ✓ | ✓ | ✓ |
+| Text formatting (bold, italic, underline, strikethrough, code, highlight, subscript, superscript) | ✓ | ✓ | ✓ | ✓ |
+| Lists (bulleted, numbered, nested, to-do) | ✓ | ✓ | ✓ | ✓ |
+| Multi-level Lists (legal numbering: 1, 1.1, 1.1.1) | ✗ | ✓ | ✓ | ✓ |
+| Tables (merge/split cells, insert/delete rows & columns, nesting) | ✓ | ✓ | ✓ | ✓ |
+| Table & Cell Styling | ✗ | ✓ | ✓ | ✓ |
+| Column Resize (Tables) | ✗ | ✓ | ✓ | ✓ |
+| Images (alt text, captions, linking, styles, upload, responsive) | ✓ | ✓ | ✓ | ✓ |
+| Image Resize | ✗ | ✓ | ✓ | ✓ |
+| Links & Autolinks | ✓ | ✓ | ✓ | ✓ |
+| Bookmarks | ✗ | ✓ | ✓ | ✓ |
+| Drag and Drop | ✓ | ✓ | ✓ | ✓ |
+| Remove Formatting | ✗ | ✓ | ✓ | ✓ |
+| Line Height | ✗ | ✓ | ✓ | ✓ |
+| Layout Tables (Email) | ✗ | ✓ | ✓ | ✓ |
+| Advanced HTML Editing (Full page HTML, GHS, HTML Comments, Show Blocks, Source Editing) | Partial | ✓ | ✓ | ✓ |
+| Enhanced Source Code Editing | ✗ | ✓ | ✓ | ✓ |
+| Math Equations (MathType) | ✗ | ✗ | ✗ | ✓ |
+
+---
+
+## Productivity Features
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Autoformatting (Markdown shortcuts as you type) | ✓ | ✓ | ✓ | ✓ |
+| Autosave | ✓ | ✓ | ✓ | ✓ |
+| Automatic Text Transformation | ✓ | ✓ | ✓ | ✓ |
+| Emoji | ✓ | ✓ | ✓ | ✓ |
+| Fullscreen Mode | ✓ | ✓ | ✓ | ✓ |
+| Paste as Plain Text | ✓ | ✓ | ✓ | ✓ |
+| Mentions | ✓ | ✓ | ✓ | ✓ |
+| Slash Commands | ✗ | ✓ | ✓ | ✓ |
+| Templates | ✗ | ✓ | ✓ | ✓ |
+| Format Painter | ✗ | ✓ | ✓ | ✓ |
+| Case Change (UPPERCASE, lowercase, Title Case) | ✗ | ✓ | ✓ | ✓ |
+| Find and Replace | ✗ | ✓ | ✓ | ✓ |
+| Special Characters | ✗ | ✓ | ✓ | ✓ |
+| Merge Fields (Inline, Block, Image) | ✗ | ✓ | ✓ | ✓ |
+| Enhanced Paste from Word | ✗ | ✓ | ✓ | ✓ |
+| Enhanced Paste from Excel | ✗ | ✓ | ✓ | ✓ |
+| Enhanced Paste from Google Docs | ✗ | ✓ | ✓ | ✓ |
+
+---
+
+## AI Features
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| AI Chat | ✗ | Add-on | Add-on | ✓ (included) |
+| AI Chat History | ✗ | Add-on | Add-on | ✓ (included) |
+| AI Quick Actions | ✗ | Add-on | Add-on | ✓ (included) |
+| AI Review | ✗ | Add-on | Add-on | ✓ (included) |
+| AI Translate | ✗ | Add-on | Add-on | ✓ (included) |
+| MCP Support | ✗ | ✗ | ✗ | ✓ |
+
+**AI add-on pricing (annual):** $133/mo (small, 100M credits) · $300/mo (medium, 400M credits) · $467/mo (large, 800M credits)
+
+---
+
+## Collaboration Features
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Mentions | ✓ | ✓ | ✓ | ✓ |
+| Comments (Asynchronous) | ✗ | ✗ | Add-on | ✓ (included) |
+| Track Changes | ✗ | ✗ | Add-on | ✓ (included) |
+| Revision History | ✗ | ✗ | Add-on | ✓ (included) |
+| Co-Authoring / Real-time Collaboration | ✗ | ✗ | Add-on | ✓ (included) |
+| Server-side Editor API | ✗ | ✗ | Add-on | ✓ (included) |
+
+**Collaboration add-on (Professional plan):** $249/mo annual — includes all features above.
+
+---
+
+## Content Conversion & Embedding
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Export to PDF | 5/mo | 200/mo | 1,000/mo | Unlimited |
+| Export to Word | 5/mo | 200/mo | 1,000/mo | Unlimited |
+| Export with Inline Styles | ✗ | ✓ | ✓ | ✓ |
+| Import from Word | ✗ | ✗ | 1,000/mo | Unlimited |
+| Markdown Input/Output | ✓ | ✓ | ✓ | ✓ |
+| Media Embed | ✓ | ✓ | ✓ | ✓ |
+
+---
+
+## Page Management
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Content Minimap | ✓ | ✓ | ✓ | ✓ |
+| Document Outline | ✗ | ✓ | ✓ | ✓ |
+| Footnotes | ✗ | ✓ | ✓ | ✓ |
+| Page Break | ✗ | ✓ | ✓ | ✓ |
+| Table of Contents | ✗ | ✓ | ✓ | ✓ |
+| Pagination (live page-break preview) | ✗ | ✗ | ✗ | ✓ |
+
+---
+
+## Configuration & Editor Types
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Toolbar Configuration (Classic, Balloon, Block, Multiline) | ✓ | ✓ | ✓ | ✓ |
+| Multi-root Editor | ✗ | ✓ | ✓ | ✓ |
+| Email Configuration Helper | ✗ | ✓ | ✓ | ✓ |
+| 38 Professionally Translated Language Packs | ✓ | ✓ | ✓ | ✓ |
+| Editor SDK (100+ plugins, full API) | ✓ | ✓ | ✓ | ✓ |
+
+---
+
+## Compliance & Security
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Accessibility Support | ✓ | ✓ | ✓ | ✓ |
+| Read-only Mode | ✓ | ✓ | ✓ | ✓ |
+| Restricted Editing (role-based editing zones) | ✗ | ✓ | ✓ | ✓ |
+| Word and Character Count | ✗ | ✓ | ✓ | ✓ |
+| Text Part Language | ✓ | ✓ | ✓ | ✓ |
+| Spelling and Grammar Checker | ✗ | ✗ | ✗ | ✓ |
+| On-premises (Self-hosted) | ✗ | ✗ | ✗ | ✓ |
+| Long-term Support Edition | ✗ | ✗ | ✗ | ✓ |
+| Multi-region Support | ✗ | ✗ | ✗ | ✓ |
+
+---
+
+## File Management Add-ons
+
+| Feature | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Custom Upload Adapter | ✓ | ✓ | ✓ | ✓ |
+| Simple Upload Adapter | ✗ | ✓ | ✓ | ✓ |
+| Base64 Upload Adapter | ✗ | ✓ | ✓ | ✓ |
+| CKBox (file manager) | ✗ | Add-on | Add-on | ✓ (included) |
+| Image Optimizer by Uploadcare | ✗ | Add-on | Add-on | ✓ (included) |
+
+**CKBox add-on:** $89/mo (100GB storage, 100GB bandwidth) · $179/mo annual (200GB storage, 250GB bandwidth)
+**Image Optimizer add-on:** $80/mo (100K operations, 75GB traffic, 50GB storage) · $197/mo annual (250K operations, 200GB traffic, 125GB storage)
+
+---
+
+## GPL / Open-Source
+
+These plugins are available under GPL for open-source projects (dual-licensed — also available in commercial plans):
+Page Break · Remove Format · Special Characters · Layout Tables · Column Resize · Image Resize · Simple Upload Adapter · Base64 Adapter · HTML Embed · Restricted Editing · Paste from Office · Word Count · Find and Replace · Bookmarks · Full Page HTML · Table and Cell Properties · List Properties · Multi-root Editor
+
+Full reference: https://ckeditor.com/docs/ckeditor5/latest/getting-started/licensing/license-and-legal.html
+
+---
+
+## Key sales notes
+
+- **Free plan** includes a "Powered by CKEditor" watermark and is capped at 1,000 editor loads/month. It's for evaluation, not production use at scale.
+- **Essential** is the entry point for real commercial use — it unlocks most productivity features, enhanced paste, converters, and page management.
+- **Collaboration** is only available from Professional upward (as an add-on) or included in Custom.
+- **AI** is an add-on at Essential and Professional; included in Custom.
+- **On-premises** is Custom-only — critical for healthcare, government, finance customers.
+- **Pagination** is Custom-only — important for document-centric use cases.
+
+
+================================================================
+FILE: ./features/image-optimizer/image-optimizer-product-guide.md
+================================================================
+
+# CKEditor 5 Image Optimizer by Uploadcare — Product Guide
+
+## Overview
+
+Image Optimizer is a premium CKEditor 5 feature powered by Uploadcare. It gives content authors a full image editing suite directly inside the editor — crop, filter, enhance, transform — and delivers those images through a fast global CDN with automatic format optimization (WebP, AVIF) and compression.
+
+It solves two problems at once: author experience (no leaving the editor to use Photoshop or a separate tool) and delivery performance (images are automatically optimized for each user's browser and connection).
+
+**One-line pitch:** Edit images and deliver them at peak performance — without leaving CKEditor or building image infrastructure.
+
+---
+
+## What Authors Can Do In-Editor
+
+When a user clicks an image in the editor, an "Edit" button appears in the image toolbar. Clicking it opens the Uploadcare editor inline.
+
+**Transformation tools:**
+- Rotate, mirror, and flip
+- Crop — freeform or to fixed aspect ratios
+- Resize
+
+**Colour and enhancement controls:**
+- Brightness, exposure, gamma, contrast
+- Saturation, vibrance, warmth
+- Automatic enhancement (one-click adjustment of colours and levels)
+
+**Filters:**
+- 40+ predefined photo filters (Instagram-style) with variable intensity
+
+**Non-destructive editing:**
+All edits are non-destructive — the original file is preserved. Authors can revert any changes at any time without re-uploading.
+
+**External images:**
+If an image in the editor was not uploaded via Uploadcare, it is automatically uploaded to Uploadcare when the author initiates editing — so any image can be edited and optimized, regardless of where it came from.
+
+---
+
+## CDN and Delivery
+
+Behind every edited image is Uploadcare's global CDN. Images are:
+- Delivered in the optimal modern format for the user's browser — **AVIF** or **WebP** automatically, with JPEG/PNG fallback
+- Compressed with adaptive quality settings — maximising compression without visible quality loss
+- Responsive — served at the right size for the user's device
+- Fast — served from CDN nodes geographically close to the end user
+
+This means authors never need to think about image formats, compression, or responsive breakpoints — it happens automatically.
+
+---
+
+## How It Differs from CKBox
+
+CKBox and Image Optimizer by Uploadcare both handle images inside CKEditor, but they solve different problems and can be used independently or together.
+
+| | Image Optimizer (Uploadcare) | CKBox |
+|---|---|---|
+| Primary focus | Image editing + CDN delivery performance | File management and storage |
+| Editing capabilities | 40+ filters, full colour controls, auto-enhance | Crop, rotate, mirror, flip, resize only |
+| CDN | Yes — global CDN with AVIF/WebP auto-format | No built-in CDN |
+| Storage | Yes — Uploadcare cloud storage | Yes — CKBox cloud storage |
+| File types | Images primarily | Images and all file types (PDFs, docs, etc.) |
+| Use case fit | Performance-sensitive image delivery, content-heavy platforms | Full asset management inside the editor |
+
+Full positioning comparison: see `/features/ckbox/CKBox vs Image Optimizer positioning.md`
+
+---
+
+## Compliance and Security
+
+- SOC 2 compliant
+- GDPR and CCPA compliant
+- HIPAA compliant
+- Unsafe content detection (moderation capabilities)
+
+This makes Image Optimizer viable for regulated industries — healthcare platforms can use it knowing image storage and delivery meets compliance requirements.
+
+---
+
+## Pricing and Availability
+
+- Available as an **add-on** on Essential and Professional plans
+- **Included** in the Custom plan
+- Free plan: not available
+
+**Add-on pricing:**
+- $80/month: 100K operations, 75GB traffic, 50GB storage
+- $197/month (annual): 250K operations, 200GB traffic, 125GB storage
+
+"Operations" = image transformations (each crop, filter, or format conversion counts).
+
+---
+
+## Target Use Cases
+
+**Content-heavy publishing platforms (CMS, blogs, media):**
+Authors upload many images and need consistent quality and fast delivery. Image Optimizer removes the need for a separate image editing step and guarantees web-optimised output every time.
+
+**E-commerce platforms:**
+Product images need to look good and load fast. Filters and crop tools let merchandising teams prepare images without leaving the CMS.
+
+**Marketing and brand platforms:**
+Teams creating visual content benefit from in-editor filter/enhancement tools that maintain brand consistency without requiring Photoshop access.
+
+**Healthcare / regulated industries:**
+HIPAA-compliant image storage and delivery for platforms handling sensitive visual content (medical images, patient-facing documents).
+
+---
+
+## Technical Integration
+
+The Image Optimizer requires the Uploadcare service and a valid license key. Configuration connects the CKEditor instance to Uploadcare's API. Setup is described in full in the docs.
+
+The plugin is separate from CKBox — if a customer uses both, each handles its own images independently (CKBox for file management, Uploadcare for image optimization).
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/images/images-image-optimizer.html
+
+
+================================================================
+FILE: ./features/image-optimizer/image-optimizer-urls.md
+================================================================
+
+# CKEditor 5 Image Optimizer by Uploadcare — URLs Reference
+
+## Marketing
+
+- Image Optimizer capabilities page: https://ckeditor.com/ckeditor-5/capabilities/file-management-features/image-optimizer/
+- File Management capabilities overview: https://ckeditor.com/ckeditor-5/capabilities/file-management-features/
+- CKBox demo (includes image editing context): https://ckeditor.com/ckbox/demo/#ckeditor-with-ckbox
+- Image Optimizer demo: https://ckeditor.com/ckeditor-5/demo/image-optimizer/
+
+## Docs
+
+- Image Optimizer (technical guide): https://ckeditor.com/docs/ckeditor5/latest/features/images/images-image-optimizer.html
+- Images overview: https://ckeditor.com/docs/ckeditor5/latest/features/images/images-overview.html
+
+## Pricing
+
+- Pricing page (add-on pricing): https://ckeditor.com/pricing
+
+## Internal Notion
+
+- CKBox vs Image Optimizer positioning: /features/ckbox/CKBox vs Image Optimizer positioning.md
+- Uploadcare business process: https://www.notion.so/182bb9a6723280b28b31f032ba145516
+
+
+================================================================
+FILE: ./features/paste-from-office/paste-from-office-product-guide.md
+================================================================
+
+# CKEditor Paste from Office Enhanced — Product Guide
+
+## Overview
+
+Paste from Office Enhanced is a premium plugin that significantly improves formatting retention when users paste content from Microsoft Word or Microsoft Excel into the CKEditor editor. It is a clipboard-based feature — no file upload required — and is distinct from the Document Converters.
+
+**One-line pitch:** When users copy from Word or Excel and paste into the editor, their formatting survives intact.
+
+---
+
+## The Problem It Solves
+
+CKEditor 5 includes an open-source "Paste from Word" plugin, but it loses formatting that was applied via reusable (predefined) styles in Word. This was a significant regression vs. CKEditor 4, which handled paste much better.
+
+Real customer complaints (Oracle, Deloitte, eGain, Volvo):
+- "Formatting is not intact when copied content from Word."
+- "I have a simple word document that worked fine with CKE4, and now it looks like a text paste."
+- "Our users are going to be very angry that we have moved to CKE5."
+
+Paste from Office Enhanced closes that gap — it gets CKEditor 5 back to CKEditor 4-level paste quality and beyond.
+
+---
+
+## What It Does
+
+Extends the base Paste from Word feature with support for:
+- Predefined/named styles from Word (e.g. custom heading styles, character styles)
+- More complete character formatting (bold, italic, underline, strikethrough, colour, background colour)
+- Font family and font size from the source document
+- Text alignment
+- Table formatting (cell borders, background colours, widths)
+- List formatting (list styles, indentation levels)
+- Excel content: pasted tables retain cell structure, formatting, and numeric formatting
+
+The plugin only retains formatting that corresponds to features loaded in the editor. If font colour is not in the editor build, font colour won't be retained — by design.
+
+---
+
+## Part of Productivity Pack
+
+Paste from Office Enhanced is a commercial feature included in the **Productivity Pack**. It requires a license key. It is not available in the open-source CKEditor 5 build.
+
+**30-day free trial available:** https://orders.ckeditor.com/trial/premium-features
+
+---
+
+## Difference from Document Converters
+
+| | Paste from Office Enhanced | Import from Word |
+|---|---|---|
+| Input method | Clipboard (copy/paste) | File upload (.docx) |
+| Trigger | User pastes | User uploads a file |
+| Scope | Current clipboard content | Entire document |
+| Use case | Inline content authoring | Full document migration |
+| License | Productivity Pack | Separate converter license |
+
+Use **Paste from Office Enhanced** when authors are building content in the editor and frequently copy snippets from Word/Excel documents. Use **Import from Word** when the starting point is an entire Word document that needs to become the editor's content.
+
+---
+
+## Technical Details
+
+**Package:** `@ckeditor/ckeditor5-paste-from-office-enhanced` (formerly shipped under a todo package name during development)
+
+**Required companion plugins for best results:**
+- `GeneralHtmlSupport` — allows retaining advanced formatting that CKEditor's core features would otherwise reject (inline styles, unknown attributes)
+- `FontFamily` with `supportAllValues: true` — retains all fonts from the Word document, including custom ones
+- `FontSize` with `supportAllValues: true` and a comprehensive options list — retains arbitrary font sizes
+
+**Recommended configuration:**
+```js
+htmlSupport: {
+  allow: [{ name: /^.*$/, styles: true, attributes: true, classes: true }]
+},
+fontFamily: { supportAllValues: true },
+fontSize: {
+  options: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+  supportAllValues: true
+}
 ```
-research/
-├── competitors/        # Competitor analysis and battlecards
-├── market-data/        # Industry reports, TAM/SAM analysis, trends
-└── customer-insights/  # Win/loss interviews, survey data, persona docs
-```
 
-## What Goes Where
+---
 
-| Subfolder | Content Types |
-|-----------|--------------|
-| `competitors/` | Per-competitor deep dives, feature comparisons, positioning battlecards, pricing intel |
-| `market-data/` | Third-party reports, analyst coverage, search trend data, category sizing |
-| `customer-insights/` | Buyer personas, win/loss analysis, NPS data, sales call summaries, ICP definitions |
+## Known Issues
 
-## Naming Convention
+- **Excel on Safari:** Pasting from Excel on Safari does not use the enhanced plugin (Safari does not expose Excel clipboard data in the required format). This has been an open issue in CKEditor 4 for 4+ years with minimal customer impact.
+- **Column widths from Excel:** Cell widths are not respected when pasting from Excel if the Column Resize plugin is enabled.
+- **Headings from Word:** Headings with normal font weight in Word styles will render bold due to CKEditor's default stylesheets.
+- **Bold text from Excel:** Bold text may occasionally display as normal for specific font faces.
+- **Font display in UI:** Font family and size values can display incorrectly in the CKEditor toolbar UI (cosmetic issue, content is correct).
 
-```
-competitors/  →  competitor-name-analysis-YYYY-MM.md
-market-data/  →  topic-source-YYYY.md
-customer-insights/  →  insight-type-YYYY-MM.md
-```
+---
+
+## Related Features
+
+- **Paste from Word** (open-source, included in all builds) — base clipboard paste; less formatting retention
+- **Paste plain text** — strips all formatting on paste; inherits the style of the surrounding content
+- **Import from Word** — file-upload based full document import
+- **General HTML Support** — enables advanced HTML/CSS retention beyond core editor features
+
+---
+
+## Demo
+
+Live demo: https://ckeditor.com/ckeditor-5/demo/enhanced-paste/
+
+To test it properly: open a Word or Excel document, copy some formatted content, and paste it into the demo editor. Compare with the standard Paste from Word demo to see the difference.
+
+---
+
+## Target Users
+
+Any application where users frequently copy content from Microsoft Office:
+- Enterprise content platforms where authors draft in Word and publish through a CMS
+- Legal and compliance platforms where formatting precision matters
+- Customer support platforms where agents copy from internal Word knowledge bases
+- Any B2B SaaS with a power-user base comfortable in Office
+
+
+================================================================
+FILE: ./features/paste-from-office/paste-from-office-urls.md
+================================================================
+
+# CKEditor Paste from Office Enhanced — URLs Reference
+
+## Demo
+
+- Enhanced Paste demo: https://ckeditor.com/ckeditor-5/demo/enhanced-paste/
+
+## Docs
+
+- Paste from Office Enhanced: https://ckeditor.com/docs/ckeditor5/latest/features/pasting/paste-from-office-enhanced.html
+- Paste from Word (open-source base): https://ckeditor.com/docs/ckeditor5/latest/features/pasting/paste-from-word.html
+- Paste plain text: https://ckeditor.com/docs/ckeditor5/latest/features/pasting/paste-plain-text.html
+- General HTML Support (required companion): https://ckeditor.com/docs/ckeditor5/latest/features/html/general-html-support.html
+- Font size and family: https://ckeditor.com/docs/ckeditor5/latest/features/font.html
+
+## Licensing & Trial
+
+- Premium Features 30-day free trial: https://orders.ckeditor.com/trial/premium-features
+- Productivity Pack info: https://ckeditor.com/docs/ckeditor5/latest/features/productivity-pack.html
+
+## Internal Notion References
+
+- Paste from Office Enhanced (product board entry): https://www.notion.so/cdb406ac940f462cb07d027609148ac2
+- Paste from Office Enhanced – guide (technical doc): https://www.notion.so/8511eab7b2504bdaaa82f6bbf0746483
+- Paste from office table (internal): https://www.notion.so/21ebb9a672328058a723c1718e472a59
+- Clipboard – paste from Office (engineering): https://www.notion.so/10dbb9a6723280548d03d54fc7a7c32a
+
+## GitHub
+
+- Issue tracker (original IPFO request): https://github.com/ckeditor/ckeditor5/issues/10577
+
+## Related
+
+- Import from Word (file-upload based, separate feature): https://ckeditor.com/docs/ckeditor5/latest/features/converters/import-word/import-word.html
+
+
+================================================================
+FILE: ./features/productivity-features/productivity-features-guide.md
+================================================================
+
+# CKEditor 5 — Productivity Features Guide
+
+## Overview
+
+CKEditor 5 includes a set of individual features that reduce friction for content authors and power users. These are not a bundle — each is a standalone plugin that can be included or excluded independently. Most are available from the Essential plan upward.
+
+**Lead demo:** https://ckeditor.com/ckeditor-5/demo/productivity/
+
+---
+
+## Slash Commands (Essential+)
+
+Type `/` anywhere in the editor to open a searchable command palette — insert headings, images, tables, code blocks, or any configured item without reaching for the mouse.
+
+- Works like Notion, Jira, and Slack's `/` command pattern
+- Fully configurable — developers add custom commands for app-specific actions (e.g. `/insert-template`, `/mention-user`)
+- Ideal for keyboard-driven workflows and note-taking UIs
+- Reduces the toolbar surface needed for power users
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/slash-commands.html
+
+---
+
+## Templates (Essential+)
+
+Predefined content blocks that authors can insert with one click or via Slash Commands. Templates lock the initial structure while allowing edits to the content within.
+
+- Configured by developers — any HTML structure can be a template
+- Authors pick from a menu of templates relevant to their workflow
+- Eliminates formatting inconsistency across team content
+- Works alongside Merge Fields for document generation templates (e.g. contract templates, report skeletons)
+- Heavy use case: CMS editorial teams who need consistent post structure; document platforms with SOW or compliance report formats
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/template.html
+
+---
+
+## Format Painter (Essential+)
+
+Copy the formatting from one text selection and apply it to another — identical to the format brush in Word, Google Docs, and CKEditor 4.
+
+- Single-click mode: applies once and resets
+- Double-click mode: stays active for multiple applications
+- Captures character-level formatting: bold, italic, font colour, font size, font family, highlight, etc.
+- Eliminates the frustration of manually reapplying the same style across a document
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/format-painter.html
+
+---
+
+## Case Change (Essential+)
+
+Instantly change the case of selected text: UPPERCASE, lowercase, Title Case, and Sentence case.
+
+- No copy-paste-retype cycle needed
+- Works on any selection — a word, sentence, or the entire document
+- Useful in document-centric and CMS workflows where case consistency matters (headings, legal caps, etc.)
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/case-change.html
+
+---
+
+## Find and Replace (Essential+)
+
+Full find-and-replace functionality within the editor content.
+
+- Search by text string with match-case and whole-word options
+- Replace single instances or all occurrences at once
+- Works across the full document including tables and captions
+- Useful in large documents: legal contracts, compliance reports, long-form content
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/find-and-replace.html
+
+---
+
+## Merge Fields (Essential+)
+
+Dynamic placeholders that get replaced with actual content at render time — for text, content blocks, or images.
+
+- Three types: Inline (text within a sentence), Block (replaces a paragraph), Image (placeholder for dynamic images)
+- Used in template-driven document generation: contracts (client name, dates, amounts), reports (dynamic sections), personalised emails
+- Merge fields are non-editable by default — authors can't accidentally change them
+- Work with CKEditor's export features: a document with merge fields can be exported to PDF/Word with values filled in
+
+**Demo:** https://ckeditor.com/ckeditor-5/demo/merge-fields/
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/merge-fields.html
+
+---
+
+## Multi-level Lists (Essential+)
+
+Legal-style hierarchical numbered lists: 1, 1.1, 1.1.1, 1.1.1.1 — with automatic numbering updates as items are inserted, moved, or deleted.
+
+- Critical for legal documents, contracts, technical specifications, academic content, compliance reports
+- Numbering style is configurable (numeric, alphabetic, roman numerals)
+- Integrates with Tab/Shift+Tab for indent/outdent
+- Exports correctly to PDF and Word
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/lists/multi-level-lists.html
+
+---
+
+## Autoformatting (Free)
+
+Type Markdown-style shortcuts and they convert automatically as you type — no mode switching needed.
 
 Examples:
-- `competitors/tinymce-battlecard-2026-03.md`
-- `market-data/rich-text-editor-market-2026.md`
-- `customer-insights/developer-persona-2026.md`
+- `**text**` → **bold**
+- `_text_` → *italic*
+- `# ` at line start → Heading 1
+- `## ` → Heading 2
+- `- ` → bullet list
+- `1. ` → numbered list
+- `> ` → block quote
+- ` ``` ` → code block
 
-## Notes
+Available in all plans including Free. Widely used in developer tools, knowledge bases, and note-taking applications.
 
-- Competitor files should be reviewed and updated at least quarterly
-- Cross-reference findings with active campaign messaging in `campaigns/`
-- Customer insights should inform the ICP and persona sections in `brand/`
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/autoformat.html
+
+---
+
+## Mentions (Free)
+
+Type `@` to trigger a dropdown of users, pages, tags, or any configured entity — inserts a non-editable mention token linked to the referenced item.
+
+- Developer-configured: any data source can back the mention list (users from an API, pages from a CMS, tags from a database)
+- Mention tokens carry metadata (IDs, links) — useful for notifications, cross-references, and structured data
+- Free in all plans
+- Use cases: comment notifications, linking to other documents, tagging users in shared content, @-referencing products or assets in a CMS
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html
+
+---
+
+## Table of Contents (Essential+)
+
+Auto-generates a navigable table of contents from the document's headings — updates live as the document changes.
+
+- Inserted as a block in the document
+- Clicking an entry scrolls to that section
+- Heading levels are configurable
+- Integrates with Export to Word — TOC is preserved as a proper Word TOC widget in the exported file
+- Use cases: long-form documents (knowledge base articles, reports, contracts, specs)
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/table-of-contents.html
+
+---
+
+## Document Outline (Essential+)
+
+A sidebar panel showing the document's heading structure — like the Navigation Pane in Word.
+
+- Always visible as a panel alongside the editor
+- Click any heading to jump to that section
+- Does not insert content into the document (unlike Table of Contents)
+- Best for: long documents where authors need to navigate while writing
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/document-outline.html
+
+---
+
+## Content Minimap (Free)
+
+A scaled-down overview of the entire document in a sidebar — shows the user where they are in the document and allows jumping to any section by clicking.
+
+- Visual equivalent of the Minimap in VS Code
+- Available in all plans including Free
+- Best for: very long documents, contracts, reports
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/minimap.html
+
+---
+
+## Footnotes (Essential+)
+
+Insert footnotes anchored to specific text — automatically numbered and collected at the bottom of the document.
+
+- Numbering updates automatically as footnotes are added or removed
+- Critical for legal, academic, and formal document use cases
+- Exported correctly to PDF and Word
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/footnotes.html
+
+---
+
+## Special Characters (Essential+)
+
+Insert special characters, symbols, mathematical operators, currency signs, and Unicode characters via a searchable panel.
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html
+
+---
+
+## Emoji (Free)
+
+Insert emoji via a picker panel or by typing `:emoji-name:` syntax.
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/emoji.html
+
+---
+
+## Autosave (Free)
+
+Fires a developer-defined callback whenever the editor content changes — enabling real-time auto-save to a backend without user interaction.
+
+- Debounced to avoid hammering the server on every keystroke
+- Provides a pending/saving/saved state for UI feedback
+- Available in all plans
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/autosave.html
+
+---
+
+## Word and Character Count (Essential+)
+
+Live word and character count displayed below the editor or anywhere in the UI.
+
+- Developer can access the count programmatically
+- Useful for CMS character limits, social media copy tools, editorial guidelines
+
+**Docs:** https://ckeditor.com/docs/ckeditor5/latest/features/word-count.html
+
+---
+
+## Target Users by Feature
+
+| Feature | Best for |
+|---|---|
+| Slash Commands | Note-taking apps, developer tools, any keyboard-first UX |
+| Templates | CMS editorial teams, document platforms, compliance workflows |
+| Format Painter | Any multi-author content platform |
+| Case Change | Legal, CMS, document-centric workflows |
+| Find and Replace | Long-form documents, contracts, knowledge bases |
+| Merge Fields | Contract/proposal generation, personalised document workflows |
+| Multi-level Lists | Legal, compliance, technical documentation, academic |
+| Table of Contents | Long-form docs, knowledge bases, formal reports |
+| Document Outline | Authoring-heavy workflows with long documents |
+| Content Minimap | Very long documents, contracts |
+| Footnotes | Legal, academic, formal documents |
+| Mentions | Team collaboration tools, CMS, knowledge bases |
+| Autoformatting | Developer tools, note-taking apps, Markdown-native audiences |
 
 
 ================================================================
-FILE: ./research/competitive-analysis.md
+FILE: ./features/productivity-features/productivity-features-urls.md
 ================================================================
 
-# CKEditor Competitive Analysis
-
-**Last updated:** May 2026 (TinyMCE 8.5.x security and localization updates; Tiptap Hocuspocus 4 stable release; Froala V5.2 with Filerobot integration and CSP compliance; Eddyter added as new competitor)
-**Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical, Eddyter
-
----
-
-## How to Use This Document
-
-This analysis is written from CKEditor's perspective. It is designed to:
-- Inform positioning and messaging decisions
-- Equip sales and customer success with battlecard-level context
-- Identify where CKEditor wins, where it faces real competition, and where gaps exist
-
-For sales battlecards, see `research/competitors/`. For persona-level messaging, see `brand/personas/`.
-
----
-
-## Market Snapshot
-
-The rich text editor market is consolidating around three buying patterns:
-
-1. **Build-it-yourself** — teams pick a low-level toolkit (ProseMirror, Lexical, Slate) and assemble their own editor. High control, high cost.
-2. **Open-source-and-extend** — teams start with Quill or Tiptap's OSS core and extend with plugins or third-party services. Medium control, medium cost, variable long-term risk.
-3. **Commercial platform** — teams license a complete, supported editor (CKEditor, TinyMCE, Froala). Lower integration effort, predictable vendor relationship, enterprise compliance coverage.
-
-CKEditor competes across all three patterns. For pattern 1 and 2 buyers who are growing beyond DIY, CKEditor is the graduation path. For pattern 3 buyers, the primary competitor is TinyMCE.
-
-**Key market trends (2025–2026):**
-- Collaboration features (real-time and async) are no longer a differentiator — they're a baseline expectation
-- AI writing assistance is rapidly becoming a buying criterion, especially in enterprise
-- CMS as a use case is declining (from ~44% to ~31% of deployments); growth is in DMS, SaaS productivity tools, and AI-powered content workflows
-- Compliance and security are the top buying criteria for enterprise deals — ahead of features
-- No competitor has native MCP (Model Context Protocol) integration as of March 2026
-
----
-
-## CKEditor Positioning Summary
-
-Before analyzing competitors, here is CKEditor's position in the market:
-
-| Dimension | CKEditor |
-|-----------|----------|
-| **Licensing** | Commercial (OSS core available) |
-| **Target audience** | Developers building content-critical applications; enterprise buyers |
-| **Collaboration** | Native real-time + async — the only editor with both built in |
-| **AI** | CKEditor AI: deeply integrated, custom LLM support, full UI control |
-| **Enterprise** | SOC 2 Type 2, HIPAA compliant, enterprise SLAs, 70+ engineers, 1,100+ customers, 20+ years |
-| **Unique claim** | The only AI-powered rich text editor your application will ever need |
-
----
-
-## Competitor Profiles
-
----
-
-### 1. TinyMCE
-
-**Vendor:** Tiny Technologies (formerly Ephox)
-**Model:** Proprietary SaaS, usage-based pricing
-
-#### Target Audience
-The broadest audience of any competitor. TinyMCE has 1.5 million+ developers using the free tier, with a paying customer base concentrated in small-to-medium companies. Primary use cases: CMS (31%), Document Management Systems (13%), LMS, CRM, and internal tools. 74% of paying customers by revenue are companies under $50M. This is a developer-first product with an enterprise tier layered on top.
-
-#### Key Features
-- 100+ features covering the full range of rich text editing needs
-- PowerPaste — high-accuracy pasting from Word, Google Docs, and Excel
-- TinyMCE AI — full AI platform: Chat (history, file/URL context, web search, reasoning), Review (5 built-in types + custom via API), Quick Actions (built-in + customizable); supports OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini; JWT-based RBAC
-- Suggested Edits (track changes) — added in TinyMCE 8
-- Comments with threaded replies and Mentions
-- Revision History
-- PDF and Word export
-- Spell Checker Pro (13+ languages)
-
-#### Pricing Model
-Usage-based, charged per "editor load" — the number of times a user loads the editor in a session. Additional features (PDF export, Word import/export) are priced as add-ons. Enterprise pricing available on request. The model creates unpredictable costs at scale, which is a friction point for high-traffic applications.
-
-TinyMCE AI is a **separate credit-based add-on** — not bundled into any editor plan. Pricing is on top of the base editor subscription:
-
-| AI Tier | Monthly | Annual | Credits/mo | Overage |
-|---------|---------|--------|------------|---------|
-| Starter | $160/mo | $133/mo | 100M | $7.50/5M |
-| Growth | $360/mo | $300/mo | 400M | $6.00/5M |
-| Scale | $560/mo | $467/mo | 800M | $5.00/5M |
-
-Enterprise pricing on request. Output tokens cost significantly more than input tokens. A team paying for a mid-tier TinyMCE editor plan plus AI Starter is looking at $300–$500+/month before any overage.
-
-#### Unique Positioning
-Market leader by adoption. TinyMCE leans on breadth of use ("350 million downloads") and a long track record. Its 2025 positioning has shifted toward AI-driven editing and expansion beyond CMS into DMS and productivity tools — a response to a market trend it was slow to lead.
-
-#### Marketing Approach
-Developer surveys and industry reports (they publish an annual "State of Rich Text Editors" survey), use-case-focused content, enterprise case studies, and competitive comparison content. Their marketing volume is high — they have the resources to be everywhere in developer content channels.
-
-#### Collaboration Readiness
-| Feature | Status |
-|---------|--------|
-| Real-time collaboration | **No** — not native; requires third-party infrastructure (Yjs/Liveblocks) |
-| Async collaboration (comments) | **Yes** — threaded comments, mentions |
-| Track changes | **Yes** — "Suggested Edits" (added TinyMCE 8) |
-| Revision history | **Yes** |
-
-Real-time collaboration is TinyMCE's most significant structural gap. It is not native and requires customers to build or integrate their own infrastructure. This is the clearest head-to-head differentiator CKEditor holds.
-
-#### AI Readiness
-| Feature | Status |
-|---------|--------|
-| AI Chat (with history) | **Yes** — full conversational AI with persistent history, file/URL context injection; web search and reasoning mode claimed in marketing, not confirmed in current documentation |
-| AI Review | **Yes** — 5 built-in types (Proofread/Correctness, Clarity, Readability, Length, Tone & Style) + custom reviews definable via API |
-| AI Quick Actions | **Yes** — built-in set + fully customizable via `tinymceai_quickactions_custom` config |
-| LLM support | **Yes** — OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini; model selectable at config or user level (Auto mode claimed in marketing, not confirmed in docs) |
-| Bring your own LLM | **Partial** — managed API only today; on-premises AI with custom model support in early access (mid-2026 roadmap) |
-| Custom prompts / UI | **Yes for prompts** — custom Quick Actions and Reviews via config/API; **Limited for UI** — Tiny's own UI framework, limited structural override |
-| RBAC for AI | **Yes** — JWT-based hierarchical permissions: per-user, per-model, per-provider, per-feature granularity |
-| AI Profiles | **No** — not available in either editor |
-| MCP integration | **No** |
-| On-premises AI | **Early access** — mid-2026 roadmap; editor is self-hostable today but AI is cloud-only |
-| AI usage monitoring | **Not confirmed** |
-
-⚠️ **Updated April 2026:** TinyMCE AI has expanded significantly. The previous characterization of "pre-built commands, limited customization" no longer reflects the product. TinyMCE now has full AI Chat with context injection and history, a robust Review system, customizable Quick Actions, JWT-based RBAC, and multi-LLM support including Anthropic models. The remaining gaps vs. CKEditor are: no MCP, no on-prem AI today (mid-2026 roadmap), unconfirmed HTML preservation at the AI layer, and no usage analytics.
-
-⚠️ **Updated May 2026:** TinyMCE 8.5.0 (April 29) added a `content_language` option and improved inline diff styling in Suggested Edits and AI plugins. TinyMCE 8.5.1 (May 20) patched three stored XSS vulnerabilities. No change to on-premises AI status — still early access with a mid-2026 target.
-
-#### Strengths vs. CKEditor
-- Largest installed base and developer community — more Stack Overflow answers, more tutorials
-- Strong async collaboration features (comments, track changes, revision history)
-- PowerPaste is genuinely strong and well-regarded
-- Large marketing budget and content presence
-
-#### Weaknesses vs. CKEditor
-- **No native real-time collaboration** — this is a major product gap for any team building collaborative applications
-- Usage-based pricing creates cost unpredictability at scale
-- AI features are an integration layer, not deeply woven into the editing experience
-- Narrower API control for developers who need custom behavior
-- CKEditor's enterprise credentials (SOC 2 Type 2, HIPAA compliant) are more clearly documented
-
-#### The Battlecard Argument
-> TinyMCE is the default choice because it's familiar, not because it's the best choice for what you're building. If real-time collaboration is on your roadmap — and it will be — TinyMCE requires you to build that infrastructure yourself. CKEditor includes it, backed by a team that has been building collaborative editing for over a decade.
-
----
-
-### 2. Tiptap
-
-**Vendor:** Tiptap GmbH (Germany)
-**Model:** Hybrid — open-source core (MIT), commercial platform for collaboration and AI features
-
-#### Target Audience
-Developers building modern, custom editor experiences — particularly in SaaS products, knowledge management tools, and AI-native applications. Tiptap has strong traction with teams building Notion-like editors and with technical buyers who want a headless, composable foundation. Company size skews toward growth-stage SaaS (50–500 employees), though enterprise-tier options exist.
-
-#### Key Features
-- Headless architecture — zero opinionated UI, maximum customization
-- 100+ community and official extensions
-- Tiptap 3.0 stable (released July 2025 after 24 months in beta)
-- Content AI: AI Toolkit (agents read, insert, and patch documents with schema awareness, suggestion-based reviews, multi-doc support); Server AI Toolkit (background processing, batch operations, no browser required — restricted beta); legacy AI Suggestion/AI Agent/AI Assistant deprecated and replaced
-- AI Generation — tab-triggered autocompletion, text/image generation (included in free tier)
-- UI Components library — pre-built interface elements to accelerate editor UI development
-- Tiptap Pages — page-based layouts with headers/footers (alpha, launched September 2025)
-- Real-time collaboration via Yjs (native to the platform tier)
-- Inline and document-level comments
-- Native suggestion mode (tracked changes-style human and AI inline suggestions)
-- Revision history and document versioning
-- Import/Export: DOCX, ODT, bidirectional Markdown; PDF export
-- Offline editing with sync on reconnect
-- Tiptap Flex — AI-native writing UI being productized as an embeddable platform capability (2026 roadmap)
-
-#### Pricing Model
-Restructured in June 2025. Now four tiers:
-- **Start** — free; up to 500 cloud documents, 2 environments, 2 developer licenses, inline AI extension included, simple DOCX import/export, community support
-- **Team** — price not publicly listed; up to 5,000 cloud documents, Pages, webhooks, API access, email support
-- **Business** — price not publicly listed; up to 50,000 cloud documents, limited Slack support, beta access
-- **Enterprise** — custom pricing; unlimited scale, cloud or on-premises, custom auth/storage/AI model integration, SOC 2 Type II, SLA-backed uptime
-
-The open-source core is free and self-hostable; collaboration, comments, AI Toolkit, history, and Pages require the platform subscription. The free Start tier now includes basic AI (inline generation), which lowers the barrier to initial evaluation. Collaboration and advanced AI remain paid-tier only. Specific monthly prices for Team and Business are no longer listed publicly.
-
-#### Unique Positioning
-The "developer's editor" — unopinionated, extensible, built for teams that want to own the experience completely. Tiptap's 2026 strategic mission is to become "the document layer around the database" — documents as first-class queryable objects with versioning, permissions, and server-side validation, without mountains of glue code. Tiptap competes on developer experience and AI integration depth, not on out-of-the-box features or compliance credentials.
-
-#### Marketing Approach
-Developer-first: high-quality documentation, active GitHub presence (open-source core), blog with detailed release notes. Comparison content positions Tiptap against TinyMCE and Lexical. Community engagement is strong; Tiptap benefits from the goodwill of its open-source contribution.
-
-#### Collaboration Readiness
-| Feature | Status |
-|---------|--------|
-| Real-time collaboration | **Yes** — native via Yjs, live cursors, offline sync |
-| Async collaboration (comments) | **Yes** — inline and document-level comments (platform tier) |
-| Track changes | **Partial** — revision history available; track changes less prominent |
-| Revision history | **Yes** |
-
-Tiptap's collaboration story is strong and is one of the reasons it is gaining ground on TinyMCE. However, collaboration features are platform-tier only — not available on the free OSS core. This creates an upsell friction point that CKEditor avoids.
-
-#### AI Readiness
-| Feature | Status |
-|---------|--------|
-| Native AI writing assistance | **Yes** — AI Generation (tab autocompletion, text/image generation, custom commands); included in free tier |
-| AI Toolkit (agents) | **Yes** — launched November 2025; agents read, insert, and patch documents with schema awareness, suggestion-based reviews, real-time streaming, multi-doc support; integrates with Vercel AI SDK, LangChain.js, OpenAI, Anthropic, Mastra |
-| Server AI Toolkit | **Yes (restricted beta)** — backend document editing without browser; background processing, batch operations, document automation |
-| Suggestion mode for AI edits | **Yes** — Google Docs-style accept/reject workflow for AI-generated changes; full audit trail |
-| Custom LLM support | **Yes** — any text-generating model including open-source and self-hosted; no data sent to Tiptap |
-| Custom prompts / UI | **Yes** — AI Toolkit provides tools and pre-built workflows (proofreading, content insertion, comment management) |
-| Legacy AI extensions | **Deprecated** — AI Suggestion, AI Changes, and AI Assistant are being phased out in 2026; maintenance only, no new features |
-| MCP integration | **No** |
-
-⚠️ **Updated April 2026:** Tiptap's AI story has accelerated significantly. The AI Toolkit launched in November 2025 (no longer beta) and is more capable than the previous AI Agent — it supports multi-document operations, schema-aware editing, streaming, and full suggestion-mode review workflows. The Server AI Toolkit adds background/batch processing without a browser. Legacy AI extensions (AI Suggestion, AI Changes, AI Assistant) are being deprecated and replaced. This is the area where Tiptap is most aggressively closing the gap on CKEditor.
-
-⚠️ **Updated May 2026:** Hocuspocus 4 reached stable release on May 8, 2026. Hocuspocus is Tiptap's open-source collaboration backend (WebSocket server, conflict resolution, document persistence). Moving it from beta to stable is meaningful — it removes the "production-readiness" objection for teams evaluating Tiptap's real-time collaboration stack. No new AI features or MCP integration announced.
-
-#### Strengths vs. CKEditor
-- Headless architecture gives maximum frontend flexibility — strong appeal to React developers
-- AI Toolkit is genuinely differentiated: schema-aware agents, suggestion-mode reviews, Server AI Toolkit for backend automation
-- SOC 2 Type II certified (Enterprise tier), strong enterprise security story
-- Tiptap 3.0 stable (July 2025) signals platform maturity after years in beta
-- Developer experience is excellent; DX is a conscious priority
-- Free Start tier now includes inline AI — lower barrier to evaluation than before
-- Open-source core lowers the barrier to evaluation; additional Pro extensions open-sourced June 2025
-- Native suggestion mode allows both humans and AI to propose tracked changes with justification
-
-#### Weaknesses vs. CKEditor
-- Collaboration and advanced AI features require the paid platform — the free version is incomplete for production use
-- Team and Business pricing is no longer publicly listed, making evaluation harder; pricing can become expensive at scale for large document libraries
-- Younger company (less track record) and smaller customer base than CKEditor
-- Enterprise compliance story (beyond SOC 2) is less comprehensive than CKEditor's
-- Less proven at Fortune 500 scale; CKEditor's 20+ year track record is a harder asset to match
-- No equivalent to CKBox (file management and image serving)
-- Tiptap Pages (page-based layout) still in alpha — not production-ready for document-heavy workflows
-
-#### The Battlecard Argument
-> Tiptap is the best editor for teams that want to build everything themselves and have the engineering resources to do it. If your team is evaluating Tiptap, they are likely evaluating whether to assemble a collaboration + AI stack from parts. CKEditor delivers the same customizability with the full collaboration and AI stack already integrated, a 20-year track record, and an enterprise support structure Tiptap can't yet match.
-
----
-
-### 3. Quill
-
-**Vendor:** Community-maintained open source
-**Model:** 100% open source, BSD licensed, free
-
-#### Target Audience
-Developers who need a lightweight, modular rich text editor for relatively simple use cases — content platforms, forums, blogs, and user-generated content interfaces. Historically popular for its clean API and Delta document model. Currently declining as a serious option for new production systems.
-
-#### Key Features
-- Delta-based document model (predictable, easy to reason about)
-- Modular API with format/module extension points
-- Track changes and comments (advanced features)
-- Revision history
-- PDF and Word export
-- Markdown input/output
-- Paste from Word and Google Docs
-
-#### Pricing Model
-Free. No commercial tier. No vendor.
-
-#### Unique Positioning
-Once positioned as the modern, lightweight alternative to TinyMCE. That positioning has aged: Quill's last meaningful release was September 2019. The project is largely in maintenance mode. Its primary value proposition now is zero cost and zero lock-in — which matters only if you're prepared to accept the maintenance burden.
-
-#### Collaboration Readiness
-| Feature | Status |
-|---------|--------|
-| Real-time collaboration | **No** — not native; requires third-party infrastructure |
-| Async collaboration (comments) | **Partial** — available but not actively developed |
-| Track changes | **Partial** — present but limited |
-| Revision history | **Partial** |
-
-Quill's collaboration story is incomplete and largely unmaintained. Any team building collaborative features on Quill is building on top of a foundation that has not been updated in years.
-
-#### AI Readiness
-| Feature | Status |
-|---------|--------|
-| Native AI writing assistance | **No** |
-| MCP integration | **No** |
-
-No AI features. No roadmap for AI features. Quill is not a viable foundation for AI-assisted writing.
-
-#### Strengths vs. CKEditor
-- Zero cost — appeals to teams with no editor budget
-- Delta document model is genuinely elegant and developer-friendly
-- No vendor dependency or licensing concerns
-
-#### Weaknesses vs. CKEditor
-- **Effectively unmaintained** since 2019 — this is disqualifying for most production use cases
-- No real-time collaboration
-- No AI features and no credible roadmap for them
-- No commercial support, SLAs, or security patching
-- Teams that choose Quill will likely need to migrate within 2–3 years as requirements grow
-
-#### The Battlecard Argument
-> Quill is a historical choice, not a current one. Teams still running Quill are managing a migration risk, not an asset. CKEditor is the natural migration destination: the Delta → CKEditor data model transition is well-documented, and you gain collaboration, AI, and enterprise support without rebuilding the editing experience.
-
----
-
-### 4. ProseMirror
-
-**Vendor:** Community-maintained open source (created by Marijn Haverbeke)
-**Model:** 100% open source, MIT licensed, free
-
-#### Target Audience
-Senior engineers and teams building highly sophisticated, deeply customized editors who are willing to invest significant development time for complete control. ProseMirror is less a product and more a low-level toolkit. It is the foundation on which Tiptap and several other editors are built. It is not a realistic option for teams that need to ship quickly or that lack dedicated editor engineering expertise.
-
-#### Key Features
-- Collaborative editing at the core — designed with conflict-free real-time collaboration built in from the ground up
-- Extensible schema system — define your own document structures
-- Plugin system for all non-core functionality
-- Operational transformation-based conflict resolution
-- Inspectable editor state (document is a plain JSON object)
-- Highly stable, extremely well-maintained by its creator
-
-#### Pricing Model
-Free. MIT licensed. No commercial version.
-
-#### Unique Positioning
-The technically correct choice for teams that need total control and have the engineering resources to build on top of it. ProseMirror's reputation is built on correctness, stability, and depth — not ease of use. It does not compete for the same buyer as CKEditor or TinyMCE.
-
-#### Collaboration Readiness
-| Feature | Status |
-|---------|--------|
-| Real-time collaboration | **Yes** — built into the core architecture; conflict resolution is native |
-| Async collaboration (comments) | **No** — not built in; requires custom implementation |
-| Track changes | **No** — not built in |
-| Revision history | **No** — not built in |
-
-ProseMirror's real-time collaboration architecture is technically superior to most competitors — it was designed for it from day one. However, async features (comments, track changes, history) are entirely absent from the library and require full custom development. This makes it a strong foundation but not a complete solution.
-
-#### AI Readiness
-| Feature | Status |
-|---------|--------|
-| Native AI writing assistance | **No** |
-| MCP integration | **No** |
-
-No AI features. ProseMirror's philosophy is to provide the minimum necessary toolkit; AI integration would be built by the consumer.
-
-#### Strengths vs. CKEditor
-- Complete architectural freedom — no constraints imposed by the library
-- Technically rigorous real-time collaboration built in at the core
-- MIT licensed with no commercial restrictions
-- Exceptional stability and long-term maintenance by a respected author
-
-#### Weaknesses vs. CKEditor
-- **Extremely high integration cost** — weeks to months of senior engineering time to build a production-ready editor
-- No async collaboration features (comments, track changes, history) — all custom development
-- No AI capabilities
-- No commercial support, SLAs, or enterprise compliance
-- Documentation assumes expert-level knowledge; steep onboarding curve
-- Most teams using ProseMirror eventually rebuild what CKEditor ships with
-
-#### The Battlecard Argument
-> ProseMirror is the right choice if you want to build a rich text editor. CKEditor is the right choice if you want to ship one. Teams that start on ProseMirror directly often spend 6–12 months building features that CKEditor ships with out of the box — collaboration, AI assistance, paste from Word, spell check, file management. ProseMirror is a legitimate foundation; CKEditor is a production-ready platform built on that same foundation.
-
----
-
-### 5. Froala
-
-**Vendor:** Froala (commercial, proprietary)
-**Model:** Perpetual license + annual subscription, tiered by use case
-
-#### Target Audience
-Enterprise organizations prioritizing a polished, lightweight out-of-the-box experience. Froala has a strong Fortune 100 customer list (Samsung, Apple, IBM, Amazon, eBay, Intel) and markets primarily to enterprise design, media, and technology teams. It is not targeting developer-builders in the way Tiptap or ProseMirror do; it targets enterprise buyers who want a finished editor.
-
-#### Key Features
-- 100+ features with emphasis on performance (40ms load time claim)
-- Real-time collaboration via Codox.io integration (native real-time collab announced as "coming soon" on V5.x roadmap)
-- Track changes built-in
-- AI Assist plugin (5.1): in-editor chat popup, inline commands, tone adjustment, translation; LLM-agnostic (routes to customer-controlled backend)
-- Filerobot image editor integration (V5.2, May 2026): in-editor advanced image editing (annotations, filters, resize, rotate, watermarks, crop)
-- Full CSP compliance (V5.2, May 2026): no `unsafe-inline` style-src directives required
-- Markdown support
-- Smart paste from Word and Excel
-- Autosave
-- GDPR-compliant, XSS protection built in
-- Unminified source code available at the top tier
-
-#### Pricing Model
-License-based, not usage-based. Three tiers: Basic ($899/year, single product, max 3 domains), Pro (multiple application types), Architect (top tier with unminified source access). All licenses include 12 months of updates and support. Perpetual licensing is available — a meaningful differentiator for enterprise buyers who cannot accept ongoing SaaS fees or cloud dependencies. Not permitted for use in open-source projects.
-
-#### Unique Positioning
-"Enterprise-grade HTML editor" — positioned on performance, security, and Fortune 100 brand credibility. Froala's marketing leans heavily on its customer list. The license model (perpetual, no per-load pricing) is a deliberate contrast to TinyMCE's usage-based approach.
-
-#### Marketing Approach
-Case studies featuring recognizable brands (ArtStation, etc.), blog content on industry trends, competitive comparisons vs. TinyMCE. Lower marketing volume than TinyMCE; relies more on enterprise sales motion than content marketing.
-
-#### Collaboration Readiness
-| Feature | Status |
-|---------|--------|
-| Real-time collaboration | **Partial** — via Codox.io partnership, not native infrastructure |
-| Async collaboration (comments) | **Partial** — not prominently featured |
-| Track changes | **Yes** — built in |
-| Revision history | **Not confirmed** |
-
-Froala's real-time collaboration is a partnership integration (Codox.io), not a native capability. This creates the same structural dependency problem as TinyMCE: the editor vendor and the collaboration infrastructure are separate, meaning support, scaling, and reliability involve two different parties.
-
-#### AI Readiness
-| Feature | Status |
-|---------|--------|
-| Native AI writing assistance | **Yes** — AI Assist plugin (Froala 5.1, 2026): in-editor chat popup, inline commands, tone adjustment, translation |
-| Custom LLM support | **Yes** — OpenAI, self-hosted models, or custom backend |
-| Custom prompts / UI | **Partial** — custom tone presets; programmatic API to trigger AI; response interception before insertion |
-| MCP integration | **No** |
-
-⚠️ **Updated April 2026:** Froala's AI story changed significantly with the 5.1 release. The previous Gemini-only / SEO-only positioning no longer applies. Froala now has a multi-LLM AI Assist plugin with an in-editor chat popup, inline Quick Actions, tone adjustment, and a developer API for customizing AI behavior. It is not yet at CKEditor's depth (no AI Review, no context injection, no persistent chat history, no RBAC, no MCP), but it is no longer a non-competitor in AI.
-
-⚠️ **Updated May 2026:** Froala V5.2 (May 13, 2026) introduced Filerobot image editor integration, full CSP compliance (enterprise-critical for strict security policies), and improved toolbar responsiveness. Real-time collaboration (cursor sync, simultaneous editing) was explicitly named as "coming soon" — the first public acknowledgment of native collab as an imminent feature. No compliance certifications (SOC 2, HIPAA) published. No AI Assist update beyond 5.1.
-
-#### Strengths vs. CKEditor
-- Perpetual licensing option — valuable for regulated industries and on-premises deployments
-- Performance-first architecture; lightweight despite feature count
-- Fortune 100 customer list lends credibility in enterprise sales
-- Track changes built in
-
-#### Weaknesses vs. CKEditor
-- Real-time collaboration is a third-party integration, not native
-- AI Assist (5.1) is now functional but shallow — no AI Review, no context injection, no chat history, no RBAC, no MCP vs. CKEditor's full writing assistance suite
-- Smaller developer community and ecosystem than CKEditor or TinyMCE
-- Proprietary with no open-source component — no community contribution or transparency
-- SOC 2 / HIPAA compliance documentation not clearly published
-- Cannot be used in open-source projects — limits evaluation in developer communities
-
-#### The Battlecard Argument
-> Froala is a polished editor with strong enterprise aesthetics and a clean license model. Its AI Assist plugin (5.1) is now a real feature, but it lacks AI Review, context injection, persistent chat history, RBAC, and MCP — CKEditor's AI covers the full writing workflow. Real-time collaboration is still third-party (Codox.io), with native collab only on the roadmap. CKEditor's native collaboration infrastructure, fully configurable AI writing suite, and published SOC 2 / HIPAA compliance represent a more complete platform for teams that need all three today.
-
----
-
-### 6. Lexical
-
-**Vendor:** Meta Open Source
-**Model:** 100% open source, MIT licensed, free
-
-#### Target Audience
-Developers building high-performance, modern text editors at significant scale — primarily in social platforms, messaging applications, and productivity tools. Lexical is Meta's production editor, powering writing surfaces across Facebook, Workplace, Messenger, WhatsApp, and Instagram. Its target is the engineer who needs absolute control and is prepared to build on a minimal core.
-
-#### Key Features
-- Extremely lightweight core: 22KB min+gzip
-- Plugin-based architecture — all features are plugins, including core formatting
-- Predictable state model — editor state is synchronized with the view layer
-- Serialization: JSON, Markdown, HTML import/export
-- Framework integrations: React (official), Vue/Angular (community)
-- Collaborative editing via Yjs (external integration)
-- Accessibility as a first-class design goal
-
-#### Pricing Model
-Free. MIT licensed. Maintained by Meta's open-source team.
-
-#### Unique Positioning
-"Meta-scale reliability in a 22KB core." Lexical's credibility comes entirely from where it's deployed — billions of users on Meta's platforms. It positions on performance, reliability, and the legitimacy of Meta's engineering investment, not on features or developer experience.
-
-#### Collaboration Readiness
-| Feature | Status |
-|---------|--------|
-| Real-time collaboration | **No** — not native; requires Yjs or custom CRDT/WebSocket infrastructure |
-| Async collaboration (comments) | **No** |
-| Track changes | **No** |
-| Revision history | **No** |
-
-Lexical has no native collaboration features of any kind. Real-time collaboration requires third-party infrastructure (Liveblocks or a custom Yjs setup). For any team with collaboration requirements, Lexical is a starting point for a significant custom build, not a complete solution.
-
-#### AI Readiness
-| Feature | Status |
-|---------|--------|
-| Native AI writing assistance | **No** |
-| MCP integration | **No** |
-
-No AI features. Lexical's philosophy is a minimal, predictable core — AI integration is left entirely to the application developer.
-
-#### Strengths vs. CKEditor
-- 22KB core — smallest footprint of any option considered; matters for performance-critical applications
-- Meta's production pedigree at billions of users — reliability is not theoretical
-- Zero cost and MIT license — no vendor risk
-- Modern architecture; more future-proof than older codebases
-- Excellent accessibility focus
-
-#### Weaknesses vs. CKEditor
-- No collaboration features of any kind — everything is a custom build
-- No AI features
-- Ecosystem is less mature; community plugins are newer and less battle-tested than CKEditor's
-- No commercial support, SLAs, or compliance coverage
-- React-first; official integrations for other frameworks lag behind
-- "Build everything yourself" model is only viable for teams with significant editor engineering capacity
-
-#### The Battlecard Argument
-> Lexical is the right foundation if your use case is a social feed or a messaging input and your team has the engineering bandwidth to build on top of it. It is not a complete editor — it's a framework for building one. For teams that need collaboration, AI writing assistance, and enterprise compliance without a multi-month custom build, CKEditor delivers all of that on a foundation that has been in production for over 20 years.
-
----
-
-### 7. Eddyter
-
-**Vendor:** Eddyter (startup, year of founding not confirmed)
-**Model:** SaaS, tiered subscription pricing; no self-hosting option
-
-#### Target Audience
-Modern React, Next.js, and Vue development teams building SaaS products who want a drop-in editor with managed infrastructure and AI included out of the box. Eddyter explicitly targets lighter-weight, speed-to-market buyers — not regulated enterprise or teams that need real-time collaboration. Their own comparison content positions CKEditor as the better choice for "regulated enterprise," while Eddyter targets "most modern SaaS apps."
-
-#### Key Features
-- Built on Meta's Lexical framework
-- AI-native: AI Chat Assistant, predictive autocomplete, tone refinement, content suggestions (included in premium tiers, not sold separately)
-- Advanced tables and slash commands
-- Clean HTML output
-- Managed file storage included in all paid plans (1 GB → 5 GB depending on tier)
-- React 18.2+ and 19.x compatibility; Next.js and Vue support; TypeScript-first APIs
-- "10-minute setup" via npm — three-step integration
-
-#### Pricing Model
-Transparent, self-serve subscription tiers — a deliberate contrast to CKEditor and TinyMCE's custom enterprise quoting:
-
-| Plan | Cost | Loads | Storage |
-|------|------|-------|---------|
-| Free | $0/mo | 100/mo | 100 MB |
-| Starter | $12/mo | 3,000/mo | 1 GB |
-| Pro | $29/mo | Unlimited | 2 GB |
-| AI Pro BYOK | $39/mo | Unlimited | 3 GB |
-| AI Pro Managed | $59/mo | Unlimited | 5 GB + 1,000 AI credits |
-
-Storage add-ons available at $5–$69/month. AI credit packs available as one-time purchases.
-
-#### Unique Positioning
-"Plug-and-play rich text editor SDK — 3x cheaper than TinyMCE, ready in 10 minutes." Eddyter's pitch is all-in-one simplicity: one subscription covers the editor, AI features, and file storage. No separate infrastructure to manage. Competes primarily on price and time-to-integration, not on feature depth or enterprise credentials.
-
-#### Marketing Approach
-SEO-heavy content marketing — extensive comparison blog posts positioning against TinyMCE, CKEditor, and Tiptap. Most content is self-authored comparison content that favors Eddyter. No significant third-party coverage or enterprise case studies found.
-
-#### Collaboration Readiness
-| Feature | Status |
-|---------|--------|
-| Real-time collaboration | **No** — not offered |
-| Async collaboration (comments) | **Not confirmed** |
-| Track changes | **Not confirmed** |
-| Revision history | **Not confirmed** |
-
-No real-time collaboration. Eddyter's own comparison content explicitly acknowledges this gap vs. CKEditor. For any team with collaborative editing requirements, Eddyter is not a viable option.
-
-#### AI Readiness
-| Feature | Status |
-|---------|--------|
-| AI Chat Assistant | **Yes** — included in AI Pro tiers |
-| Predictive autocomplete | **Yes** |
-| Tone refinement | **Yes** |
-| Content suggestions | **Yes** |
-| Custom LLM (BYOK) | **Yes** — AI Pro BYOK tier ($39/mo) |
-| Managed AI | **Yes** — AI Pro Managed tier ($59/mo, credit-based) |
-| AI Review | **Not confirmed** |
-| MCP integration | **No** |
-| RBAC for AI | **Not confirmed** |
-| On-premises AI | **No** |
-
-#### Strengths vs. CKEditor
-- Dramatically lower price point — transparent tiers starting at $12/mo vs. CKEditor's custom commercial pricing
-- Fast integration — 10-minute setup with minimal configuration
-- Managed infrastructure included — no separate file storage, CDN, or media management required
-- AI features bundled into subscription tiers, not add-on pricing
-- React 19.x and Next.js support is a strong signal for modern frontend teams
-
-#### Weaknesses vs. CKEditor
-- **No real-time collaboration** — disqualifying for any team building collaborative applications
-- No enterprise compliance credentials — SOC 2, HIPAA, GDPR coverage not documented; a blocker for regulated industries
-- No enterprise SLAs or dedicated support
-- No self-hosting option — SaaS-only creates data sovereignty concerns for regulated or security-sensitive customers
-- Built on Lexical (a third-party framework), which limits deep editor customization compared to CKEditor's native architecture
-- Young company with no established customer base, track record, or Fortune 500 references
-- Load-based pricing on lower tiers ($12/mo = 3,000 loads) creates cost uncertainty at scale
-- No confirmed equivalent to AI Review, context injection, MCP, or usage analytics
-
-#### The Battlecard Argument
-> Eddyter competes on price and setup speed, not capability depth. It is a credible option for a solo developer building a simple SaaS content field who wants something running in an afternoon. It is not a viable option for any team that needs real-time collaboration, enterprise compliance (SOC 2, HIPAA), data sovereignty, or a configurable AI writing suite. CKEditor is a platform; Eddyter is a widget. The comparison rarely survives a second conversation with an enterprise buyer.
-
----
-
-## Head-to-Head Comparison
-
-### Feature Matrix
-
-| Feature | CKEditor | TinyMCE | Tiptap | Quill | ProseMirror | Froala | Lexical | Eddyter |
-|---------|----------|---------|--------|-------|-------------|--------|---------|---------|
-| **Real-time collaboration** | ✅ Native | ❌ Third-party | ✅ Native (paid) | ❌ Third-party | ✅ Native (low-level) | ⚠️ Third-party | ❌ Third-party | ❌ No |
-| **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ | ❓ Not confirmed |
-| **Track changes** | ✅ | ✅ | ⚠️ Partial | ⚠️ Limited | ❌ | ✅ | ❌ | ❓ Not confirmed |
-| **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ | ❓ Not confirmed |
-| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ✅ AI Toolkit (paid) + AI Generation (free) | ❌ | ❌ | ✅ AI Assist plugin (5.1) | ❌ | ✅ Built-in (chat, autocomplete, tone) |
-| **Custom LLM support** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ (BYOK tier) |
-| **MCP integration** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **SOC 2 Type 2** | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ Not confirmed | ❌ | ❌ Not certified |
-| **HIPAA compliant** | ✅ | ❓ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Enterprise SLAs** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **Import from Word** | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
-| **Export to PDF/Word** | ✅ | ✅ (add-on) | ✅ | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
-| **File management (CKBox)** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Managed storage |
-| **Spell check** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❓ Not confirmed |
-| **Open source core** | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| **Self-hostable** | ✅ | ❌ | ✅ (paid) | ✅ | ✅ | ✅ | ✅ | ❌ SaaS only |
-| **20+ year track record** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-
-### Collaboration Readiness Score
-
-| Editor | Real-time | Async | Overall |
-|--------|-----------|-------|---------|
-| **CKEditor** | ✅ Native, production-ready | ✅ Full (comments, track changes, history) | **Strong** |
-| TinyMCE | ❌ Third-party only | ✅ Full | **Partial** |
-| Tiptap | ✅ Native (paid tier; Hocuspocus 4 stable May 2026) | ✅ (paid tier) | **Strong (with cost)** |
-| Quill | ❌ Third-party | ⚠️ Limited, unmaintained | **Weak** |
-| ProseMirror | ✅ Native (low-level) | ❌ Not built in | **Partial** |
-| Froala | ⚠️ Third-party (Codox.io); native collab on roadmap | ⚠️ Limited | **Partial** |
-| Lexical | ❌ Third-party | ❌ Not built in | **Weak** |
-| Eddyter | ❌ No | ❓ Not confirmed | **None** |
-
-### AI Readiness Score
-
-| Editor | AI Depth | Custom LLM | UI Control | Overall |
-|--------|----------|------------|------------|---------|
-| **CKEditor** | Ideation, drafting, refinement, translation; context injection; MCP | ✅ | ✅ Full — RBAC, MCP, usage analytics | **Strong** |
-| TinyMCE | Chat (history, file/URL context, web search, reasoning), Review (5 types + custom), Quick Actions (customizable) | ⚠️ Managed API; BYOLLM via on-prem in early access (mid-2026) | ✅ JWT-based RBAC; custom prompts/actions; limited UI override | **Strong (with caveats)** |
-| Tiptap | AI Toolkit (schema-aware agents, suggestion reviews, streaming); Server AI Toolkit (backend/batch, restricted beta); AI Generation (free tier) | ✅ (any model incl. self-hosted; no data to Tiptap) | ✅ (tools + pre-built workflows; suggestion-mode review) | **Strong** |
-| Quill | None | ❌ | ❌ | **None** |
-| ProseMirror | None | ❌ | ❌ | **None** |
-| Froala | AI Assist (5.1): chat, Quick Actions, tone, translation; LLM-agnostic | ✅ (customer-controlled backend) | ⚠️ Limited — custom tone presets, programmatic API | **Moderate** |
-| Lexical | None | ❌ | ❌ | **None** |
-| Eddyter | Chat, autocomplete, tone refinement, content suggestions | ✅ (BYOK tier) | ⚠️ Limited — no RBAC or usage analytics confirmed | **Moderate** |
-
----
-
-## Strategic Positioning by Competitive Scenario
-
-### CKEditor vs. TinyMCE
-**Win condition:** Real-time collaboration requirement, deeper AI integration need, or enterprise buyer who values SOC 2 documentation and a cleaner compliance story.
-**Risk:** TinyMCE has larger developer mindshare and more community content. CKEditor must win on capability and enterprise trust, not awareness.
-**Key message:** TinyMCE has async collaboration. CKEditor has both. When real-time collaboration lands on the roadmap — and it will — TinyMCE requires a separate infrastructure project. CKEditor includes it.
-
-### CKEditor vs. Tiptap
-**Win condition:** Enterprise buyer who needs proven scale and compliance depth; buyer who wants a complete platform rather than assembling from parts; buyer evaluating total cost of ownership including platform subscription costs at document scale.
-**Risk:** Tiptap's AI story has gotten materially stronger — AI Toolkit (launched Nov 2025) and Server AI Toolkit (restricted beta) give it schema-aware agent capabilities and backend document automation. Tiptap 3.0 stable (July 2025) removes the "still in beta" objection. Developer experience is excellent. The free tier now includes basic AI, lowering the evaluation barrier further.
-**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship with enterprise backing and a 20-year track record. Tiptap's collaboration and advanced AI features require the paid platform — and pricing for Team/Business is no longer public. CKEditor's SOC 2, SLA, and Fortune 500 track record fills gaps that Tiptap cannot yet address. Watch the Server AI Toolkit closely — if it reaches stable and ships MCP integration, Tiptap's AI positioning will challenge CKEditor's more directly.
-
-### CKEditor vs. ProseMirror / Lexical
-**Win condition:** Any buyer who has estimated the engineering cost of building on a low-level toolkit and is willing to pay for integration speed and ongoing maintenance savings.
-**Risk:** These tools have zero cost and attract developers who want full control. CKEditor must make the TCO argument credible — not dismiss the value of control.
-**Key message:** ProseMirror and Lexical are frameworks for building a rich text editor. CKEditor is a rich text editor. Six to twelve months of engineering to build what CKEditor ships with is the real cost of "free."
-
-### CKEditor vs. Quill
-**Win condition:** Any production use case. Quill has been effectively unmaintained since 2019.
-**Risk:** Legacy deployments. Teams already running Quill may defer migration.
-**Key message:** Quill was a good choice in 2016. In 2026, it is a migration risk. CKEditor offers a documented migration path and delivers the collaboration and AI features Quill will never have.
-
-### CKEditor vs. Eddyter
-**Win condition:** Any enterprise, compliance-sensitive, or collaboration-requiring buyer — which is most of CKEditor's target market.
-**Risk:** Eddyter's transparent pricing and 10-minute setup narrative is compelling at first glance to developers who haven't defined their requirements yet. It can show up early in an evaluation.
-**Key message:** Eddyter doesn't have real-time collaboration. It doesn't have SOC 2 or HIPAA. It can't be self-hosted. It's a good widget for a simple SaaS content field. CKEditor is a production platform for teams that have enterprise requirements, need compliance documentation, or expect to ship collaborative editing. Those requirements emerge quickly — and switching editors mid-product is expensive.
-
-### CKEditor vs. Froala
-**Win condition:** Teams that need real-time collaboration, deeper AI, or a more active developer community.
-**Risk:** Froala's perpetual license model appeals to regulated industries that cannot accept SaaS. CKEditor's on-premises deployment option is the counter here.
-**Key message:** Froala's collaboration depends on Codox.io; CKEditor's is native. Froala's AI Assist (5.1) is now a real feature but lacks AI Review, context injection, persistent chat history, RBAC, and MCP — CKEditor's AI covers the full writing workflow. CKEditor's open-source community is a transparency and sustainability signal Froala cannot offer.
-
----
-
-## MCP Integration — Market Gap Analysis
-
-As of March 2026, **no editor in this competitive set has native MCP (Model Context Protocol) integration.** MCP would allow the editor to act as an MCP client or server — enabling AI assistants (Claude, ChatGPT, Copilot) to read, write, and interact with document content through a standardized protocol.
-
-This represents a genuine first-mover opportunity. The market is moving toward AI-native content workflows where editors are not just writing surfaces but active participants in AI pipelines. The team that ships a production-ready MCP integration first owns that positioning in a market where AI-assisted writing is rapidly becoming table-stakes.
-
----
-
-## Summary: Where CKEditor Wins
-
-| Buying scenario | CKEditor's position |
-|-----------------|---------------------|
-| Enterprise, compliance-first | Strongest in market (SOC 2 Type 2, 20+ years, Fortune 500, enterprise SLAs) |
-| Real-time + async collaboration required | Only complete native solution — no third-party infrastructure required |
-| AI writing assistance, full control | Deep integration with custom LLM support and full UI configurability |
-| Team growing past DIY (from ProseMirror/Lexical/Quill) | Natural graduation path; features they were building are already shipped |
-| Migration from TinyMCE | Native real-time collaboration, stronger AI, cleaner compliance documentation |
-| File management + editor in one | CKBox integration is unique — no direct competitor bundles this |
-| Deployment flexibility | Cloud, on-premises, hybrid — more options than TinyMCE or Tiptap |
-
----
-
-*This document should be reviewed and updated quarterly. For the latest pricing details, always check vendor websites directly — pricing models in this market change frequently.*
-
-
-================================================================
-FILE: ./research/competitors/ckeditor-vs-tinymce.md
-================================================================
-
-# CKEditor vs. TinyMCE
-
-**Last updated:** April 2026 (TinyMCE AI section fully updated to reflect current Chat, Review, Actions, RBAC, and model support)
-**Source:** Extracted from `research/competitive-analysis.md`
-
----
-
-## Market Context
-
-The commercial rich text editor market consolidates around a "commercial platform" buying pattern — teams license a complete, supported editor to reduce integration effort and get enterprise compliance coverage. **In this segment, the primary head-to-head competitor for CKEditor is TinyMCE.**
-
-For pattern 3 buyers moving away from build-it-yourself or open-source-and-extend approaches, both CKEditor and TinyMCE are on the shortlist.
-
----
-
-## TinyMCE Profile
-
-**Vendor:** Tiny Technologies (formerly Ephox)
-**Model:** Proprietary SaaS, usage-based pricing
-
-### Target Audience
-
-The broadest audience of any competitor. TinyMCE has 1.5 million+ developers using the free tier, with a paying customer base concentrated in small-to-medium companies. Primary use cases: CMS (31%), Document Management Systems (13%), LMS, CRM, and internal tools. 74% of paying customers by revenue are companies under $50M. Developer-first product with an enterprise tier layered on top.
-
-### Key Features
-
-- 100+ features covering the full range of rich text editing needs
-- PowerPaste — high-accuracy pasting from Word, Google Docs, and Excel
-- TinyMCE AI — full AI platform: Chat (with history, file/URL context, web search, reasoning), Review (5 built-in types + custom), Quick Actions (built-in + customizable); supports OpenAI, Anthropic, and Google Gemini models
-- Suggested Edits (track changes) — added in TinyMCE 8
-- Comments with threaded replies and Mentions
-- Revision History
-- PDF and Word export
-- Spell Checker Pro (13+ languages)
-
-### Pricing Model
-
-Usage-based, charged per "editor load" — the number of times a user loads the editor in a session. Additional features (PDF export, Word import/export) are priced as add-ons. Enterprise pricing available on request. The model creates unpredictable costs at scale, which is a friction point for high-traffic applications.
-
-### Marketing Approach
-
-Developer surveys and industry reports (they publish an annual "State of Rich Text Editors" survey), use-case-focused content, enterprise case studies, and competitive comparison content. High marketing volume with strong presence in developer content channels.
-
----
-
-## Feature-by-Feature Comparison
-
-| Feature | CKEditor | TinyMCE |
-|---------|----------|---------|
-| **Real-time collaboration** | ✅ Native | ❌ Third-party required |
-| **Async comments** | ✅ | ✅ |
-| **Track changes** | ✅ | ✅ (Suggested Edits, added TinyMCE 8) |
-| **Revision history** | ✅ | ✅ |
-| **AI writing assistance** | ✅ Deep integration | ✅ Add-on |
-| **Custom LLM support** | ✅ | ✅ |
-| **MCP integration** | ✅ | ❌ |
-| **SOC 2 Type 2** | ✅ | ✅ |
-| **Enterprise SLAs** | ✅ | ✅ |
-| **Import from Word** | ✅ | ✅ |
-| **Export to PDF/Word** | ✅ | ✅ (add-on) |
-| **File management (CKBox)** | ✅ | ❌ |
-| **Spell check** | ✅ | ✅ |
-| **Open source core** | ✅ | ❌ |
-| **Self-hostable** | ✅ | ❌ |
-| **20+ year track record** | ✅ | ✅ |
-| **Pricing model** | Predictable | Usage-based (per editor load) |
-
----
-
-## Collaboration Readiness
-
-| Feature | CKEditor | TinyMCE |
-|---------|----------|---------|
-| Real-time collaboration | ✅ Native, production-ready | ❌ Third-party infrastructure required (Yjs/Liveblocks) |
-| Async comments | ✅ Full | ✅ Threaded comments, mentions |
-| Track changes | ✅ | ✅ "Suggested Edits" (TinyMCE 8) |
-| Revision history | ✅ | ✅ |
-| **Overall** | **Strong** | **Partial** |
-
-Real-time collaboration is TinyMCE's most significant structural gap. It is not native and requires customers to build or integrate their own infrastructure. This is the clearest head-to-head differentiator CKEditor holds.
-
----
-
-## AI Readiness
-
-| Feature | CKEditor | TinyMCE |
-|---------|----------|---------|
-| AI Chat (with history) | ✅ Full chat, context injection, web search, reasoning | ✅ Full chat, file/URL context, web search, reasoning mode |
-| AI Review | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in review types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API |
-| Inline AI Quick Actions | ✅ On selected text — rewrite, simplify, expand, fix grammar | ✅ Built-in set + fully customizable via config |
-| Context injection (files, URLs) | ✅ Documents, URLs, reference content | ✅ PDF, DOCX, images, MD, HTML, text; URLs; custom external sources |
-| Model support | ✅ OpenAI, Anthropic, Google Gemini + Auto | ✅ OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini + Auto mode |
-| Bring your own LLM | ✅ On-Premises (GA, March 2026) | ⚠️ Managed API only; on-prem with custom models in early access (mid-2026) |
-| Custom prompts / commands | ✅ Custom Quick Actions and Reviews | ✅ Custom Quick Actions via config; custom Reviews via API |
-| RBAC for AI features | ✅ Per-user, per-tier, per-feature access control | ✅ JWT-based hierarchical permissions — per-user, per-model, per-provider, per-feature |
-| AI Profiles | ❌ Not yet available | ❌ |
-| Web search in AI | ✅ | ✅ |
-| MCP integration | ✅ On-Premises (March 2026) | ❌ |
-| On-premises AI deployment | ✅ Available (March 2026) | ⚠️ Early access — mid-2026 roadmap |
-| Rich text HTML preservation | ✅ Full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at HTML level |
-| AI usage monitoring | ✅ Customer Portal Insights Panel | ❌ Not confirmed |
-| **Overall** | **Strong** | **Strong (with caveats)** |
-
-⚠️ **Important update (April 2026):** TinyMCE's AI has expanded significantly beyond "pre-built commands." It now has full Chat with history and context injection, a multi-type Review system, customizable Quick Actions, JWT-based RBAC, and support for Anthropic and Gemini models alongside OpenAI. The key remaining gaps vs. CKEditor are: no MCP integration, no on-prem AI today (mid-2026 roadmap), unconfirmed HTML preservation at the AI layer, and no AI usage analytics.
-
----
-
-## Where CKEditor Wins
-
-- **No native real-time collaboration in TinyMCE** — this is a major product gap for any team building collaborative applications. TinyMCE requires building this infrastructure separately; CKEditor includes it.
-- **MCP integration** — CKEditor has it; TinyMCE does not. First-mover advantage in AI-native content workflows.
-- **On-premises AI available now** — CKEditor's on-prem AI with custom LLM support is GA (March 2026). TinyMCE's on-prem AI is on the roadmap for mid-2026.
-- **Rich text HTML preservation** — CKEditor AI works natively with the full HTML document model. TinyMCE's HTML preservation at the AI layer is not explicitly confirmed.
-- **AI usage monitoring** — CKEditor's Customer Portal Insights Panel gives per-operation visibility. TinyMCE has no confirmed equivalent.
-- **Pricing predictability** — TinyMCE's per-editor-load model creates unpredictable costs at scale. CKEditor's model is more predictable.
-- **Open-source core + self-hostable** — CKEditor offers transparency and deployment flexibility TinyMCE cannot match.
-- **File management** — CKBox integration is unique; TinyMCE has no equivalent.
-
-## Where TinyMCE Wins
-
-- **Developer mindshare** — largest installed base, more Stack Overflow answers, more tutorials, stronger community content presence.
-- **Async collaboration** — strong comments, track changes, and revision history.
-- **PowerPaste** — genuinely well-regarded for paste fidelity from Word and Google Docs.
-- **AI breadth** — TinyMCE AI now covers Chat, Review, Quick Actions, RBAC, and multi-LLM including Anthropic. The gap has narrowed materially.
-- **Marketing reach** — large budget and content volume means more awareness among developers evaluating options.
-
----
-
-## The Battlecard Argument
-
-> TinyMCE is the default choice because it's familiar, not because it's the best choice for what you're building. If real-time collaboration is on your roadmap — and it will be — TinyMCE requires you to build that infrastructure yourself. CKEditor includes it, backed by a team that has been building collaborative editing for over a decade.
-
----
-
-## Win Condition Summary
-
-**When CKEditor wins:** Real-time collaboration requirement, deeper AI integration need, or enterprise buyer who values SOC 2 documentation, cleaner compliance story, or predictable pricing at scale.
-
-**Risk to manage:** TinyMCE has larger developer mindshare and more community content. CKEditor must win on capability and enterprise trust, not awareness.
-
-**Key message:** TinyMCE has async collaboration. CKEditor has both. When real-time collaboration lands on the roadmap — and it will — TinyMCE requires a separate infrastructure project. CKEditor includes it.
-
----
-
-*For the full competitive landscape across all editors, see `research/competitive-analysis.md`. For persona-level messaging, see `brand/personas/`.*
+# CKEditor 5 Productivity Features — URLs Reference
+
+## Demo
+
+- Productivity Features demo: https://ckeditor.com/ckeditor-5/demo/productivity/
+- Merge Fields demo: https://ckeditor.com/ckeditor-5/demo/merge-fields/
+
+## Docs — Individual Features
+
+- Slash Commands: https://ckeditor.com/docs/ckeditor5/latest/features/slash-commands.html
+- Templates: https://ckeditor.com/docs/ckeditor5/latest/features/template.html
+- Format Painter: https://ckeditor.com/docs/ckeditor5/latest/features/format-painter.html
+- Case Change: https://ckeditor.com/docs/ckeditor5/latest/features/case-change.html
+- Find and Replace: https://ckeditor.com/docs/ckeditor5/latest/features/find-and-replace.html
+- Merge Fields: https://ckeditor.com/docs/ckeditor5/latest/features/merge-fields.html
+- Multi-level Lists: https://ckeditor.com/docs/ckeditor5/latest/features/lists/multi-level-lists.html
+- Autoformatting: https://ckeditor.com/docs/ckeditor5/latest/features/autoformat.html
+- Mentions: https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html
+- Table of Contents: https://ckeditor.com/docs/ckeditor5/latest/features/table-of-contents.html
+- Document Outline: https://ckeditor.com/docs/ckeditor5/latest/features/document-outline.html
+- Content Minimap: https://ckeditor.com/docs/ckeditor5/latest/features/minimap.html
+- Footnotes: https://ckeditor.com/docs/ckeditor5/latest/features/footnotes.html
+- Special Characters: https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html
+- Emoji: https://ckeditor.com/docs/ckeditor5/latest/features/emoji.html
+- Autosave: https://ckeditor.com/docs/ckeditor5/latest/features/autosave.html
+- Word and Character Count: https://ckeditor.com/docs/ckeditor5/latest/features/word-count.html
+- To-Do Lists: https://ckeditor.com/docs/ckeditor5/latest/features/lists/todo-lists.html
+- Bookmarks: https://ckeditor.com/docs/ckeditor5/latest/features/bookmarks.html
+- Paste from Google Docs: https://ckeditor.com/docs/ckeditor5/latest/features/pasting/paste-from-google-docs.html
+
+## Capabilities Pages
+
+- Productivity capabilities: https://ckeditor.com/ckeditor-5/capabilities/productivity-features/
+- Core editing capabilities: https://ckeditor.com/ckeditor-5/capabilities/core-editing-features/
+- Page management capabilities: https://ckeditor.com/ckeditor-5/capabilities/page-management-features/
+
+## Case Studies — Productivity context
+
+- Plutio (note-taking / productivity tool): https://ckeditor.com/case-studies/plutio/
+- Kanbanize/Businessmap (task notes): https://ckeditor.com/case-studies/kanbanize/
+- Kin (merge fields / template workflow): https://ckeditor.com/case-studies/kin/
 
