@@ -1,7 +1,7 @@
 ================================================================
 CKEditor FEATURES KNOWLEDGE BASE
-Last updated: 2026-05-27 09:40 UTC
-Commit: 115a5505ba96ba2f344abc529f2aa76339a6842c
+Last updated: 2026-06-01 10:11 UTC
+Commit: bec627f356186551fd126ccb8a020017e6d6fa1a
 Files included: 23
 ================================================================
 
@@ -264,12 +264,12 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 |---|---|---|---|---|---|---|---|
 | **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ✅ AI Toolkit (paid add-on, launched Nov 2025) + AI Generation (free tier); legacy AI Suggestion/AI Assistant/AI Changes deprecated | ✅ AI Assist plugin (5.1, 2026) | ❌ | ❌ | ❌ |
 | **AI Chat interface** | ✅ Full chat with context, reasoning, web search | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ No native chat UI — AI agent chatbots can be built with AI Toolkit; legacy AI Assistant deprecated | ✅ In-editor popup with chat and text actions | ❌ | ❌ | ❌ |
-| **Inline AI commands / Quick Actions** | ✅ On selected text — rewrite, simplify, expand, fix grammar | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Slash command-based | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
+| **Inline AI commands / Quick Actions** | ✅ On selected text — improve writing, fix grammar, continue, change tone (5 presets), translate (7 languages), explain, summarize, highlight key points, make shorter/longer | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Slash command-based | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
 | **AI Review (on-demand quality check)** | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
 | **AI Agent (autonomous document editing)** | ⚠️ Partial via MCP (On-Premises, March 2026) | ❌ | ✅ AI Toolkit (Nov 2025) — schema-aware agents read, insert, and patch documents; multi-doc support; real-time streaming; suggestion-based reviews; Server AI Toolkit (restricted beta) adds background/batch processing without a browser | ❌ | ❌ | ❌ | ❌ |
 | **Multi-LLM provider support** | ✅ OpenAI, Anthropic, Google Gemini | ✅ OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini + Auto mode | ✅ Configurable | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
 | **Bring your own LLM / API key** | ✅ On-Premises (March 2026) | ⚠️ Managed API only — no BYOLLM; on-prem with custom models in early access (mid-2026) | ✅ Yes | ✅ Yes — direct browser connection or via custom backend | ❌ | ❌ | ❌ |
-| **Custom prompts & commands** | ✅ Custom Quick Actions and Reviews | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ AI Toolkit (launched Nov 2025) — tools and pre-built workflows (proofreading, content insertion, comment management); integrates with Vercel AI SDK, LangChain.js, OpenAI, Anthropic, Mastra | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
+| **Custom prompts & commands** | ✅ Custom Quick Actions via `extraCommands` config — define id, label, prompt, and type (inline action or Chat-based); remove built-in defaults via `removeCommands`; programmatic execution via `AIActions#executeAction()`. Custom Reviews also supported. | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ AI Toolkit (launched Nov 2025) — tools and pre-built workflows (proofreading, content insertion, comment management); integrates with Vercel AI SDK, LangChain.js, OpenAI, Anthropic, Mastra | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
 | **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
 | **Context injection (files, URLs, text)** | ✅ Inject documents, URLs, or reference content into chat | ✅ File uploads (PDF, DOCX, images, MD, HTML, text), URLs, custom external data sources | ⚠️ Not prominently featured | ❌ | ❌ | ❌ | ❌ |
 | **AI Chat history (per document)** | ✅ Persistent, renameable, resumable per document | ✅ Persistent, filterable, organized by date; 12-month retention | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
@@ -1505,7 +1505,7 @@ The industry can do even better.
 Ideally, users should have a single content editing space that allows them to:
 
 * **Use a full AI chat assistant:** Search, generate outlines, summarize documents, and ask questions with a single interface as you work to speed up every step of the content process.  
-* **Edit content inline:** Rewrite sections, get feedback, or tighten elements of the content by highlighting a section and clicking a button. If someone gets stuck with a particularly thorny paragraph, this can unblock them immediately.  
+* **Edit content inline:** Improve writing, fix grammar, change tone, continue a thought, translate, or summarize a section by highlighting text and clicking a button. If someone gets stuck with a particularly thorny paragraph, this can unblock them immediately.  
 * **Review content:** For most content creators, writing and reviewing are two separate activities. Adding a separate workflow for review matches this approach, allowing users to get feedback across an entire document the way a human reviewer might mark up a collaborative document.
 
 Putting these tools in one spot simplifies the entire content creation workflow and limits the amount of switching. No more flitting between ChatGPT, Gemini, Claude, Perplexity, Grammarly, SEO tools, outline creators, and search engines. 
@@ -1762,7 +1762,7 @@ Within a document, you can highlight a selection of text and use AI to:
 * Change the tone output to pre-defined styles, such as casual or professional  
 * Fix grammar
 
-Additionally, developers can create additional custom quick actions using their own prompts. This lets you save even more time for end users. 
+Additionally, integrators can create custom quick actions using their own prompts, configured via `config.ai.quickActions.extraCommands`. Each custom action specifies a label, a prompt, and a delivery type: either an inline transformation (result appears adjacent to the selection for immediate accept/reject) or a Chat-based action (opens AI Chat with the selection and prompt pre-filled for multi-turn follow-up). Built-in defaults can also be removed via `config.ai.quickActions.removeCommands` to keep the menu focused on what your application actually needs. This lets you save even more time for end users without requiring them to write prompts.
 
 ![][image10]
 
