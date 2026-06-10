@@ -1,7 +1,7 @@
 ================================================================
 CKEditor FEATURES KNOWLEDGE BASE
-Last updated: 2026-06-10 10:03 UTC
-Commit: 1553b95fd0acca50d83ae8386391c522495f8f2a
+Last updated: 2026-06-10 11:37 UTC
+Commit: 99bb021674680f7772445ba696a13550a6376fd9
 Files included: 23
 ================================================================
 
@@ -2538,8 +2538,10 @@ Used when not everyone is online at the same time. Covers three sub-features tha
 **Docs (sidebar pattern):** https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/comments/comments-outside-editor.html
 
 ### Revision History
-- Full version timeline of a document — every save creates a named revision
-- Users can view, compare, and restore any previous version
+- Full version timeline of a document — every save creates a named revision (revisions bundle changes together at save cycles)
+- Users can view, compare, and restore any previous version directly from a toolbar button
+- Revision view includes both content changes and Track Changes suggestions — the full picture of what changed and what was proposed
+- Works standalone — does not require real-time collaboration to function; can be used by individual users or async teams
 - Critical for audit trail requirements (legal, healthcare, regulated industries)
 - Described by customers as "critical" — it's one of the top reasons customers choose CKEditor over building their own
 
