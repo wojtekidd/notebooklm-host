@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-06-10 11:37 UTC
-Commit: 99bb021674680f7772445ba696a13550a6376fd9
+Last updated: 2026-07-01 10:35 UTC
+Commit: 78bd99765fbf09811164f8662ecd270275035ad6
 Files included: 10
 ================================================================
 
@@ -12,7 +12,7 @@ FILE: ./features/ckeditor ai/AI-competitive-comparison.md
 
 # AI Features: CKEditor vs. Competitors
 
-**Last updated:** April 2026 (Froala updated to reflect 5.1 AI Assist plugin; TinyMCE updated to reflect current AI Chat, Review, Actions, and permissions; Tiptap updated to reflect AI Toolkit launch Nov 2025, Server AI Toolkit restricted beta, legacy AI deprecations, and suggestion mode)
+**Last updated:** July 2026 (added three shipped CKEditor AI features — programmatic & headless API, marking AI-generated suggestions, and multi-root/multi-editor support. Froala reflects 5.1 AI Assist plugin; TinyMCE reflects current AI Chat, Review, Actions, and permissions; Tiptap reflects AI Toolkit launch Nov 2025, Server AI Toolkit restricted beta, legacy AI deprecations, and suggestion mode)
 **Scope:** AI capabilities only — writing assistance, LLM integration, customization, and deployment
 **Editors covered:** CKEditor, TinyMCE, Tiptap, Froala, Quill, ProseMirror, Lexical
 
@@ -49,6 +49,9 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 | **On-premises AI deployment** | ✅ Available (March 2026) | ⚠️ Early access — on-prem AI roadmap for mid-2026; editor self-hostable but AI is cloud-only today | ✅ Self-hostable (paid tier) | ✅ On-premises license available; self-hosted models keep data on your servers | ✅ (but no AI features) | ✅ (but no AI features) | ✅ (but no AI features) |
 | **AI usage monitoring & analytics** | ✅ Insights Panel in Customer Portal | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **Deep integration with editor features** | ✅ Works with 300+ CKEditor features natively | ⚠️ Plugin layer — integration depth with all core editor features not fully confirmed | ⚠️ Limited — markdown-based AI layer | ⚠️ Plugin-based — integration depth with core editor features not confirmed | ❌ | ❌ | ❌ |
+| **Programmatic & headless AI API** | ✅ Front-end editor API (`AIChatController`, `AIActions`, `AIReviewGateway`, `AITranslateGateway`, `AIDocumentProcessingGateway`), REST API (`ai.cke-cs.com`), and server-side editor API for headless/backend automation, batch processing, and content pipelines | ⚠️ Programmatic REST API for AI operations; no headless server-side editor execution confirmed | ✅ Server AI Toolkit (restricted beta) — backend document editing, batch processing, no browser required | ⚠️ Programmatic API to trigger AI from anywhere in the app | ❌ | ❌ | ❌ |
+| **Mark AI-generated suggestions** | ✅ Tags AI edits in Track Changes — `showAISource` 'pill' mode (AI-generated badge, keeps original author) or 'author' mode (dedicated AI identity, customizable name/avatar); original author preserved in stored data | ⚠️ Diff view distinguishes suggested edits; explicit AI-vs-human attribution not confirmed | ⚠️ Suggestion mode gives a full audit trail; explicit AI-source tagging on suggestions not confirmed | ❌ | ❌ | ❌ | ❌ |
+| **Multi-root & multi-editor AI** | ✅ AI Chat, Review, and Translate operate across all roots of a multi-root editor and all editors sharing a Context; suggestions and translations land in the correct root without bleeding across boundaries | ❌ Not confirmed | ✅ AI Toolkit supports multi-document operations | ❌ Not confirmed | ❌ | ❌ | ❌ |
 
 ---
 
@@ -56,7 +59,7 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 
 | Editor | AI Depth | LLM Flexibility | Developer Control | Deployment Options | Overall |
 |---|---|---|---|---|---|
-| **CKEditor** | Full: chat, review, quick actions, profiles, context injection | OpenAI, Anthropic, Gemini + BYOLLM (On-Prem) | Full UI and prompt configurability, RBAC, MCP | SaaS + On-Premises | **Strong** |
+| **CKEditor** | Full: chat, review, quick actions, translate, context injection; programmatic & headless API; multi-root/multi-editor; AI suggestion attribution | OpenAI, Anthropic, Gemini + BYOLLM (On-Prem) | Full UI and prompt configurability, RBAC, MCP, front-end + REST + server-side APIs | SaaS + On-Premises | **Strong** |
 | **TinyMCE** | AI Chat (history, file/URL context, web search, reasoning), AI Review (5 types + custom), customizable Quick Actions | OpenAI (GPT-5), Anthropic (Claude 4.6/4.5), Gemini; managed API — no BYOLLM today | JWT-based RBAC; custom prompts/actions via config; programmatic REST API; limited UI structural override | SaaS; on-prem AI in early access (mid-2026) | **Strong (with caveats)** |
 | **Tiptap** | AI Toolkit (schema-aware agents, streaming, multi-doc, suggestion reviews); Server AI Toolkit (backend/batch, restricted beta); AI Generation (free tier); legacy AI extensions deprecated | Any model incl. open-source and self-hosted; no data to Tiptap; Vercel AI SDK, LangChain.js, Anthropic, Mastra | High (headless) — build your own AI UX; native suggestion-mode review included | SaaS + Self-hosted (paid) | **Strong (build-it-yourself)** |
 | **Froala** | AI Assist (5.1): in-editor chat popup, inline commands, tone adjustment, translation | OpenAI, self-hosted models, custom backends | Moderate — custom request handler, response interception, programmatic API | On-premises license available with self-hosted model support | **Moderate (growing)** |
@@ -81,7 +84,13 @@ CKEditor's On-Premises distribution supports custom LLMs and MCP-connected model
 The Customer Portal Insights Panel gives integrators visibility into per-operation AI usage and credit consumption. TinyMCE and Tiptap have no confirmed equivalent. This matters for enterprise deployments managing cost governance across large user bases.
 
 **6. Complete out-of-the-box product vs. assembly required**
-TinyMCE now has strong AI depth, but the UI framework is Tiny's own with limited structural customization. Tiptap's AI Toolkit gives developers low-level building blocks. CKEditor ships a complete, configurable AI product — Chat, Review, Quick Actions, Profiles — that works with all 300+ editor features without additional assembly.
+TinyMCE now has strong AI depth, but the UI framework is Tiny's own with limited structural customization. Tiptap's AI Toolkit gives developers low-level building blocks. CKEditor ships a complete, configurable AI product — Chat, Review, Quick Actions, Translate — that works with all 300+ editor features without additional assembly.
+
+**7. Programmatic and headless AI — UI optional**
+CKEditor AI runs entirely through code when you need it to. The front-end editor API drives Chat, Quick Actions, Review, Translate, and full-document processing from your own UI. The REST API and server-side editor API run AI operations with no browser and no editor instance — auto-generating metadata, bulk-translating a content library, or running compliance checks on publish. This closes the gap on Tiptap's Server AI Toolkit (still restricted beta) while keeping the complete out-of-the-box product for teams that want it. Both models ship in the same product — a range only CKEditor offers today.
+
+**8. AI suggestion transparency for governance**
+CKEditor AI can tag every AI-generated edit inside Track Changes so reviewers see which suggestions came from AI and which from a person — a 'pill' badge or a dedicated AI author identity, with the original author preserved in the stored data. For regulated industries that need clear attribution of AI-assisted content, this is a governance primitive competitors haven't documented as an explicit AI-vs-human marker.
 
 ---
 
@@ -91,7 +100,7 @@ TinyMCE now has strong AI depth, but the UI framework is Tiny's own with limited
 
 ---
 
-*Review this document quarterly. TinyMCE's AI has expanded significantly — validate their on-prem AI status and BYOLLM availability before sales calls, as both are expected mid-2026. Tiptap's AI roadmap moves quickly — AI Toolkit launched Nov 2025 (stable); watch the Server AI Toolkit for stable release and any MCP integration announcement, as that would narrow CKEditor's differentiator. Froala's AI story changed with 5.1; re-validate depth of HTML preservation and RBAC before using in a competitive conversation.*
+*Review this document quarterly. TinyMCE's AI has expanded significantly — validate their on-prem AI status and BYOLLM availability before sales calls, as both are expected mid-2026. Tiptap's AI roadmap moves quickly — AI Toolkit launched Nov 2025 (stable); watch the Server AI Toolkit for stable release and any MCP integration announcement. CKEditor's own programmatic and server-side AI API shipped in 2026, so the headless/backend gap is now largely closed while Tiptap's Server AI Toolkit remains in restricted beta — re-validate both before a competitive call. Froala's AI story changed with 5.1; re-validate depth of HTML preservation and RBAC before using in a competitive conversation.*
 
 
 ================================================================
@@ -513,6 +522,30 @@ Additional requirement for Context-based setups: each editor must have a separat
 
 Status: Experimental. Breaking changes may appear in upcoming releases.
 Docs: https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-multi-root-multi-editor-support.html
+
+
+Marking AI-Generated Suggestions [SHIPPED]
+
+When CKEditor AI creates edits through Track Changes, those suggestions can be visually tagged so reviewers can tell AI-generated edits apart from human ones. It's an optional display feature, disabled by default, and works across every AI function that produces suggestions (Chat, Quick Actions, Review, Translate).
+
+Why it matters:
+- Transparency and trust — reviewers see at a glance which changes came from AI.
+- Governance and compliance — regulated teams (legal, healthcare, finance, government) get clear attribution of AI-assisted content changes without losing the original author record.
+- Responsible AI — supports human-in-the-loop workflows where AI contributions must be identifiable before approval.
+
+Configuration — config.trackChanges.showAISource:
+- 'pill': adds an "AI-generated" badge to the suggestion balloon while keeping the original author's name and avatar.
+- 'author': replaces the displayed author with a view-only AI identity. The original author is still preserved in the underlying data.
+- null (default): AI suggestions look identical to manual edits.
+
+When using 'author' mode, the AI identity is customizable via config.trackChanges.aiAuthor:
+- name: custom label (defaults to "AI Assistant").
+- avatar: custom avatar URL (falls back to a default AI icon if omitted).
+
+Important: the original author is always retained in stored data regardless of display mode — the marking is a presentation layer, not a change to authorship records.
+
+Requires the Track Changes plugin.
+Docs: https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-generated-suggestions.html
 
 
 Programmatic Usage [SHIPPED]
@@ -1072,6 +1105,12 @@ CKEditor AI Roadmap 2026
 
 Multi-root Enablement [SHIPPED]
 CKEditor AI features (AI Chat, AI Review, AI Translate) now operate across all editing areas in both multi-root and multi-editor setups. See the Internal Product Guide for configuration details and per-feature behavior.
+
+Marking AI-Generated Suggestions [SHIPPED]
+AI edits made through Track Changes can be visually tagged so reviewers can tell AI-generated suggestions from human ones — an "AI-generated" badge or a dedicated AI author identity, with the original author preserved in the data. Optional, off by default. A governance and transparency primitive for regulated teams that need clear attribution of AI-assisted content. See the Internal Product Guide for configuration details.
+
+Programmatic Usage [SHIPPED]
+CKEditor AI can be driven entirely through code — a front-end editor API, a REST API, and a server-side editor API for headless and backend automation, batch processing, and content pipelines. See the Internal Product Guide for methods and architecture options.
 
 AI Comments
 Enabling CKEditor AI to reply to prompts by inserting comments inside the editor content
@@ -2055,6 +2094,7 @@ Use this after discovery to identify which capabilities to prioritize in your de
 - MCP integration — connect to their own knowledge base, agents, and data sources
 - SOC 2 Type 2 compliance
 - Data never processed by CKEditor's LLMs — stays within their perimeter
+- Mark AI-generated suggestions — tag AI edits in Track Changes ('pill' badge or a dedicated AI author identity) so reviewers can distinguish AI from human changes; clear attribution of AI-assisted content for audit and compliance, with the original author preserved in the data
 
 **Demo anchor:** Architecture diagram showing their infrastructure, their LLM, and CKEditor as the layer in between.
 
@@ -2065,12 +2105,12 @@ Use this after discovery to identify which capabilities to prioritize in your de
 **Their pain:** They want AI to process documents automatically — not just assist writers. Think: auto-classify content on ingest, bulk translate a library, run compliance checks on publish.
 
 **Lead with:**
-- REST API — use CKEditor AI capabilities outside the editor
-- MCP support — connect to agents and orchestration layers
-- Programmatic AI operations — trigger reviews, translations, or transformations without user interaction
-- 2026 roadmap: expanding backend pluggability, server-side API
+- Programmatic & headless AI API — a front-end editor API (drive Chat, Quick Actions, Review, Translate, and full-document processing from your own UI), a REST API (`ai.cke-cs.com`), and a server-side editor API that runs AI operations with no browser and no editor instance
+- Backend automation — auto-generate titles or metadata, bulk-translate a content library, run compliance checks on publish, batch-process documents from CMS events or scheduled jobs
+- Apply results as Track Changes suggestions — automated operations can still write into a human review workflow rather than committing directly
+- MCP support — connect to agents and orchestration layers (On-Premises)
 
-**Be honest:** Our current product is strongest for human-in-the-loop authoring. Programmatic, agent-driven workflows are partially enabled via MCP (On-Premises) and the REST API. Full automation workflows are on the 2026 roadmap. Set expectations accordingly.
+**Be honest:** The programmatic and server-side editor API is now shipped and documented, so headless and backend AI operations are supported today. What we still don't have is a fully autonomous AI agent that plans and executes multi-step edits on its own — MCP (On-Premises) enables partial agentic workflows, but autonomous agent capability is still a roadmap area. Set expectations accordingly.
 
 ---
 
@@ -2102,10 +2142,12 @@ For full competitive detail, see [AI-competitive-comparison.md](../features/cked
 - **MCP integration** — no competitor has this as of April 2026.
 - **AI usage analytics** — the Insights Panel gives integrators visibility into per-operation usage and credit consumption. Competitors have no confirmed equivalent.
 - **Complete product vs. assembly** — Tiptap is more flexible for developers who want to build their own AI UX. We ship a finished, configurable product that works with 300+ editor features out of the box.
+- **Programmatic & headless AI — and a complete UI** — front-end editor API, REST API, and server-side editor API for headless/backend automation, batch processing, and content pipelines. Tiptap's equivalent Server AI Toolkit is still in restricted beta; we ship both the programmatic API and the finished UI in one product.
+- **AI suggestion attribution** — tag AI-generated edits in Track Changes so reviewers can tell AI from human changes. No competitor documents this as an explicit AI-vs-human marker — a governance edge for regulated buyers.
 
 ### Where the conversation is nuanced
 - **vs. TinyMCE:** Strong AI parity. Our edge is HTML preservation (documented), on-prem AI (available now), MCP, and deeper editor feature integration. Don't assume TinyMCE is a weak competitor — validate their on-prem AI status before any competitive call.
-- **vs. Tiptap:** They win with developers who want headless control and are willing to build. We win when the customer wants a complete product, enterprise support, and on-prem AI without assembly.
+- **vs. Tiptap:** They win with developers who want headless control and are willing to build. We win when the customer wants a complete product, enterprise support, and on-prem AI without assembly. Note: our programmatic and server-side editor API now closes much of Tiptap's headless/backend advantage (their Server AI Toolkit is still restricted beta), and we ship it alongside the finished UI — so "you have to build it yourself with Tiptap" still holds.
 - **vs. Froala:** Their AI Assist (v5.1) is real — chat popup, inline commands, translation, on-prem license. Weaker on governance, RBAC, and deep HTML preservation. Validate before using old comparisons.
 - **vs. building in-house (Quill, ProseMirror, Lexical):** The build estimate is 3–6 months for baseline feature parity. Frame the opportunity cost.
 
@@ -2238,6 +2280,7 @@ Documentation
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-review.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-translate.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-programmatic.html
+- https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-generated-suggestions.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-multi-root-multi-editor-support.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-mcp.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-integration.html
@@ -2338,7 +2381,7 @@ Before analyzing competitors, here is CKEditor's position in the market:
 | **Licensing** | Commercial (OSS core available) |
 | **Target audience** | Developers building content-critical applications; enterprise buyers |
 | **Collaboration** | Native real-time + async — the only editor with both built in |
-| **AI** | CKEditor AI: deeply integrated, custom LLM support, full UI control |
+| **AI** | CKEditor AI: deeply integrated, custom LLM support, full UI control; programmatic & headless API (front-end + REST + server-side), AI suggestion attribution in Track Changes, multi-root/multi-editor support |
 | **Enterprise** | SOC 2 Type 2, HIPAA compliant, enterprise SLAs, 70+ engineers, 1,100+ customers, 20+ years |
 | **Unique claim** | The only AI-powered rich text editor your application will ever need |
 
@@ -2493,7 +2536,7 @@ Tiptap's collaboration story is strong and is one of the reasons it is gaining g
 | Legacy AI extensions | **Deprecated** — AI Suggestion, AI Changes, and AI Assistant are being phased out in 2026; maintenance only, no new features |
 | MCP integration | **No** |
 
-⚠️ **Updated April 2026:** Tiptap's AI story has accelerated significantly. The AI Toolkit launched in November 2025 (no longer beta) and is more capable than the previous AI Agent — it supports multi-document operations, schema-aware editing, streaming, and full suggestion-mode review workflows. The Server AI Toolkit adds background/batch processing without a browser. Legacy AI extensions (AI Suggestion, AI Changes, AI Assistant) are being deprecated and replaced. This is the area where Tiptap is most aggressively closing the gap on CKEditor.
+⚠️ **Updated April 2026:** Tiptap's AI story has accelerated significantly. The AI Toolkit launched in November 2025 (no longer beta) and is more capable than the previous AI Agent — it supports multi-document operations, schema-aware editing, streaming, and full suggestion-mode review workflows. The Server AI Toolkit adds background/batch processing without a browser. Legacy AI extensions (AI Suggestion, AI Changes, AI Assistant) are being deprecated and replaced. This is the area where Tiptap has pushed hardest against CKEditor. As of 2026, CKEditor has shipped its own programmatic and server-side editor API (headless/backend AI, batch processing, content pipelines), multi-root/multi-editor AI support, and AI-vs-human suggestion attribution in Track Changes — so the headless/backend and suggestion-review gaps are now largely closed, while Tiptap's Server AI Toolkit remains in restricted beta.
 
 ⚠️ **Updated May 2026:** Hocuspocus 4 reached stable release on May 8, 2026. Hocuspocus is Tiptap's open-source collaboration backend (WebSocket server, conflict resolution, document persistence). Moving it from beta to stable is meaningful — it removes the "production-readiness" objection for teams evaluating Tiptap's real-time collaboration stack. No new AI features or MCP integration announced.
 
@@ -3068,9 +3111,12 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 | On-premises AI deployment | ✅ Available (March 2026) | ⚠️ Early access — mid-2026 roadmap |
 | Rich text HTML preservation | ✅ Full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at HTML level |
 | AI usage monitoring | ✅ Customer Portal Insights Panel | ❌ Not confirmed |
+| Programmatic & headless AI API | ✅ Front-end editor API + REST API + server-side editor API for headless/backend automation and batch processing | ⚠️ Programmatic REST API; no headless server-side editor execution confirmed |
+| Mark AI-generated suggestions | ✅ Tags AI edits in Track Changes ('pill' badge or dedicated AI author identity) | ⚠️ Diff view distinguishes edits; explicit AI-vs-human attribution not confirmed |
+| Multi-root & multi-editor AI | ✅ AI Chat, Review, and Translate across multi-root editors and editors sharing a Context | ❌ Not confirmed |
 | **Overall** | **Strong** | **Strong (with caveats)** |
 
-⚠️ **Important update (April 2026):** TinyMCE's AI has expanded significantly beyond "pre-built commands." It now has full Chat with history and context injection, a multi-type Review system, customizable Quick Actions, JWT-based RBAC, and support for Anthropic and Gemini models alongside OpenAI. The key remaining gaps vs. CKEditor are: no MCP integration, no on-prem AI today (mid-2026 roadmap), unconfirmed HTML preservation at the AI layer, and no AI usage analytics.
+⚠️ **Important update (April 2026):** TinyMCE's AI has expanded significantly beyond "pre-built commands." It now has full Chat with history and context injection, a multi-type Review system, customizable Quick Actions, JWT-based RBAC, and support for Anthropic and Gemini models alongside OpenAI. The key remaining gaps vs. CKEditor are: no MCP integration, no on-prem AI today (mid-2026 roadmap), unconfirmed HTML preservation at the AI layer, no AI usage analytics, no confirmed headless server-side AI API, no explicit AI-vs-human suggestion attribution, and no confirmed multi-root/multi-editor AI support.
 
 ---
 
@@ -3081,6 +3127,9 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 - **On-premises AI available now** — CKEditor's on-prem AI with custom LLM support is GA (March 2026). TinyMCE's on-prem AI is on the roadmap for mid-2026.
 - **Rich text HTML preservation** — CKEditor AI works natively with the full HTML document model. TinyMCE's HTML preservation at the AI layer is not explicitly confirmed.
 - **AI usage monitoring** — CKEditor's Customer Portal Insights Panel gives per-operation visibility. TinyMCE has no confirmed equivalent.
+- **Programmatic & headless AI** — CKEditor drives AI from a front-end editor API, a REST API, and a server-side editor API that runs with no browser. TinyMCE exposes a programmatic REST API but no confirmed headless server-side editor execution.
+- **AI suggestion attribution** — CKEditor tags AI-generated edits in Track Changes so reviewers can tell AI suggestions from human ones. TinyMCE's diff view distinguishes edits but explicit AI-vs-human attribution is not confirmed.
+- **Multi-root & multi-editor AI** — CKEditor's Chat, Review, and Translate work across multi-root editors and editors sharing a Context. TinyMCE support here is not confirmed.
 - **Pricing predictability** — TinyMCE's per-editor-load model creates unpredictable costs at scale. CKEditor's model is more predictable.
 - **Open-source core + self-hostable** — CKEditor offers transparency and deployment flexibility TinyMCE cannot match.
 - **File management** — CKBox integration is unique; TinyMCE has no equivalent.
