@@ -1,7 +1,7 @@
 ================================================================
 CKEditor FEATURES KNOWLEDGE BASE
-Last updated: 2026-07-01 10:35 UTC
-Commit: 78bd99765fbf09811164f8662ecd270275035ad6
+Last updated: 2026-07-03 08:35 UTC
+Commit: 5f9eaf95dd5a4d25e16a25108de0a09146ca0a77
 Files included: 23
 ================================================================
 
