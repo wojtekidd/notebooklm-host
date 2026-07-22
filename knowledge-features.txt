@@ -1,7 +1,7 @@
 ================================================================
 CKEditor FEATURES KNOWLEDGE BASE
-Last updated: 2026-07-03 08:35 UTC
-Commit: 5f9eaf95dd5a4d25e16a25108de0a09146ca0a77
+Last updated: 2026-07-22 09:42 UTC
+Commit: ebb767082c0d55a1b74f36fe92853f52741f2b81
 Files included: 23
 ================================================================
 
@@ -2297,7 +2297,7 @@ Use this after discovery to identify which capabilities to prioritize in your de
 
 **Lead with:**
 - AI Translate — full document translation with formatting preserved
-- Inline suggestions — review each translated segment before accepting
+- Section-by-section sidebar review — review the full translation, with the original alongside in the editor, before accepting
 - 10 built-in languages; extensible
 
 **Demo anchor:** Translate a document with tables and nested lists. Show structure intact after acceptance.
