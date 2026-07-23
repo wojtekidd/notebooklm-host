@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-07-22 09:42 UTC
-Commit: ebb767082c0d55a1b74f36fe92853f52741f2b81
-Files included: 10
+Last updated: 2026-07-23 07:02 UTC
+Commit: 6d7de4b845d1a7f5448fba5da23d6d9c4b965508
+Files included: 11
 ================================================================
 
 
@@ -12,7 +12,7 @@ FILE: ./features/ckeditor ai/AI-competitive-comparison.md
 
 # AI Features: CKEditor vs. Competitors
 
-**Last updated:** July 2026 (added three shipped CKEditor AI features — programmatic & headless API, marking AI-generated suggestions, and multi-root/multi-editor support. Froala reflects 5.1 AI Assist plugin; TinyMCE reflects current AI Chat, Review, Actions, and permissions; Tiptap reflects AI Toolkit launch Nov 2025, Server AI Toolkit restricted beta, legacy AI deprecations, and suggestion mode)
+**Last updated:** July 2026 (Tiptap column aligned 1:1 with the public CKEditor vs Tiptap comparison page — see `research/competitors/ckeditor-vs-tiptap.md`. Froala reflects 5.1 AI Assist plugin; TinyMCE reflects current AI Chat, Review, Actions, and permissions; CKEditor reflects programmatic & headless API, AI suggestion attribution, and multi-root/multi-editor support)
 **Scope:** AI capabilities only — writing assistance, LLM integration, customization, and deployment
 **Editors covered:** CKEditor, TinyMCE, Tiptap, Froala, Quill, ProseMirror, Lexical
 
@@ -28,30 +28,29 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 
 | Feature | CKEditor | TinyMCE | Tiptap | Froala | Quill | ProseMirror | Lexical |
 |---|---|---|---|---|---|---|---|
-| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ✅ AI Toolkit (paid add-on, launched Nov 2025) + AI Generation (free tier); legacy AI Suggestion/AI Assistant/AI Changes deprecated | ✅ AI Assist plugin (5.1, 2026) | ❌ | ❌ | ❌ |
-| **AI Chat interface** | ✅ Full chat with context, reasoning, web search | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ No native chat UI — AI agent chatbots can be built with AI Toolkit; legacy AI Assistant deprecated | ✅ In-editor popup with chat and text actions | ❌ | ❌ | ❌ |
-| **Inline AI commands / Quick Actions** | ✅ On selected text — improve writing, fix grammar & spelling, continue writing, change tone (5 presets), translate (7 languages), make shorter/longer | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Slash command-based | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
-| **AI Review (on-demand quality check)** | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
-| **AI Agent (autonomous document editing)** | ⚠️ Partial via MCP (On-Premises, March 2026) | ❌ | ✅ AI Toolkit (Nov 2025) — schema-aware agents read, insert, and patch documents; multi-doc support; real-time streaming; suggestion-based reviews; Server AI Toolkit (restricted beta) adds background/batch processing without a browser | ❌ | ❌ | ❌ | ❌ |
-| **Multi-LLM provider support** | ✅ OpenAI, Anthropic, Google Gemini | ✅ OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini + Auto mode | ✅ Configurable | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
-| **Bring your own LLM / API key** | ✅ On-Premises (March 2026) | ⚠️ Managed API only — no BYOLLM; on-prem with custom models in early access (mid-2026) | ✅ Yes | ✅ Yes — direct browser connection or via custom backend | ❌ | ❌ | ❌ |
-| **Custom prompts & commands** | ✅ Custom Quick Actions via `extraCommands` config — define id, label, prompt, and type (inline action or Chat-based); remove built-in defaults via `removeCommands`; programmatic execution via `AIActions#executeAction()`. Custom Reviews also supported. | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ AI Toolkit (launched Nov 2025) — tools and pre-built workflows (proofreading, content insertion, comment management); integrates with Vercel AI SDK, LangChain.js, OpenAI, Anthropic, Mastra | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
-| **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
-| **Context injection (files, URLs, text)** | ✅ Inject documents, URLs, or reference content into chat | ✅ File uploads (PDF, DOCX, images, MD, HTML, text), URLs, custom external data sources | ⚠️ Not prominently featured | ❌ | ❌ | ❌ | ❌ |
-| **AI Chat history (per document)** | ✅ Persistent, renameable, resumable per document | ✅ Persistent, filterable, organized by date; 12-month retention | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ |
-| **Model selection per user** | ✅ Users choose model; integrators define available options | ✅ User model switching configurable; availability controlled per subscription tier via JWT | ⚠️ Partial | ⚠️ Custom metadata (user ID, model settings) passed per request | ❌ | ❌ | ❌ |
+| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ⚠️ Basic in-editor chat + custom Quick Actions / one-click text transformations | ✅ AI Assist plugin (5.1, 2026) | ❌ | ❌ | ❌ |
+| **AI Chat interface** | ✅ Full chat with context, reasoning, web search | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ Very basic chat — limited support | ✅ In-editor popup with chat and text actions | ❌ | ❌ | ❌ |
+| **Inline AI commands / Quick Actions** | ✅ On selected text — improve writing, fix grammar & spelling, continue writing, change tone (5 presets), translate (7 languages), make shorter/longer | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Custom Quick Actions + one-click text transformations (no search/filter in dropdown) | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
+| **AI Review (on-demand quality check)** | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ❌ No dedicated AI Review mode | ❌ | ❌ | ❌ | ❌ |
+| **AI Translations (dedicated mode)** | ✅ Dedicated translate mode (7 languages) | ⚠️ Via Quick Actions | ❌ No dedicated AI Translations mode | ❌ | ❌ | ❌ | ❌ |
+| **Multi-LLM provider support** | ✅ OpenAI, Anthropic, Google Gemini | ✅ OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini + Auto mode | ❌ No model selection | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
+| **Reasoning** | ✅ Yes | ✅ Reasoning mode in Chat | ❌ | ⚠️ Not confirmed | ❌ | ❌ | ❌ |
+| **Custom prompts & commands** | ✅ Custom Quick Actions via `extraCommands` config — define id, label, prompt, and type (inline action or Chat-based); remove built-in defaults via `removeCommands`; programmatic execution via `AIActions#executeAction()`. Custom Reviews also supported. | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ Custom Quick Actions | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
+| **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control (build it yourself) | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
+| **Context injection (files, URLs, text)** | ✅ Inject documents, URLs, or reference content into chat | ✅ File uploads (PDF, DOCX, images, MD, HTML, text), URLs, custom external data sources | ❌ No context awareness with files/URLs | ❌ | ❌ | ❌ | ❌ |
+| **AI Chat history (per document)** | ✅ Persistent, renameable, resumable per document | ✅ Persistent, filterable, organized by date; 12-month retention | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Model selection per user** | ✅ Users choose model; integrators define available options | ✅ User model switching configurable; availability controlled per subscription tier via JWT | ❌ | ⚠️ Custom metadata (user ID, model settings) passed per request | ❌ | ❌ | ❌ |
 | **AI Profiles (tone, style, vocabulary presets)** | ❌ Not yet available | ❌ | ❌ | ⚠️ Basic tone options only | ❌ | ❌ | ❌ |
 | **Web search in AI Chat** | ✅ Yes | ✅ Yes — real-time web search + reasoning mode in Chat | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **MCP integration** | ✅ On-Premises (March 2026) — connect tools, data sources, agents | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **AI response interception / content control** | ✅ Full control via custom endpoints and permissions | ✅ Accept/reject individual suggestions with diff view and preview; bulk apply/skip | ✅ Native suggestion mode — Google Docs-style accept/reject workflow for all AI edits; full audit trail | ✅ Intercept, validate, filter, or reject AI responses before insertion | ❌ | ❌ | ❌ |
-| **Rich text format preservation** | ✅ AI works with full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at full HTML level | ⚠️ AI Toolkit is Tiptap JSON schema-aware — operates on native document schema, not raw HTML; HTML-level preservation not confirmed | ⚠️ Not confirmed — extent of HTML preservation unclear | ❌ | ❌ | ❌ |
-| **RBAC for AI features** | ✅ Per-user, per-tier, per-feature access control | ✅ JWT-based hierarchical permissions — per-user, per-model, per-provider, per-feature | ⚠️ Partial | ⚠️ User consent flag required (aiSupplementalTermsAccepted); deeper RBAC not confirmed | ❌ | ❌ | ❌ |
+| **AI response interception / content control** | ✅ Full control via custom endpoints and permissions | ✅ Accept/reject individual suggestions with diff view and preview; bulk apply/skip | ❌ No track-changes/suggestions workflow | ✅ Intercept, validate, filter, or reject AI responses before insertion | ❌ | ❌ | ❌ |
+| **Rich text format preservation** | ✅ AI works with full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at full HTML level | ⚠️ Operates on Tiptap's native document model, not raw HTML | ⚠️ Not confirmed — extent of HTML preservation unclear | ❌ | ❌ | ❌ |
+| **AI Permissions / RBAC** | ✅ Per-user, per-tier, per-feature access control | ✅ JWT-based hierarchical permissions — per-user, per-model, per-provider, per-feature | ❌ | ⚠️ User consent flag required (aiSupplementalTermsAccepted); deeper RBAC not confirmed | ❌ | ❌ | ❌ |
 | **On-premises AI deployment** | ✅ Available (March 2026) | ⚠️ Early access — on-prem AI roadmap for mid-2026; editor self-hostable but AI is cloud-only today | ✅ Self-hostable (paid tier) | ✅ On-premises license available; self-hosted models keep data on your servers | ✅ (but no AI features) | ✅ (but no AI features) | ✅ (but no AI features) |
 | **AI usage monitoring & analytics** | ✅ Insights Panel in Customer Portal | ❌ Not confirmed | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Deep integration with editor features** | ✅ Works with 300+ CKEditor features natively | ⚠️ Plugin layer — integration depth with all core editor features not fully confirmed | ⚠️ Limited — markdown-based AI layer | ⚠️ Plugin-based — integration depth with core editor features not confirmed | ❌ | ❌ | ❌ |
-| **Programmatic & headless AI API** | ✅ Front-end editor API (`AIChatController`, `AIActions`, `AIReviewGateway`, `AITranslateGateway`, `AIDocumentProcessingGateway`), REST API (`ai.cke-cs.com`), and server-side editor API for headless/backend automation, batch processing, and content pipelines | ⚠️ Programmatic REST API for AI operations; no headless server-side editor execution confirmed | ✅ Server AI Toolkit (restricted beta) — backend document editing, batch processing, no browser required | ⚠️ Programmatic API to trigger AI from anywhere in the app | ❌ | ❌ | ❌ |
-| **Mark AI-generated suggestions** | ✅ Tags AI edits in Track Changes — `showAISource` 'pill' mode (AI-generated badge, keeps original author) or 'author' mode (dedicated AI identity, customizable name/avatar); original author preserved in stored data | ⚠️ Diff view distinguishes suggested edits; explicit AI-vs-human attribution not confirmed | ⚠️ Suggestion mode gives a full audit trail; explicit AI-source tagging on suggestions not confirmed | ❌ | ❌ | ❌ | ❌ |
-| **Multi-root & multi-editor AI** | ✅ AI Chat, Review, and Translate operate across all roots of a multi-root editor and all editors sharing a Context; suggestions and translations land in the correct root without bleeding across boundaries | ❌ Not confirmed | ✅ AI Toolkit supports multi-document operations | ❌ Not confirmed | ❌ | ❌ | ❌ |
+| **Deep integration with editor features** | ✅ Works with 300+ CKEditor features natively | ⚠️ Plugin layer — integration depth with all core editor features not fully confirmed | ⚠️ Limited | ⚠️ Plugin-based — integration depth with core editor features not confirmed | ❌ | ❌ | ❌ |
+| **AI REST API** | ✅ REST API (`ai.cke-cs.com`) for headless/backend automation, batch processing, and content pipelines | ⚠️ Programmatic REST API for AI operations; no headless server-side editor execution confirmed | ❌ | ⚠️ Programmatic API to trigger AI from anywhere in the app | ❌ | ❌ | ❌ |
+| **Mark AI-generated suggestions** | ✅ Tags AI edits in Track Changes — `showAISource` 'pill' mode (AI-generated badge, keeps original author) or 'author' mode (dedicated AI identity, customizable name/avatar); original author preserved in stored data | ⚠️ Diff view distinguishes suggested edits; explicit AI-vs-human attribution not confirmed | ❌ No track changes | ❌ | ❌ | ❌ | ❌ |
 
 ---
 
@@ -61,7 +60,7 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 |---|---|---|---|---|---|
 | **CKEditor** | Full: chat, review, quick actions, translate, context injection; programmatic & headless API; multi-root/multi-editor; AI suggestion attribution | OpenAI, Anthropic, Gemini + BYOLLM (On-Prem) | Full UI and prompt configurability, RBAC, MCP, front-end + REST + server-side APIs | SaaS + On-Premises | **Strong** |
 | **TinyMCE** | AI Chat (history, file/URL context, web search, reasoning), AI Review (5 types + custom), customizable Quick Actions | OpenAI (GPT-5), Anthropic (Claude 4.6/4.5), Gemini; managed API — no BYOLLM today | JWT-based RBAC; custom prompts/actions via config; programmatic REST API; limited UI structural override | SaaS; on-prem AI in early access (mid-2026) | **Strong (with caveats)** |
-| **Tiptap** | AI Toolkit (schema-aware agents, streaming, multi-doc, suggestion reviews); Server AI Toolkit (backend/batch, restricted beta); AI Generation (free tier); legacy AI extensions deprecated | Any model incl. open-source and self-hosted; no data to Tiptap; Vercel AI SDK, LangChain.js, Anthropic, Mastra | High (headless) — build your own AI UX; native suggestion-mode review included | SaaS + Self-hosted (paid) | **Strong (build-it-yourself)** |
+| **Tiptap** | Basic in-editor chat + custom Quick Actions / one-click transformations; no AI Review, AI Translations, context awareness, chat history, permissions, REST API, or MCP | No model selection | Headless — build your own AI UX, but no dedicated AI modes | SaaS + Self-hosted (paid) | **Weak** |
 | **Froala** | AI Assist (5.1): in-editor chat popup, inline commands, tone adjustment, translation | OpenAI, self-hosted models, custom backends | Moderate — custom request handler, response interception, programmatic API | On-premises license available with self-hosted model support | **Moderate (growing)** |
 | **Quill** | None | None | None | Open source (no AI) | **None** |
 | **ProseMirror** | None — AI left to the application developer | None built-in | Total (build everything yourself) | Open source (no AI) | **None** |
@@ -72,7 +71,7 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 ## Key Differentiators: Where CKEditor AI Stands Apart
 
 **1. Rich text format preservation**
-CKEditor AI works natively with the same document model the editor uses — HTML in, HTML out — keeping all 300+ features intact after every AI operation. TinyMCE has also confirmed HTML-native output at the AI layer. Tiptap's AI Toolkit is schema-aware (Tiptap JSON) — an improvement over the old markdown-only AI Agent — but not HTML-native. Google, Microsoft, and most standalone AI tools still default to Markdown output.
+CKEditor AI works natively with the same document model the editor uses — HTML in, HTML out — keeping all 300+ features intact after every AI operation. TinyMCE has also confirmed HTML-native output at the AI layer. Tiptap's AI operates on its own native document model, not raw HTML. Google, Microsoft, and most standalone AI tools still default to Markdown output.
 
 **2. MCP integration**
 As of April 2026, CKEditor is the only editor in this market with native MCP support. This enables connecting external tools, data sources, and AI agents to the editor's backend — accessible via AI Chat or programmatically. No competitor has shipped this.
@@ -84,10 +83,10 @@ CKEditor's On-Premises distribution supports custom LLMs and MCP-connected model
 The Customer Portal Insights Panel gives integrators visibility into per-operation AI usage and credit consumption. TinyMCE and Tiptap have no confirmed equivalent. This matters for enterprise deployments managing cost governance across large user bases.
 
 **6. Complete out-of-the-box product vs. assembly required**
-TinyMCE now has strong AI depth, but the UI framework is Tiny's own with limited structural customization. Tiptap's AI Toolkit gives developers low-level building blocks. CKEditor ships a complete, configurable AI product — Chat, Review, Quick Actions, Translate — that works with all 300+ editor features without additional assembly.
+TinyMCE now has strong AI depth, but the UI framework is Tiny's own with limited structural customization. Tiptap ships basic chat and Quick Actions with no built-in UI — you build the AI experience from scratch. CKEditor ships a complete, configurable AI product — Chat, Review, Quick Actions, Translate — that works with all 300+ editor features without additional assembly.
 
 **7. Programmatic and headless AI — UI optional**
-CKEditor AI runs entirely through code when you need it to. The front-end editor API drives Chat, Quick Actions, Review, Translate, and full-document processing from your own UI. The REST API and server-side editor API run AI operations with no browser and no editor instance — auto-generating metadata, bulk-translating a content library, or running compliance checks on publish. This closes the gap on Tiptap's Server AI Toolkit (still restricted beta) while keeping the complete out-of-the-box product for teams that want it. Both models ship in the same product — a range only CKEditor offers today.
+CKEditor AI runs entirely through code when you need it to. The front-end editor API drives Chat, Quick Actions, Review, Translate, and full-document processing from your own UI. The REST API and server-side editor API run AI operations with no browser and no editor instance — auto-generating metadata, bulk-translating a content library, or running compliance checks on publish. Tiptap exposes no AI REST API. Both models ship in the same CKEditor product — a range only CKEditor offers today.
 
 **8. AI suggestion transparency for governance**
 CKEditor AI can tag every AI-generated edit inside Track Changes so reviewers see which suggestions came from AI and which from a person — a 'pill' badge or a dedicated AI author identity, with the original author preserved in the stored data. For regulated industries that need clear attribution of AI-assisted content, this is a governance primitive competitors haven't documented as an explicit AI-vs-human marker.
@@ -100,7 +99,7 @@ CKEditor AI can tag every AI-generated edit inside Track Changes so reviewers se
 
 ---
 
-*Review this document quarterly. TinyMCE's AI has expanded significantly — validate their on-prem AI status and BYOLLM availability before sales calls, as both are expected mid-2026. Tiptap's AI roadmap moves quickly — AI Toolkit launched Nov 2025 (stable); watch the Server AI Toolkit for stable release and any MCP integration announcement. CKEditor's own programmatic and server-side AI API shipped in 2026, so the headless/backend gap is now largely closed while Tiptap's Server AI Toolkit remains in restricted beta — re-validate both before a competitive call. Froala's AI story changed with 5.1; re-validate depth of HTML preservation and RBAC before using in a competitive conversation.*
+*Review this document quarterly. The Tiptap column is aligned 1:1 with the public CKEditor vs Tiptap comparison page (https://ckeditor.com/ckeditor-vs-tiptap/) — keep it in sync with `research/competitors/ckeditor-vs-tiptap.md` and the page when either changes. TinyMCE's AI has expanded significantly — validate their on-prem AI status and BYOLLM availability before sales calls, as both are expected mid-2026. Froala's AI story changed with 5.1; re-validate depth of HTML preservation and RBAC before using in a competitive conversation.*
 
 
 ================================================================
@@ -2142,12 +2141,12 @@ For full competitive detail, see [AI-competitive-comparison.md](../features/cked
 - **MCP integration** — no competitor has this as of April 2026.
 - **AI usage analytics** — the Insights Panel gives integrators visibility into per-operation usage and credit consumption. Competitors have no confirmed equivalent.
 - **Complete product vs. assembly** — Tiptap is more flexible for developers who want to build their own AI UX. We ship a finished, configurable product that works with 300+ editor features out of the box.
-- **Programmatic & headless AI — and a complete UI** — front-end editor API, REST API, and server-side editor API for headless/backend automation, batch processing, and content pipelines. Tiptap's equivalent Server AI Toolkit is still in restricted beta; we ship both the programmatic API and the finished UI in one product.
+- **Programmatic & headless AI — and a complete UI** — front-end editor API, REST API, and server-side editor API for headless/backend automation, batch processing, and content pipelines. Tiptap exposes no AI REST API; we ship both the programmatic API and the finished UI in one product.
 - **AI suggestion attribution** — tag AI-generated edits in Track Changes so reviewers can tell AI from human changes. No competitor documents this as an explicit AI-vs-human marker — a governance edge for regulated buyers.
 
 ### Where the conversation is nuanced
 - **vs. TinyMCE:** Strong AI parity. Our edge is HTML preservation (documented), on-prem AI (available now), MCP, and deeper editor feature integration. Don't assume TinyMCE is a weak competitor — validate their on-prem AI status before any competitive call.
-- **vs. Tiptap:** They win with developers who want headless control and are willing to build. We win when the customer wants a complete product, enterprise support, and on-prem AI without assembly. Note: our programmatic and server-side editor API now closes much of Tiptap's headless/backend advantage (their Server AI Toolkit is still restricted beta), and we ship it alongside the finished UI — so "you have to build it yourself with Tiptap" still holds.
+- **vs. Tiptap:** They win with developers who want headless control and are willing to build. We win when the customer wants a complete product, enterprise support, and on-prem AI without assembly. Per the comparison page, Tiptap's AI is basic — limited chat plus Quick Actions, with no AI Review, AI Translations, context awareness, chat history, permissions, AI REST API, or MCP — and it ships no built-in UI, so "you have to build it yourself with Tiptap" holds strongly.
 - **vs. Froala:** Their AI Assist (v5.1) is real — chat popup, inline commands, translation, on-prem license. Weaker on governance, RBAC, and deep HTML preservation. Validate before using old comparisons.
 - **vs. building in-house (Quill, ProseMirror, Lexical):** The build estimate is 3–6 months for baseline feature parity. Frame the opportunity cost.
 
@@ -2337,7 +2336,7 @@ FILE: ./research/competitive-analysis.md
 
 # CKEditor Competitive Analysis
 
-**Last updated:** May 2026 (TinyMCE 8.5.x security and localization updates; Tiptap Hocuspocus 4 stable release; Froala V5.2 with Filerobot integration and CSP compliance; Eddyter added as new competitor)
+**Last updated:** July 2026 (Tiptap section aligned 1:1 with the public CKEditor vs Tiptap comparison page — see `research/competitors/ckeditor-vs-tiptap.md`; prior: TinyMCE 8.5.x updates; Froala V5.2; Eddyter added)
 **Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical, Eddyter
 
 ---
@@ -2483,33 +2482,31 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 #### Target Audience
 Developers building modern, custom editor experiences — particularly in SaaS products, knowledge management tools, and AI-native applications. Tiptap has strong traction with teams building Notion-like editors and with technical buyers who want a headless, composable foundation. Company size skews toward growth-stage SaaS (50–500 employees), though enterprise-tier options exist.
 
+> **Alignment note:** This profile is kept 1:1 with the public comparison page (https://ckeditor.com/ckeditor-vs-tiptap/). Feature claims below reflect the page's positioning so sales stays on-message. For the full row-by-row table, see `research/competitors/ckeditor-vs-tiptap.md`.
+
 #### Key Features
-- Headless architecture — zero opinionated UI, maximum customization
+- Headless architecture — zero opinionated UI; teams build toolbars, dropdowns, and dialogs from scratch
 - 100+ community and official extensions
-- Tiptap 3.0 stable (released July 2025 after 24 months in beta)
-- Content AI: AI Toolkit (agents read, insert, and patch documents with schema awareness, suggestion-based reviews, multi-doc support); Server AI Toolkit (background processing, batch operations, no browser required — restricted beta); legacy AI Suggestion/AI Agent/AI Assistant deprecated and replaced
-- AI Generation — tab-triggered autocompletion, text/image generation (included in free tier)
+- Real-time collaboration via Yjs (native to the platform tier), presence, live cursors
+- Inline, threaded, and real-time comments; comments archive
+- Revision history and document versioning (named revisions, autosave, comparison, restore)
+- AI: basic in-editor chat plus custom Quick Actions / one-click text transformations — no dedicated AI Review or AI Translations mode, no context awareness, no model selection, no MCP
+- Import/Export: native DOCX import and export; bidirectional Markdown (no native PDF export from the editor)
 - UI Components library — pre-built interface elements to accelerate editor UI development
-- Tiptap Pages — page-based layouts with headers/footers (alpha, launched September 2025)
-- Real-time collaboration via Yjs (native to the platform tier)
-- Inline and document-level comments
-- Native suggestion mode (tracked changes-style human and AI inline suggestions)
-- Revision history and document versioning
-- Import/Export: DOCX, ODT, bidirectional Markdown; PDF export
-- Offline editing with sync on reconnect
-- Tiptap Flex — AI-native writing UI being productized as an embeddable platform capability (2026 roadmap)
+- Tiptap Pages — page-based layouts (Pagination available in alpha; no Footnotes or Document Outline)
+- JSX support, Floating Menu, Details, and Code Block Lowlight (native, where CKEditor uses General HTML Support / 3rd party)
 
 #### Pricing Model
-Restructured in June 2025. Now four tiers:
-- **Start** — free; up to 500 cloud documents, 2 environments, 2 developer licenses, inline AI extension included, simple DOCX import/export, community support
-- **Team** — price not publicly listed; up to 5,000 cloud documents, Pages, webhooks, API access, email support
-- **Business** — price not publicly listed; up to 50,000 cloud documents, limited Slack support, beta access
+Metered by cloud documents stored (anything saved to Tiptap Cloud for collaboration, comments, or version history). Four tiers (2026):
+- **Start** — $49/mo; up to 500 cloud documents, 2 environments, 2 developer licenses, community support
+- **Team** — $149/mo; up to 5,000 cloud documents, 3 environments, 5 developer licenses, email support
+- **Business** — $999/mo; up to 50,000 cloud documents, 5 environments, 10 developer licenses
 - **Enterprise** — custom pricing; unlimited scale, cloud or on-premises, custom auth/storage/AI model integration, SOC 2 Type II, SLA-backed uptime
 
-The open-source core is free and self-hostable; collaboration, comments, AI Toolkit, history, and Pages require the platform subscription. The free Start tier now includes basic AI (inline generation), which lowers the barrier to initial evaluation. Collaboration and advanced AI remain paid-tier only. Specific monthly prices for Team and Business are no longer listed publicly.
+The open-source core is free and self-hostable; collaboration, comments, history, and Pages require the platform subscription. **The free plan was removed in 2026** — new users get a 30-day trial. Advanced features including AI and Tracked Changes are **paid add-ons on top** of the base subscription. Costs can climb at scale for large document libraries.
 
 #### Unique Positioning
-The "developer's editor" — unopinionated, extensible, built for teams that want to own the experience completely. Tiptap's 2026 strategic mission is to become "the document layer around the database" — documents as first-class queryable objects with versioning, permissions, and server-side validation, without mountains of glue code. Tiptap competes on developer experience and AI integration depth, not on out-of-the-box features or compliance credentials.
+The "developer's editor" — unopinionated, extensible, built for teams that want to own the experience completely. Tiptap competes on developer experience and headless flexibility, not on out-of-the-box features, AI depth, or compliance credentials.
 
 #### Marketing Approach
 Developer-first: high-quality documentation, active GitHub presence (open-source core), blog with detailed release notes. Comparison content positions Tiptap against TinyMCE and Lexical. Community engagement is strong; Tiptap benefits from the goodwill of its open-source contribution.
@@ -2517,47 +2514,47 @@ Developer-first: high-quality documentation, active GitHub presence (open-source
 #### Collaboration Readiness
 | Feature | Status |
 |---------|--------|
-| Real-time collaboration | **Yes** — native via Yjs, live cursors, offline sync |
-| Async collaboration (comments) | **Yes** — inline and document-level comments (platform tier) |
-| Track changes | **Partial** — revision history available; track changes less prominent |
-| Revision history | **Yes** |
+| Real-time collaboration | **Yes** — native via Yjs, live cursors, presence |
+| Async collaboration (comments) | **Yes** — inline, threaded, and real-time comments; comments archive (platform tier) |
+| Track changes | **No** — no accept/reject, no add/remove/replace suggestions, no preview, no suggestion preservation in DOCX/PDF export |
+| Revision history | **Yes** — named revisions, autosave, comparison, restore |
 
-Tiptap's collaboration story is strong and is one of the reasons it is gaining ground on TinyMCE. However, collaboration features are platform-tier only — not available on the free OSS core. This creates an upsell friction point that CKEditor avoids.
+Tiptap's real-time editing and comments are solid, but it has no track-changes/suggestions workflow — a clear CKEditor differentiator. Collaboration features are platform-tier only, not on the free OSS core, which creates an upsell friction point CKEditor avoids.
 
 #### AI Readiness
 | Feature | Status |
 |---------|--------|
-| Native AI writing assistance | **Yes** — AI Generation (tab autocompletion, text/image generation, custom commands); included in free tier |
-| AI Toolkit (agents) | **Yes** — launched November 2025; agents read, insert, and patch documents with schema awareness, suggestion-based reviews, real-time streaming, multi-doc support; integrates with Vercel AI SDK, LangChain.js, OpenAI, Anthropic, Mastra |
-| Server AI Toolkit | **Yes (restricted beta)** — backend document editing without browser; background processing, batch operations, document automation |
-| Suggestion mode for AI edits | **Yes** — Google Docs-style accept/reject workflow for AI-generated changes; full audit trail |
-| Custom LLM support | **Yes** — any text-generating model including open-source and self-hosted; no data sent to Tiptap |
-| Custom prompts / UI | **Yes** — AI Toolkit provides tools and pre-built workflows (proofreading, content insertion, comment management) |
-| Legacy AI extensions | **Deprecated** — AI Suggestion, AI Changes, and AI Assistant are being phased out in 2026; maintenance only, no new features |
+| Native AI writing assistance | **Basic** — in-editor chat is limited ("very basic"); custom Quick Actions and one-click text transformations supported |
+| AI Chat | **Limited** — no context awareness (files/URLs), no model selection, no reasoning, no web search, no chat history |
+| AI Review (dedicated mode) | **No** |
+| AI Translations (dedicated mode) | **No** |
+| Custom Quick Actions | **Yes** |
+| AI Permissions | **No** |
+| AI REST API | **No** |
 | MCP integration | **No** |
 
-⚠️ **Updated April 2026:** Tiptap's AI story has accelerated significantly. The AI Toolkit launched in November 2025 (no longer beta) and is more capable than the previous AI Agent — it supports multi-document operations, schema-aware editing, streaming, and full suggestion-mode review workflows. The Server AI Toolkit adds background/batch processing without a browser. Legacy AI extensions (AI Suggestion, AI Changes, AI Assistant) are being deprecated and replaced. This is the area where Tiptap has pushed hardest against CKEditor. As of 2026, CKEditor has shipped its own programmatic and server-side editor API (headless/backend AI, batch processing, content pipelines), multi-root/multi-editor AI support, and AI-vs-human suggestion attribution in Track Changes — so the headless/backend and suggestion-review gaps are now largely closed, while Tiptap's Server AI Toolkit remains in restricted beta.
+⚠️ **Aligned to the comparison page (July 2026):** Per the public CKEditor vs Tiptap page, Tiptap's AI is limited to a very basic in-editor chat plus custom Quick Actions and one-click text transformations. It has no dedicated AI Review mode, no dedicated AI Translations mode, no context awareness (files/URLs), no model selection, no reasoning, no web search, no AI chat history, no AI permissions, no AI REST API, and no MCP. CKEditor covers all of these — full Chat (context, reasoning, web search, model selection, history), dedicated Review and Translations, AI permissions, an AI REST API, and MCP support.
 
-⚠️ **Updated May 2026:** Hocuspocus 4 reached stable release on May 8, 2026. Hocuspocus is Tiptap's open-source collaboration backend (WebSocket server, conflict resolution, document persistence). Moving it from beta to stable is meaningful — it removes the "production-readiness" objection for teams evaluating Tiptap's real-time collaboration stack. No new AI features or MCP integration announced.
+⚠️ **Updated May 2026:** Hocuspocus 4 reached stable release on May 8, 2026. Hocuspocus is Tiptap's open-source collaboration backend (WebSocket server, conflict resolution, document persistence). Moving it from beta to stable is meaningful for Tiptap's real-time collaboration stack — which the page grants Tiptap. It does not change Tiptap's AI or track-changes gaps.
 
 #### Strengths vs. CKEditor
 - Headless architecture gives maximum frontend flexibility — strong appeal to React developers
-- AI Toolkit is genuinely differentiated: schema-aware agents, suggestion-mode reviews, Server AI Toolkit for backend automation
-- SOC 2 Type II certified (Enterprise tier), strong enterprise security story
-- Tiptap 3.0 stable (July 2025) signals platform maturity after years in beta
+- JSX support, Floating Menu, native Details and Code Block Lowlight (where CKEditor uses General HTML Support / 3rd party)
+- SOC 2 Type II certified, strong enterprise security story
 - Developer experience is excellent; DX is a conscious priority
-- Free Start tier now includes inline AI — lower barrier to evaluation than before
-- Open-source core lowers the barrier to evaluation; additional Pro extensions open-sourced June 2025
-- Native suggestion mode allows both humans and AI to propose tracked changes with justification
+- Open-source MIT core lowers the barrier to evaluation
 
 #### Weaknesses vs. CKEditor
-- Collaboration and advanced AI features require the paid platform — the free version is incomplete for production use
-- Team and Business pricing is no longer publicly listed, making evaluation harder; pricing can become expensive at scale for large document libraries
-- Younger company (less track record) and smaller customer base than CKEditor
-- Enterprise compliance story (beyond SOC 2) is less comprehensive than CKEditor's
-- Less proven at Fortune 500 scale; CKEditor's 20+ year track record is a harder asset to match
+- **No built-in UI** — teams build toolbars, dropdowns, and dialogs from scratch
+- **No track changes** — no accept/reject, suggestions, preview, or suggestion preservation in DOCX/PDF export
+- **Limited AI** — basic chat and Quick Actions only; no AI Review, AI Translations, context awareness, model selection, chat history, AI permissions, AI REST API, or MCP
+- **No native PDF export** from the editor; Word export headers/footers are limited
+- No compliance suite — no 80+ language spelling/grammar, custom dictionaries, style-guide rules, full WCAG 2.2, or Section 508
+- No Merge Fields, Templates, Enhanced Paste from Word/Excel, Case Change, full Find & Replace UI, or Multi-root editor
+- Collaboration and advanced features require the paid platform — the free version is incomplete for production use
+- Long-term scalability and support fall entirely on your team
 - No equivalent to CKBox (file management and image serving)
-- Tiptap Pages (page-based layout) still in alpha — not production-ready for document-heavy workflows
+- Tiptap Pages still in alpha; no Footnotes or Document Outline
 
 #### The Battlecard Argument
 > Tiptap is the best editor for teams that want to build everything themselves and have the engineering resources to do it. If your team is evaluating Tiptap, they are likely evaluating whether to assemble a collaboration + AI stack from parts. CKEditor delivers the same customizability with the full collaboration and AI stack already integrated, a 20-year track record, and an enterprise support structure Tiptap can't yet match.
@@ -2903,16 +2900,16 @@ No real-time collaboration. Eddyter's own comparison content explicitly acknowle
 |---------|----------|---------|--------|-------|-------------|--------|---------|---------|
 | **Real-time collaboration** | ✅ Native | ❌ Third-party | ✅ Native (paid) | ❌ Third-party | ✅ Native (low-level) | ⚠️ Third-party | ❌ Third-party | ❌ No |
 | **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ | ❓ Not confirmed |
-| **Track changes** | ✅ | ✅ | ⚠️ Partial | ⚠️ Limited | ❌ | ✅ | ❌ | ❓ Not confirmed |
+| **Track changes** | ✅ | ✅ | ❌ | ⚠️ Limited | ❌ | ✅ | ❌ | ❓ Not confirmed |
 | **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ | ❓ Not confirmed |
-| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ✅ AI Toolkit (paid) + AI Generation (free) | ❌ | ❌ | ✅ AI Assist plugin (5.1) | ❌ | ✅ Built-in (chat, autocomplete, tone) |
-| **Custom LLM support** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ (BYOK tier) |
+| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ⚠️ Basic chat + Quick Actions | ❌ | ❌ | ✅ AI Assist plugin (5.1) | ❌ | ✅ Built-in (chat, autocomplete, tone) |
+| **Custom LLM support** | ✅ | ✅ | ❌ (no model selection) | ❌ | ❌ | ✅ | ❌ | ✅ (BYOK tier) |
 | **MCP integration** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **SOC 2 Type 2** | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ Not confirmed | ❌ | ❌ Not certified |
 | **HIPAA compliant** | ✅ | ❓ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **Enterprise SLAs** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | **Import from Word** | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
-| **Export to PDF/Word** | ✅ | ✅ (add-on) | ✅ | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
+| **Export to PDF/Word** | ✅ | ✅ (add-on) | ⚠️ Word only (no native PDF) | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
 | **File management (CKBox)** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Managed storage |
 | **Spell check** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❓ Not confirmed |
 | **Open source core** | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -2925,7 +2922,7 @@ No real-time collaboration. Eddyter's own comparison content explicitly acknowle
 |--------|-----------|-------|---------|
 | **CKEditor** | ✅ Native, production-ready | ✅ Full (comments, track changes, history) | **Strong** |
 | TinyMCE | ❌ Third-party only | ✅ Full | **Partial** |
-| Tiptap | ✅ Native (paid tier; Hocuspocus 4 stable May 2026) | ✅ (paid tier) | **Strong (with cost)** |
+| Tiptap | ✅ Native (paid tier; Hocuspocus 4 stable May 2026) | ✅ Comments/revisions (paid tier); **no track changes** | **Moderate (with cost)** |
 | Quill | ❌ Third-party | ⚠️ Limited, unmaintained | **Weak** |
 | ProseMirror | ✅ Native (low-level) | ❌ Not built in | **Partial** |
 | Froala | ⚠️ Third-party (Codox.io); native collab on roadmap | ⚠️ Limited | **Partial** |
@@ -2938,7 +2935,7 @@ No real-time collaboration. Eddyter's own comparison content explicitly acknowle
 |--------|----------|------------|------------|---------|
 | **CKEditor** | Ideation, drafting, refinement, translation; context injection; MCP | ✅ | ✅ Full — RBAC, MCP, usage analytics | **Strong** |
 | TinyMCE | Chat (history, file/URL context, web search, reasoning), Review (5 types + custom), Quick Actions (customizable) | ⚠️ Managed API; BYOLLM via on-prem in early access (mid-2026) | ✅ JWT-based RBAC; custom prompts/actions; limited UI override | **Strong (with caveats)** |
-| Tiptap | AI Toolkit (schema-aware agents, suggestion reviews, streaming); Server AI Toolkit (backend/batch, restricted beta); AI Generation (free tier) | ✅ (any model incl. self-hosted; no data to Tiptap) | ✅ (tools + pre-built workflows; suggestion-mode review) | **Strong** |
+| Tiptap | Basic in-editor chat + custom Quick Actions / one-click transformations; no AI Review, AI Translations, context awareness, chat history, or MCP | ❌ No model selection | ⚠️ Headless — build your own UI, but no dedicated AI modes | **Weak** |
 | Quill | None | ❌ | ❌ | **None** |
 | ProseMirror | None | ❌ | ❌ | **None** |
 | Froala | AI Assist (5.1): chat, Quick Actions, tone, translation; LLM-agnostic | ✅ (customer-controlled backend) | ⚠️ Limited — custom tone presets, programmatic API | **Moderate** |
@@ -2956,8 +2953,8 @@ No real-time collaboration. Eddyter's own comparison content explicitly acknowle
 
 ### CKEditor vs. Tiptap
 **Win condition:** Enterprise buyer who needs proven scale and compliance depth; buyer who wants a complete platform rather than assembling from parts; buyer evaluating total cost of ownership including platform subscription costs at document scale.
-**Risk:** Tiptap's AI story has gotten materially stronger — AI Toolkit (launched Nov 2025) and Server AI Toolkit (restricted beta) give it schema-aware agent capabilities and backend document automation. Tiptap 3.0 stable (July 2025) removes the "still in beta" objection. Developer experience is excellent. The free tier now includes basic AI, lowering the evaluation barrier further.
-**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship with enterprise backing and a 20-year track record. Tiptap's collaboration and advanced AI features require the paid platform — and pricing for Team/Business is no longer public. CKEditor's SOC 2, SLA, and Fortune 500 track record fills gaps that Tiptap cannot yet address. Watch the Server AI Toolkit closely — if it reaches stable and ships MCP integration, Tiptap's AI positioning will challenge CKEditor's more directly.
+**Risk:** Tiptap's headless flexibility and open-source core appeal strongly to React developers who want full UI control. Developer experience is excellent.
+**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship. Per the comparison page, Tiptap has no track changes, no native PDF export, a compliance gap (no WCAG 2.2 / Section 508 / spelling & grammar suite), and only basic AI (limited chat + Quick Actions — no AI Review, Translations, or MCP). It also ships no built-in UI, leaving toolbars, dialogs, scalability, and support to your team. CKEditor delivers the same customizability with the full AI and collaboration stack, a complete UI, SOC 2 / SLA / Fortune 500 backing, and a 20-year track record out of the box.
 
 ### CKEditor vs. ProseMirror / Lexical
 **Win condition:** Any buyer who has estimated the engineering cost of building on a low-level toolkit and is willing to pay for integration speed and ongoing maintenance savings.
@@ -3161,4 +3158,364 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 ---
 
 *For the full competitive landscape across all editors, see `research/competitive-analysis.md`. For persona-level messaging, see `brand/personas/`.*
+
+
+================================================================
+FILE: ./research/competitors/ckeditor-vs-tiptap.md
+================================================================
+
+# CKEditor vs. Tiptap
+
+**Last updated:** July 2026 (transcribed 1:1 from the public comparison page after its bigger update)
+**Source of truth:** https://ckeditor.com/ckeditor-vs-tiptap/ — this battlecard mirrors the published page so sales talking points stay consistent with what prospects see. When the page changes, update this file to match.
+
+---
+
+## Market Context
+
+Tiptap sits in the "open-source-and-extend" buying pattern — teams start with the headless MIT core and assemble collaboration, AI, and UI from platform add-ons and their own code. CKEditor competes as the complete, supported platform: the same customizability with collaboration and AI already integrated, backed by a 20+ year track record and enterprise support.
+
+---
+
+## Positioning (as stated on the page)
+
+> "Tiptap offers flexibility, but no built-in UI. You'll need to build everything from scratch: toolbars, dropdowns, dialogs…"
+
+> "Tiptap offers control, but long-term scalability and support fall entirely on your team."
+
+> "Tiptap lacks formal certifications for security and accessibility."
+
+**CKEditor's frame:** Feature-rich, enterprise-ready, developer-loved — production-ready from day one. Tiptap gives you the building blocks; CKEditor gives you the finished, configurable product plus the collaboration and AI stack out of the box.
+
+---
+
+## Tiptap Profile
+
+**Vendor:** Tiptap GmbH (Germany)
+**Model:** Headless, open-source MIT core; commercial platform for collaboration, AI, and advanced features
+**Positioning:** The developer's headless editor — maximum frontend control, zero opinionated UI, build the experience yourself.
+
+---
+
+## Feature-by-Feature Comparison
+
+Transcribed section-by-section from the comparison page. ✓ = available, ✗ = not available.
+
+### AI-Assisted Editing
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| AI Chat | ✓ | Limited support |
+| Conversational AI integrated in editor | ✓ | Very basic chat |
+| Context awareness with files and URLs | ✓ | ✗ |
+| Model selection | ✓ | ✗ |
+| Reasoning | ✓ | ✗ |
+| Web search within Chat | ✓ | ✗ |
+| Custom Quick Actions | ✓ | ✓ |
+| One-click text transformations | ✓ | ✓ |
+| Search/filter in Quick Actions dropdown | ✓ | ✗ |
+| AI Review (dedicated mode) | ✓ | ✗ |
+| AI Translations (dedicated mode) | ✓ | ✗ |
+| AI Chat History | ✓ | ✗ |
+| AI Permissions | ✓ | ✗ |
+| AI REST API | ✓ | ✗ |
+| MCP Support | ✓ | ✗ |
+
+### Collaboration
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Real-time editing | ✓ | ✓ |
+| Cursors and selections of other users | ✓ | ✓ |
+| Presence list | ✓ | ✓ |
+| Real-time comments | ✓ | ✓ |
+| Inline commenting | ✓ | ✓ |
+| Threaded comments | ✓ | ✓ |
+| Comments Archive | ✓ | ✓ |
+| Comment roles for users | ✓ | ✗ |
+| Comments outside the editor | ✓ | ✗ |
+| Comments-only mode | ✓ | ✗ |
+| Display modes (inline/sidebar) | ✓ | ✓ |
+| Mentions with suggestion popup | ✓ | ✓ |
+| Multiple mention types | ✓ | ✓ |
+| Multiple editors in single environment | ✓ | ✗ |
+| On-premises collaboration server | ✓ | ✓ |
+| Real-time track changes | ✓ | ✗ |
+| Real-time revision history | ✓ | ✓ |
+| REST API | ✓ | ✓ |
+| Server-side content editing | ✓ | ✓ |
+| Webhooks | ✓ | ✓ |
+| Document version comparison | ✓ | ✓ |
+| Named revisions | ✓ | ✓ |
+| Restoring revisions | ✓ | ✓ |
+| Revision autosave | ✓ | ✓ |
+| Saving revisions | ✓ | ✓ |
+
+### Track Changes
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Accept/reject changes | ✓ | ✗ |
+| Add/remove/replace suggestions | ✓ | ✗ |
+| Preview content with accepted/rejected suggestions | ✓ | ✗ |
+| Suggestions preserved in DOCX export | ✓ | ✗ |
+| Suggestions preserved in PDF export | ✓ | ✗ |
+
+### Compliance
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| 80+ languages support (Spelling/Grammar) | ✓ | ✗ |
+| Custom dictionaries | ✓ | ✗ |
+| Spelling autocorrect & autocomplete | ✓ | ✗ |
+| Style guide rules (non-inclusive language) | ✓ | ✗ |
+| Accessibility help dialog (WCAG 2.2) | ✓ | ✗ |
+| Full WCAG 2.2 compliance | ✓ | ✗ |
+| Section 508 of the Rehabilitation Act | ✓ | ✗ |
+| Invisible Characters | ✗ | ✓ |
+| Professionally Translated Language Packs | ✓ | ✗ |
+| Read-only Mode | ✓ | ✓ |
+| Restricted Editing | ✓ | ✗ |
+| SOC2 Type 2 | ✓ | ✓ |
+| Text Part Language | ✓ | ✗ |
+
+### Content Conversion & Embedding
+
+**Email editing**
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Email Configuration Helper | ✓ | ✗ |
+| Export with Inline Styles | ✓ | ✗ |
+| HTML with inline styles for email clients | ✓ | ✗ |
+| Merge fields support | ✓ | ✗ |
+
+**PDF Export**
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Native PDF export from editor | ✓ | ✗ |
+| 1:1 editor content reflection in exported document | ✓ | ✗ |
+| Advanced header and footer configuration | ✓ | ✗ |
+| Compression control | ✓ | ✗ |
+| Digital signatures | ✓ | ✗ |
+| Document metadata | ✓ | ✗ |
+| Enhanced rendering options | ✓ | ✗ |
+| Integrates with editor pagination | ✓ | ✗ |
+| Math equations support | ✓ | ✗ |
+| Merge fields support | ✓ | ✗ |
+| Mirror margins | ✓ | ✗ |
+| REST API | ✓ | ✗ |
+| Security and encryption | ✓ | ✗ |
+| Watermarks support | ✓ | ✗ |
+| Web fonts support | ✓ | ✗ |
+
+**Word Export**
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Native DOCX export | ✓ | ✓ |
+| REST API | ✓ | ✓ |
+| Various page sizes | ✓ | ✓ |
+| Headers and footers support | ✓ | Limited support |
+| Custom base URL for handling relative paths | ✓ | ✗ |
+| Export preserves comments & track changes | ✓ | ✗ |
+| Footnotes support | ✓ | ✗ |
+| Merge fields support | ✓ | ✗ |
+| Table of contents support | ✓ | ✗ |
+| Watermarks support | ✓ | ✗ |
+
+**Word Import**
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| DOCX import with formatting | ✓ | ✓ |
+| Content styles from editor or from Word | ✓ | ✗ |
+| Import preserves headers and footers | ✓ | ✗ |
+| Import preserves comments | ✓ | ✗ |
+| Import preserves track changes | ✓ | ✗ |
+| Merge fields support | ✓ | ✗ |
+
+**Markdown**
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Markdown input/output | ✓ | ✓ |
+| Markdown shortcuts (autoformatting) | ✓ | ✓ |
+
+**Media Embed**
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Default popular media providers support | ✓ | YouTube and Twitch support |
+| Extendable providers list | ✓ | ✗ |
+| Previewable data output | ✓ | ✓ |
+| Semantic data output | ✓ | ✗ |
+
+### Core Editing
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Bold, Italic, Underline, Strikethrough | ✓ | ✓ |
+| Highlight/Text Marker | ✓ | ✓ |
+| Inline Code | ✓ | ✓ |
+| Superscript/Subscript | ✓ | ✓ |
+| Headings | ✓ | ✓ |
+| Text Alignment | ✓ | ✓ |
+| Line Height | ✓ | ✓ |
+| Block Quote | ✓ | ✓ |
+| Block indent | ✓ | ✗ |
+| Horizontal Line | ✓ | ✓ |
+| Emoji | ✓ | ✓ |
+| Special handling — Details / Details content / Details summary | via General HTML Support | ✓ |
+| Code Block Lowlight | via 3rd party | ✓ |
+| Font family / size / color / background control | ✓ | ✓ |
+| Picker for font color and background | ✓ | ✗ |
+| Adding bookmarks to content | ✓ | ✗ |
+| Bookmarks — integration with links | ✓ | ✗ |
+| Code Block — language picker | ✓ | ✓ |
+| Code Block — tab indentation | ✓ | ✓ |
+| Modal code editor with syntax highlighting | ✓ | ✗ |
+| Source Code Editing | ✓ | ✗ |
+| Source Code — support all editor types | ✓ | ✗ |
+| HTML code embedding | ✓ | ✗ |
+| HTML Embed — preview mode | ✓ | ✗ |
+| HTML Embed — sanitization configuration | ✓ | ✗ |
+| Full Page HTML Editing | ✓ | ✗ |
+| Show Blocks | ✓ | ✗ |
+| Drag & drop content blocks | ✓ | ✓ |
+| Drag & drop file upload | ✓ | ✓ |
+| Base64 image upload | ✓ | ✓ |
+| Insert image via URL | ✓ | ✓ |
+| Upload from device | ✓ | ✓ |
+| Image alt text | ✓ | ✓ |
+| Image resize (handles) | ✓ | ✓ |
+| Image captions | ✓ | ✗ |
+| Image editor | ✓ | ✗ |
+| Image linking | ✓ | ✗ |
+| Image optimizer | ✓ | ✗ |
+| Image styles (block/inline/side) | ✓ | ✗ |
+| Responsive images | ✓ | ✗ |
+| Autolink (auto URL conversion) | ✓ | ✓ |
+| Link decorators/attributes | ✓ | ✓ |
+| Typing around links | ✓ | ✗ |
+| Bulleted lists | ✓ | ✓ |
+| Numbered lists | ✓ | ✓ |
+| To-do Lists | ✓ | ✓ |
+| Legal-style numbering (1.1, 1.1.1) | ✓ | ✗ |
+| List properties (marker, start index, reversed) | ✓ | ✗ |
+| Create and edit tables | ✓ | ✓ |
+| Column resize | ✓ | ✓ |
+| Merge/split cells | ✓ | ✓ |
+| Nested tables | ✓ | ✓ |
+| Table caption | ✓ | ✗ |
+| Table Cell Properties | ✓ | ✗ |
+| Table properties | ✓ | ✗ |
+| Picker for table background color | ✓ | ✗ |
+| Picker for table border color | ✓ | ✗ |
+| Layout Tables | ✓ | ✗ |
+| Table of Contents | ✓ | ✓ |
+| File Managers | ✓ | ✗ |
+| Undo and Redo | ✓ | ✓ |
+
+### Customization & Configurations
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Builder — pre-built UI templates | ✓ | ✓ |
+| Builder — visual online configurator | ✓ | ✗ |
+| Ready-to-use Editor Builds | ✓ | ✗ |
+| Multi-root — dynamic roots | ✓ | ✗ |
+| Multi-root — multiple editable areas in one instance | ✓ | ✗ |
+| Multi-root — read-only roots | ✓ | ✗ |
+| 38 UI languages with auto-detection | ✓ | ✗ |
+| Support for content language | ✓ | ✗ |
+| Support for UI language | ✓ | ✗ |
+| Right-to-left (RTL) support | ✓ | ✗ |
+| Classic Toolbar | ✓ | ✓ |
+| Balloon Toolbar | ✓ | ✓ |
+| Block Toolbar | ✓ | ✗ |
+| Bottom Toolbar | ✓ | ✗ |
+| Document Toolbar | ✓ | ✗ |
+| Inline Toolbar | ✓ | ✗ |
+| Menu Bar | ✓ | ✗ |
+| Button Grouping | ✓ | ✗ |
+| Floating Menu | ✗ | ✓ |
+| JSX Support | ✗ | ✓ |
+| Deletion Events | ✓ | ✓ |
+| Editing View Decorations | ✓ | ✓ |
+| Server-side editor API | ✓ | ✓ |
+| TypeScript Support | ✓ | ✓ |
+
+### Page Management
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Document Outline | ✓ | ✗ |
+| Footnotes | ✓ | ✗ |
+| Page Break | ✓ | ✓ |
+| Pagination | ✓ | Available in Alpha |
+
+### Productivity
+
+| Feature | CKEditor | Tiptap |
+|---------|----------|--------|
+| Case Change — lowercase / title case / uppercase | ✓ | ✗ |
+| Find and Replace — cycling through results | ✓ | ✗ |
+| Find and Replace — display in dialog UI | ✓ | ✗ |
+| Find and Replace — display in dropdown UI | ✓ | ✗ |
+| Find and Replace — results highlighting | ✓ | ✗ |
+| Merge Fields — block / inline / image / dynamic values / filled-in output | ✓ | ✗ |
+| Slash Commands — custom commands | ✓ | ✓ |
+| Slash Commands — editor commands | ✓ | ✓ |
+| Slash Commands — integration with style plugin | ✓ | ✗ |
+| Slash Commands — integration with templates plugin | ✓ | ✗ |
+| Automatic Text Transformation | ✓ | ✓ |
+| Enhanced Paste from Word | ✓ | ✗ |
+| Enhanced Paste from Excel | ✓ | ✗ |
+| Fullscreen Mode | ✓ | ✗ |
+| Math Equations | ✓ | ✓ |
+| Placeholder | ✓ | ✓ |
+| Special Characters | ✓ | ✗ |
+| Templates | ✓ | ✗ |
+| Word Count | ✓ | ✓ |
+
+---
+
+## Where CKEditor Wins (per the page)
+
+- **AI depth** — CKEditor has full AI Chat (context, reasoning, web search, model selection, history), dedicated AI Review and AI Translations modes, AI permissions, an AI REST API, and MCP support. Tiptap's AI is limited to very basic chat and custom Quick Actions.
+- **Track changes** — CKEditor has full accept/reject, add/remove/replace suggestions, preview, and suggestion preservation in DOCX/PDF export. Tiptap does not.
+- **Compliance** — CKEditor covers 80+ language spelling/grammar, custom dictionaries, style-guide rules, full WCAG 2.2, and Section 508. Tiptap does not.
+- **Content conversion** — CKEditor has native PDF export, full-featured Word export/import (headers/footers, comments, track changes, footnotes, TOC, merge fields, watermarks). Tiptap has native DOCX import/export but not the advanced fidelity or native PDF export.
+- **Out-of-the-box UI** — CKEditor ships toolbars, menus, dialogs, and multiple editor types. Tiptap is headless — you build the UI from scratch.
+- **Productivity suite** — Merge Fields, Templates, Enhanced Paste from Word/Excel, Case Change, full Find & Replace UI, Multi-root editor. Tiptap lacks these.
+- **Enterprise** — 20+ year track record, enterprise SLAs, and support. With Tiptap, scalability and support fall on your team.
+
+## Where Tiptap Wins (per the page)
+
+- **JSX Support** — available in Tiptap, not CKEditor.
+- **Floating Menu** and **Invisible Characters** — shown for Tiptap, not CKEditor.
+- **Code Block Lowlight** and **Details** — native in Tiptap; in CKEditor via 3rd party / General HTML Support.
+- **Headless flexibility** — no opinionated UI; maximum frontend control for teams that want to own the experience.
+
+---
+
+## The Battlecard Argument
+
+> Tiptap is the best editor for teams that want to build everything themselves and have the engineering resources to do it. CKEditor delivers the same customizability with the full collaboration and AI stack already integrated, a complete out-of-the-box UI, a 20-year track record, and enterprise support Tiptap leaves to your team.
+
+---
+
+## Win Condition Summary
+
+**When CKEditor wins:** Buyer wants a complete platform instead of assembling from parts; needs deep AI (Chat, Review, Translations, MCP); needs track changes, advanced PDF/Word conversion, compliance coverage, or enterprise support and track record.
+
+**Risk to manage:** Tiptap's headless flexibility and open-source core appeal to React developers who want full UI control. The counter is total cost of ownership — the UI, collaboration, AI, and support Tiptap leaves to your team are already shipped and supported in CKEditor.
+
+**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship — with the full AI and collaboration stack, a complete UI, and a 20-year enterprise track record out of the box.
+
+---
+
+*This battlecard mirrors https://ckeditor.com/ckeditor-vs-tiptap/ as of July 2026. For the broader analytical landscape across all editors, see `research/competitive-analysis.md`.*
 
