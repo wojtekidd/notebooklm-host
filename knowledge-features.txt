@@ -1,7 +1,7 @@
 ================================================================
 CKEditor FEATURES KNOWLEDGE BASE
-Last updated: 2026-07-28 05:58 UTC
-Commit: 7c8501dd700f3d0c87f94df75c9267514a4a2ee8
+Last updated: 2026-07-29 12:56 UTC
+Commit: 7129dae9335d45febc494842c2c2bb85b725bebd
 Files included: 23
 ================================================================
 
@@ -345,7 +345,7 @@ FILE: ./features/ckeditor ai/CKEditor - Internal Product Guide - CKEditor AI.txt
 Internal Product Guide
 CKEditor AI
 v1.0.0
-Last updated Dec 2, 2025
+Last updated Jul 29, 2026
 An example of a Title slide
 
 Basics
@@ -356,7 +356,7 @@ CKEditor AI
 Tailor AI behavior to your application, content, and workflow
 
 Bring AI directly into your editor with fully integrated UI and features that help users brainstorm, rewrite, polish and revise content without context switching.
-Empower teams with prebuilt and editable AI commands that match your use case.
+Empower teams with prebuilt and editable AI profiles and commands that match your use case.
 Store and reuse complex prompts for structured, repeatable tasks. Create tone, structure, and vocabulary presets for consistent output.
 Reduce time-to-market for AI-driven content features while cutting operational risk and years of development.
 
@@ -369,10 +369,8 @@ CKEditor AI: Executive Summary
 By integrating AI writing assistance directly into the editing experience, CKEditor AI empowers authors with real-time AI writing support, streamlines content creation, and enhances editorial workflows across a wide range of use cases – from productivity boosts and proof-reading to content quality and consistency.
 For developers
 Seamless integration of AI features via plugin architecture
-Fine-grained control over AI interactions within the editor, enabling contextual prompts and UI customization
+Fine-grained control over AI interactions within the editor, enabling contextual prompts and UI customization 
 Works with various LLM providers abstracted via a common interface
-Supports MCP: connect external tools, data sources, and AI agents on the backend integration side — accessible via AI Chat or programmatically
-Custom LLMs supported via MCP in On-Premises distribution — use your own models without vendor lock-in
 Extensible with server-side endpoints and custom prompt templates to meet domain-specific needs
 Reduces frontend development burden through prebuilt, configurable AI UX components
 For end users
@@ -390,20 +388,18 @@ CKEditor AI: Executive Summary
 Business value
 Increases content team productivity by reducing manual editing, review cycles, and context-switching delays
 Enhances content quality, clarity, and brand alignment across large teams
-Preserves consistency in rich text formatting throughout all changes suggested and implemented by the AI
+Preserves consistency in rich text formatting throughout all changes suggested and implemented by the AI 
 Introduces an AI-driven editing experience and review process without friction
 Offloads operational burden and reduces the workload of AIOps teams
 Reduces costs associated with external copyediting, QA, or manual rewrites
 Speeds up time to publish and supports real-time content personalization
 Future-proofs the content pipeline with scalable AI features adaptable to evolving business goals
-Saves months of research and development by introducing drop-in AI writing features inside your app
-Extensible AI infrastructure: MCP support enables connecting external tools, data sources, and AI agents on the backend — accessible via AI Chat or programmatically without rebuilding the integration layer
-Custom LLM and AI agent support via MCP in On-Premises distribution — no vendor lock-in, full data sovereignty 
+Saves months of research and development by introducing drop-in AI writing features inside your app 
 Feature slide - Option 1
 
 
 
-Server-side Editor API Schedule | Tier | Contacts
+CKEditor AI Schedule | Tier | Contacts
 Role
 Name
 Team
@@ -498,7 +494,7 @@ Solution: AI Chat History preserves conversations per document, allowing teams t
 Optimized AI for Different Use CasesPain Point: One-size-fits-all models don’t suit every task; power users want control while integrators need cost management.
 Solution: Model Selection enables users to choose the best-fit LLM for their task while integrators define which models are available per plan or product tier.
 Personalized, Efficient AI InteractionsPain Point: Rewriting prompts and adjusting tone or structure manually reduces productivity.
-Solution: Custom Commands let users define tone, structure, and reuse task-specific prompts, saving time and increasing output consistency.
+Solution: AI Profiles and Custom Commands let users define tone, structure, and reuse task-specific prompts, saving time and increasing output consistency.
 
 
 Customer Pain Points to Address
@@ -581,9 +577,7 @@ What is LLM?
 LLM (Large Language Model) equals “AI Model” term that we often use internally. It’s a text engine trained on huge amounts of examples so it can understand what you write and respond in fluent, human-like language. Examples: Claude Sonnet, GPT 5, Gemini Pro 3
 
 How to calculate AI tokens?
-Let's start with what is a token in AI lingo - "A token is just a tiny chunk of text the AI counts and works with – like a word fragment. AI vendor pricing and limits are based on how many tokens (chunks of text) go into and come out of the AI."
-
-A normal A4 page of english text (around 400–600 words) is roughly 500–800 tokens. However, there is a lot of variables that impact how many tokens LLM will consume.
+Let's start with what is a token in AI lingo - "A token is just a tiny chunk of text the AI counts and works with – like a word fragment. AI vendor pricing and limits are based on how many tokens (chunks of text) go into and come out of the AI." A normal A4 page of english text (around 400–600 words) is roughly 500–800 tokens. However, there is a lot of variables that impact how many tokens LLM will consume.
 
 In practice, you should not try to estimate specific token consumption as there is no reliable way to do that.
 If you'd like to help our customers understand the costs of using CKEditor AI, it's best for them to use our Trial, perform typical operations that they expect to happen in their application and inspect usage in the Insights Panel within our Customer Portal.
@@ -596,12 +590,13 @@ How can I know how much a specific CKEditor AI operation would cost in terms of 
 We have a table that translates the cost of operations in credits per specific LLM: 
 
 Is there on-premise distribution?
-On-premise solution is planned for Q1 2026
+Yes there is.
 Which LLM providers are available and which models can we use in CKEditor AI?
 We start with models from 3 major providers: OpenAI, Anthropic and Gemini. Exact model list is not defined yet but our goal is always to at least provide a frontier + cost-efficient model from each provider. LLM market evolves rapidly so we have a built-in mechanism that allows us to introduce new models on the fly, as long as it's good enough to support CKEditor AI's features properly. We do not limit ourselves to only these providers and we might introduce support for others in the future.
 
 Do we support RAG?
-Not at the moment, but we might enable integrating own RAG implementations for customers through MCP as a part of On-Premises distribution. However, this is not 100% confirmed yet at the time of writingWhat is RAG (Retrieval-Augumented Generation)? 
+Yes through MCP as a part of On-Premises distribution. 
+What is RAG (Retrieval-Augumented Generation)? 
 By using RAG, before answering, the AI Model can search through large amounts of stored information (docs, knowledge base, etc.) and then respond based on it, instead of relying on its training data or specific context attached  manually by the user. 
 The simplest example would be a case where user knows that the information they need is somewhere in their Notion, but doesn’t know where exactly. With RAG, AI could perform the search across the whole Notion and find required information on its own.
 
@@ -609,15 +604,19 @@ The simplest example would be a case where user knows that the information they 
 FAQ from the clients
 
 Can I use my own API keys, custom models?
-Not yet however we plan to allow using own API keys for models we support in  Q1 2026 as a part of on-premise.Ability to use “custom” models from outside the list of models that we officially support is still under research. Different custom models might have different requirements in terms of integration. MCP tooling support is now available in the On-Premises distribution (since March 2026), enabling custom AI models and tools to be connected as external services within client apps.
-
+Yes, as a part of on-premise.
 Note: By ‘custom model’, customers might mean fine-tuned models, which means they took an existing model and taught it something specific to their use-case.“Think of an old radio where you slowly turn the dial until the static clears and the station comes in. Or imagine a sound mixer with many knobs: you don’t rebuild the whole system, you adjust the balance so the music fits your taste.
 Fine-tuning an AI model works in a similar way. You start with a base model that already “knows” a lot, and then you nudge it towards what matters for your context.”
 
 Can I use my custom commands from AI Assistant?
 Current AI Assistant is similar to Quick Actions in CKEditor AI and there will be a possibility to transfer the AI Assistant actions 1:1 into CKEditor AI.
+
 Is my data used to train LLMs?
 No, it’s not. 
+
+Is there a way to implement Role-based Access Control (RBAC) for CKEditor AI?
+Yes you can regulate what users have what levels of access to selected CKEditor Ai features. You can control access to AI features, models, and capabilities based on user roles, subscription tiers, and organizational requirements. More in the docs: https://ckeditor.com/docs/cs/latest/guides/ckeditor-ai/permissions.html 
+
 
 FAQ from the clients
 
@@ -625,12 +624,13 @@ How can I monitor activity of my users and their usage?
 Customers can use Insights Panel within out Customer Portal to investigate details of each operation in their app, including credits consumption of CKEditor AI.
 
 Does CKEditor AI support MCP servers?
-Yes. MCP support launched in March 2026 as part of the On-Premises distribution. You can connect your MCP server to CKEditor AI to pull fresh external knowledge into responses, prompt external tools directly from the editor, and integrate with data sources and AI agents in your infrastructure.
+Yes with our On-Premises distribution.Feedback needed: “What kind of tool would you like to connect to CKEditor AI through MCP and how you’d expect it to work?”
 Learning resource: MCP - short intro for non-tech people
 “MCP is just a protocol to define various tools and resources for the AI agent to do some specific tasks. It’s a streamlined framework that anyone can use to create a server and give access to the AI. It can increase the potential of doing real tasks with AI instead of just having conversation.”
 
 Does CKEditor AI support AI agents?
-“AI Agent” is a wide term that can be used to describe different things. Typically, by “AI agent” customers might mean autonomous AI model that can perform different tasks automatically across the system/application, used to automate repetitive workflows. At this moment, we don’t offer a way to integrate CKEditor AI into such workflows, but this is now partially enabled through MCP support, available since March 2026 in the On-Premises distribution.
+You can make CKEditor AI Chat aware of your AI Agents via MCP integration in On-Premises deployment
+
 Feedback needed: “What you’d expect such agent to do?/ What problem you’d like to solve by it?”
 
 FAQ from the clients
@@ -640,7 +640,7 @@ You can create your own prompts to define both custom Quick Actions and custom R
 There is a possibility to add custom context sources to be available for end users (URLs to files / text content pulled from the database)
 UI-wise, CKEditor AI can be displayed as a sidebar, or an overlay. There are also settings available to adjust UI for left/right hand side placement.
 Where is my data stored and how is it processed?
-Everything is stored in CKEditor Cloud Services and follows same rules and patterns as all other data we store for the editor features. For a full security breakdown go to the security section on our homepage. However, bear in mind that queries to LLMs together with all data required to perform the operation is being processed by the selected LLM provider.
+Everything is stored in CKEditor Cloud Services and follows same rules and patterns as all other data we store for the editor features. For a full security breakdown go to the security section on our homepage. However, bear in mind that queries to LLMs together with all data required to perform the operation is being processed by the selected LLM provider. We don’t have any Data Processing Agreements with LLM providers.
 
 Which models available in CKEditor AI are best for which use case?
 We recommend using the default Agent/Auto mode which picks the best model for the job. In the future, we plan to expand its classification capabilities so generally it should be most reliable for general use.
@@ -649,21 +649,47 @@ Ability to choose specific models depends on end user’s preference mostly and 
 FAQ from the clients
 
 Will AI features impact performance or editor size?
-In general, CKEditor AI plugin shouldn’t have a significant impact on the performance and bundle size of CKEditor 5 on its own, so customers don’t need to be afraid of their apps slowing down suddenly.
+In general, CKEditor AI plugin shouldn’t have a significant impact on the performance and bundle size of CKEditor 5 on its own, so customers don't need to be afraid of their apps slowing down suddenly.
 However, AI operations themselves can be vulnerable to some performance issues in extreme scenarios (very large amount of content in the editor for example).
 
-We were performing performance tests of CKEditor AI on 50+ pages long documents and we didn’t observe significant UX degradation, we also already have a few technical optimizations implemented to handle larger data quite well.
-
-FAQ from the clients
-
-Is there a way to implement Role-based Access Control (RBAC) for CKEditor AI?
-Yes, you can regulate which users have access to which CKEditor AI features. You can control access to AI features, models, and capabilities based on user roles, subscription tiers, and organizational requirements.
-More in the docs: https://ckeditor.com/docs/cs/latest/guides/ckeditor-ai/permissions.html
+We were performing performance tests of CKEditor AI on 50+ pages long documents and we didn't observe significant UX degradation, we also already have a few technical optimizations implemented to handle larger data quite well.
 
 What’s the difference between WProofreader and CKEditor AI proofreading/grammar checks?
-WProofreader acts in a more ‘real-time’ manner — fixing things as you write and displaying mistakes when content is loaded. CKEditor AI checks can be triggered programmatically, suggested changes can be displayed all at once with an option to approve all or approve one by one, etc. Which is better depends on the use case and the amount of content.
+WProofreader acts in a more ‘real-time’ manner - fixing things as you write, displaying mistakes when content is loaded. CKEditor AI checks can be triggered programmatically, suggested changes can be displayed all at once with option to approve all or approve one by one, etc. Depends on the use case and the amount of content.
 
-⚠️ Internal note: We should be retreating from offering WProofreader because they are becoming a competitor to CKEditor AI — see their AI Writing Assistance functionality: https://wproofreader.com/ai-writing-assistant
+However: we should be retreating from offering WProofreader because they’re becoming a competitor to CKEditor AI - see their AI Wriing Assistance functionality: https://wproofreader.com/ai-writing-assistant 
+
+
+FAQ from the clients - Programmatic API
+
+What's the difference between the front-end editor API, the REST API, and the server-side editor API?
+The front-end editor API runs from the editor instance in the browser and applies or suggests changes directly in the document. The REST API is content in, content out — no editor instance, ideal for backend jobs where results land outside the editor, like metadata or bulk translations. The server-side editor API spins up editors on the backend with no user present, returning content plus collaboration data such as suggestions saved to the collaboration server. In early conversations, lead with the flexibility and save the API-by-API breakdown for technical calls.
+
+Can I apply AI results back into a document through the REST API?
+Not practically. Use the front-end editor API or the server-side editor API when the result has to land in a document as applied content or as suggestions. Keep REST for content in, content out.
+
+What is the document processing endpoint and when should I use it?
+Think of it as chat without the conversation history — a stateless prompt-and-response endpoint with the same capabilities: context attachments, web search, reasoning, and strong rich-text output. Use it whenever the action has to produce or restructure rich content, like turning raw notes into a structured document with proper tables and headings. The review endpoint handles text-level changes such as grammar and style, and can't generate a table.
+
+Can programmatic actions suggest changes instead of applying them?
+Yes, and you choose per action. Autosuggest is the common pattern for backend and bulk work: run the job overnight, and users review the suggestions the next morning.
+
+
+
+FAQ from the clients - Programmatic API
+
+Can I combine several APIs, or do I need to pick one?
+Combine freely. There's no exclusivity, and multiple operations can run at the same time — three reviews in parallel, for example.
+
+Does programmatic usage work for customers who don't want to use our AI backend?
+Not today. Everything described here runs against the CKEditor AI service. Connecting a customer's own AI platform is a separate topic, available on demand with On-Premises — route those conversations to Product.
+
+How does our programmatic control compare with Tiptap and TinyMCE?
+TinyMCE has nothing comparable as far as we know. Tiptap is roughly on par — their server-side toolkit covers similar ground, including auto-applied suggestions — so here we're closing a gap rather than creating an advantage. Our edge is the quality of what comes back: correct, editor-ready HTML that uses real editor features. Tiptap started from agentic workflows, where the customer's own agents own output quality. In a competitive deal, ask Product for a side-by-side quality comparison.
+
+
+
+
 
 
 Go-to-Market Context & Approach
@@ -734,98 +760,64 @@ What would success look like for you after implementing AI-powered editing?
 How would you measure ROI - faster time to market, reduced editing costs, improved content quality, higher engagement?
 Are you looking for a competitive advantage through content speed, quality, or personalization?
 
-Multi-Root and Multi-Editor Support [SHIPPED]
+Programmatic API Discovery
+Hints and Questions
 
-AI Chat, AI Review, and AI Translate operate across all editing areas when content is split into separate regions — whether that's a single editor with multiple roots (e.g. title, subtitle, body) or multiple editors sharing a Context instance.
+What signals in a discovery call point to programmatic usage rather than a standard demo?
+Listen for AI work happening without a user clicking anything: "we generate documents on the backend", "we pre-draft content", bulk or nightly jobs, or "when a user imports a file, we want X to happen automatically". Multi-step editorial workflows and requests to combine several AI operations behind one button are also strong signals. A customer saying "the demo looks good, but we need it to work differently" is your cue to pivot to the flexibility of the APIs.
 
-Supported setups:
-- Multi-root editor: A single MultiRootEditor instance with multiple editable regions. AI features operate across all roots.
-- Multiple editors with shared Context: Several editors sharing a Context instance. AI features operate across all editors in the Context.
+How do I explain programmatic usage in one sentence?
+The standard AI features are the interface for the end user. Programmatic control is the interface for the integrator — you decide what happens, when, and where, then trigger it in code. It's a toolkit for composing custom and partially automated workflows out of our existing AI capabilities.
 
-Per-feature behavior:
-- AI Chat: Reads each root's content together with its label and description, then decides which root to address based on the user's prompt.
-- AI Review and AI Translate: Run across all roots simultaneously. Suggestions and translations land in the correct root and do not bleed across boundaries.
+What kinds of customer use cases match programmatic usage?
+Three patterns come up most often. Bulk or scheduled operations — proofread every document created yesterday, overnight, with no user present. Backend draft generation, where the probe is whether the returned content is actually editor-ready. And quality gates, where the AI response gates a save or publish rather than changing content.
 
-Critical configuration — three properties must be set on each root for AI to work reliably:
-- Root name: Identifies the root in the model (multi-root editors only).
-- Label: The aria-label of the editable area. Users can reference this in prompts (e.g. "rewrite the introduction").
-- Description: A short explanation of what the root contains, e.g. "Main article body — the primary content."
-
-Without labels and descriptions, AI cannot reliably distinguish editing areas in multi-root or multi-editor setups.
-
-Additional requirement for Context-based setups: each editor must have a separate config.collaboration.channelId — AI throws an error without it.
-
-Status: Experimental. Breaking changes may appear in upcoming releases.
-Docs: https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-multi-root-multi-editor-support.html
+Is "agents" or "agentic workflows" a keyword for programmatic control?
+Not directly. The APIs are how you interact with the editor and our AI service — front end, REST, and server side. Full agentic interaction needs an additional layer on the backend that we haven't shipped yet.
 
 
-Marking AI-Generated Suggestions [SHIPPED]
-
-When CKEditor AI creates edits through Track Changes, those suggestions can be visually tagged so reviewers can tell AI-generated edits apart from human ones. It's an optional display feature, disabled by default, and works across every AI function that produces suggestions (Chat, Quick Actions, Review, Translate).
-
-Why it matters:
-- Transparency and trust — reviewers see at a glance which changes came from AI.
-- Governance and compliance — regulated teams (legal, healthcare, finance, government) get clear attribution of AI-assisted content changes without losing the original author record.
-- Responsible AI — supports human-in-the-loop workflows where AI contributions must be identifiable before approval.
-
-Configuration — config.trackChanges.showAISource:
-- 'pill': adds an "AI-generated" badge to the suggestion balloon while keeping the original author's name and avatar.
-- 'author': replaces the displayed author with a view-only AI identity. The original author is still preserved in the underlying data.
-- null (default): AI suggestions look identical to manual edits.
-
-When using 'author' mode, the AI identity is customizable via config.trackChanges.aiAuthor:
-- name: custom label (defaults to "AI Assistant").
-- avatar: custom avatar URL (falls back to a default AI icon if omitted).
-
-Important: the original author is always retained in stored data regardless of display mode — the marking is a presentation layer, not a change to authorship records.
-
-Requires the Track Changes plugin.
-Docs: https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-generated-suggestions.html
 
 
-Programmatic Usage [SHIPPED]
+Programmatic API - Discovery Questions
 
-CKEditor AI can be controlled entirely through code — no built-in UI required. This enables custom workflows, external integrations, and backend automation beyond the standard editor toolbar.
+Find the trigger — is anything happening without a user?
+Where in your product does content get created or changed without someone sitting in the editor?
+Do you generate drafts, templates, or documents on the backend today? What generates them?
+Are there jobs that run on a schedule — nightly, on publish, on import — that touch content?
+When a document arrives from outside your system (an import, an API call, a migration), what happens to it before a person opens it?
 
-Two approaches:
+Test the "one button" instinct
+Are there AI steps you'd want to fire automatically on an event, rather than waiting for a user to click?
+Would you want to chain several AI operations behind a single action in your own UI?
+Which parts of your editorial process do your users repeat on every single document?
+Do you want to build your own UI for these actions, or use ours?
 
-1. Front-End Editor API
-Trigger AI capabilities directly from the editor instance using plugin controllers.
 
-AI Chat:
-  aiChatController.sendMessage({ message: 'Your custom prompt here' })
-  aiChatController.startConversation()  // optionally pass { modelId: 'claude-4-sonnet' }
-  aiChatController.addSelectionToChatContext()
+Programmatic API - Discovery Questions
 
-AI Quick Actions:
-  aiActions.executeAction({ actionName: 'improve-writing' }, 'Improve writing')
-  aiActions.executeAction({ userMessage: 'Rewrite as haiku', model: 'agent-1' }, 'Make it a haiku')
+Quality gates and governance
+Does anything block a document from being saved or published today — a checklist, a review step, a compliance sign-off?
+Would it help to have AI assess a document and return a pass/fail signal your code acts on, without touching the content?
+When AI changes content in your workflow, does a human always approve it, or can it be applied directly?
 
-Authentication for frontend calls: editor.plugins.get('CloudServices').token.value
+Scale and where results land
+How many documents would a single run touch — dozens, or thousands?
+Do these operations need to run when no user is logged in?
+Where do the results need to land: back in the document as suggestions, or somewhere else like a database field or a separate record?
 
-2. REST API (https://ai.cke-cs.com)
-Call the AI service directly from frontend or backend — without an editor instance. Useful for:
-- Auto-generating titles or metadata outside the editor
-- Server-side bulk processing (e.g. compliance checks on publish)
-- Content pipelines and scheduled tasks
 
-Four endpoint types:
-- Actions: Stateless transforms (grammar fix, tone adjustment, translation)
-- Conversations: Multi-turn chat with history and file uploads
-- Reviews: Document analysis with specific improvement suggestions
-- Document Processing: Whole-document transformations — returns synchronous JSON (no stream parsing needed)
+Programmatic API - Discovery Questions
 
-Most endpoints return Server-Sent Events (SSE) streams. Document Processing is the exception and returns standard JSON.
+Content quality — probe this whenever they already generate content
+How do you make sure what your backend generates is valid, editable content once it's in the editor?
+Have you lost formatting, tables, or editing capability when applying AI-generated HTML back into a document?
+Do these documents need real editor features — tables, multi-level lists, custom plugins — or are headings and paragraphs enough?
 
-Architecture options for custom integrations:
-- REST API calls (SaaS and On-Premises)
-- MCP servers (On-Premises only)
-- Custom backend automation
-- Internal AI platform connections (on-demand, On-Premises)
-
-Note: The "Server-side API" 2026 roadmap item refers to expanded server-side endpoint coverage beyond what is already available. The front-end editor API and the REST API described above are live and documented.
-Docs: https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-programmatic.html
-
+Phrases to listen for
+"we generate documents on the backend" / "we pre-draft content"
+"nightly job", "in bulk", "batch process"
+"when a user imports X, we want Y to happen automatically"
+"the demo looks nice, but we need it to work a bit differently"
 
 Resources
 CKEditor AI Overview slide deck - useful for conversations with leads/customers
