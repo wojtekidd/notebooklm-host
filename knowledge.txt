@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-07-29 12:56 UTC
-Commit: 7129dae9335d45febc494842c2c2bb85b725bebd
-Files included: 11
+Last updated: 2026-08-17 13:16 UTC
+Commit: 585aedabe5f97b751da9dfaf01d3af7b66fb5383
+Files included: 17
 ================================================================
 
 
@@ -2280,6 +2280,1309 @@ Documentation
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-deployment.html
 
 ================================================================
+FILE: ./research/2026-08-17-icp-revenue-analysis.md
+================================================================
+
+# Evidence-based ICP — revenue analysis
+
+*Phase 1 of the [ICP → use case → workflow story analysis](../docs/superpowers/specs/2026-08-13-icp-usecase-analysis-design.md). Built 2026-08-17 from Salesforce.*
+
+**Population:** 2,072 active paying accounts. **$23,503,308 ARR.** Mean $11,343, median $5,415.
+
+Every figure comes from [`research/data/2026-08-17-accounts-normalized.csv`](data/2026-08-17-accounts-normalized.csv).
+Read [`data-notes.md`](data/2026-08-17-data-notes.md) for provenance, coverage, and the
+multi-currency correction. Coverage is strong: ARR 100%, employees 98.9% ARR-weighted,
+industry 93.7%, country 97.6%.
+
+**Composition only.** ARR is a month-end snapshot with a single prior-month field, so this
+analysis describes how revenue is *distributed*, never how it is *trending*. Growth claims are
+out of scope, not merely uncertain.
+
+---
+
+## The five findings that change the ICP
+
+**1. Three industries carry two thirds of revenue.** Technology (33.6%), Business Services
+(17.7%), and Finance (13.5%) together hold **64.8%**. The current ICP lists seven industries as
+co-equal. They are not.
+
+**2. Revenue is barbell-distributed by company size, and the current ICP describes the thinnest
+part of it.**
+
+| Size window | Share of ARR |
+|---|---|
+| Under 100 employees | 27.2% |
+| **100–2,000 employees — the ICP's stated band** | **28.1%** |
+| Over 5,000 employees | 36.4% |
+
+The stated band is the *smallest* of the three. The single largest band is 10,000+ employees at
+29.8% of ARR.
+
+**3. A fifth of revenue sits outside the seven target industries.** 81.0% of ARR falls inside
+the seven; **19.0% ($4.47M) does not** — 12.7% in `Other`, 6.3% `Unclassified`. `Other`
+outranks Government, Education, Healthcare, and Media *individually*. Manufacturing alone is
+$626k, larger than Media/Publishing's entire $596k.
+
+**4. Education, Healthcare, and Media are named prominently in the ICP but are minor revenue.**
+Together: 10.5% of ARR. Education — called out as "EdTech/LMS" — is 4.4% and ranks 7th of 9.
+
+**5. Revenue is broad, not concentrated.** It takes **685 accounts to reach 80% of ARR**. The
+top 10 accounts are just 7.2%. There is no whale problem here, and no small set of logos whose
+loss would be existential. This is a volume business with an enterprise tail.
+
+---
+
+## 1. ARR by industry
+
+Primary mapping: vertical-first (software sold to a vertical rolls to that vertical).
+
+| Industry | Accounts | Acct % | ARR | ARR % | Mean | Median |
+|---|---:|---:|---:|---:|---:|---:|
+| Technology | 666 | 32.1% | $7,895,928 | **33.6%** | $11,856 | $5,798 |
+| Business Services | 349 | 16.8% | $4,159,907 | **17.7%** | $11,920 | $7,245 |
+| Finance | 198 | 9.6% | $3,166,827 | **13.5%** | $15,994 | $10,887 |
+| *Other* | 350 | 16.9% | $2,990,111 | *12.7%* | $8,543 | $2,958 |
+| *Unclassified* | 147 | 7.1% | $1,480,228 | *6.3%* | $10,070 | $3,569 |
+| Government | 97 | 4.7% | $1,333,822 | 5.7% | $13,751 | $7,037 |
+| Education | 120 | 5.8% | $1,029,667 | 4.4% | $8,581 | $4,833 |
+| Healthcare | 67 | 3.2% | $851,243 | 3.6% | $12,705 | $6,420 |
+| Media/Publishing | 78 | 3.8% | $595,577 | 2.5% | $7,636 | $3,999 |
+
+Mean sits well above median in every industry — the distribution is right-skewed throughout, so
+quote medians when describing a typical account.
+
+## 2. Rollup sensitivity — how much rests on one decision
+
+The alternative mapping sends all four vertical-software values to Technology instead.
+
+| Industry | Primary | Alt | Shift |
+|---|---:|---:|---:|
+| Technology | #1 33.6% | #1 38.5% | +5.0pp |
+| Business Services | #2 17.7% | #2 17.0% | −0.7pp |
+| Finance | #3 13.5% | #4 11.5% | −2.0pp |
+| *Other* | #4 12.7% | #3 11.5% | −1.2pp |
+| *Unclassified* | #5 6.3% | #5 6.3% | 0.0pp |
+| Government | #6 5.7% | #6 5.7% | 0.0pp |
+| Education | #7 4.4% | #7 4.4% | 0.0pp |
+| Healthcare | #8 3.6% | #9 2.5% | −1.1pp |
+| Media/Publishing | #9 2.5% | #8 2.5% | 0.0pp |
+
+**What survives both mappings:** Technology #1 and Business Services #2, by a wide margin. That
+finding is robust and can be stated plainly.
+
+**What does not:** Healthcare loses 31% of its ARR under the alternative (3.6% → 2.5%), because
+`Healthcare Software` is nearly a third of the vertical. Any claim about Healthcare's size is
+mapping-dependent and must say so. Finance and `Other` swap ranks 3 and 4.
+
+## 3. High-value vs high-volume
+
+Revenue share divided by account share. Above 1.15 means each account is worth
+disproportionately more.
+
+| Industry | Acct % | ARR % | Ratio | Reading |
+|---|---:|---:|---:|---|
+| Finance | 9.6% | 13.5% | **1.41** | high-value |
+| Government | 4.7% | 5.7% | **1.21** | high-value |
+| Healthcare | 3.2% | 3.6% | 1.12 | balanced |
+| Technology | 32.1% | 33.6% | 1.05 | balanced |
+| Business Services | 16.8% | 17.7% | 1.05 | balanced |
+| *Unclassified* | 7.1% | 6.3% | 0.89 | balanced |
+| Education | 5.8% | 4.4% | 0.76 | high-volume |
+| *Other* | 16.9% | 12.7% | 0.75 | high-volume |
+| Media/Publishing | 3.8% | 2.5% | **0.67** | high-volume |
+
+These are different ICPs and should drive different motions. Finance and Government reward a
+sales-led enterprise approach — fewer accounts, larger each. Education and Media/Publishing are
+volume plays where per-account effort has to stay low to pay for itself.
+
+## 4. ARR by company size
+
+| Band | Accounts | Acct % | ARR | ARR % | Median |
+|---|---:|---:|---:|---:|---:|
+| 1–50 | 786 | 37.9% | $4,793,668 | 20.4% | $2,046 |
+| 51–200 | 361 | 17.4% | $3,185,082 | 13.6% | $5,015 |
+| 201–500 | 171 | 8.3% | $1,980,203 | 8.4% | $7,736 |
+| 501–1,000 | 127 | 6.1% | $1,810,903 | 7.7% | $9,257 |
+| 1,001–5,000 | 198 | 9.6% | $2,928,628 | 12.5% | $9,914 |
+| 5,001–10,000 | 78 | 3.8% | $1,542,960 | 6.6% | $15,640 |
+| **10,000+** | 291 | 14.0% | **$7,011,308** | **29.8%** | $14,945 |
+| Unknown | 60 | 2.9% | $250,558 | 1.1% | $1,920 |
+
+Median ARR rises monotonically with size — larger companies do pay more, reliably. But 38% of
+accounts sit in 1–50 employees and contribute a fifth of revenue at a $2,046 median. Both ends
+are real business.
+
+**Caution:** `NumberOfEmployees` is whole-company ZoomInfo data, not the size of the team in the
+editor. A 273,000-employee account may have 30 people using CKEditor.
+
+## 5. Where the money sits inside each industry
+
+Share of each industry's ARR by employee band. Read across each row.
+
+| Industry | 1–50 | 51–200 | 201–500 | 501–1k | 1k–5k | 5k–10k | 10k+ |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Technology | 23% | 19% | 9% | 8% | 14% | 8% | 18% |
+| Business Services | 24% | 18% | 5% | 8% | 7% | 2% | **35%** |
+| Finance | 9% | 4% | 5% | 7% | 15% | 7% | **52%** |
+| Government | 4% | 3% | 19% | 10% | 16% | 17% | **31%** |
+| Education | **27%** | 13% | 8% | 11% | 23% | 8% | 8% |
+| Healthcare | **33%** | 3% | 3% | 7% | 10% | 3% | **41%** |
+| Media/Publishing | 21% | 20% | 10% | 7% | 15% | 0% | 20% |
+
+The industries do not share a size profile:
+
+- **Finance is an enterprise business.** Over half its ARR comes from 10,000+ accounts, and only
+  13% from under 200 employees. Median Finance account: 1,377 employees.
+- **Education is the inverse.** 8% from 10,000+, 40% from under 200. Median: 111 employees.
+  Selling Education like Finance will not work.
+- **Government skews to mid and large public bodies** — 19% in 201–500, 31% in 10,000+, and
+  almost nothing under 200. Median: 3,193 employees, the largest of any industry.
+- **Healthcare is genuinely barbell** — 33% micro, 41% enterprise, 16% in between.
+- **Technology is the most evenly spread**, which is what makes it the horizontal.
+
+## 6. Geography
+
+| Region | Accounts | ARR | ARR % |
+|---|---:|---:|---:|
+| NA | 889 | $13,410,441 | **57.1%** |
+| EMEA | 673 | $7,100,168 | 30.2% |
+| APAC | 192 | $2,309,686 | 9.8% |
+| Unknown | 293 | $573,195 | 2.4% |
+| LATAM | 25 | $109,819 | 0.5% |
+
+Top countries by ARR: United States 52.5%, United Kingdom 6.7%, Germany 5.5%, Canada 4.5%,
+France 3.5%, Australia 3.0%, Netherlands 3.0%, Singapore 2.3%, Switzerland 1.9%, Japan 1.6%.
+
+Two notes for the ICP:
+
+- **Singapore punches above its weight** — 20 accounts, $532,775, a $26,639 mean against the
+  $11,343 base mean. The highest mean ARR of any country with more than 15 accounts.
+- **The Middle East is not visible as a distinct enterprise segment.** The current ICP calls it
+  out; the data shows UAE, Israel, Kuwait, Qatar, Saudi Arabia, and Bahrain together at roughly
+  1.3% of ARR. Israel is the largest single contributor at 0.7%.
+
+## 7. Concentration
+
+| Threshold | Accounts needed | Share of base |
+|---|---:|---:|
+| 50% of ARR | 241 | 11.6% |
+| 80% of ARR | 685 | 33.1% |
+| 90% of ARR | 977 | 47.2% |
+
+Top 10 accounts: 7.2% of ARR. Top 50: 21.0%. Top 100: 31.3%.
+
+For a B2B component business this is unusually flat. It supports a product-led, self-serve
+motion alongside enterprise sales, and it means no single account loss is structurally
+threatening.
+
+## 8. Month-over-month, for completeness only
+
+$23,196,022 → $23,503,308, **+1.32%**. 186 accounts grew, 64 shrank, 1,822 were flat.
+
+One month is not a trend. This is recorded so nobody re-derives it and mistakes it for one.
+
+---
+
+## Confidence notes, per claim
+
+| Claim | Basis | Confidence |
+|---|---|---|
+| Technology is #1, Business Services #2 | Survives both rollup mappings; industry coverage 93.7% of ARR | **High** |
+| Three industries hold 64.8% of ARR | Direct sum, primary mapping | **High** |
+| Size distribution is barbell | Employee coverage 98.9% of ARR | **High** |
+| Revenue is unconcentrated (685 accounts for 80%) | Direct computation, ARR 100% populated | **High** |
+| NA 57% / EMEA 30% / APAC 10% | Country 97.6% ARR-weighted | **High** |
+| Finance is high-value; Education high-volume | Direct ratio, coverage strong | **High** |
+| Finance ranks #3 | Falls to #4 under the alternative mapping | **Medium** |
+| Healthcare is 3.6% of ARR | Swings to 2.5% under the alternative mapping | **Medium** |
+| 19% of ARR sits outside the seven industries | Depends on the same rollup, but the gap is too large to be an artefact | **Medium-high** |
+| Singapore over-indexes | 20 accounts is a thin base | **Medium** |
+| Anything about growth, expansion, or churn | One month of history | **Not supported — do not claim** |
+| Customer counts by industry | Account counts overstate customers ~11%; parent fields unusable | **Low — use ARR, not counts** |
+
+## What this does not tell us
+
+- **Which use case each account bought for.** `Industry` is a firmographic, not a use case.
+  Phase 2 handles that, and its evidence is much thinner than this.
+- **Team size in the editor.** Employee counts are whole-company.
+- **Why anyone churned.** Canceled accounts were excluded and carry no reason code here.
+- **Product mix per account.** Not pulled. `Active_Subscriptions__c` gives a count (2,510 across
+  2,072 accounts) but not which products.
+
+
+================================================================
+FILE: ./research/2026-08-17-technology-breakdown.md
+================================================================
+
+# What's actually inside "Technology" — decomposing 33.6% of ARR
+
+*Follow-on to [the ICP revenue analysis](2026-08-17-icp-revenue-analysis.md). Built 2026-08-17.*
+
+The Technology bucket is 666 accounts and **$7,895,928 — 33.6% of ARR**. As a label it's close
+to useless for targeting: it spans Salesforce, a Bavarian state finance IT department, a K-12
+student-records vendor, and Dassault Systèmes. This file breaks it apart.
+
+## Read this before quoting any figure below
+
+| Column | Provenance |
+|---|---|
+| `industry_raw` | **Evidence.** Salesforce `Industry`, verbatim |
+| `serves_vertical` | **Inference.** Which industry the customer's *product* serves |
+| `product_category` | **Inference.** What the software does |
+
+The inference comes from account name plus domain, combined with knowledge of the companies. It
+is **not** a Salesforce field. I checked for one first:
+
+- **`Use_Case__c` exists as a picklist and is empty on all 2,072 accounts.** (This corrects a
+  statement in the ICP file that Salesforce carries no use-case field — the field exists, but
+  holds no data, so the practical conclusion is unchanged.)
+- `Sic` is populated on 20 of 2,072 accounts; `SicDesc` on none.
+- The REO enrichment fields (`reo_segments_list__c`, `reo_tag_summary__c`) are empty.
+- `Market_Segment__c` turns out to be a formula on employee count, so it adds nothing to industry.
+
+Website and domain are populated on 98.5% of accounts, which is what made the inference possible.
+
+**Coverage:** 350 accounts (90.0% of Technology ARR) classified individually; 44 (2.8%) by
+keyword rule; **272 accounts holding $569,606 (7.2%) left `Unknown` rather than guessed.** The
+largest unidentified account is $23,950, so the unclassified residue is all long tail.
+
+Per-account detail is in [`data/2026-08-17-technology-breakdown.csv`](data/2026-08-17-technology-breakdown.csv),
+including the `basis` column recording how each account was classified.
+
+---
+
+## Finding 1 — "Technology" is not one segment. It's two, roughly equal.
+
+| | Accounts | ARR | Share of Technology |
+|---|---:|---:|---:|
+| **Vertical SaaS** — sells into one specific industry | 240 | $3,747,977 | **47.5%** |
+| **Horizontal software** — sells across industries | 147 | $3,531,491 | **44.7%** |
+| Unidentified | 272 | $569,606 | 7.2% |
+
+Nearly half the Technology bucket isn't horizontal tech at all. It's vertical software companies
+whose own customers are hospitals, school districts, county governments, and banks. Those accounts
+have far more in common with our direct Healthcare, Education, Government, and Finance customers
+than with Zendesk.
+
+## Finding 2 — the verticals hiding inside Technology
+
+| Vertical the product serves | Accounts | ARR | % of Technology | % of company ARR |
+|---|---:|---:|---:|---:|
+| *Horizontal / cross-industry* | 147 | $3,531,491 | 44.7% | 15.0% |
+| Finance | 49 | $741,600 | 9.4% | 3.2% |
+| *Unidentified* | 272 | $569,606 | 7.2% | 2.4% |
+| **Manufacturing/Engineering** | 18 | $517,209 | 6.6% | 2.2% |
+| Education | 37 | $497,383 | 6.3% | 2.1% |
+| HR/Workforce | 26 | $488,548 | 6.2% | 2.1% |
+| Government | 23 | $292,726 | 3.7% | 1.2% |
+| Healthcare | 19 | $289,616 | 3.7% | 1.2% |
+| Media/Publishing | 30 | $244,347 | 3.1% | 1.0% |
+| Real Estate/Construction | 10 | $231,213 | 2.9% | 1.0% |
+| Legal | 14 | $149,670 | 1.9% | 0.6% |
+| Professional Services | 1 | $114,407 | 1.4% | 0.5% |
+| Retail/Ecommerce | 9 | $98,943 | 1.3% | 0.4% |
+| Energy | 4 | $37,707 | 0.5% | 0.2% |
+| Automotive | 3 | $34,673 | 0.4% | 0.1% |
+| Non-profit | 2 | $27,022 | 0.3% | 0.1% |
+| Agriculture | 1 | $12,806 | 0.2% | 0.1% |
+
+**HR/Workforce at $488,548 deserves attention.** It's the fourth-largest vertical inside
+Technology and it doesn't map to any of the seven target industries. HR Acuity ($102,918),
+Paycom ($83,895), Strada Global, Phenom People, Cornerstone OnDemand, ELMO, Yello, PlanSource,
+Applaud, Blissbook — these are employee-facing content workflows: policies, handbooks, case
+notes, job descriptions, performance reviews. That's a coherent use case with a coherent buyer,
+and it's currently invisible in our industry taxonomy.
+
+## Finding 3 — what the software actually does
+
+Top product categories by ARR. This cuts across verticals and maps more directly to editor use
+cases than industry ever will.
+
+| Product category | Accounts | ARR |
+|---|---:|---:|
+| Knowledge base & CX | 2 | $283,432 |
+| CRM | 4 | $278,785 |
+| PLM & design | 3 | $276,186 |
+| Intranet & employee comms | 8 | $231,111 |
+| Enterprise IT | 4 | $230,362 |
+| Market data & research | 7 | $221,473 |
+| Service management | 5 | $216,273 |
+| IT services | 12 | $156,571 |
+| Security | 5 | $140,474 |
+| CMS/DXP | 8 | $125,720 |
+| Corporate learning | 4 | $125,099 |
+| Project ERP | 1 | $114,407 |
+| Payroll | 3 | $112,586 |
+| Courseware & LMS | 12 | $111,352 |
+| Contact centre | 6 | $97,975 |
+
+Several of these are recognisably the same editor job:
+
+- **Knowledge base, service management, contact centre, and CMS/DXP** = $823,400 across 21
+  accounts. All of it is publish-structured-content-for-readers.
+- **Intranet & employee comms, corporate learning, payroll, and courseware** = $580,148. All of
+  it is author-content-for-employees-or-learners.
+- **CMS/DXP at $125,720 across 8 accounts** is worth noting on its own: Magnolia, Liferay,
+  Sitecore, Kentico, Ibexa, Jahia, CoreTrek, BeCurious. Content platforms embedding our editor
+  in their own product — a reseller-shaped relationship in everything but contract type.
+
+## Finding 4 — true industry exposure, once you count reach
+
+Direct customers plus Technology vendors whose product serves that industry. This is the number
+that matters for building industry-specific stories, because a vendor selling into hospitals
+carries the same workflow requirements as a hospital.
+
+| Industry | Direct | Via Technology vendors | Combined | % of ARR | Uplift |
+|---|---:|---:|---:|---:|---:|
+| Business Services | $4,159,907 | $752,625 | **$4,912,532** | 20.9% | +18% |
+| Finance | $3,166,827 | $741,600 | **$3,908,427** | 16.6% | +23% |
+| Government | $1,333,822 | $292,726 | **$1,626,548** | 6.9% | +22% |
+| Education | $1,029,667 | $497,383 | **$1,527,050** | 6.5% | +48% |
+| Healthcare | $851,243 | $289,616 | **$1,140,859** | 4.9% | +34% |
+| Media/Publishing | $595,577 | $244,347 | **$839,923** | 3.6% | +41% |
+
+*(Legal, HR/Workforce, and Professional Services vendors are folded into Business Services here,
+since that's where their direct equivalents sit.)*
+
+**Education gains the most — +48%.** Direct Education revenue is 4.4% of ARR and ranks 7th,
+which made Education look like a minor industry in the Phase 1 analysis. Counting the EdTech
+vendors sitting in Technology — Frontline Education, Renaissance Learning, Edupoint, Azorus,
+StarRez, Handshake, Avallain, Kognity, Drieam, Cognota — raises Education's real exposure to
+6.5%. Still not a top-three industry, but materially more than it first appeared, and it explains
+why EdTech messaging has traction disproportionate to the direct revenue line.
+
+$5,077,631 of Technology ARR (21.6% of company ARR) is **not** re-attributed — it's genuinely
+horizontal, unidentified, or serves a vertical outside the seven.
+
+## Finding 5 — manufacturing and engineering is a real segment we don't name
+
+It shows up in three separate places, so no single view reveals it:
+
+1. Direct industrial accounts tagged `Manufacturing`, `Industrial Machinery`, `Aerospace &
+   Defense`, `Minerals & Mining` — sitting in `Other`
+2. `Engineering Software` accounts — also in `Other`, per the vertical-first rule
+3. Technology vendors whose product serves manufacturing and engineering
+
+| | Accounts | ARR |
+|---|---:|---:|
+| Direct industrial + engineering-software accounts | 78 | $1,327,997 |
+| Via Technology vendors serving them | 18 | $517,209 |
+| **Combined** | **96** | **$1,845,206 (7.9%)** |
+
+**With a correction.** The direct figure is inflated by mis-tagged accounts: Pfizer ($166,390)
+and Merck ($85,826) are tagged `Manufacturing` but are pharma and belong in Healthcare; `CA, Inc.`
+($69,633) is a software company; PPD Development ($39,298) is clinical research. Removing those
+four gives a defensible range:
+
+**Manufacturing/engineering true exposure: $1.48M–$1.85M, or 6.3–7.9% of ARR.**
+
+Either way it ranks **4th**, ahead of Government, Education, Healthcare, and Media/Publishing —
+all four of which are named in the ICP while this segment is not. The accounts are substantial and
+recognisable: Dassault Systèmes ($200,000 — our single largest Technology account), Siemens
+Teamcenter, Esri, PTC/ServiceMax, Hexagon EcoSys, Jama Software, Seeq, Procore, Infineon.
+
+The editor job is consistent across them: technical documentation, specifications, requirements,
+inspection and test reports, and change records — long structured documents under revision
+control, which is exactly where Track Changes, Revision History, and Export to PDF/Word earn
+their place.
+
+## Finding 6 — the industry field's noise, quantified
+
+Working through 666 accounts by hand surfaced systematic tagging problems:
+
+- **Pharma tagged as Manufacturing.** Pfizer and Merck, $252,216 combined, sit in `Other` instead
+  of Healthcare.
+- **Software companies tagged by their customer's industry, and the reverse.** `CA, Inc.` is
+  tagged Manufacturing. Meanwhile Frontline Education and Renaissance Learning are tagged
+  `Software`, not Education.
+- **Two accounts share a domain but carry different industries.** Both ChapsVision accounts point
+  at `chapsvision.com` with different labels; the two Serviceware accounts likewise.
+- **Domain and account name disagree.** An account named `Apple Inc.` carries the domain
+  `circlelms.com`; `Financial Management Software, Inc.` carries `ukg.com`; `Siteimprove A/S`
+  carries `marketmuse.com`; `Loopio Inc.` carries `avnio.com`. Some of these are acquisitions
+  never cleaned up; others look like straightforward data-entry errors.
+- **Placeholder and personal-email account names.** At least five accounts are named
+  `[[Unknown]]`, and several others carry a person's email as the account name
+  (`mariano@medtrainer.com`, `josh+test10@codekoalas.com`).
+
+None of this changes ARR totals. All of it degrades any analysis that trusts `Industry` alone —
+which is the case for treating the rollup map as a reviewable artefact rather than hidden logic.
+
+---
+
+## What to do with this
+
+1. **Stop reporting Technology as one segment.** Split it into *horizontal software* (15.0% of
+   ARR) and *vertical SaaS* (16.0%), because they buy for different reasons and the vertical half
+   inherits its end-market's requirements.
+2. **Add manufacturing/engineering to the ICP.** At 6.3–7.9% of ARR it outranks four industries
+   already named, and its workflow needs are well matched to features we sell.
+3. **Treat HR/Workforce as a use case, not an industry.** $488,548 inside Technology plus the
+   direct `HR & Staffing` and `Human Resources Software` accounts. The buyer and the content
+   workflow are consistent; the industry label is what varies.
+4. **Use combined exposure, not direct revenue, when prioritising industry stories.** Education at
+   6.5% justifies more investment than its 4.4% direct line suggests.
+5. **Reconsider the CMS/DXP accounts commercially.** Eight content platforms embedding our editor,
+   $125,720. That's a partner motion being managed as ordinary direct business.
+
+## Limits
+
+- **The vertical and category columns are inference.** No Salesforce field carries them. A
+  reviewer who knows these accounts should challenge the classifications — the `basis` column
+  makes each one traceable.
+- **7.2% of Technology ARR is unclassified** and excluded from every re-attribution figure.
+- **"Serves vertical" is single-valued.** Real vendors often serve several; each account is
+  assigned its dominant market, which understates cross-industry vendors.
+- **Combined exposure double-counts nothing but re-attributes some Technology revenue**, so
+  combined figures across industries do not sum to 100% with Technology's own 33.6%.
+- Figures inherit the ARR snapshot caveat in [`data-notes.md`](data/2026-08-17-data-notes.md):
+  the month is almost certainly 2026-07-31, but that is unverified.
+
+
+================================================================
+FILE: ./research/2026-08-17-usecase-industry-map.md
+================================================================
+
+# Use cases × industries, and the highest-value use cases
+
+*Phases 2 and 3 of the [ICP analysis](../docs/superpowers/specs/2026-08-13-icp-usecase-analysis-design.md). Built 2026-08-17.*
+
+Ranked against **combined exposure** (direct customers + Technology vendors whose product serves
+that industry), per the recommendation in the
+[Technology breakdown](2026-08-17-technology-breakdown.md). Industries are the seven from
+`CLAUDE.md` plus **Manufacturing/Engineering**, which that analysis showed outranks four of the
+seven.
+
+## Evidence quality — read this first
+
+This is the weakest evidence layer in the whole analysis. Phase 1's revenue figures come straight
+from Salesforce. Nothing here does.
+
+| Layer | What it is | Reach |
+|---|---|---|
+| **Named account** | Sales comments in the Strategic Accounts sheet naming an actual application | 61 accounts, 68 cell assignments |
+| **Classified** | Technology accounts whose inferred `product_category` maps to a use case | 394 accounts |
+| **Plausible** | Typical for the industry, no account evidence in our data | judgement |
+
+Three limitations that bound everything below:
+
+1. **`Use_Case__c` in Salesforce is empty on all 2,072 accounts.** There is no first-party
+   use-case data anywhere in the stack.
+2. **The sheet's `Use type` field is not a use case.** Its values are Internal (18), OEM (29), and
+   Both (14) — a licensing and deployment distinction. Useful, but it does not tell you whether an
+   account is running a knowledge base or a contract workflow.
+3. **"Classified" evidence covers Technology accounts only.** The other 1,406 accounts — the banks,
+   hospitals, universities and government bodies buying directly — have no product-level signal at
+   all, just an industry. So a cell can only be evidenced for those industries through the 61
+   named accounts. **Absence of evidence in this matrix is mostly absence of data, not absence of
+   the use case.**
+
+The classified layer is also a **two-step inference**: account → product category → use case.
+Both steps are mine, not Salesforce's. Per-cell detail is in
+[`data/2026-08-17-usecase-industry-matrix.csv`](data/2026-08-17-usecase-industry-matrix.csv).
+
+## Combined exposure per industry
+
+| Industry | Combined exposure | % of ARR |
+|---|---:|---:|
+| Business Services | $4,912,532 | 20.9% |
+| Technology (horizontal only) | $4,101,097 | 17.4% |
+| Finance | $3,908,427 | 16.6% |
+| Manufacturing/Engineering | $1,845,206 | 7.9% |
+| Government | $1,626,548 | 6.9% |
+| Education | $1,527,050 | 6.5% |
+| Healthcare | $1,140,859 | 4.9% |
+| Media/Publishing | $839,923 | 3.6% |
+
+These eight total **$19.9M, 84.7% of ARR**. The missing 15.3% is `Unclassified`, plus verticals
+outside the eight (Retail/Ecommerce, Energy, Automotive, Non-profit, Agriculture).
+
+---
+
+## Phase 2 — the matrix
+
+`N` = named accounts · `C` = classified accounts · `P` = plausible · `.` = no fit
+
+| # | Use case | Business Svcs | Technology | Finance | Mfg/Eng | Government | Education | Healthcare | Media/Pub |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | CMS & Blog | P | N1+C15 | . | . | C1 | P | . | C1 |
+| 2 | Knowledge Base | C4 | N2+C17 | P | P | P | P | P | . |
+| 3 | Document-Centric | **N9+C27** | C28 | **N7+C27** | **N4+C20** | N1+C20 | C4 | N1+C2 | C1 |
+| 4 | Email & Marketing | P | C15 | C1 | . | . | C1 | C1 | P |
+| 5 | LMS & eLearning | C2 | P | . | C2 | P | **N2+C27** | C1 | . |
+| 6 | Customer Support | P | **N3+C16** | P | C3 | P | P | P | . |
+| 7 | Real-Time Collaboration | N2 | N1 | P | N1 | P | P | N2 | P |
+| 8 | Technical Docs | . | C3 | . | **N2+C8** | P | . | P | . |
+| 9 | Legal Tech | C10 | C1 | C1 | . | P | . | P | . |
+| 10 | Healthcare & Regulated | . | . | P | . | P | . | **N7+C17** | . |
+| 11 | SaaS Embedding | P | **N17+C59** | C11 | P | C4 | P | P | P |
+| 12 | Publishing & Editorial | C1 | C2 | C11 | . | P | P | . | **N3+C10** |
+| 13 | eCommerce & PIM | P | C1 | . | P | . | . | . | . |
+| 14 | Note-Taking | P | C1 | . | . | . | P | . | . |
+| 15 | Scientific & Academic | C1 | C2 | C10 | P | P | P | C3 | C1 |
+| 16 | Proposals & RFPs | N1 | C10 | P | P | P | . | . | . |
+| 17 | Forum & Community | C3 | N1+C9 | . | . | P | P | . | C1 |
+
+No use case came out as "no fit" everywhere, and none is universal on evidence. Real-Time
+Collaboration is named-only: no product category maps to it because RTC is a **feature that cuts
+across use cases**, not an application type.
+
+## Phase 3 — two rankings that disagree
+
+The spec composes revenue onto use cases through industry. That produces **reach**. It has a
+failure mode: a use case evidenced by a single account in Business Services inherits all $4.9M of
+that industry's exposure. So reach is reported alongside **intensity** — the ARR of accounts whose
+product actually does the thing.
+
+| # | Use case | Reach (floor) | % | Reach (ceiling) | % | Intensity | % of tech | Named |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| 3 | Document-Centric | $19,901,642 | 84.7% | $19,901,642 | 84.7% | $2,749,570 | 34.8% | 22 |
+| 15 | Scientific & Academic | $14,902,838 | 63.4% | $19,901,642 | 84.7% | $395,393 | 5.0% | 0 |
+| 12 | Publishing & Editorial | $13,761,979 | 58.6% | $16,915,577 | 72.0% | $532,631 | 6.7% | 3 |
+| 9 | Legal Tech | $12,922,056 | 55.0% | $15,689,463 | 66.8% | $135,525 | 1.7% | 0 |
+| 4 | Email & Marketing | $10,677,433 | 45.4% | $16,429,888 | 69.9% | $598,240 | 7.6% | 0 |
+| 17 | Forum & Community | $9,853,552 | 41.9% | $13,007,150 | 55.3% | $282,504 | 3.6% | 1 |
+| 11 | SaaS Embedding | $9,636,072 | 41.0% | $19,901,642 | 84.7% | $1,621,824 | 20.5% | 17 |
+| 5 | LMS & eLearning | $9,425,647 | 40.1% | $15,153,292 | 64.5% | $476,198 | 6.0% | 2 |
+| 2 | Knowledge Base | $9,013,629 | 38.4% | $19,061,719 | 81.1% | $696,474 | 8.8% | 2 |
+| 16 | Proposals & RFPs | $9,013,629 | 38.4% | $16,393,810 | 69.8% | $142,933 | 1.8% | 1 |
+| 1 | CMS & Blog | $6,567,568 | 27.9% | $13,007,150 | 55.3% | $215,968 | 2.7% | 1 |
+| 6 | Customer Support | $5,946,303 | 25.3% | $19,061,719 | 81.1% | $682,937 | 8.6% | 3 |
+| 8 | Technical Docs | $5,946,303 | 25.3% | $8,713,710 | 37.1% | $382,576 | 4.8% | 2 |
+| 13 | eCommerce & PIM | $4,101,097 | 17.4% | $10,858,835 | 46.2% | $28,671 | 0.4% | 0 |
+| 14 | Note-Taking | $4,101,097 | 17.4% | $10,540,679 | 44.8% | $55,125 | 0.7% | 0 |
+| 10 | Healthcare & Regulated | $1,140,859 | 4.9% | $6,675,834 | 28.4% | $280,220 | 3.5% | 7 |
+| 7 | Real-Time Collaboration | $9,853,552 | 41.9% | $19,901,642 | 84.7% | n/a | n/a | 6 |
+
+*Intensity covers the Technology bucket only, so it understates every use case that direct
+customers drive. Use it to compare use cases against each other, not as an absolute.*
+
+### Where the two rankings disagree, and which to trust
+
+- **Legal Tech: 55.0% reach, 1.7% intensity.** Reach is inflated — 12 accounts and $135,525 of
+  actual product. Reach counts Business Services' whole $4.9M because legal-software vendors sit
+  inside it. Do not treat Legal Tech as a top-five use case.
+- **Scientific & Academic: 63.4% reach, 5.0% intensity, zero named accounts.** Same inflation,
+  and it is the highest-reach use case with no named account at all. Treat as unproven.
+- **Customer Support: 25.3% reach, 8.6% intensity, Zendesk as flagship.** Reach *understates* it.
+  It is evidenced in only two industries because support platforms are horizontal software, so it
+  inherits one exposure figure instead of eight.
+- **Healthcare & Regulated: 4.9% reach — the lowest — but 7 named accounts,** more than any use
+  case except Document-Centric and SaaS Embedding. Small revenue, high conviction.
+
+**Where both agree: Document-Centric and SaaS Embedding.** They are 1 and 2 on reach, intensity,
+and named accounts.
+
+### Document-Centric's 84.7% is partly an artefact
+
+It is evidenced in all eight industries, but **86 distinct product categories map to it** — GRC,
+payroll, banking platforms, public-sector case management, construction management, security
+reporting, procurement, board governance, talent acquisition, ESG reporting. Largest contributors:
+
+| Product category | ARR |
+|---|---:|
+| PLM & design | $276,186 |
+| Security | $140,474 |
+| Project ERP | $114,407 |
+| Payroll | $112,586 |
+| Employee relations | $107,778 |
+| Construction management | $94,857 |
+| Public-sector platform | $94,539 |
+| Board governance & GRC | $89,101 |
+| Talent acquisition | $83,138 |
+| Quality management | $75,010 |
+
+The finding is real — **structured business documents are the single most common thing our
+customers build** — but "Document-Centric" is too coarse to be one story, one demo, or one
+message. It needs splitting before it can carry a workflow narrative. Three natural sub-cases fall
+out of the categories above:
+
+- **Governance and risk documents** — GRC, board governance, audit, ESG, quality management, policy
+- **People and employment documents** — payroll, employee relations, talent acquisition, handbooks
+- **Project and engineering records** — PLM, project ERP, construction, inspection, requirements
+
+## The recommended selection
+
+Chosen where reach, intensity, and named-account evidence agree — not on reach alone.
+
+| Rank | Use case | Why | Evidence |
+|---|---|---|---|
+| **1** | **Document-Centric**, split into the three sub-cases above | #1 on both axes by a wide margin; evidenced in all eight industries | 22 named · 129 classified · $2.75M |
+| **2** | **Knowledge Base + Customer Support** (treated as one adjacent pair) | Together 35 classified accounts and $1.38M intensity; Zendesk is the flagship proof point and Emplifi runs RTC inside its knowledge base | 5 named · 35 classified · $1.38M |
+| **3** | **Technical Docs**, anchored in Manufacturing/Engineering | Our two largest Technology accounts are here — Dassault Systèmes ($200k) and Siemens Teamcenter ($67k). Sits in the segment the ICP doesn't yet name | 2 named · 11 classified · $383k |
+| **4** | **LMS & eLearning**, anchored in Education | Education's exposure is +48% above its direct revenue line, the largest uplift of any industry. 27 classified accounts is the third-highest count | 2 named · 32 classified · $476k |
+| **5** | **Healthcare & Regulated** | Lowest reach of any use case, but 7 named accounts including Merck running RTC on-prem, RLDatix/PolicyStat, Epic, eClinicalWorks, Pfizer, Novartis, Roche | 7 named · 17 classified · $280k |
+
+**Deliberately excluded despite high reach:** Legal Tech (55.0% reach, 1.7% intensity), Scientific
+& Academic (63.4% reach, zero named accounts), Email & Marketing (45.4% reach, zero named
+accounts). Each looks strong on reach alone and does not survive the intensity check.
+
+**SaaS Embedding is not on the list, despite ranking #2 on both axes.** With 17 named accounts and
+$1.62M it is unarguably real — but it is the *commercial frame* around every other use case, not a
+workflow. "Product team adds rich text without building it" is the build-vs-buy conversation that
+wraps Document-Centric, Knowledge Base, and the rest. It belongs in the pitch, not the story set.
+
+**Real-Time Collaboration is a feature, not a use case, and the data says so.** No product category
+maps to it, yet six accounts name it directly — Deloitte weighing NRTC→RTC (~$100k), Merck live on
+RTC on-prem, Emplifi two years on RTC Cloud, RLDatix considering it, LNRS bought collab for Canvas,
+BMW asking about comments. It should appear as an *upgrade path* inside each of the five stories
+rather than as a story of its own.
+
+## Sanity check against the sheet's Use type
+
+The spec asks whether the composed ranking agrees with per-account evidence. `Use type` gives a
+partial check:
+
+- **29 OEM accounts** — embedding CKEditor in a product they sell. Consistent with SaaS Embedding
+  ranking #2 on intensity, and with the vertical-SaaS half of the Technology bucket.
+- **18 Internal accounts** — Accenture, Citi, Deloitte, EY, Fidelity, JP Morgan, KPMG, Liberty
+  Mutual, McKinsey, PwC, RBC, USPTO, Merck, Roche, BMW, Novartis, Pfizer, UnitedHealth. Almost all
+  Business Services, Finance, Healthcare, or Government, and almost all describe internal document
+  workflows. **This corroborates Document-Centric as the leading use case**, independently of the
+  product-category mapping.
+- **14 Both** — SAP, Siemens ×3, Sony, Thomson Reuters, Alibaba, Intel, Nasdaq, HCL, Epic,
+  eClinicalWorks, Renaissance, Avaya. Large multi-entity accounts running several patterns at once.
+
+The Internal/OEM split lands where the composed ranking says it should. That is a genuine, if
+coarse, agreement.
+
+## What would make this materially better
+
+1. **Populate `Use_Case__c` in Salesforce.** It exists and is empty. Even 200 accounts tagged at
+   renewal would replace most of the inference here with evidence.
+2. **Classify the 1,406 non-Technology accounts by application.** Right now direct customers
+   contribute cells only through the 61 strategic accounts.
+3. **Refresh the sheet.** Last modified 2026-05-19, so `Use type` is three months old.
+4. **Split use case #3 in Notion** along the three sub-cases above. It is currently absorbing a
+   third of everything.
+
+## Limits
+
+- Reach and intensity both rest on the industry rollup and the Technology classification. Their
+  caveats carry through — see [`data-notes.md`](data/2026-08-17-data-notes.md) and the
+  [Technology breakdown](2026-08-17-technology-breakdown.md).
+- Reach figures across use cases **overlap heavily and must not be summed** — industries are
+  counted once per use case.
+- `Plausible` cells are judgement with no account behind them. The floor/ceiling spread shows how
+  much each ranking depends on them; for Knowledge Base and Customer Support the ceiling is more
+  than double the floor.
+- Named-account evidence is skewed to large accounts, because the sheet only covers 61 strategic
+  ones. The long tail of 2,011 accounts contributes no named evidence at all.
+
+
+================================================================
+FILE: ./research/2026-08-17-workflow-stories.md
+================================================================
+
+# Workflow must-haves and before/after stories
+
+*Phase 4 of the [ICP analysis](../docs/superpowers/specs/2026-08-13-icp-usecase-analysis-design.md). Built 2026-08-17.*
+
+Five use cases, selected in [the use-case map](2026-08-17-usecase-industry-map.md). Two stories
+each — one before, one after — for ten total.
+
+## How to read the stories
+
+**Every company in a story is a labeled composite.** No customer names, no invented people, no
+invented quotes. Each composite's size and geography come from the real firmographic profile of its
+industry in [the revenue analysis](2026-08-17-icp-revenue-analysis.md) — so "≈110 employees, US"
+for an Education composite reflects Education's actual 111-employee median, not a guess.
+
+**Every quote is real**, taken verbatim from the Gong-derived theme files in
+[`research/customer-insights/`](customer-insights/), with the speaking company as recorded there.
+Quotes are cited to their source file. They are evidence that the pain exists — they are not
+attributed to the composites.
+
+**Every feature carries its tier**, verified against
+[`features/feature-tiers.md`](../features/feature-tiers.md). So each story doubles as a
+qualification tool: if the remedy needs Track Changes plus Import from Word, that is a Professional
+conversation at minimum.
+
+Source files, cited below by short name:
+
+| Short name | File |
+|---|---|
+| *concerns* | [`most-common-concerns-opps-2026`](customer-insights/most-common-concerns-opps-2026) |
+| *goals* | [`most-comon-business-goals-opps-2026`](customer-insights/most-comon-business-goals-opps-2026) |
+| *feedback* | [`most-common-feedback-about-CKEditor-opps-2026`](customer-insights/most-common-feedback-about-CKEditor-opps-2026) |
+
+---
+
+# 1. Document-Centric
+
+**Largest industry served: Business Services — $4,912,532 combined exposure, 20.9% of ARR.**
+Evidenced in all eight industries. 22 named accounts, 129 classified, $2.75M intensity.
+
+Because this use case absorbs 86 product categories, the composite sits in Business Services and
+the three sub-cases are called out separately below.
+
+## Workflow must-haves
+
+| Need | Feature | Tier |
+|---|---|---|
+| Author long structured documents in-app | Document Outline, Table of Contents, Page Break, Footnotes | **Essential** |
+| Bring in third-party drafts | Import from Word | **Professional** (1,000/mo) |
+| Accept pasted Word/Excel content without repair | Enhanced Paste from Word / Excel / Google Docs | **Essential** |
+| Legal-style numbering | Multi-level Lists | **Essential** |
+| Reusable document skeletons | Templates, Merge Fields | **Essential** |
+| Lock boilerplate, open only drafting zones | Restricted Editing | **Essential** |
+| Reviewed, attributable change history | Track Changes, Comments, Revision History | **Professional** add-on ($249/mo) |
+| Final deliverable | Export to PDF, Export to Word | Essential 200/mo · **Pro** 1,000/mo · Custom unlimited |
+| Print-accurate page breaks before export | Pagination | **Custom only** |
+| Data never leaves the perimeter | On-premises | **Custom only** |
+
+## Before — "a global professional-services firm, 10,000+ employees, US and EU entities"
+
+*(Business Services draws 35% of its ARR from 10,000+ employee accounts — the composite sits
+there deliberately.)*
+
+Client reports get drafted in Word on individual laptops. A manager emails the draft to two
+reviewers; each returns a separately-tracked copy; someone merges them by hand. Numbering breaks
+when sections are moved. The final PDF is produced by whoever has the right Word template, and the
+version that reached the client is reconstructed afterwards from email threads.
+
+The pain is not that Word is bad at documents. It is that the document lives outside the system
+that holds the data, so every cycle is a manual round trip:
+
+> "Our current process of doing that is all through Microsoft Word. We want to move this process to
+> a web application." — CPP Investments *(feedback)*
+
+> "They have to go off our platform, type this all up in Word, and then upload this as a document.
+> We want to digitize all this to try and streamline it." — National Australia Bank *(goals)*
+
+> "The whole idea about using tooling is that we want to bring in the efficiency. Right now, they
+> have to go to Excel and do all the stuff and then paste it back. So that is time consuming."
+> — JPMorgan Chase, Post Trade Tech/Navigator *(goals)*
+
+And the cost of the round trip is measured in days per report:
+
+> "If it goes from five days to prepare one report, if they can do it in 10 hours, that's gonna be
+> huge. Speed and quality are the two ultimate value adds." — Barclays Capital *(goals)*
+
+```mermaid
+flowchart LR
+  D[(Source data<br/>in the platform)] -->|manual copy| W[Word on a laptop]
+  W -->|email attachment| R1[Reviewer 1<br/>own tracked copy]
+  W -->|email attachment| R2[Reviewer 2<br/>own tracked copy]
+  R1 -->|returns .docx| M[Someone merges<br/>by hand]
+  R2 -->|returns .docx| M
+  M -->|renumbering breaks| W
+  M --> P[PDF from<br/>local template]
+  P --> C[Client]
+  M -.->|version of record<br/>reconstructed later| E[Email threads]
+  style W fill:#f8d7da,stroke:#b02a37
+  style M fill:#f8d7da,stroke:#b02a37
+  style E fill:#f8d7da,stroke:#b02a37
+```
+
+## After — same firm, authoring inside the platform
+
+The report is composed in the application, against live data. Boilerplate is locked; only drafting
+zones accept edits. Both reviewers work on one document, their changes attributed and accept/reject
+individually. Revision History holds the version of record, so "what did the client receive" is a
+query rather than an archaeology exercise. Export produces the PDF from the same content the
+reviewers saw.
+
+| The remedy | Feature | Tier |
+|---|---|---|
+| One document, two reviewers, attributable edits | Track Changes + Comments | Professional add-on |
+| Version of record | Revision History | Professional add-on |
+| Both reviewers at once, no merge step | Real-Time Collaboration | Professional add-on |
+| Live data into the prose | Merge Fields | Essential |
+| Boilerplate protected | Restricted Editing | Essential |
+| Stable section numbering | Multi-level Lists | Essential |
+| Client deliverable | Export to PDF / Word | Essential+ (volume by tier) |
+| Page-accurate proofing | Pagination | Custom |
+
+```mermaid
+flowchart LR
+  D[(Source data<br/>in the platform)] -->|Merge Fields| ED[Editor in the app<br/>Restricted Editing]
+  R1[Reviewer 1] -->|Track Changes| ED
+  R2[Reviewer 2] -->|Track Changes| ED
+  ED --> RH[(Revision History<br/>version of record)]
+  ED -->|Export to PDF| C[Client]
+  RH -.->|audit query| Q[Who changed what,<br/>when]
+  style ED fill:#d1e7dd,stroke:#0f5132
+  style RH fill:#d1e7dd,stroke:#0f5132
+```
+
+**Qualification signal:** Track Changes + Revision History + Import from Word puts this at
+**Professional with the Collaboration add-on** — roughly $289 + $249/mo. Pagination or
+on-premises moves it to **Custom**.
+
+## The three sub-cases
+
+| Sub-case | What changes | Extra must-have |
+|---|---|---|
+| **Governance & risk documents** — GRC, board packs, audit, ESG, quality, policy | Approval chain is the product; who signed off matters more than who typed | Revision History (Pro), Restricted Editing (Essential) |
+| **People & employment documents** — payroll, employee relations, handbooks, job descriptions, reviews | High volume, templated, employee-facing; often multi-locale | Templates + Merge Fields (Essential), 38 language packs (Free+) |
+| **Project & engineering records** — project ERP, construction, inspection, requirements | Records attach to a project or asset and must stay traceable | Multi-root Editor (Essential), Revision History (Pro) |
+
+---
+
+# 2. Knowledge Base + Customer Support
+
+**Largest industry served: Technology (horizontal) — $4,101,097 combined exposure, 17.4% of ARR.**
+Treated as one adjacent pair: 35 classified accounts, $1.38M intensity, 5 named accounts.
+
+## Workflow must-haves
+
+| Need | Feature | Tier |
+|---|---|---|
+| Agents paste from Word and Google Docs all day | Enhanced Paste from Word / Google Docs | **Essential** |
+| Consistent article structure | Templates, Document Outline, Table of Contents | **Essential** |
+| Fast authoring for non-writers | Slash Commands, Autoformatting, Format Painter | Autoformatting **Free** · rest **Essential** |
+| Find and fix across a large corpus | Find and Replace | **Essential** |
+| Minimal toolbar for agent-facing composers | Toolbar Configuration (Balloon/Inline) | **Free** |
+| Several composers on one screen | Multi-root Editor | **Essential** |
+| Editorial review before publish | Comments, Track Changes | **Professional** add-on |
+| Draft assistance, tone, translation | AI Chat, AI Quick Actions, AI Translate | Add-on at Essential/Pro · included in **Custom** |
+
+## Before — "a support-platform vendor, a few hundred employees, NA-hosted"
+
+Help-centre articles are written by support engineers between tickets. They draft in Word or Google
+Docs because that is where their notes are, then paste into a legacy editor that mangles the
+result. Someone reformats by hand. Long runbooks get slow enough to discourage editing at all.
+There is no review step, so article quality tracks whoever wrote it.
+
+> "The big selling feature for our users is they want to be able to paste from Microsoft word and
+> not lose all their formatting." — *(feedback)*
+
+> "We are having issue importing text from office, Microsoft office and Google docs. The format is
+> not stripped by the plugin... When we copy the text from Google and paste it into the text editor
+> is everything is bold." — Valsoft / Asteris *(concerns)*
+
+> "Our main issue is because the office has strange styles, yes, it breaks things. We have a lot of
+> users and I don't know what they are going to paste here from what document."
+> — ume Luxembourg *(concerns)*
+
+Scale makes it worse, not better:
+
+> "Whenever it exceeds, let's say 40, 50, 60 pages, the performance of the editor kind of like gets
+> impacted quite a lot. Sometimes either it gets very slow and if the document is pretty large, it
+> doesn't even open up." — Legistify *(concerns)*
+
+```mermaid
+flowchart LR
+  N[Support engineer's<br/>notes in Word/Docs] -->|paste| LE[Legacy editor]
+  LE -->|styles break| FIX[Manual reformat]
+  FIX -->|long runbook<br/>loads slowly| LE
+  FIX --> PUB[Publish]
+  PUB --> CUS[Customer<br/>reads article]
+  CUS -.->|article unclear| T[New ticket]
+  T -.-> N
+  style LE fill:#f8d7da,stroke:#b02a37
+  style FIX fill:#f8d7da,stroke:#b02a37
+  style T fill:#f8d7da,stroke:#b02a37
+```
+
+## After — same vendor, authoring in the help centre
+
+Paste from Word or Google Docs lands clean. Templates give every article the same shape, so
+structure stops being a per-author decision. Slash Commands keep engineers in the keyboard.
+Comments add a review pass before publish without a separate tool. AI Quick Actions handle the
+tone-and-tighten step that engineers skip when busy.
+
+| The remedy | Feature | Tier |
+|---|---|---|
+| Clean paste, every time | Enhanced Paste from Word / Google Docs | Essential |
+| Same shape every article | Templates | Essential |
+| Keyboard-driven authoring | Slash Commands | Essential |
+| Navigate a long runbook | Document Outline, Table of Contents | Essential |
+| Review before publish | Comments | Professional add-on |
+| Tighten and translate | AI Quick Actions, AI Translate | AI add-on · included in Custom |
+
+```mermaid
+flowchart LR
+  N[Support engineer's<br/>notes] -->|Enhanced Paste| ED[Editor in the help centre<br/>Templates + Slash Commands]
+  ED -->|Comments| REV[Peer review<br/>in the same tool]
+  REV --> ED
+  ED -->|AI Quick Actions| ED
+  ED --> PUB[Publish]
+  PUB --> CUS[Customer<br/>self-serves]
+  style ED fill:#d1e7dd,stroke:#0f5132
+  style REV fill:#d1e7dd,stroke:#0f5132
+```
+
+**Qualification signal:** Essential covers authoring. The review loop needs **Professional +
+Collaboration**. AI is an add-on either way.
+
+**How the workflow shifts elsewhere:** Healthcare adds an audit trail on article changes
+(Revision History, Pro). Government adds accessibility review (Accessibility Support, Free+).
+Finance adds the constraint that PDF export must not leave the perimeter — see use case 5.
+
+---
+
+# 3. Technical Docs
+
+**Anchored in Manufacturing/Engineering — $1,845,206 combined exposure, 7.9% of ARR.**
+Holds our two largest Technology accounts. 2 named, 11 classified, $383k intensity.
+
+This is the segment the ICP does not yet name, and the reason to add it.
+
+## Workflow must-haves
+
+| Need | Feature | Tier |
+|---|---|---|
+| Specs with stable hierarchical numbering | Multi-level Lists | **Essential** |
+| Large multi-page tables with merged cells | Tables, Table & Cell Styling, Column Resize | Tables **Free** · styling/resize **Essential** |
+| Code and config blocks in manuals | Enhanced Source Code Editing, Markdown | Source **Essential** · Markdown **Free** |
+| Navigate 100-page specifications | Document Outline, Table of Contents, Content Minimap | Minimap **Free** · rest **Essential** |
+| Reference notes and standards citations | Footnotes, Bookmarks | **Essential** |
+| Engineering formulas | Math Equations (MathType) | **Custom only** |
+| Controlled revisions of a released spec | Revision History, Track Changes | **Professional** add-on |
+| Editors embedded per-module in a large app | Multi-root Editor | **Essential** |
+| Print-accurate output | Pagination | **Custom only** |
+| Deliverable to customers and regulators | Export to PDF / Word | Essential+ (volume by tier) |
+
+## Before — "an industrial software vendor, 10,000+ employees, PLM and design suite"
+
+Product specifications, installation manuals and engineering change records live in Word and PDF
+alongside a PLM system that holds the parts they describe. When a part changes, someone finds the
+affected documents by memory. Tables spanning several pages are the daily grind. The editor
+embedded in the web module was added by one team and conflicts with the one another team added.
+
+> "The main difficulty for us... is the tables like managing big tables. Sometimes we have row span,
+> call span, big tables of multiple pages to manage. And that's mainly our main issue."
+> — Labrador *(concerns)*
+
+> "We're running into some formatting issues on our end. When we convert the document... one of the
+> biggest translations issues that we've been running into are things tables and bulleted lists.
+> And that's just been honestly, it's been a plague upon us." — AIA Contracts / ACD *(concerns)*
+
+> "There are issues with having multiple instances of CK editor instantiated on the same page from
+> different sources. Because we're in this micro frontend architecture, it's somewhat unrealistic
+> for us to limit only one to the page." — Procore Technologies *(concerns)*
+
+> "When we start kind of going into more complex math equations is where we start having problems."
+> — UKAS *(feedback)*
+
+```mermaid
+flowchart LR
+  PLM[(PLM system<br/>parts and changes)] -.->|no link| DOC[Spec in Word]
+  DOC --> PDF[PDF for<br/>customers/regulators]
+  DOC -->|tables break<br/>on conversion| FIX[Manual table repair]
+  FIX --> DOC
+  ECR[Engineering<br/>change request] -->|email| ENG[Engineer finds<br/>affected docs by memory]
+  ENG --> DOC
+  M1[Module A editor] -.->|instance conflict| M2[Module B editor]
+  style DOC fill:#f8d7da,stroke:#b02a37
+  style FIX fill:#f8d7da,stroke:#b02a37
+  style ENG fill:#f8d7da,stroke:#b02a37
+```
+
+## After — same vendor, specs authored in the platform
+
+Specifications are authored where the parts data lives, one editor per module via Multi-root rather
+than competing instances. Multi-level Lists keep clause numbering stable through reorganisation.
+Table styling and column resize make multi-page tables workable. Revision History turns "which
+revision of this spec shipped with that part" into a lookup. Pagination lets an engineer see the
+page breaks a printed manual will have before exporting.
+
+| The remedy | Feature | Tier |
+|---|---|---|
+| One editor per module, no conflicts | Multi-root Editor | Essential |
+| Stable clause numbering | Multi-level Lists | Essential |
+| Workable large tables | Table & Cell Styling, Column Resize | Essential |
+| Spec revision control | Revision History, Track Changes | Professional add-on |
+| Formulas in specs | Math Equations (MathType) | Custom |
+| Print-accurate manuals | Pagination | Custom |
+| Customer and regulator deliverables | Export to PDF / Word | Essential+ |
+
+```mermaid
+flowchart LR
+  PLM[(PLM / parts data)] -->|Merge Fields| ED[Multi-root editor<br/>in the platform]
+  ECR[Engineering<br/>change request] -->|Track Changes| ED
+  ED --> RH[(Revision History<br/>which spec shipped<br/>with which part)]
+  ED -->|Pagination preview| EXP[Export to PDF/Word]
+  EXP --> CUS[Customers<br/>and regulators]
+  style ED fill:#d1e7dd,stroke:#0f5132
+  style RH fill:#d1e7dd,stroke:#0f5132
+```
+
+**Qualification signal:** MathType and Pagination are **Custom-only**, and this use case needs both.
+Technical Docs in Manufacturing/Engineering is a **Custom-tier conversation** — consistent with
+Dassault Systèmes being the single largest account in the Technology bucket.
+
+---
+
+# 4. LMS & eLearning
+
+**Anchored in Education — $1,527,050 combined exposure, 6.5% of ARR.**
+Education's exposure is **+48% above its direct revenue line**, the largest uplift of any industry.
+2 named, 32 classified, $476k intensity.
+
+## Workflow must-haves
+
+| Need | Feature | Tier |
+|---|---|---|
+| STEM content | Math Equations (MathType) | **Custom only** |
+| Accessible output for public institutions | Accessibility Support | **Free** |
+| Authors paste from Google Docs | Enhanced Paste from Google Docs | **Essential** |
+| Consistent course/lesson structure | Templates | **Essential** |
+| Rich lesson media | Images, Media Embed, CKBox | Images/Embed **Free** · CKBox **add-on** |
+| Instructor feedback on submissions | Comments, Track Changes | **Professional** add-on |
+| Multi-locale course delivery | 38 language packs, Text Part Language | **Free** |
+| Distraction-free student writing | Toolbar Configuration, Fullscreen Mode | **Free** |
+| Grading notes and rubric blocks | Multi-root Editor, Merge Fields | **Essential** |
+
+## Before — "a K-12 assessment vendor, ≈110 employees, US"
+
+*(Education's median account is 111 employees and 40% of its ARR comes from under-200 accounts —
+this composite is the typical case, not the exception.)*
+
+Curriculum authors write items in Word or Google Docs, then paste into the platform, where equations
+arrive as images and formatting arrives inconsistently. Instructor feedback on student submissions
+happens over email or as PDF markup, so it never attaches to the work. Accessibility is checked at
+the end, by hand, against a state requirement. The editor itself is an old version nobody wants to
+touch because the custom plugins are load-bearing.
+
+> "One of the reasons why it took my team the better part of two years to transition from CKEditor
+> four to five was we had to rewrite every single custom plugin that we have."
+> — Cambium Assessment *(concerns)*
+
+> "When we start kind of going into more complex math equations is where we start having problems."
+> — UKAS *(feedback)*
+
+> "We are having issue importing text from office, Microsoft office and Google docs."
+> — Valsoft / Asteris *(concerns)*
+
+And Education buys under real budget pressure — the segment's median account pays $4,833/yr:
+
+> "I don't have a lot of answers because there's no users today... we would want to be cost
+> efficient especially with no usage on it as we ramp up. But once we ramp up our current user
+> base... is 35,000 users." — Carnegie Learning *(goals)*
+
+```mermaid
+flowchart LR
+  A[Author writes item<br/>in Word/Google Docs] -->|paste| P[Platform editor<br/>old version]
+  P -->|equations become<br/>images| FIX[Manual cleanup]
+  FIX --> P
+  P --> PUB[Course published]
+  PUB --> S[Student submits work]
+  S -->|email or PDF markup| I[Instructor feedback<br/>detached from the work]
+  I -.->|never returns<br/>to the submission| S
+  PUB -.->|checked by hand<br/>at the end| ACC[Accessibility review]
+  style P fill:#f8d7da,stroke:#b02a37
+  style FIX fill:#f8d7da,stroke:#b02a37
+  style I fill:#f8d7da,stroke:#b02a37
+```
+
+## After — same vendor, authoring and feedback in the platform
+
+Items are authored in the platform with real equations rather than pasted images. Templates make
+lesson structure consistent across authors. Instructor feedback lands as Comments and Track Changes
+on the submission itself, so the student sees the reasoning next to their own words. Accessibility
+is a property of the editor rather than an end-of-cycle audit.
+
+| The remedy | Feature | Tier |
+|---|---|---|
+| Real equations | Math Equations (MathType) | **Custom** |
+| Feedback attached to the work | Comments, Track Changes | Professional add-on |
+| Consistent lesson structure | Templates | Essential |
+| Clean paste from Docs | Enhanced Paste from Google Docs | Essential |
+| Accessible by construction | Accessibility Support | Free |
+| Multi-locale delivery | Language packs, Text Part Language | Free |
+| Lesson media at scale | CKBox | Add-on |
+
+```mermaid
+flowchart LR
+  A[Author] -->|MathType equations<br/>+ Templates| ED[Editor in the platform]
+  ED --> PUB[Course published<br/>accessible by default]
+  PUB --> S[Student submits<br/>in the same editor]
+  S -->|Comments +<br/>Track Changes| I[Instructor feedback<br/>on the submission]
+  I --> S
+  style ED fill:#d1e7dd,stroke:#0f5132
+  style I fill:#d1e7dd,stroke:#0f5132
+```
+
+**Qualification signal, and a real commercial tension.** STEM content needs MathType, which is
+**Custom-only**, and instructor feedback needs the **Professional** Collaboration add-on. But
+Education is our most price-sensitive segment — revenue share 0.76× its account share, median ARR
+$4,833. **The features this use case needs sit two tiers above what the segment typically pays.**
+That gap is worth naming in pricing conversations rather than discovering mid-deal.
+
+---
+
+# 5. Healthcare & Regulated
+
+**Anchored in Healthcare — $1,140,859 combined exposure, 4.9% of ARR.**
+The lowest reach of the five, and the highest conviction: **7 named accounts**, 17 classified,
+$280k intensity.
+
+## Workflow must-haves
+
+| Need | Feature | Tier |
+|---|---|---|
+| Data never leaves the customer perimeter | On-premises (self-hosted) | **Custom only** |
+| Attributable change history for auditors | Track Changes, Revision History | **Professional** add-on |
+| Lock validated content, open only permitted fields | Restricted Editing | **Essential** |
+| Reviewer commentary retained as evidence | Comments | **Professional** add-on |
+| Document generation without a browser | Server-side Editor API | **Professional** add-on |
+| AI drafting with human accountability | AI + marking AI-generated suggestions in Track Changes | AI add-on **plus** Track Changes |
+| Regional data residency | Multi-region Support | **Custom only** |
+| Long-lived validated deployments | Long-term Support Edition | **Custom only** |
+| Regulator-ready output | Export to PDF / Word, Pagination | Export Essential+ · Pagination **Custom** |
+
+## Before — "a clinical-documentation vendor, ≈180 employees, serving hospital systems"
+
+*(Healthcare's median account is 183 employees, and the vertical is genuinely barbell — 33% of its
+ARR from under-50 accounts, 41% from 10,000+. The enterprise variant is noted below.)*
+
+Protocol and policy documents are drafted in Word, circulated as attachments, and reconciled by
+whoever owns the master. The audit trail is assembled after the fact from email and file
+timestamps. PHI cannot leave the hospital's environment, so any cloud step is a blocker rather than
+an inconvenience — including the PDF export step, which quietly sends content to an external
+service.
+
+> "We have to be hipaa compliant. So what data we send to like outside of our system, we have to be
+> very careful and it has to go through like a pretty rigorous risk review." — Alegeus *(concerns)*
+
+> "We have very strong GDPR requirements, medical secrecy requirements. So we need to be hosted in
+> Europe or potentially in, on premises." — ExpaTPA *(concerns)*
+
+> "Because of the compliance and audit issues... they want to restrict the data to their own, like
+> from application purview so that our audit team can perform various compliance audit on that
+> particular data." — Pfizer *(concerns)*
+
+The export-service problem is the sharpest version of this, stated by a bank but identical in
+mechanism:
+
+> "When we were trying to check it out, we saw that it is sending the data to your external system
+> to generate or export a PDF... being a banking client and it will be a banking transaction data,
+> there will be a compliance issue if this data is sent out of the system."
+> — JPMorgan Chase *(concerns)*
+
+```mermaid
+flowchart LR
+  W[Protocol drafted<br/>in Word] -->|attachment| REV[Reviewers<br/>separate copies]
+  REV -->|returns| REC[Master owner<br/>reconciles by hand]
+  REC --> W
+  REC --> PDF[PDF export via<br/>external service]
+  PDF -.->|PHI leaves the<br/>perimeter — blocked| SEC[Security review]
+  REC -.->|assembled after<br/>the fact| AUD[Audit trail from<br/>email + timestamps]
+  AUD --> REG[Regulator / auditor]
+  style REC fill:#f8d7da,stroke:#b02a37
+  style PDF fill:#f8d7da,stroke:#b02a37
+  style AUD fill:#f8d7da,stroke:#b02a37
+```
+
+## After — same vendor, self-hosted inside the hospital perimeter
+
+The editor and its services run on-premises, so no content crosses the boundary — including export.
+Validated sections are locked by Restricted Editing; only the fields clinicians may change accept
+input. Track Changes and Revision History *are* the audit trail, produced as a by-product of the
+work rather than reconstructed. Where AI drafts, its contributions are marked as AI-generated
+suggestions inside Track Changes, so a human accepts each one and the record shows who did.
+
+That last point is what makes AI usable in a regulated setting at all:
+
+> "We reduced the timeline a lot I can say from six to eight months to four or five weeks. And
+> still there is a human in the loop because we can't say and go to the fda that we have generated
+> these documents or this information by AI." — F. Hoffmann-La Roche *(goals)*
+
+> "We were not so much interested in the AI features before because we were assuming that we would
+> have to open up our clouds to an external party... But then you mentioned, we now also have an on
+> Prem solution and that could indeed benefit." — FMO *(goals)*
+
+| The remedy | Feature | Tier |
+|---|---|---|
+| Nothing crosses the perimeter | On-premises | **Custom** |
+| Audit trail as a by-product | Track Changes, Revision History | Professional add-on |
+| Validated content locked | Restricted Editing | Essential |
+| Reviewer evidence retained | Comments | Professional add-on |
+| Generation without a browser | Server-side Editor API | Professional add-on |
+| AI with human accountability | AI + marking AI suggestions in Track Changes | AI add-on + Track Changes |
+| Data residency | Multi-region Support | **Custom** |
+| Stable validated version | Long-term Support Edition | **Custom** |
+
+```mermaid
+flowchart TD
+  subgraph PERIM["Hospital perimeter — nothing leaves"]
+    ED[Editor, self-hosted<br/>Restricted Editing]
+    AI[AI on-premises<br/>suggestions marked<br/>as AI-generated]
+    RH[(Track Changes +<br/>Revision History<br/>= the audit trail)]
+    EXP[Export to PDF<br/>self-hosted]
+    AI --> ED
+    ED --> RH
+    ED --> EXP
+  end
+  C[Clinicians +<br/>reviewers] --> ED
+  RH --> REG[Auditor queries<br/>the trail directly]
+  EXP --> REG
+  style ED fill:#d1e7dd,stroke:#0f5132
+  style RH fill:#d1e7dd,stroke:#0f5132
+  style AI fill:#d1e7dd,stroke:#0f5132
+```
+
+**Qualification signal:** on-premises is **Custom-only**, and for this use case it is the entry
+condition rather than an upgrade. Every Healthcare & Regulated deal is a **Custom conversation** —
+which is why the segment carries a 1.12× revenue-to-account ratio and 41% of its ARR from
+10,000+ accounts despite being only 4.9% of the base.
+
+**How the workflow shifts elsewhere:** Finance replaces medical secrecy with transaction
+confidentiality and retention rules — the JPMorgan quote above shows the identical export
+objection. Government adds accessibility obligations (Accessibility Support, Free+) and procurement
+timelines measured in quarters. Both keep the on-premises entry condition.
+
+---
+
+# Cross-cutting: Real-Time Collaboration as the upgrade path
+
+RTC is a feature, not a use case — no product category maps to it, yet six strategic accounts name
+it directly. It appears inside all five stories as the step *after* asynchronous review works:
+
+| Use case | Async first (Pro add-on) | RTC upgrade unlocks |
+|---|---|---|
+| Document-Centric | Track Changes + Comments | Two reviewers at once; the manual merge step disappears |
+| Knowledge Base / Support | Comments on drafts | Pairing on an urgent incident article |
+| Technical Docs | Revision History on specs | Engineer and writer in the same spec during a change window |
+| LMS | Comments on submissions | Live instructor-student writing sessions |
+| Healthcare & Regulated | Track Changes as audit trail | Concurrent review inside the perimeter (needs on-premises RTC, Custom) |
+
+Comments, Track Changes, Revision History and RTC all sit in the **same Professional
+Collaboration add-on** ($249/mo) or are included in **Custom** — so the async-to-RTC move is a
+configuration change, not a new purchase. Worth knowing, because customers routinely assume
+otherwise:
+
+> "Is the commenting capability along with revision history now bundled with RTC collaboration?"
+> — PwC *(feedback)*
+
+> "I'm also curious why is revision control and track changes a collaborative feature? If I was the
+> solitary user wouldn't I want that as well?" — Bloomberg Industry Group *(feedback)*
+
+# Tier summary across the five
+
+| Use case | Entry tier | Full workflow needs |
+|---|---|---|
+| Document-Centric | Essential | **Professional + Collaboration**; Custom for Pagination/on-prem |
+| Knowledge Base + Support | Essential | **Professional + Collaboration** for the review loop |
+| Technical Docs | Essential | **Custom** — MathType and Pagination are Custom-only |
+| LMS & eLearning | Essential | **Custom** for MathType + Professional for feedback |
+| Healthcare & Regulated | **Custom** | On-premises is the entry condition, not an upgrade |
+
+Three of the five require Custom for their full workflow. Two of those three — Technical Docs and
+Healthcare & Regulated — are exactly where the highest-ARR accounts sit, which is consistent rather
+than coincidental.
+
+## Limits
+
+- **Composites are illustrative, not derived.** Their firmographics come from real industry
+  profiles, but no composite represents a specific account, and the workflows are typical patterns
+  rather than documented ones. Nothing here should be presented as a case study.
+- **Quotes are real but not matched to composites.** A quote proves the pain exists somewhere in the
+  base; it does not prove it exists at the composite described.
+- **Use-case selection inherits Phase 2's weak evidence.** See the limits in
+  [the use-case map](2026-08-17-usecase-industry-map.md) — most importantly that non-Technology
+  accounts reach the matrix only through 61 strategic accounts.
+- **Tiers were verified against `features/feature-tiers.md` on 2026-08-17.** That file cites
+  ckeditor.com/pricing as its source of truth; re-check before quoting externally.
+- **Volume limits matter and are easy to miss.** Export to PDF/Word is capped per tier (200/mo
+  Essential, 1,000/mo Professional) and Import from Word does not exist below Professional. For a
+  high-volume document workflow the cap, not the feature list, may set the tier.
+
+
+================================================================
 FILE: ./research/README.md
 ================================================================
 
@@ -3014,8 +4317,10 @@ FILE: ./research/competitors/ckeditor-vs-tinymce.md
 
 # CKEditor vs. TinyMCE
 
-**Last updated:** April 2026 (TinyMCE AI section fully updated to reflect current Chat, Review, Actions, RBAC, and model support)
+**Last updated:** August 17, 2026 — rows re-verified against TinyMCE's live docs, pricing, and 8.7/8.8 releases. See [Verified TinyMCE Updates](#verified-tinymce-updates-august-2026) at the end of this file.
 **Source:** Extracted from `research/competitive-analysis.md`
+
+> ⚠️ **The April 2026 version of this file overstated CKEditor's position on seven points.** Rows marked **[corrected]** below were wrong or stale — including three claims a rep should stop making immediately: that TinyMCE has no MCP integration, no self-hosting, and no on-premises AI. All three are false as of TinyMCE 8.7 (July 15, 2026). Every correction is sourced in the addendum.
 
 ---
 
@@ -3030,7 +4335,7 @@ For pattern 3 buyers moving away from build-it-yourself or open-source-and-exten
 ## TinyMCE Profile
 
 **Vendor:** Tiny Technologies (formerly Ephox)
-**Model:** Proprietary SaaS, usage-based pricing
+**Model:** Open-source core (GPL2+) with proprietary premium plugins, usage-based pricing
 
 ### Target Audience
 
@@ -3040,16 +4345,27 @@ The broadest audience of any competitor. TinyMCE has 1.5 million+ developers usi
 
 - 100+ features covering the full range of rich text editing needs
 - PowerPaste — high-accuracy pasting from Word, Google Docs, and Excel
-- TinyMCE AI — full AI platform: Chat (with history, file/URL context, web search, reasoning), Review (5 built-in types + custom), Quick Actions (built-in + customizable); supports OpenAI, Anthropic, and Google Gemini models
-- Suggested Edits (track changes) — added in TinyMCE 8
+- TinyMCE AI — Chat (history, file/URL context, web search, reasoning), Review (5 built-in types + custom), Quick Actions (built-in + customizable); OpenAI, Anthropic, and Google models; MCP support on self-hosted
+- Suggested Edits (track changes) — added in TinyMCE 8, paid add-on
 - Comments with threaded replies and Mentions
-- Revision History
-- PDF and Word export
+- Revision History — paid add-on
+- PDF and Word export — paid add-ons
 - Spell Checker Pro (13+ languages)
 
-### Pricing Model
+### Pricing Model **[corrected]**
 
-Usage-based, charged per "editor load" — the number of times a user loads the editor in a session. Additional features (PDF export, Word import/export) are priced as add-ons. Enterprise pricing available on request. The model creates unpredictable costs at scale, which is a friction point for high-traffic applications.
+Usage-based, charged per "editor load" — **the same metric CKEditor uses.** TinyMCE list pricing (annual billing):
+
+| | TinyMCE | CKEditor |
+|---|---|---|
+| Free | $0 — 1,000 loads/mo, then $40/1,000 | $0 — 1,000 loads/mo, then $60/1,000 |
+| Essential | $79/mo — 5,000 loads, then $40/1,000 | $144/mo — 5,000 loads, then $45/1,000 |
+| Professional | $145/mo — 20,000 loads, then $40/1,000 | $289/mo — 20,000 loads, then $30/1,000 |
+| Enterprise / Custom | Quote — cloud or self-hosted | Quote |
+
+TinyMCE runs roughly half CKEditor's list price on the base tiers. CKEditor's overage rate drops as tiers rise ($60 → $45 → $30 per 1,000), while TinyMCE's stays flat at $40, so the gap narrows at high volume. Both vendors charge add-ons separately: TinyMCE AI runs $133–$467/mo, Suggested Edits and Revision History $79/mo each, Export to PDF $29–$79/mo, Import/Export Word $39–$109/mo. CKEditor AI starts at $133/mo (annual), Collaboration $249/mo, CKBox $89/mo, Image Optimizer $80/mo.
+
+**Do not claim CKEditor pricing is "predictable" versus TinyMCE's "unpredictable."** Both bill on editor loads with overage. The defensible argument is total cost at scale and bundle composition, not predictability.
 
 ### Marketing Approach
 
@@ -3061,23 +4377,23 @@ Developer surveys and industry reports (they publish an annual "State of Rich Te
 
 | Feature | CKEditor | TinyMCE |
 |---------|----------|---------|
-| **Real-time collaboration** | ✅ Native | ❌ Third-party required |
+| **Real-time collaboration** | ✅ Native, actively sold | ❌ Built it, then retired it — deactivated Dec 31, 2023 **[corrected]** |
 | **Async comments** | ✅ | ✅ |
-| **Track changes** | ✅ | ✅ (Suggested Edits, added TinyMCE 8) |
-| **Revision history** | ✅ | ✅ |
-| **AI writing assistance** | ✅ Deep integration | ✅ Add-on |
-| **Custom LLM support** | ✅ | ✅ |
-| **MCP integration** | ✅ | ❌ |
+| **Track changes** | ✅ | ✅ Suggested Edits — paid add-on, $79/mo **[corrected]** |
+| **Revision history** | ✅ | ✅ Paid add-on, $79/mo **[corrected]** |
+| **AI writing assistance** | ✅ Add-on | ✅ Add-on |
+| **Custom LLM support** | ✅ GA on-premises | ⚠️ Early access **[corrected]** |
+| **MCP integration** | ✅ On-premises | ✅ Self-hosted only, since 8.7 **[corrected]** |
 | **SOC 2 Type 2** | ✅ | ✅ |
 | **Enterprise SLAs** | ✅ | ✅ |
-| **Import from Word** | ✅ | ✅ |
-| **Export to PDF/Word** | ✅ | ✅ (add-on) |
+| **Import from Word** | ✅ | ✅ Add-on |
+| **Export to PDF/Word** | ✅ | ✅ Add-on |
 | **File management (CKBox)** | ✅ | ❌ |
 | **Spell check** | ✅ | ✅ |
-| **Open source core** | ✅ | ❌ |
-| **Self-hostable** | ✅ | ❌ |
+| **Open source core** | ✅ GPL2+ | ✅ GPL2+ **[corrected]** |
+| **Self-hostable** | ✅ | ✅ Open source, or Enterprise plan **[corrected]** |
 | **20+ year track record** | ✅ | ✅ |
-| **Pricing model** | Predictable | Usage-based (per editor load) |
+| **Pricing model** | Per editor load | Per editor load — ~50% lower list on base tiers **[corrected]** |
 
 ---
 
@@ -3085,13 +4401,15 @@ Developer surveys and industry reports (they publish an annual "State of Rich Te
 
 | Feature | CKEditor | TinyMCE |
 |---------|----------|---------|
-| Real-time collaboration | ✅ Native, production-ready | ❌ Third-party infrastructure required (Yjs/Liveblocks) |
+| Real-time collaboration | ✅ Native, production-ready | ❌ None available — RTC plugin retired **[corrected]** |
 | Async comments | ✅ Full | ✅ Threaded comments, mentions |
-| Track changes | ✅ | ✅ "Suggested Edits" (TinyMCE 8) |
-| Revision history | ✅ | ✅ |
-| **Overall** | **Strong** | **Partial** |
+| Track changes | ✅ | ✅ Suggested Edits (TinyMCE 8), paid add-on |
+| Revision history | ✅ | ✅ Paid add-on |
+| **Overall** | **Strong** | **Async only** |
 
-Real-time collaboration is TinyMCE's most significant structural gap. It is not native and requires customers to build or integrate their own infrastructure. This is the clearest head-to-head differentiator CKEditor holds.
+Real-time collaboration remains TinyMCE's clearest structural gap, and the accurate version of the story is stronger than the old framing. Tiny built a full RTC plugin with end-to-end encryption, then pulled it: closed to new customers in January 2023, retired and deactivated on December 31, 2023. It is not sold today and there is no successor product. A team that needs real-time collaboration on TinyMCE builds it themselves on Yjs, Liveblocks, or similar.
+
+That history is the argument. Tiny shipped RTC, learned what it costs to run, and exited. CKEditor has sustained the same capability as a supported product for over a decade.
 
 ---
 
@@ -3100,65 +4418,150 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 | Feature | CKEditor | TinyMCE |
 |---------|----------|---------|
 | AI Chat (with history) | ✅ Full chat, context injection, web search, reasoning | ✅ Full chat, file/URL context, web search, reasoning mode |
-| AI Review | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in review types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API |
+| AI Review | ✅ Grammar, tone, style, clarity — inline suggestions | ✅ 5 built-in types + custom reviews (8.7) |
 | Inline AI Quick Actions | ✅ On selected text — improve writing, fix grammar & spelling, continue writing, change tone (5 presets), translate (7 languages), make shorter/longer | ✅ Built-in set + fully customizable via config |
 | Context injection (files, URLs) | ✅ Documents, URLs, reference content | ✅ PDF, DOCX, images, MD, HTML, text; URLs; custom external sources |
-| Model support | ✅ OpenAI, Anthropic, Google Gemini + Auto | ✅ OpenAI (GPT-5 family), Anthropic (Claude 4.6/4.5), Google Gemini + Auto mode |
-| Bring your own LLM | ✅ On-Premises (GA, March 2026) | ⚠️ Managed API only; on-prem with custom models in early access (mid-2026) |
-| Custom prompts / commands | ✅ Custom Quick Actions via `extraCommands` config — define id, label, prompt, and delivery type (inline or Chat-based); remove built-ins via `removeCommands`; programmatic execution via `AIActions#executeAction()`. Custom Reviews also supported. | ✅ Custom Quick Actions via config; custom Reviews via API |
-| RBAC for AI features | ✅ Per-user, per-tier, per-feature access control | ✅ JWT-based hierarchical permissions — per-user, per-model, per-provider, per-feature |
-| AI Profiles | ❌ Not yet available | ❌ |
+| Model support | ✅ OpenAI, Anthropic, Google Gemini + Auto | ✅ OpenAI (GPT-5.5/5.4/5.2/5.1/5, GPT-4.1), Anthropic (Opus 4.8/4.7, Sonnet 4.6/4.5, Haiku 4.5), Google (Gemini 3.1 Pro, 3.5/3/2.5 Flash) + `agent-1` auto |
+| Bring your own LLM | ✅ GA on-premises — custom models and your own API keys via OpenAI, Google Cloud, Azure, or self-hosted | ⚠️ Early access; managed model list otherwise fixed **[corrected]** |
+| Custom prompts / commands | ✅ Custom Quick Actions via `extraCommands` — id, label, prompt, delivery type; `removeCommands` for built-ins; `AIActions#executeAction()`. Custom Reviews supported. | ✅ Custom Quick Actions via config; Custom Reviews via API (8.7) |
+| RBAC for AI features | ✅ Per-user, per-tier, per-feature | ✅ JWT-based — per-user, per-model, per-provider, per-feature |
 | Web search in AI | ✅ | ✅ |
-| MCP integration | ✅ On-Premises (March 2026) | ❌ |
-| On-premises AI deployment | ✅ Available (March 2026) | ⚠️ Early access — mid-2026 roadmap |
-| Rich text HTML preservation | ✅ Full HTML — preserves all editor formatting | ⚠️ Not explicitly confirmed at HTML level |
-| AI usage monitoring | ✅ Customer Portal Insights Panel | ❌ Not confirmed |
-| Programmatic & headless AI API | ✅ Front-end editor API + REST API + server-side editor API for headless/backend automation and batch processing | ⚠️ Programmatic REST API; no headless server-side editor execution confirmed |
-| Mark AI-generated suggestions | ✅ Tags AI edits in Track Changes ('pill' badge or dedicated AI author identity) | ⚠️ Diff view distinguishes edits; explicit AI-vs-human attribution not confirmed |
-| Multi-root & multi-editor AI | ✅ AI Chat, Review, and Translate across multi-root editors and editors sharing a Context | ❌ Not confirmed |
-| **Overall** | **Strong** | **Strong (with caveats)** |
+| MCP integration | ✅ On-premises | ✅ Self-hosted only, since 8.7 — connects Jira, Slack, internal systems **[corrected]** |
+| On-premises AI deployment | ✅ GA (March 2026) | ✅ GA (July 2026, 8.7) **[corrected]** |
+| RAG support | ✅ Documented on-premises | ⚠️ Not documented as a named capability |
+| Rich text HTML preservation | ✅ Full HTML — preserves all editor formatting | ⚠️ Not explicitly documented at HTML level |
+| AI usage monitoring | ✅ Customer Portal Insights Panel | ✅ "Usage tracking and quota management built in" **[corrected]** |
+| Programmatic & headless AI API | ✅ Front-end editor API + REST API + **server-side editor API** running the full editor model with no browser | ✅ REST API explicitly "not tied to the editor" for background processing — but no server-side editor instance **[corrected]** |
+| Mark AI-generated suggestions | ✅ Tags AI edits in Track Changes | ✅ AI badge on Suggested Edits and Revision History cards; `metadata.source: 'ai'` **[corrected]** |
+| Multi-root & multi-editor AI | ✅ Chat, Review, Translate across multi-root editors and shared Context | ⚠️ Undocumented; AI plugin supports classic mode only, not inline |
+| AI Profiles | ❌ Not yet available | ❌ |
+| **Overall** | **Strong** | **Strong** |
 
-⚠️ **Important update (April 2026):** TinyMCE's AI has expanded significantly beyond "pre-built commands." It now has full Chat with history and context injection, a multi-type Review system, customizable Quick Actions, JWT-based RBAC, and support for Anthropic and Gemini models alongside OpenAI. The key remaining gaps vs. CKEditor are: no MCP integration, no on-prem AI today (mid-2026 roadmap), unconfirmed HTML preservation at the AI layer, no AI usage analytics, no confirmed headless server-side AI API, no explicit AI-vs-human suggestion attribution, and no confirmed multi-root/multi-editor AI support.
+⚠️ **Important update (August 2026):** TinyMCE closed most of the AI gap in 8.7. MCP, on-premises AI, and AI-vs-human edit attribution all shipped — three items this file previously listed as CKEditor-only wins. The remaining genuine differences are narrower and more technical: custom LLM support is GA for CKEditor and early access for TinyMCE, CKEditor documents RAG and full-HTML preservation where TinyMCE does not, CKEditor's server-side API runs an actual headless editor rather than a content-in/content-out REST endpoint, and CKEditor's AI works across multi-root and inline editors while TinyMCE's AI plugin is classic-mode only.
 
 ---
 
 ## Where CKEditor Wins
 
-- **No native real-time collaboration in TinyMCE** — this is a major product gap for any team building collaborative applications. TinyMCE requires building this infrastructure separately; CKEditor includes it.
-- **MCP integration** — CKEditor has it; TinyMCE does not. First-mover advantage in AI-native content workflows.
-- **On-premises AI available now** — CKEditor's on-prem AI with custom LLM support is GA (March 2026). TinyMCE's on-prem AI is on the roadmap for mid-2026.
-- **Rich text HTML preservation** — CKEditor AI works natively with the full HTML document model. TinyMCE's HTML preservation at the AI layer is not explicitly confirmed.
-- **AI usage monitoring** — CKEditor's Customer Portal Insights Panel gives per-operation visibility. TinyMCE has no confirmed equivalent.
-- **Programmatic & headless AI** — CKEditor drives AI from a front-end editor API, a REST API, and a server-side editor API that runs with no browser. TinyMCE exposes a programmatic REST API but no confirmed headless server-side editor execution.
-- **AI suggestion attribution** — CKEditor tags AI-generated edits in Track Changes so reviewers can tell AI suggestions from human ones. TinyMCE's diff view distinguishes edits but explicit AI-vs-human attribution is not confirmed.
-- **Multi-root & multi-editor AI** — CKEditor's Chat, Review, and Translate work across multi-root editors and editors sharing a Context. TinyMCE support here is not confirmed.
-- **Pricing predictability** — TinyMCE's per-editor-load model creates unpredictable costs at scale. CKEditor's model is more predictable.
-- **Open-source core + self-hostable** — CKEditor offers transparency and deployment flexibility TinyMCE cannot match.
-- **File management** — CKBox integration is unique; TinyMCE has no equivalent.
+- **Real-time collaboration** — the one durable product gap. TinyMCE has no RTC offering at all, and its own attempt was retired in 2023. Any team with collaborative editing on the roadmap has to build it themselves on TinyMCE.
+- **Custom LLM support is GA** — CKEditor's on-premises AI runs your models and your API keys through OpenAI, Google Cloud, Azure, or self-hosted endpoints today. TinyMCE's equivalent is early access; outside it, you pick from Tiny's managed model list.
+- **Headless server-side editor** — CKEditor runs the full editor model server-side with no browser, so AI can process documents in batch with complete fidelity. TinyMCE's REST API works outside the editor but does not give you a headless editor instance.
+- **AI across every editor type** — CKEditor AI works in multi-root editors and editors sharing a Context. TinyMCE's AI plugin supports classic mode only and is explicitly unsupported in inline mode.
+- **Documented RAG and full-HTML preservation** — both documented for CKEditor, neither documented for TinyMCE.
+- **File management** — CKBox has no TinyMCE equivalent.
+- **Bundle economics at scale** — CKEditor's overage rate falls to $30/1,000 loads at Professional against TinyMCE's flat $40, and several capabilities TinyMCE meters separately (Word/PDF conversion allowances) come bundled. This is a total-cost argument that needs the prospect's actual volumes to land.
 
 ## Where TinyMCE Wins
 
-- **Developer mindshare** — largest installed base, more Stack Overflow answers, more tutorials, stronger community content presence.
-- **Async collaboration** — strong comments, track changes, and revision history.
+- **Price** — roughly half CKEditor's list price on Essential and Professional. Expect this in every competitive deal.
+- **Developer mindshare** — largest installed base, more Stack Overflow answers, more tutorials, stronger community presence.
+- **Async collaboration** — solid comments, Suggested Edits, and revision history.
 - **PowerPaste** — genuinely well-regarded for paste fidelity from Word and Google Docs.
-- **AI breadth** — TinyMCE AI now covers Chat, Review, Quick Actions, RBAC, and multi-LLM including Anthropic. The gap has narrowed materially.
-- **Marketing reach** — large budget and content volume means more awareness among developers evaluating options.
+- **AI breadth** — Chat, Review, Quick Actions, RBAC, MCP, self-hosted AI, and AI attribution. Feature-for-feature this is close to parity now.
+- **Marketing reach** — large budget and content volume means more awareness among evaluating developers.
 
 ---
 
 ## The Battlecard Argument
 
-> TinyMCE is the default choice because it's familiar, not because it's the best choice for what you're building. If real-time collaboration is on your roadmap — and it will be — TinyMCE requires you to build that infrastructure yourself. CKEditor includes it, backed by a team that has been building collaborative editing for over a decade.
+> TinyMCE is the default choice because it's familiar and cheap on the sticker. It is a capable async editor. But Tiny built real-time collaboration, ran it, and shut it down at the end of 2023 — so if collaborative editing is anywhere on your roadmap, TinyMCE means a build project you own forever. CKEditor has shipped and supported that same capability for over a decade, and it comes with the license.
 
 ---
 
 ## Win Condition Summary
 
-**When CKEditor wins:** Real-time collaboration requirement, deeper AI integration need, or enterprise buyer who values SOC 2 documentation, cleaner compliance story, or predictable pricing at scale.
+**When CKEditor wins:** Real-time collaboration is a requirement or a near-term roadmap item; the buyer needs custom or self-hosted LLMs in production now; AI has to run headless server-side at document scale; the editor is multi-root or inline.
 
-**Risk to manage:** TinyMCE has larger developer mindshare and more community content. CKEditor must win on capability and enterprise trust, not awareness.
+**Risks to manage:**
+1. **Price.** TinyMCE is roughly half the list price on base tiers. Move the conversation to total cost at real volume and to what each bundle includes.
+2. **AI parity.** The 8.7 release closed the MCP, on-prem, and AI-attribution gaps. Reps still working from the April battlecard will make claims a technical evaluator can disprove in one search. That costs credibility on the claims that are still true.
+3. **Mindshare.** TinyMCE has more community content. CKEditor wins on capability and enterprise trust, not awareness.
 
-**Key message:** TinyMCE has async collaboration. CKEditor has both. When real-time collaboration lands on the roadmap — and it will — TinyMCE requires a separate infrastructure project. CKEditor includes it.
+**Key message:** TinyMCE gives you async collaboration. CKEditor gives you async and real-time, from a vendor that has sustained real-time for over a decade rather than retiring it.
+
+---
+
+## Verified TinyMCE Updates (August 2026)
+
+Every claim below was checked against TinyMCE's live documentation, pricing page, and release notes on August 17, 2026.
+
+### 1. MCP support shipped — TinyMCE 8.7 **[was: ❌ no MCP]**
+
+Self-hosted TinyMCE AI connects to MCP services such as Jira and Slack, so in-editor AI can pull from systems the application already runs on. The `tinymceai_tool_data_callback` option handles `mcp-tool-result` and `mcp-tool-notification` events during streaming responses. TinyMCE 8.8.0 hardened it further by ignoring non-string callback returns.
+
+**Limit worth noting:** MCP is available for self-hosted deployments only, not Tiny Cloud. CKEditor's MCP support is likewise on-premises. This row is now parity, not a win.
+
+### 2. Self-hosted AI reached GA — TinyMCE 8.7 **[was: ⚠️ early access, mid-2026 roadmap]**
+
+> "Self-hosting general availability is what makes the rest of this release possible. Before 8.7, TinyMCE AI only loaded from the Tiny Cloud CDN, so self-hosted deployments couldn't run it."
+
+The `tinymceai` plugin now ships in the `tinymce-premium` NPM package and as a standalone addon `.zip`. On-premises AI is GA, not early access.
+
+**What remains early access:** bringing your own LLM. Tiny's AI features page lists cloud and on-premises deployment with no early-access caveat, but self-hosted deployment *with your own LLM* is still gated. CKEditor's custom-model support is GA.
+
+### 3. AI edit attribution shipped — TinyMCE 8.7 **[was: ⚠️ not confirmed]**
+
+> "Edits made with the TinyMCE AI plugin are recorded as AI-assisted. An AI badge appears on their cards by default."
+
+Controlled by `suggestededits_ai_attribution` and `revisionhistory_ai_attribution`. Setting either to `false` hides the badge but not the record — AI-assisted suggestions are always stored in the model, flagged via `metadata.source: 'ai'`. This applies to both Suggested Edits and Revision History.
+
+### 4. TinyMCE is open source and self-hostable **[was: ❌ on both rows — factually wrong]**
+
+TinyMCE ships an open-source build under GPL2+, downloadable at no cost and self-hostable. The Enterprise plan offers "Cloud or Self-hosted." Premium plugins self-host via the `tinymce-premium` NPM package or standalone `.zip`.
+
+Both rows in the April file were simply incorrect. CKEditor's core is also GPL2+. **Neither open source nor self-hosting is a CKEditor differentiator against TinyMCE.** Retire both talking points.
+
+### 5. Pricing is the same metric, at a lower price **[was: "Predictable" vs "Usage-based"]**
+
+Both vendors bill per editor load with per-1,000 overage. TinyMCE Essential is $79/mo against CKEditor's $144/mo; Professional is $145/mo against $289/mo. CKEditor's overage rate is better at Professional ($30 vs $40 per 1,000).
+
+The "predictable vs unpredictable pricing" line does not survive contact with either pricing page. Drop it.
+
+### 6. Real-time collaboration — retired, not absent **[framing corrected]**
+
+> "TinyMCE's Real-time Collaboration (RTC) plugin will be retired and deactivated on December 31, 2023, and is no longer available for purchase."
+
+Closed to new customers January 2023, deactivated December 31, 2023. The old "third-party required" framing undersold this. Tiny built RTC with end-to-end encryption, operated it, and exited. Use the accurate version.
+
+### 7. Programmatic AI API is real, but not headless **[claim narrowed]**
+
+TinyMCE's REST API is documented as using the same infrastructure as the plugin "without being tied to the editor," covering Chat, Review, and Quick Actions for background processing and custom UI.
+
+CKEditor's advantage is narrower than the April file claimed. The real distinction: CKEditor's server-side editor API instantiates the full editor and document model with no browser, while TinyMCE's REST API is a content-in/content-out service. Make that specific point rather than claiming TinyMCE has no programmatic API.
+
+### Also confirmed
+
+- **AI usage monitoring:** Tiny's AI page states "Usage tracking and quota management built in." The previous "❌ not confirmed" was wrong.
+- **AI model list:** OpenAI GPT-5.5/5.4/5.2/5.1/5, GPT-4.1 and Mini variants; Anthropic Claude Opus 4.8/4.7, Sonnet 4.6/4.5, Haiku 4.5; Google Gemini 3.1 Pro, 3.5/3/2.5 Flash; plus `agent-1` (`'auto'`) which picks by speed, quality, and cost.
+- **Custom Reviews:** shipped in 8.7 — integrators author their own review prompts and control the end-user review list.
+- **AI plugin mode limit:** "This feature is not supported when TinyMCE is run in *inline* mode. It is only supported in *classic* mode." A genuine, current limitation.
+
+### Action items
+
+1. **Stop making three claims immediately** — no MCP, no self-hosting, no on-prem AI. All three are disprovable in one search and all three appear in current sales material.
+2. **Retire the open-source and pricing-predictability talking points.** Both are wrong.
+3. **Rebuild the price objection response.** TinyMCE at half the list price is now the most common competitive pressure, and this file previously had no answer for it.
+4. **Lead with real-time collaboration and GA custom LLMs.** These are the two durable, verifiable wins.
+5. **Re-check in November 2026.** TinyMCE shipped 8.7 and 8.8 within a month; the AI surface is moving fast enough that a quarterly refresh is the minimum.
+
+---
+
+### Sources
+
+- [TinyMCE pricing](https://www.tiny.cloud/pricing/)
+- [CKEditor pricing](https://ckeditor.com/pricing/)
+- [What's New in TinyMCE 8.7: Custom Reviews & MCP](https://www.tiny.cloud/blog/whats-new-tinymce-8-7/)
+- [TinyMCE 8.8.0 release notes](https://www.tiny.cloud/docs/tinymce/latest/8.8.0-release-notes/)
+- [TinyMCE AI Introduction](https://www.tiny.cloud/docs/tinymce/latest/tinymceai-introduction/)
+- [TinyMCE AI Plugin](https://www.tiny.cloud/docs/tinymce/latest/tinymceai/)
+- [TinyMCE AI models](https://www.tiny.cloud/docs/tinymce/latest/tinymceai-models/)
+- [TinyMCE AI API Overview](https://www.tiny.cloud/docs/tinymce/latest/tinymceai-api-overview/)
+- [TinyMCE AI feature page](https://www.tiny.cloud/tinymce/features/ai-integration/)
+- [Suggested Edits plugin](https://www.tiny.cloud/docs/tinymce/latest/suggestededits/)
+- [Revision History plugin](https://www.tiny.cloud/docs/tinymce/latest/revisionhistory/)
+- [TinyMCE RTC retirement notice](https://www.tiny.cloud/docs/tinymce/6/rtc-introduction/)
+- [How We Built MCP Support in CKEditor AI](https://ckeditor.com/blog/how-we-built-mcp-support-in-ckeditor-ai/)
+- [CKEditor 5 v47.6.0 release highlights](https://ckeditor.com/blog/ckeditor-47-6-0-release-highlights/)
 
 ---
 
@@ -3610,3 +5013,267 @@ The caveat that matters: Tiptap states the extension is under active development
 
 *Transcribed from https://ckeditor.com/ckeditor-vs-tiptap/ in July 2026, with the rows above corrected against verified Tiptap releases on July 27, 2026. For the broader analytical landscape across all editors, see `research/competitive-analysis.md`. For AI-only detail, see `features/ckeditor ai/AI-competitive-comparison.md`.*
 
+
+================================================================
+FILE: ./research/data/2026-08-17-data-notes.md
+================================================================
+
+# Data notes — accounts dataset for the ICP analysis
+
+*Phase 0 of the [ICP → use case → workflow story analysis](../../docs/superpowers/specs/2026-08-13-icp-usecase-analysis-design.md). Built 2026-08-17.*
+
+This file is the provenance record for [`2026-08-17-accounts-normalized.csv`](2026-08-17-accounts-normalized.csv).
+Read it before quoting any number downstream.
+
+## What was pulled
+
+**Source:** Salesforce, via the CK Salesforce Connector. Sole system of record for both
+revenue and firmographics. No Maxio access was needed — see below.
+
+**Pull date:** 2026-08-17. Two queries, split on ARR ≥ / < $5,000 to stay under the
+2,000-record SOQL page limit. Both returned `done: true`, so neither was paginated or truncated.
+
+**Population filter:** `saasoptics__arr_at_end_of_month__c > 0 AND Type = 'Software Customer'
+AND Account_Status__c = 'Active'` → **2,072 accounts, $23,503,308.38 ARR.**
+
+**Reproduce with:** `python3 build-accounts-dataset.py <bandA.json> <bandB.json>`
+
+## Why no Maxio
+
+The SaaSOptics managed package (SaaSOptics is Maxio's subscription-management half) syncs
+billing figures onto the Salesforce Account. ARR is therefore readable through the Salesforce
+connector alone. The measure used everywhere downstream is
+`saasoptics__arr_at_end_of_month__c`.
+
+**Validation:** MRR × 12 = $23,503,303.92 against ARR $23,503,308.38 — a $4.46 spread across
+2,072 accounts. The two fields agree.
+
+## The multi-currency correction — read this one
+
+The org has **multi-currency enabled**: 2,066 accounts in USD, **6 in EUR**.
+
+Salesforce `SUM()` converts to corporate currency. Record-level field reads do **not** — they
+return each account's raw amount in its own currency. Summing the raw field understates ARR by
+**$11,630.43**, and mis-sizes six European accounts (BMW ×2, KPMG IT Services GmbH, CNP
+Assurances, Earnix, ILOH).
+
+The pull therefore applies `convertCurrency()` to all three revenue fields. The CSV is
+uniformly USD. A `currency` column preserves each account's original denomination.
+
+If you re-pull this data and skip `convertCurrency()`, your totals will be wrong in a way that
+still looks plausible.
+
+## Exit criteria — both met
+
+| Check | Result |
+|---|---|
+| Row count reconciles to the aggregate | 2,072 records, 2,072 distinct Ids, zero duplicates ✓ |
+| ARR sum reconciles | $23,503,308.38 vs aggregate $23,503,308.37 — 1¢ FX rounding ✓ |
+| MRR × 12 tracks ARR | Within $4.46 ✓ |
+| No null ARR | 0 of 2,072 ✓ |
+
+## Coverage report
+
+Populated fraction, by account and ARR-weighted. **The ARR-weighted column is the one that
+gates a revenue claim** — gaps cluster in small accounts.
+
+| Field | By account | By ARR |
+|---|---|---|
+| ARR | 100% | 100% |
+| Employees | 97.1% | 98.9% |
+| Industry | 92.9% | 93.7% |
+| Billing country | 85.9% | **97.6%** |
+
+Geography is the clearest case for reporting both: 14% of accounts carry no country, but they
+hold only 2.4% of ARR. Regional revenue claims are well supported; regional *account-count*
+claims are not.
+
+## Excluded from the population
+
+51 accounts holding $408,080 (1.7% of all ARR-bearing accounts) were excluded:
+
+| Excluded | Accounts | ARR | Why |
+|---|---|---|---|
+| `Software Customer` / `Canceled` | 43 | $260,614 | Churned. ARR field lags cancellation |
+| `Partner` / `Active` | 4 | $77,338 | Resellers. Their own industry says nothing about end-use |
+| `Software Customer` / `Prospective` | 4 | $70,128 | Not yet contracted |
+
+Excluding resellers matters for industry analysis specifically: a reseller's `Industry` value
+describes the reseller, not the customer actually using the editor.
+
+## Industry rollup
+
+`Industry` carries **175 distinct values across 2,072 accounts** (174 non-null + null). It mixes
+taxonomies: ZoomInfo-style (`Custom Software & IT Services`), LinkedIn-style (`Hospitals and
+Health Care`), overlapping generics (`Software`, `Technology`, `Software Development`), and
+casing variants (`legal services`).
+
+The full mapping is in [`2026-08-17-industry-rollup-map.csv`](2026-08-17-industry-rollup-map.csv),
+one row per raw value, with a `note` column flagging every judgement call.
+
+**Rule applied (decided 2026-08-17): vertical-first.** Software sold to a specific industry
+vertical rolls to that vertical, not to Technology.
+
+- `Healthcare Software` → Healthcare
+- `Financial Software` → Finance
+- `Legal Software` → Business Services (there is no Legal bucket in the seven)
+- `Engineering Software` → Other (engineering is not one of the seven)
+
+Software serving a horizontal business *function* still rolls to Technology: `CRM Software`,
+`ERP Software`, `BI Software`, `Human Resources Software`, `Content & Collaboration Software`.
+
+**Judgement calls worth challenging:**
+
+- **`Accounting Services` → Business Services** ($809k, 24 accounts — the 8th largest raw
+  value). An accounting firm's authoring workflow resembles professional services more than
+  banking. A reviewer could defensibly put it in Finance.
+- **`Telecommunications` → Technology.** Telecom is not one of the seven; Technology is the
+  nearest fit.
+- **`Holding Companies & Conglomerates` → Business Services** ($268k). Diversified, no single
+  vertical.
+- **`Consumer Services` → Other** ($284k). Consumer-facing, so not B2B business services.
+
+**Sensitivity variant.** The CSV carries a second column, `industry_rolled_alt`, mapping all
+four vertical-software values to Technology instead. Phase 1 reports both so the reader can see
+how much of the ranking rests on this decision.
+
+**74 raw values roll to `Other`** — $2.99M, 12.7% of ARR. The largest are Manufacturing
+($626k), Consumer Services ($284k), Engineering Software ($277k), Real Estate ($141k),
+Industrial Machinery ($133k). This is not a residue to ignore: `Other` outranks Government,
+Education, Healthcare, and Media individually.
+
+**`Unclassified` (null industry)** is 147 accounts and $1.48M, 6.3% of ARR. Shown as its own
+row throughout. Never redistributed.
+
+## Employee bands are derived
+
+`Employee_Range__c` is unusable: null on 2,083 of 2,104 ARR-bearing accounts, and
+inconsistently formatted where present (`Over 10,000` alongside `Employees.10000plus`).
+
+Bands are computed from `NumberOfEmployees` (97.1% populated): 1-50, 51-200, 201-500, 501-1000,
+1001-5000, 5001-10000, 10000+, Unknown.
+
+Note that `NumberOfEmployees` is ZoomInfo-enriched firmographic data about the whole company,
+not the size of the team using the editor. A 273,000-employee account may have 30 people in the
+editor.
+
+## Country normalisation
+
+113 distinct values, mixing full names with ISO-2 codes (`United States` 756 + `US` 50 + `USA` 2
++ `Unites States` 1), plus typos (`New Zeland`), a city (`Milano`), and a postcode (`3011`).
+
+Normalised to canonical names, then to regions: NA, EMEA, APAC, LATAM, Unknown. `Milano` → Italy.
+`3011` and `AS` → blank, treated as unknown. The `country_raw` column preserves the original.
+
+## Known gaps and cautions
+
+**1. Logo consolidation is not possible from Salesforce's parent fields.** `Ultimate_Parent__c`
+is populated on **4 of 2,072** accounts; `ParentId` on 271. Neither supports a reliable rollup.
+
+A name-normalising heuristic finds **~1,849 distinct logos behind 2,072 accounts** — 63 logo
+keys hold 153 accounts and $4.18M ARR (17.8%). PwC appears as 9 accounts, Citigroup and
+Deloitte as 6 each, Salesforce, KPMG, IBM and Pfizer as 2 each.
+
+Consequences:
+- ARR totals are unaffected — every account is counted once.
+- **Account counts overstate customer count by roughly 11%.**
+- Per-account medians are pulled down by fragmented enterprise logos.
+- Some logos carry *inconsistent industry tags across their own accounts*: PwC spans Business
+  Services / Technology / Unclassified; Pfizer spans Healthcare / Other; Siemens spans
+  Technology / Other. Industry counts inherit that noise.
+
+Treat every account count in this dataset as an account count, never as a customer count.
+
+**2. The ARR snapshot month is not recorded anywhere in Salesforce.** The package exposes no
+sync-date field. `arr_at_end_of_month__c` denotes the most recently closed month-end — most
+likely 2026-07-31, with `arr_of_prior_month__c` as 2026-06-30. **This is an assumption, not a
+verified fact.** Confirm with finance before publishing any figure externally.
+
+**3. No trend analysis is possible.** One prior-month field is the entire history. Month over
+month the base moved +1.32% ($23.20M → $23.50M), with 186 accounts up, 64 down, 1,822 flat.
+One month is not a trend, and growth-by-industry claims are out of scope.
+
+**4. `AnnualRevenue` and `Estimated_Annual_Revenue__c` are the customer's own revenue** — a
+ZoomInfo firmographic, not money CKEditor earns. Never summed here. Do not sum them.
+
+**5. `Churn_Risk_Score__c` is set on 20 of 2,072 accounts.** Too sparse to analyse; carried in
+the CSV for reference only.
+
+**6. One account is named `Archived - BMW AG / AuditLab.Next`** yet has status Active and
+$27,216 ARR. Naming and status disagree; carried as-is.
+
+## Files
+
+| File | Contents |
+|---|---|
+| `2026-08-17-accounts-normalized.csv` | 2,072 rows, 19 columns. The analysis dataset |
+| `2026-08-17-industry-rollup-map.csv` | 175 rows: raw industry → rolled, with counts, ARR, notes |
+| `build-accounts-dataset.py` | Builds both files from the raw pulls |
+| `analyze-icp.py` | Phase 1 cuts. Reads the CSV only, never the raw pulls |
+
+
+================================================================
+FILE: ./research/market-data/feedback-from-Ai4-conference.md
+================================================================
+
+
+1. “AI-assisted authoring” doesn’t seem to be a big deal for customers anymore
+• Not sure why exactly the message doesn’t resonate, but my intuition is that AI-assisted authoring has already become super-default.
+• I’m also leaning towards the conclusion that customers perceive “AI-assisted authoring” much more broadly than we do. They often say they already “have it”, without really paying attention to where / when / how the assistance is provided.
+• I remember a conversation with a guy who claimed they had mature authoring assistance through:
+ → external AI chat experience
+ → Markdown output
+ → Markdown → HTML conversion using 3rd-party libs
+BTW, this is basically what KPMG / Kompass is currently doing.
+And IMO this opens a very specific value prop for us:
+→ Markdown → HTML conversion is lossy. Why even go through this if you don’t have to experience those problems with CK AI?
+There are lots of important details hidden here:
+ • awareness of editor features / document structure
+ • semantic HTML compatibility
+ • preserving formatting / styling
+ • all the GenAI productivity gains can disappear if users then need to spend time restyling / reformatting / fixing content
+It’s probably fair to assume that some customers simply accept compromises in the editing experience because their current AI backend cannot produce rich-enough HTML.
+And obviously there’s the copy/paste scenario Matt mentioned.
+
+2. AI may increasingly happen BEFORE CKEditor
+Not that long ago I spoke with the Microsoft Chrysalis team. Their current AI-assisted authoring flow is basically:
+→ MS Word + Copilot
+ → AI magic happens there
+ → paste into CKEditor 5 using our traditional value prop: Paste from Office Enhanced
+Our champion clearly mentioned that there are fewer and fewer genuine editing sessions happening in CKEditor.
+How do we address this? I don’t know yet. Are we even able / supposed to compete here?
+But IMO it raises an important question:
+→ If AI increasingly owns the content creation step, what role should CKEditor own in the overall content lifecycle?
+
+3. “AI authoring” resonated less than the orchestration / platform story
+At the conference I tried different approaches to answering the typical booth question:
+→ “Hey guys, what do you do / what have you been building?”
+After learning a bit more about the context of the person asking, messages around AI Orchestrate / AI harness layer for context-centric applications seemed to resonate much better.
+Things became much clearer when I explained that:
+• we are not yet another LLM / Agent provider
+ • we sit on top of any LLM / Agent / AI platform
+ • we think from the developer → product owner → VP Product perspective
+What also worked well was positioning CKE5 more towards product builders and less towards the end user.
+Almost something like:
+→ CKEditor 5 is an SDK/platform that product teams can use to build whatever makes sense for their content editing experience.
+I think there’s something important here to explore further.
+
+4. Human-in-the-loop — VERY IMPORTANT, but there’s a nuance
+I heard numerous times:
+→ “We cannot publish / save AI-generated content unless it’s approved by a person/team.”
+So human-in-the-loop clearly matters.
+However, there may be a misalignment between how we think about it and how the market sees it.
+Customers may think:
+→ AI Automate (GenAI) + collaboration features (track changes, comments, revisions) = enough human-in-the-loop
+While our value prop is more:
+→ True human-in-the-loop = giving end users control over which AI changes become part of the content AND how they become part of it — suggestions vs directly applied changes.
+These are delicate nuances, but IMO quite critical.
+We probably need to be much more precise about why our version of human-in-the-loop is materially better than generating content first and reviewing it afterwards.
+
+5. Programmatic CKEditor AI probably needs much more positioning / enablement
+Finally, I think we need a lot more positioning (and even more enablement and support for reps) around the programmatic use of CK AI and all the components / toolkits we’re planning.
+After the conference, I’m increasingly thinking that the bigger opportunity may NOT be:
+→ “Here is AI inside your editor.”
+but rather:
+→ “Here is an AI-aware content platform / toolkit that lets you build AI-powered content workflows while preserving structure, semantics, editor capabilities and human control.”
+That feels like much more differentiated territory for us than generic “AI-assisted authoring”.
