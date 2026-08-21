@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-08-17 13:16 UTC
-Commit: 585aedabe5f97b751da9dfaf01d3af7b66fb5383
-Files included: 17
+Last updated: 2026-08-21 12:03 UTC
+Commit: 0495b307f3cee2e9274f952daada2eea24838e01
+Files included: 18
 ================================================================
 
 
@@ -3580,6 +3580,153 @@ than coincidental.
 - **Volume limits matter and are easy to miss.** Export to PDF/Word is capped per tier (200/mo
   Essential, 1,000/mo Professional) and Import from Word does not exist below Professional. For a
   high-volume document workflow the cap, not the feature list, may set the tier.
+
+
+================================================================
+FILE: ./research/2026-08-20-icp-revenue-segments.md
+================================================================
+
+# Where the revenue is: end markets, geography and company size
+
+*Built 2026-08-20 from the Salesforce dataset pulled 2026-08-17. Reproduce with
+[`research/data/analyze-end-markets.py`](data/analyze-end-markets.py).*
+
+**Population:** 2,072 active paying accounts, **$23,503,308 ARR**. Base mean per
+account $11,343; median $5,415.
+
+## Why "Software" is not an answer
+
+CKEditor is a component. It is always embedded in a software application, so
+`Software` and `Technology` describe the delivery mechanism, never the market.
+Two moves make the ranking specific:
+
+1. **Technology accounts are re-attributed to the vertical their product
+   serves.** A K-12 assessment vendor counts toward Education; a PLM suite counts
+   toward Manufacturing. This uses the per-account inference in
+   [`data/2026-08-17-technology-breakdown.csv`](data/2026-08-17-technology-breakdown.csv).
+2. **Labels that name a mechanism are held out of the ranking** rather than
+   folded into whichever bucket they superficially resemble — `Software`,
+   `Technology`, `Custom Software & IT Services`, the bare `Business Services`
+   (164 accounts, $1.98M — as uninformative as `Software`), and the accounts with
+   a blank `Industry`.
+
+---
+
+## 1. End markets by revenue
+
+| # | End market | ARR | % of ARR | Accounts | Mean ARR |
+|---|---|---:|---:|---:|---:|
+| **1** | **Financial services** — banking, insurance, investment, payments | **$3,908,427** | **16.6%** | 247 | $15,824 |
+| **2** | **Professional services** — accounting, consulting, legal, advertising, R&D | **$2,313,586** | **9.8%** | 187 | $12,372 |
+| **3** | **Manufacturing & engineering** — industrial, PLM, aerospace, electronics | **$1,850,303** | **7.9%** | 115 | $16,090 |
+| **4** | **Government & public sector** | **$1,626,548** | **6.9%** | 120 | $13,555 |
+| **5** | **Education** — K-12, higher ed, corporate learning | **$1,527,050** | **6.5%** | 157 | $9,726 |
+| 6 | Healthcare & life sciences | $1,231,991 | 5.2% | 101 | $12,198 |
+| 7 | Retail & consumer | $872,172 | 3.7% | 93 | $9,378 |
+| 8 | Media & publishing | $843,235 | 3.6% | 117 | $7,207 |
+| 9 | Real estate & construction | $516,859 | 2.2% | 45 | $11,486 |
+| 10 | HR & workforce | $488,548 | 2.1% | 26 | $18,790 |
+
+Smaller tail: Non-profit $211,012 · Legal $149,670 · Energy & utilities $125,997
+· Transport & logistics $54,173 · Agriculture $16,102.
+
+### What is deliberately not in the ranking
+
+| | ARR | % of ARR | Accounts |
+|---|---:|---:|---:|
+| Horizontal software — genuinely no single end market | $3,531,491 | 15.0% | 147 |
+| Generic label (`Software`, `Business Services`, …) | $2,182,112 | 9.3% | 213 |
+| Blank `Industry`, or unidentifiable | $2,054,034 | 8.7% | 422 |
+
+**$15,735,671 — 67.0% of ARR — is attributable to a named end market.** The horizontal software
+line is real revenue — Salesforce, Zendesk, IBM — but it is not a vertical you
+can target, and its $24,024 mean is the highest of any segment.
+
+### Three caveats on the numbers above
+
+- **Professional services is understated.** PwC, Deloitte (×3) and KPMG sit in the
+  unattributed residue with blank or `Business Services` labels — roughly
+  **$360k** that belongs in row 2, which would move it to about $2.67M.
+- **Manufacturing is overstated by one mis-tag.** Pfizer's $166,390 carries
+  `Manufacturing` in Salesforce but is pharma. Reassigning it puts Manufacturing
+  at ≈$1.68M and Healthcare at ≈$1.40M. The top-five order holds, but Healthcare
+  closes on Education.
+- **The residue is systematically under-attributed, not random.** Its mean ARR is
+  $6,671 against a base mean of $11,343, so it is mostly small accounts — but the
+  largest names in it are recognisable professional-services, healthcare,
+  government and banking logos.
+
+---
+
+## 2. Geography by revenue
+
+| # | Country | ARR | % of ARR | Accounts | Mean ARR |
+|---|---|---:|---:|---:|---:|
+| **1** | **United States** | **$12,342,354** | **52.5%** | 809 | $15,256 |
+| **2** | **United Kingdom** | **$1,582,963** | **6.7%** | 155 | $10,213 |
+| **3** | **Germany** | **$1,282,472** | **5.5%** | 109 | $11,766 |
+| **4** | **Canada** | **$1,061,739** | **4.5%** | 79 | $13,440 |
+| **5** | **France** | **$831,783** | **3.5%** | 67 | $12,415 |
+| 6 | Australia | $707,305 | 3.0% | 57 | $12,409 |
+| 7 | Netherlands | $698,390 | 3.0% | 69 | $10,122 |
+| 8 | Singapore | $532,775 | 2.3% | 20 | **$26,639** |
+| 9 | Switzerland | $438,494 | 1.9% | 35 | $12,528 |
+| 10 | Japan | $377,629 | 1.6% | 40 | $9,441 |
+
+**By region: NA 57.1% · EMEA 30.2% · APAC 9.8% · LATAM 0.5%** (2.4% unplaced).
+
+**Singapore is the outlier worth naming.** Its $26,639 mean ARR is the highest of
+any country with more than 15 accounts — more than double the base mean — from
+only 20 accounts. Small base, so treat it as a signal to investigate rather than
+a proven segment.
+
+Coverage note: country is populated on 85.9% of accounts but **97.6% of ARR**, so
+these revenue shares are well supported. Regional *account-count* claims are
+weaker than regional *revenue* claims.
+
+---
+
+## 3. Company size by revenue
+
+| # | Employees | ARR | % of ARR | Accounts | Mean ARR |
+|---|---|---:|---:|---:|---:|
+| **1** | **10,000+** | **$7,011,308** | **29.8%** | 291 | $24,094 |
+| **2** | **1–50** | **$4,793,668** | **20.4%** | 786 | $6,099 |
+| **3** | **51–200** | **$3,185,082** | **13.6%** | 361 | $8,823 |
+| **4** | **1,001–5,000** | **$2,928,628** | **12.5%** | 198 | $14,791 |
+| **5** | **201–500** | **$1,980,203** | **8.4%** | 171 | $11,580 |
+| 6 | 501–1,000 | $1,810,903 | 7.7% | 127 | $14,259 |
+| 7 | 5,001–10,000 | $1,542,960 | 6.6% | 78 | $19,782 |
+
+Rolled up: **enterprise 5,000+ = 36.4% · mid 51–5,000 = 42.1% · small under 50 =
+20.4%.** Mean ARR rises monotonically with size, so larger companies do reliably
+pay more — but 38% of accounts sit in 1–50 employees and still contribute a fifth
+of revenue.
+
+### The size answer flips by end market
+
+Share of each market's ARR, by employee band:
+
+| End market | 1–50 | 51–200 | 201–500 | 501–1k | 1k–5k | 5k–10k | **10k+** | Median account |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Professional services | 13% | 4% | 2% | 11% | 10% | 3% | **55%** | 126 |
+| Manufacturing & engineering | 15% | 8% | 8% | 3% | 3% | 10% | **53%** | 288 |
+| Financial services | 12% | 6% | 5% | 8% | 15% | 7% | **46%** | 860 |
+| Government & public sector | 9% | 5% | 16% | 8% | 17% | 16% | 28% | **1,756** |
+| Healthcare & life sciences | **30%** | 16% | 6% | 5% | 10% | 4% | 28% | 130 |
+| Education | **25%** | 15% | 11% | 11% | 18% | 7% | 14% | 112 |
+
+**If you want one targeting rule: 10,000+ employees in Financial services,
+Professional services or Manufacturing & engineering.** That intersection holds
+roughly half of each of those markets' revenue.
+
+**In Education and Healthcare the rule inverts** — more revenue comes from
+under-200-employee accounts than from enterprise. Government is different again:
+it concentrates in mid-size and large public bodies, with a 1,756-employee median
+and almost nothing under 200.
+
+Caution: `NumberOfEmployees` is whole-company ZoomInfo data, not the size of the
+team using the editor. A 273,000-employee account may have 30 people in it.
 
 
 ================================================================
