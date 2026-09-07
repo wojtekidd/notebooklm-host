@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-08-21 12:03 UTC
-Commit: 0495b307f3cee2e9274f952daada2eea24838e01
-Files included: 18
+Last updated: 2026-09-07 07:35 UTC
+Commit: 981a6f3ad1eb84aeb18661468a16cd4389e68f59
+Files included: 20
 ================================================================
 
 
@@ -5357,6 +5357,271 @@ $27,216 ARR. Naming and status disagree; carried as-is.
 | `2026-08-17-industry-rollup-map.csv` | 175 rows: raw industry → rolled, with counts, ARR, notes |
 | `build-accounts-dataset.py` | Builds both files from the raw pulls |
 | `analyze-icp.py` | Phase 1 cuts. Reads the CSV only, never the raw pulls |
+
+
+================================================================
+FILE: ./research/data/2026-09-04-f500-data-notes.md
+================================================================
+
+# Data notes — Fortune Global 500 customers
+
+*Provenance record for [`2026-09-04-f500-candidates.csv`](2026-09-04-f500-candidates.csv)
+and [`2026-09-04-f500-customers.csv`](2026-09-04-f500-customers.csv), built 2026-09-04 for
+the [logo-wall deck](../../docs/superpowers/specs/2026-09-04-fortune-global500-logo-slides-design.md).*
+
+**Read the verification ceiling section before quoting any number from this work.**
+
+## What was pulled
+
+**Source:** Salesforce, via the CK Salesforce Connector. Sole system of record.
+
+**Population filter** — same as the [ICP dataset](2026-08-17-data-notes.md):
+
+```
+saasoptics__arr_at_end_of_month__c > 0
+AND Type = 'Software Customer'
+AND Account_Status__c = 'Active'
+```
+
+→ **2,017 accounts, $23,574,958.64 ARR** (2026-09-04).
+
+For comparison, the 2026-08-17 pull returned 2,072 accounts / $23,503,308.38. Fewer accounts
+holding more ARR: small accounts churned while the base expanded.
+
+**Pull shape:** two queries split on ARR ≥ / < $5,000 (1,081 and 936 records), because the
+population exceeds the 2,000-record SOQL page limit. Both returned `done: true`.
+
+`convertCurrency()` was applied to every revenue field. The org is multi-currency (3 EUR
+accounts in this pull). Record-level reads do not convert; only aggregates do.
+
+**Reproduce with:** `python3 build-fortune-global500-customers.py <bandA.json> <bandB.json>`
+
+## Exit criteria — all met
+
+| Check | Result |
+|---|---|
+| Row count reconciles | 2,017 records, 2,017 distinct Ids, zero duplicates ✓ |
+| ARR reconciles to the aggregate | $23,574,958.63 vs $23,574,958.64 — 1¢ FX rounding ✓ |
+| Both bands complete | `done: true` on both ✓ |
+| Every shipped logo carries a rank and source | 9 of 9 ✓ |
+| Logo cells on slides = verified rows | 9 = 9 ✓ |
+
+## Three findings that changed the method
+
+### 1. `Ultimate_Parent_Revenue__c` is empty
+
+The design specced this field as the primary way to size a parent company. It is populated on
+**0 of 2,017 accounts** — verified with `COUNT(Ultimate_Parent_Revenue__c)` against the org.
+The field exists on the Account and returns null everywhere.
+
+Candidate generation therefore runs off parent **name**, not parent revenue. That matters,
+because `AnnualRevenue` on a subsidiary record is the *subsidiary's* revenue: a small BMW
+software unit would never clear a $20B bar, so a revenue filter would have missed it.
+
+Field coverage across the population: `AnnualRevenue` 1,801/2,017 (89.3%),
+`NumberOfEmployees` 1,962/2,017 (97.3%).
+
+### 2. `Ultimate_Parent_Name__c` is not a clean key
+
+It is a formula field (so it cannot be used in `GROUP BY`), and the same company arrives under
+several spellings:
+
+- `Microsoft` and `Microsoft Corporation [LOGO]`
+- three JPMorgan variants (`- Post Trade Tech/Navigator`, `Corporate Technology`, `& Co. - CCB-OPT`)
+- `Deloitte` and `Deloitte [LOGO]`; two Tata Consultancy variants; `Fitch Ratings` / `Fitch Solutions`
+
+Names also carry bracketed account numbers, `[LOGO]` markers, `c/o` prefixes and `/ team`
+suffixes. `build-fortune-global500-customers.py` normalizes these and maps them through an
+explicit `CANONICAL` table — 1,765 raw parent names collapse to 86 identified companies.
+
+Matching is on **word boundaries**. An earlier substring version folded "Applefield AB" into
+Apple, "HALLEY INFORMATICA s.r.l." into Salesforce, and "Sidel CA" into Broadcom. Short or
+common names (`CA`, `EY`, `BP`, `SAP`) are matched against the whole normalized name instead.
+
+### 3. 117 accounts have no parent identity
+
+`Ultimate_Parent_Name__c` is the literal string `[[Unknown]]` on 88 accounts and
+`[[Unknown]] [[Unknown]]` on 29, holding **$319,607 ARR** between them. Any Global 500
+subsidiary sitting in that group is invisible to name matching and is not counted anywhere in
+this work. This is a known, unquantified recall gap.
+
+`AnnualRevenue` and `NumberOfEmployees` are ZoomInfo-enriched and unreliable at the tails —
+UK Ministry of Justice carries $1,531.8B (whole-of-government), and several unrelated parents
+share a junk headcount of 395,000. They are reported for triage only. Nothing asserts them.
+
+## The verification ceiling — the binding constraint
+
+**Only 9 of 86 identified companies have a citable 2026 Global 500 rank.**
+
+Fortune publishes the top 10 in its [2026-07-28 announcement](https://www.prnewswire.com/news-releases/fortune-announces-2026-fortune-global-500-list-302835648.html)
+and paywalls ranks 31–500 behind "PURCHASE FULL DATA". The only free source found carrying
+more than 10 is [us500.com](https://us500.com/fortune-global-500), which lists the top 30 —
+and whose top 10 matches Fortune's announcement exactly, in order, so it is treated as
+credible for the 2026 list.
+
+Sources checked and rejected:
+
+| Source | Why rejected |
+|---|---|
+| `fortune.com/ranking/global500/` | Top 10 only; full data is a paid product |
+| `fortune.com/company/<name>/global500/` | JS-rendered; rank not in fetchable HTML |
+| Wikipedia, *List of largest companies by revenue* | 50 rows, but **not** the 2026 Fortune ranking — it places McKesson 18th at $308B where Fortune has it 7th at $403B |
+| Wikipedia, *Fortune Global 500* | 10 rows |
+| `disfold.com` | HTTP 403 |
+| Search snippets per company | Unreliable. One returned "Siemens Global Rank 21" from a vendor profile page, which is not credible for 2026 by revenue |
+
+**Nothing was inferred.** The $33.2B entry threshold reported in search results appears in
+neither Fortune press release, so it is recorded here as **provisional and uncited** and is not
+used to decide membership for any company.
+
+**Update, later the same day:** that figure is very likely wrong. With the full US Fortune 500
+in hand, Fortune's own statement that 141 US companies are on the Global 500 puts the threshold
+at **$32.5-32.8B** (rank 141 is Mastercard at $32.8B, rank 142 Nucor at $32.5B). A $33.2B floor
+would yield 138. See [`2026-09-04-fortune-lists-notes.md`](2026-09-04-fortune-lists-notes.md),
+which also records how 23 of our companies become membership-derivable against that list.
+
+### Status of the 86 identified companies
+
+| Status | Count | Meaning |
+|---|---|---|
+| `verified` | 9 | 2026 rank cited to a source. These are the only companies on the deck |
+| `unverified` | 72 | Very likely on the list — Citigroup, Siemens, IBM, Pfizer, Boeing, BMW, Novartis, Roche, Intel, Goldman Sachs, Chevron, BP, Sony, Airbus, Disney, FedEx, Visa, SAP, Salesforce and others — but **no 2026 rank could be cited**. Absent from the deck. Not evidence of absence from the list |
+| `not_eligible` | 5 | Deloitte, PwC, KPMG, EY, McKinsey — private partnerships that do not publish group financials to Fortune. Excluded on a stated reason, and jointly our largest ARR parents |
+
+**The 9 verified:** UnitedHealth Group (#4), Apple (#6), McKesson (#7), Berkshire Hathaway
+(#11), Volkswagen Group (#13), Microsoft (#18), JPMorgan Chase (#19), Samsung Electronics
+(#26), ICBC (#29) — $522,911 ARR across 17 accounts.
+
+**Consequence for the deck:** 9 logos across 4 verticals, none reaching the 4-logo threshold
+for a slide of its own, so the deck is one combined logo wall rather than the per-industry set
+the design called for. Closing the gap requires the full Fortune dataset. ZoomInfo enriches
+this org but syncs no Fortune ranking — confirmed by inspecting all 58 objects in the org and
+every one of the Account's 280 fields.
+
+## Vertical assignment
+
+Verticals are assigned at **parent** level in `VERTICAL`, not inherited from the contracting
+account, because the Salesforce industry describes the subsidiary. Both cases are live in the
+verified set:
+
+- **ICBC** arrives tagged `Insurance` → assigned Finance (it is a bank)
+- **Volkswagen Group** arrives tagged `Business Services`, inherited from VW Financial
+  Services → assigned Other/Industrial
+- **Samsung Electronics** arrives tagged `Manufacturing` → assigned Technology
+- **Microsoft** arrives tagged `Enterprise Resource Planning (ERP) Software` → assigned Technology
+
+`Other` is an internal bucket label and is displayed as "Industrial" on slides.
+
+## Logo artwork
+
+Sourced from Wikimedia Commons via Wikidata's logo property (P154), rasterised server-side by
+MediaWiki so no local SVG renderer is needed. Provenance per logo — Wikidata entity and Commons
+file page — is in [`../../decks/f500-logos/assets/manifest.csv`](../../decks/f500-logos/assets/manifest.csv).
+
+P154 often carries a company's historical logos. Taking the first claim returned Microsoft's
+**1980** wordmark; the fetcher now prefers Wikidata's `preferred` rank, then claims with no
+end-date qualifier, then the latest start date.
+
+All 9 logos fetched cleanly and were reviewed on the contact sheet. **Licensing is acceptable
+for internal use only.** Nothing here is cleared for a customer-facing deck.
+
+
+================================================================
+FILE: ./research/data/2026-09-04-fortune-lists-notes.md
+================================================================
+
+# Data notes — Fortune reference lists, 2026
+
+*Provenance for [`2026-09-04-fortune-500-us.csv`](2026-09-04-fortune-500-us.csv) and
+[`2026-09-04-fortune-global-500-known-ranks.csv`](2026-09-04-fortune-global-500-known-ranks.csv),
+collected 2026-09-04.*
+
+These are **reference lists**, not customer data. They exist to be matched against our
+Salesforce parent names — see [`2026-09-04-f500-data-notes.md`](2026-09-04-f500-data-notes.md).
+
+Neither file comes from Fortune directly. Fortune sells the full data and paywalls it.
+**Do not quote a rank from these files as "Fortune says" without checking it.**
+
+## 1. US Fortune 500 — complete, 500 rows
+
+**Source:** `demandsage.com/fortune-500-companies/`, a secondary aggregator, scraped as HTML
+and parsed locally (six tables covering 1-10, 11-100, 101-200, 201-300, 301-400, 401-500).
+
+**Why it is trusted enough to keep.** Four independent checks:
+
+| Check | Result |
+|---|---|
+| Rank completeness | 500 rows, ranks 1-500 contiguous, no gaps |
+| Revenue monotonicity | Revenue is non-increasing across all 500 ranks — no transcription scrambling |
+| Cross-source agreement | 9 of the top 12 revenue figures match `us500.com` **to the dollar** ($716,924M vs $716.92B for Amazon, and so on). us500's own top 10 matches Fortune's announcement exactly |
+| Spot-check of 40 well-known companies | 38 present. UPS appears as "UPS", MassMutual as "Massachusetts Mutual Life" |
+
+**Two genuine absences** from that spot-check:
+
+- **Walgreens Boots Alliance** — explicable. It was taken private in 2025, so it no longer
+  files with the SEC and Fortune drops it.
+- **Kaiser Permanente** — unexplained. Fortune has historically ranked the Kaiser Foundation
+  group inside the top 30. Treat the list as possibly missing a small number of nonprofit or
+  mutual filers.
+
+**Two flagged rows.** The source repeats a rank and revenue cell twice, putting two companies
+on rank 160 with identical revenue and two on rank 350. Sequential ranks were assigned in
+listed order; the `note` column marks Hartford Insurance Group (161) and Huntington
+Bancshares (351), whose revenue figures may belong to the preceding row. Both sit far below any
+Global 500 threshold, so nothing downstream depends on them.
+
+## 2. Fortune Global 500 — only 35 of 500 ranks
+
+This is the gap that constrains the logo deck.
+
+| Ranks | Source |
+|---|---|
+| 1-30 | [us500.com](https://us500.com/fortune-global-500) — top 10 corroborated exactly against Fortune's announcement |
+| 179, 244, 431, 478, 479 | Fortune's own [2026-07-28 announcement](https://www.prnewswire.com/news-releases/fortune-announces-2026-fortune-global-500-list-302835648.html), which names its first-time entrants with their ranks: EP Group, Galaxy Digital, WT Microelectronics, AMD, Coupang |
+
+**Coverage: 7%.** Everything tried for ranks 31-500 failed — Fortune paywalls it, us500's
+`?page=` parameter is ignored and returns the same 30 rows, disfold and value.today 404, and
+Wikipedia's *List of largest companies by revenue* is a different ranking (it puts McKesson
+18th at $308B where Fortune has it 7th at $403B).
+
+## 3. What the US list lets us derive — and its limits
+
+Fortune's announcement states **141 US companies** are on the 2026 Global 500. Both lists rank
+on revenue, so the US members of the Global 500 should be the top 141 of the US Fortune 500.
+
+On our list, rank 141 is **Mastercard at $32.8B** and rank 142 is **Nucor at $32.5B**. The
+implied Global 500 entry threshold is therefore **$32.5-32.8B**.
+
+**This retires a figure I had recorded as provisional.** Search results reported the 2026
+threshold as $33.2B (up from $32.2B). That does not reconcile: a $33.2B floor yields 138 US
+companies, not 141. It is corroborated instead by Fortune naming AMD (#478) and Coupang (#479)
+as entrants, both companies with revenue near $33B. The $33.2B figure is not used anywhere.
+
+**The limit on this derivation.** The two lists use different fiscal-year cutoffs, so revenue
+is not interchangeable between them: McKesson appears at **$359.1B on the US list** and
+**$403.4B on the Global list**. So the top-141 rule supports a *membership* judgement for
+companies comfortably above ~$33B, but it does **not** yield a company's Global 500 rank, and
+it is unreliable within a couple of billion of the boundary.
+
+### Effect on our customer set
+
+Matching the 81 eligible companies in
+[`2026-09-04-f500-candidates.csv`](2026-09-04-f500-candidates.csv) against the US list:
+
+- **30 match the US Fortune 500.**
+- **23 of those fall in the top 141**, so are derivably 2026 Global 500 members: UnitedHealth,
+  Apple, Berkshire Hathaway, McKesson, Microsoft, JPMorgan Chase, Bank of America, Chevron,
+  Citigroup, Goldman Sachs, Walt Disney, Boeing, FedEx, IBM, Broadcom, Pfizer, AbbVie, Intel,
+  Liberty Mutual, Netflix, Salesforce, Visa, Amgen.
+- 7 match but fall below 141 (Charles Schwab #165, Edward Jones #249, Leidos #260, AECOM #276,
+  S&P Global #294, Estee Lauder #315, DXC #343) — **not** Global 500 members.
+- 51 do not appear, almost all because they are non-US: Siemens, BMW, Novartis, Roche, SAP,
+  Sony, Airbus, Munich Re, Hyundai, Samsung, ICBC, Volkswagen, Deutsche Post, Denso, and so on.
+  These still require the Global 500 list and cannot be resolved from the US one.
+
+**Nine companies remain rank-verified** from the Global top 30. The other 14 of the 23 are
+membership-derived without a published rank. Whether that basis is good enough for the deck is
+a decision for the deck owner, not something this file settles.
 
 
 ================================================================
