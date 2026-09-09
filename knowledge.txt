@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-09-07 07:58 UTC
-Commit: 366184ace26f8fab12a98ea216503eb43d3c741d
-Files included: 20
+Last updated: 2026-09-09 13:52 UTC
+Commit: de9a63d7d7a74d042e96b93756b5742e9ba2c69c
+Files included: 24
 ================================================================
 
 
@@ -5385,6 +5385,496 @@ No dedicated AI Review mode, no AI Translations mode, no file or URL context, no
 
 
 ================================================================
+FILE: ./research/customer-insights/2026-09-08-case-study-proof-points.md
+================================================================
+
+# Case study proof points — all 21 published studies, indexed
+
+*Built 2026-09-08. Every case study listed on [ckeditor.com/case-studies](https://ckeditor.com/case-studies/),
+read in full. Answers the "why adopt CKEditor at scale commercially" question that the
+[ICP work](../2026-08-17-icp-revenue-analysis.md) and [workflow stories](../2026-08-17-workflow-stories.md)
+set up but could not prove.*
+
+## Evidence quality — read this first
+
+Stronger than the use-case matrix, weaker than the Salesforce revenue data. Five bounds on
+everything below:
+
+1. **Marketing-authored and selection-biased.** Every study is a success story. There is no
+   counterfactual and no failed-adoption story in the set.
+2. **Metrics are customer-reported.** Not one carries a stated methodology or measurement window.
+   Quote them attributed to the customer, never as a CKEditor benchmark.
+3. **Most predate CKEditor AI.** Not one of the 21 mentions any AI feature. See Gap 1.
+4. **Company size is stated once** (Addiction Recovery, ~60 writers). Publication dates are not
+   shown on the index, so recency is unknown per study.
+5. **Named and attributable** — this is their real value. Every quote below carries a name and a
+   job title, which is what the [objections data](most-common-objections-opps-2026) says deals need
+   to clear internal justification.
+
+## The nine quantified outcomes
+
+These are the only studies with hard numbers. Everything else is qualitative.
+
+| Customer | Segment | Reported outcome |
+|---|---|---|
+| **Flexum** | Dev agency, Ukraine | **97% reduction in support tickets**; months of development saved |
+| **Blooksy** | Publishing | **10+ hrs/month saved per writer**; 90% faster collaborative production; one client went **13 weeks → 10 days** |
+| **Kin** | Insurance (regulated) | Letter creation time cut **up to 50%**; platform delivered in **half** the typical development time; 40,000+ letters/yr projected; 1,000+ template variants |
+| **Addiction Recovery** | Media | **25% faster** writing and editing (10 articles in the time of 8); CMS built in 3 months; **zero minutes downtime**; **+12 clinics** won within months |
+| **Rocketlane** | SaaS | Full collaborative product launched in **9 months** |
+| **Four Kitchens** (Poets & Writers) | Publishing, Drupal | Proof of concept in **days instead of months** |
+| **Zendesk** | SaaS | Standardized editing for **millions of agents**; chosen over **six** competing editors |
+| **Foraus** | Public policy | **1,300+ sign-ups**; contributors across five continents |
+| **DTU** | Education | **Zero meetings** needed to collaborate on content |
+
+## Full inventory
+
+| Customer | Segment | Use case | Key features | Metrics? |
+|---|---|---|---|---|
+| Kin | Insurance | Document-centric — regulated claims letters | Merge Fields, Comments, Revision History, Tables, Enhanced Paste from Word, Angular | Yes |
+| Zendesk | SaaS | KB + customer support | Comments, Revision History, Mentions, Autoformat, Code Block, GHS, a11y, 30 languages | Partial |
+| Four Kitchens (Poets & Writers) | Publishing | Community authoring on Drupal | Import from Word, Export to PDF/Word, Comments + archive, full screen | Yes |
+| Flexum | Dev agency | Client platforms | Track Changes, Comments, Revision History, Media Embed, Tables | Yes |
+| Blooksy | Publishing | Document-centric — manuscripts | Track Changes, Comments, Revision History, templates | Yes |
+| Sulu | Software (CMS) | CMS content editing, multilingual | Modular architecture, Tables, React; Free-for-Open-Source license | No |
+| Addiction Recovery | Media | Content production at volume | Real-time Collaboration, Comments, Autosave | Yes |
+| DTU | Education | Internal CMS authoring | Comments, Track Changes, spell & grammar check | Yes |
+| Leadoo | Sales tech | Email + chatbot authoring | Image Upload, HTML Embed, Media Embed | Qualitative |
+| Kanbanize (Businessmap) | Productivity | Task descriptions, KB | Comments, Tables, Paste from Office, Image Embed | No |
+| Rocketlane | SaaS | Collaborative customer onboarding | Real-time Collaboration, Comments, Revision History, on-premises | Yes |
+| Testmo | Software (QA) | Technical docs — test notes | Tables, Image Upload, Code Blocks, Autoformatting, Markdown | Qualitative |
+| Steeplechasers | Non-profit | Membership content | WYSIWYG, Tables, Lists | No |
+| Mailchain | Communication | Decentralized messaging composer | WYSIWYG, formatting, modular architecture | Qualitative |
+| Placement | Employment services | Coach + jobseeker co-editing | Comments, Track Changes | No |
+| Plutio | Productivity | All-in-one PM authoring | To-do list, placeholder variables, Image Upload, contextual toolbar | Qualitative |
+| Agreemint | Legal tech | Document-centric — contract negotiation | Simultaneous editing, Comments, Track Changes | Qualitative |
+| Foraus | Public policy | Collaborative ideation | Real-time Collaboration, Track Changes, Comments, Media Embed | Yes |
+| Spotlight | Business consulting | Client notes, analyst relations | Real-time Collaboration, Angular, MS Word export | No |
+| Neos | Software (CMS) | CMS content editing | Modular architecture, custom plugins, Paste from Word; GPL2+ | No |
+| Tablo | Education / publishing | LMS — collaborative writing | Real-time Collaboration, Track Changes, Comments, Revision History | Qualitative |
+
+### Feature frequency across the 21
+
+| Feature | Studies |
+|---|---|
+| **Comments** | **13** |
+| Track Changes | 7 |
+| Tables | 6 |
+| Revision History | 6 |
+| Real-time Collaboration | 5 |
+| Paste from Office / Import from Word | 4 |
+| Export to PDF/Word | 2 |
+| Merge Fields | 1 (Kin) |
+
+**Collaboration appears in 13 of 21 studies** — more than any other capability, and consistent with
+it being the strongest premium differentiator. Merge Fields appears once, but in that one study the
+customer's own end users named it the single biggest time-saver.
+
+## Proof points by sales argument
+
+### Build vs buy
+
+> "If we tried to build everything from scratch on our own, we definitely wouldn't be able to do that."
+> — **Srikrishnan Ganesan, CEO, Rocketlane**
+
+> "CKEditor had all the out-of-the-box functionality we wanted. It let our engineering team focus on
+> our API integrations rather than building a rich text editor from scratch."
+> — **Pratik Amin, Senior Product Manager, Kin**
+
+> "The Comments and Track Changes features are a must. We can't have Agreemint without them… We'd
+> have to build it otherwise."
+> — **Peter Graham, CEO and Founder, Agreemint**
+
+> "Everything is already implemented and thoroughly tested, ensuring a high-quality solution."
+> — **Myron Mavko, CEO, Flexum**
+
+### Time to market
+
+> "Most people who look at our product don't believe that we built it in the time frame we built it."
+> — **Srikrishnan Ganesan, CEO, Rocketlane** (9 months to a full product)
+
+> "CKEditor helped us get started quicker, without having to handle all the edge cases ourselves…
+> because we were able to use it faster, the time to market was shorter."
+> — **Jani Laakso, CTO, Leadoo**
+
+> "CKEditor 5 saved us so many hours of development."
+> — **Alex Eckermann, CTO, Tablo**
+
+### Support burden and reliability
+
+> "After addressing initial issues, we received almost no complaints, questions, or bug reports."
+> — **Flexum** (97% fewer support tickets)
+
+> "We've never had any development issues utilizing CKEditor. It's just very well-built, it's
+> reliable and it gives our writers a platform where they feel comfortable doing their work."
+> — **Tyler Cunningham, Lead Product Manager, Addiction Recovery** (zero downtime)
+
+> "Whenever we needed any help, the CKEditor support team was always there for us… we would rate the
+> support as outstanding."
+> — **Ventsi Lyaskov, Head of Support & KB, Kanbanize**
+
+### Enterprise revenue unlocked
+
+> "Using CKEditor in Testmo is a big competitive advantage for us, as we can provide rich text
+> editing capabilities such as table support in a way no other tool offers."
+> — **Dennis Gurock, Co-Founder, Testmo** — the study credits CKEditor with attracting larger
+> enterprise customers previously accustomed to rich text editing in other enterprise tools.
+
+Tablo reports the same pattern: collaboration features opened a university partnership and with it
+the education market. Spotlight is converting its internal platform into a SaaS product.
+
+### On-premises and data control
+
+> "CKEditor effectively enables our users to write HTML in a highly guided and controlled context.
+> The flexibility to store our data on premises gives us control over privacy and the ownership to
+> develop features quickly."
+> — **Evan Ward, Staff Engineer, Kin**
+
+Rocketlane also runs a self-hosted, on-premises installation. These two are the only on-prem proof
+points in the set — thin, given that mandatory self-hosting is the single loudest theme in the
+[concerns data](most-common-concerns-opps-2026).
+
+### Chosen over alternatives
+
+> "As we were evaluating multiple different tools, what stood out about CKEditor were the
+> comprehensive features, officially maintained plugins, accessibility support, localization support,
+> and strong community."
+> — **Rachna Keswani, Group Product Manager, Zendesk** (selected over six competing solutions)
+
+> "No other rich text editor we tested provided the same combination of editing capabilities,
+> performance, ease of integration and customizations."
+> — **Dennis Gurock, Co-Founder, Testmo**
+
+> "CKEditor 5 was the only option offering a complete solution."
+> — **Myron Mavko, CEO, Flexum**
+
+> "CKEditor was the only option we found that was well-supported with all of the features that we
+> needed in Drupal."
+> — **Marvin J. Cortés, Senior Engineer, Four Kitchens**
+
+> "This is something that differentiates us and even Google Docs doesn't have today."
+> — **Srikrishnan Ganesan, CEO, Rocketlane**, on internal-only comments — a customization no
+> off-the-shelf tool gave them.
+
+## Coverage against the five priority use cases
+
+Mapped to the five cases in the [workflow stories](../2026-08-17-workflow-stories.md).
+
+| Use case | Case studies | Coverage |
+|---|---|---|
+| Document-Centric | Kin, Agreemint, Blooksy, Spotlight, Placement | **Strong** — five studies, three with metrics |
+| Knowledge Base + Support | Zendesk, Kanbanize | **Adequate** — one flagship logo, thin on numbers |
+| Technical Docs | Testmo | **Weak** — one study, qualitative only |
+| LMS & eLearning | Tablo, DTU | **Adequate** — DTU carries the one metric |
+| Healthcare & Regulated | *none* | **Absent** — Kin (insurance) is the nearest analogue |
+
+## Gaps worth closing
+
+1. **No AI case study exists.** Zero of 21 mention any AI feature. The strongest product story in
+   [features/ckeditor ai/](../../features/ckeditor%20ai/) has no named customer proof. Highest
+   priority — customers are asking for AI in every discovery call, per the
+   [business goals data](most-comon-business-goals-opps-2026).
+2. **No healthcare, government, or finance study.** Kin is the only regulated-industry proof point,
+   and it is insurance. These are exactly the segments the concerns data says demand on-prem and
+   compliance evidence before they will buy.
+3. **Only two on-premises studies** (Kin, Rocketlane) against a dataset where self-hosting is
+   described as non-negotiable by finance, healthcare and government buyers.
+4. **Five studies carry no metrics at all** — Sulu, Kanbanize, Steeplechasers, Spotlight, Neos.
+   Candidates for a metrics refresh rather than new stories.
+5. **No dates or company sizes.** Both are needed to segment proof by ICP tier and to know what is
+   still current.
+
+## How to use this
+
+- **In pricing conversations**, lead with Flexum (97% fewer tickets) and Kin (50% time cut, half the
+  build time). Both answer the "justify the licence against dev effort" objection directly.
+- **With CTOs and Shaheed-type buyers**, lead with build-vs-buy quotes plus Kin's on-prem line.
+- **With product managers and Mark-type buyers**, lead with Blooksy and Addiction Recovery — per-user
+  hours saved and throughput.
+- **For enterprise credibility**, Zendesk is the strongest logo in the set: millions of agents,
+  chosen over six competitors.
+
+## Limits
+
+Every figure here is what a customer told CKEditor's marketing team. None is audited, none has a
+published methodology, and the set contains no negative cases. It is attributable proof, not
+measurement. For measured evidence you still need product telemetry and trial-funnel data, neither
+of which exists in this repo — see the limits section in
+[2026-09-08-moments-of-delight.md](2026-09-08-moments-of-delight.md).
+
+
+================================================================
+FILE: ./research/customer-insights/2026-09-08-g2-review-scan.md
+================================================================
+
+# G2 review scan — CKEditor
+
+*Attempted 2026-09-08 against [g2.com/products/ckeditor1/reviews](https://www.g2.com/products/ckeditor1/reviews).*
+
+## Read this first — the page could not be read directly
+
+**The G2 reviews page returns HTTP 403 (Cloudflare bot protection).** It blocked on retry. No
+individual review was read.
+
+Everything below is assembled from **search-engine summaries of G2 content**, not from a verified
+read of the page. That means:
+
+- The figures are **directional and unverified**. Re-confirm every one before it enters a deck, a
+  battlecard, a landing page or any external claim.
+- **Do not publish any number from this file.** Publishing an unverified third-party rating is
+  exactly the kind of unsupported claim `CLAUDE.md` rules out.
+- Review recency is unknown. Some summarized content may predate the current product.
+- No reviewer role, company size or industry segmentation was obtainable, so none of this can be
+  cut by ICP segment.
+
+**The fix is internal, not external.** CKSource has a
+[G2 seller profile](https://www.g2.com/sellers/cksource). The vendor portal provides per-review
+verbatims with reviewer role, company size and industry, plus review exports and recency filters.
+That is a short task for someone with portal access and impossible to do from outside.
+
+## Reported aggregates — unverified
+
+| Metric | Reported value |
+|---|---|
+| Overall rating | 4.3 / 5 |
+| Review count | 65 |
+| Ease of use | 8.6 |
+| Ease of setup | 8.1 |
+| Quality of support | 8.3 |
+| Drag and drop | 7.8 |
+| **Product direction (positive)** | **7.2** |
+
+**Product direction at 7.2 is the weakest score and the one to look at.** Froala reportedly scores
+8.8 on the same axis. If that holds up under verification, it says reviewers are less confident
+about where CKEditor is heading than about what it does today — which is a roadmap-communication
+problem, and one the AI story is well placed to fix.
+
+## Praise themes
+
+1. **Ease of integration and customization** — the most-cited theme, and it matches Cluster 1 in
+   [moments of delight](2026-09-08-moments-of-delight.md).
+2. **Eliminating context-switching** — reviewers describe not needing multiple windows or tabs open,
+   and CKEditor removing "boilerplate actions" so they can focus on the content itself. This
+   independently corroborates the strongest end-user delight signal in the case studies.
+3. **Reliability and documentation** — "reliable, well-documented", clean HTML output.
+4. **Familiar editing experience** for end users.
+5. **Format retention on document import.**
+
+## Criticism themes
+
+| Theme | Detail | Already in our data? |
+|---|---|---|
+| **Price** | Perceived as high; features and plugins cost extra | **Yes** — the loudest theme in [objections](most-common-objections-opps-2026) and [concerns](most-common-concerns-opps-2026) |
+| **Developer learning curve** | "Requires considerable effort to build custom solutions"; steep curve past basic use | **Yes** — matches the customization and upgrade pain in [feedback](most-common-feedback-about-CKEditor-opps-2026) |
+| **Advanced documentation** | Thin for developers using advanced features | Partly — new here in this form |
+| **Framework support** | More extensive Vue.js and TypeScript support requested | **New** — not present in the Gong data |
+| **Minor UI** | Inserts extra paragraphs requiring manual cleanup | **New** — cosmetic |
+
+CKEditor has reportedly responded on G2 that improving ease of integration and reducing the learning
+curve are near-term priorities.
+
+## What this scan is actually worth
+
+**Corroboration, not new intelligence.** Every significant criticism theme already appears in the
+Gong opportunity data, from a source we control and can segment. The genuine additions are small:
+Vue/TypeScript support requests, and the extra-paragraph annoyance.
+
+Its real value is the two-source agreement it produces:
+
+- Context-switching elimination shows up as the top practical benefit in G2 **and** as the top
+  end-user delight signal in the case studies. Two independent sources, same conclusion. That is the
+  most defensible delight claim we have.
+- Ease of integration ranks first in G2 praise **and** drives every developer wow moment in the case
+  studies.
+
+## Limits
+
+The primary source was inaccessible. This file records what search summaries reported about it and
+should be treated as a placeholder until someone pulls the vendor export. Do not cite it externally.
+
+
+================================================================
+FILE: ./research/customer-insights/2026-09-08-moments-of-delight.md
+================================================================
+
+# Moments of delight — where CKEditor earns the "wow"
+
+*Built 2026-09-08 from all 21 published [case studies](https://ckeditor.com/case-studies/) and a
+partial [G2 review scan](2026-09-08-g2-review-scan.md). Answers the "what capabilities offer maximum
+user delight" question.*
+
+## Evidence quality — read this first
+
+**This is the weakest of the three files written on 2026-09-08, and the one most likely to be
+wrong.** Read the bounds before quoting anything.
+
+| Layer | What it is | Strength |
+|---|---|---|
+| **Named customer quote** | A customer describing their own reaction, on the record | Attributable, but marketing-authored and selection-biased |
+| **G2 praise theme** | Aggregated review sentiment | Directional only — the reviews page is bot-blocked, so these come from search summaries, not a verified read |
+| **Inference** | My reading of what the pattern implies | Judgement, flagged inline |
+
+Three things we do **not** have, and would need for this to be measurement rather than anecdote:
+
+1. **No product telemetry.** We cannot say which features get adopted, retained, or abandoned.
+2. **No trial-to-paid funnel or first-run data.** We can say *what* delights people. We cannot say
+   *when* in the journey it lands, or how often.
+3. **All customer-voice data in this folder is pre-purchase.** The
+   [concerns](most-common-concerns-opps-2026), [objections](most-common-objections-opps-2026),
+   [feedback](most-common-feedback-about-CKEditor-opps-2026) and
+   [business goals](most-comon-business-goals-opps-2026) files are Gong analyses of **open
+   opportunities**. That is buyer voice before they buy, not user voice after they adopt. Delight is
+   a post-adoption phenomenon, and we have almost no post-adoption data.
+
+**Treat this as a well-supported hypothesis to test, not a finding.**
+
+## The two clusters
+
+Delight does not come from one place. It arrives twice, from two different people, at two different
+moments — and the two are worth pitching separately because they map onto different personas.
+
+### Cluster 1 — Developer delight: "I can't believe it was that easy"
+
+Lands during evaluation and integration, usually within days. Maps to
+[Fiona the developer](../../brand/personas/persona-fiona-developer.md) and
+[Shaheed the CTO](../../brand/personas/persona-shaheed-cto.md).
+
+The trigger is **readable source code and out-of-the-box completeness**, not any single feature.
+
+> "It's the first rich text editor that I was able to understand how it works."
+> — **Dmitri Pisarev, Neos**
+
+> "The integration was extremely lean. We didn't have to override any code. We just wrote a few
+> plugins."
+> — **Dmitri Pisarev, Neos**
+
+> "Working with CKEditor 5 was smooth and effortless. It was a real productivity boost for us."
+> — **Dmitri Pisarev, Neos**
+
+> "The code structure was amazing… and I was really impressed by the extensibility it offered."
+> — **Alex Eckermann, CTO, Tablo**
+
+> "We were so excited that CKEditor really hit all of the marks. It allowed us to enhance the
+> platform more instead of building some of these features ourselves."
+> — **Marvin J. Cortés, Senior Engineer, Four Kitchens**
+
+> "The decision to choose CKEditor was quick — after we found it, our developers went through the
+> editor's code and documentation and decided it was the perfect match."
+> — **Ventsi Lyaskov, Kanbanize**
+
+> "Its architecture, source code quality, and documentation were impressive."
+> — **Myron Mavko, CEO, Flexum**
+
+**Two behavioural tells that this cluster is real**, both from actions rather than words:
+
+- **Tablo migrated their entire platform to CKEditor within days** of reviewing the source code.
+- **Four Kitchens delivered a proof of concept in days instead of months.**
+
+That is the developer wow moment: reading the code and immediately committing. It happens
+pre-purchase, which makes it the most commercially valuable moment we have identified.
+
+**G2 corroborates** — ease of integration and customization is the most-cited praise theme, and
+"reliable, well-documented" recurs. Ease of use scores 8.6.
+
+### Cluster 2 — End-user delight: "I stopped having to think about it"
+
+Lands after rollout, on the customer's own end users. Maps to
+[Mark the product manager](../../brand/personas/persona-mark-product-manager.md), who is judged on
+whether his users actually like the thing.
+
+The trigger is **the disappearance of friction** — not new capability, but removed effort.
+
+> "CKEditor provides a seamless user experience. The best thing about it is that users don't have to
+> think about formatting while they're creating documents."
+> — **Lou King, Chief Technology Dude, Steeplechasers**
+
+> "One of the main advantages of CKEditor is that it helps users stay inside Kanbanize and not feel
+> the need to switch to another application."
+> — **Ventsi Lyaskov, Head of Support & KB, Kanbanize**
+
+> "The fact that the tool works so well and that our team enjoys using it so much just makes their
+> day-to-day work easier."
+> — **Tyler Cunningham, Lead Product Manager, Addiction Recovery**
+
+> "It feels like you're using something you're familiar with from the start."
+> — **Jani Laakso, CTO, Leadoo**
+
+> "Instead of everybody having their own version of a document, they can work on the same one and
+> have a consistent experience."
+> — **Anthony Joiner, CEO, Blooksy**
+
+**G2 corroborates strongly here.** The single most-cited practical benefit in the review summaries
+is eliminating context-switching — reviewers describe not needing multiple windows or tabs open, and
+CKEditor removing "boilerplate actions" so they can focus on content. Two independent sources
+pointing at the same thing.
+
+## The specific capabilities customers single out
+
+Ranked by how directly a customer credited the feature with the delight, not by feature importance.
+
+| Capability | Evidence | Cluster |
+|---|---|---|
+| **Merge Fields** | Kin's claims adjusters named it **the single biggest time-saver**, praising automatic data population that eliminated manual entry errors | End-user |
+| **Track Changes + Comments** | DTU: the two features users **wanted most** — "when users had the chance to use spell and grammar check, Track Changes, and Comments, it made their life easier" | End-user |
+| **Real-time Collaboration** | Spotlight: "the key differentiator for CKEditor 5 against its competitors." Blooksy: 90% faster production. Foraus: contributors on five continents | Both |
+| **Tables** | Flexum: "the set of plugins related to tables — they're very extensive and flexible." Testmo built a competitive advantage on table support. Kanbanize users had been resorting to Excel | End-user |
+| **Modular architecture / plugin system** | The core of Cluster 1. Neos, Sulu, Tablo, Agreemint all credit it | Developer |
+| **Documentation** | Zendesk: "I was able to get a lot of information just by going to the documentation without hunting in different places." Steeplechasers deployed with **no support contact at all** | Developer |
+
+## The unexpected third signal: support
+
+Not a capability, and not something we position on — but three of 21 studies volunteer it
+unprompted:
+
+> "Whenever we needed any help, the CKEditor support team was always there for us… we would rate the
+> support as outstanding." — **Ventsi Lyaskov, Kanbanize**
+
+> "The few times that we ever contacted the CKEditor support team, it's been a positive experience
+> for us." — **Chanette Locki Plesner, Project Manager, DTU**
+
+> "We didn't want to wait days for a response. We wanted to hear back right away."
+> — **Peter Graham, CEO, Agreemint** (the study credits rapid response as a reason they chose us)
+
+This sits oddly against G2's reported quality-of-support score of 8.3, which is mid-pack. Worth
+resolving — either the case studies over-select happy customers, or G2's score under-represents a
+genuine strength.
+
+## What this implies for messaging
+
+1. **Lead developer conversations with the source code and the docs, not the feature list.** The
+   recurring wow is comprehension — "the first editor I could understand." That is a claim we
+   barely make anywhere in current content.
+2. **Lead end-user conversations with removed friction, not added capability.** No context
+   switching, no thinking about formatting, familiar from the first minute.
+3. **"Days, not months" is the sharpest time-to-value claim we have**, and it is evidenced twice by
+   behaviour (Tablo, Four Kitchens) rather than opinion.
+4. **Merge Fields is under-marketed relative to its delight-per-mention.** It appears in one case
+   study and is the only feature whose end users named it their favourite thing.
+
+## What to do to make this real
+
+In priority order, because every item below converts a hypothesis into evidence:
+
+1. **Pull the G2 vendor export.** CKSource has a [seller profile](https://www.g2.com/sellers/cksource).
+   The vendor portal gives per-review verbatims with reviewer role, company size and industry — none
+   of which is reachable from outside. This is the cheapest high-value fix.
+2. **Get product telemetry on feature adoption and retention.** The single biggest gap.
+3. **Run a Gong query scoped to closed-won and post-onboarding calls**, not open opportunities. That
+   is where post-adoption user voice lives.
+4. **Add trial-to-paid funnel and first-run data** so we can locate the wow moment in time, not just
+   describe it.
+5. **Ask three or four customers directly**: "what was the moment you knew this was the right
+   choice?" Nobody has asked that question.
+
+## Limits
+
+Two of the three sources are marketing-authored or bot-blocked. Nothing here is measured. The
+clusters are my synthesis of 21 curated success stories plus aggregated review sentiment I could not
+read directly — a defensible reading of the available evidence, and not a substitute for telemetry.
+Revisit once item 1 or 2 above lands.
+
+
+================================================================
 FILE: ./research/data/2026-08-17-data-notes.md
 ================================================================
 
@@ -5845,6 +6335,130 @@ Matching the 81 eligible companies in
 **Nine companies remain rank-verified** from the Global top 30. The other 14 of the 23 are
 membership-derived without a published rank. Whether that basis is good enough for the deck is
 a decision for the deck owner, not something this file settles.
+
+
+================================================================
+FILE: ./research/data/2026-09-07-f500-us-customers-notes.md
+================================================================
+
+# Data notes — Fortune 500 customers by industry
+
+*Built 2026-09-07 for [`ckeditor-fortune-500-industry-logos.pptx`](../../decks/ckeditor-fortune-500-industry-logos.pptx).
+Provenance for [`2026-09-07-f500-us-customers.csv`](2026-09-07-f500-us-customers.csv).*
+
+## Source of truth
+
+The **Google Sheet `2026-09-04-fortune-500-us`**, and nothing else. In it:
+
+- **yellow fill = current paying customer** — 45 rows
+- **red fill = churned or never bought** — 11 rows
+
+The two sets do not overlap. Fills were read from an .xlsx download by
+[`read-highlights.py`](../../decks/f500-logos/read-highlights.py); the Drive
+connector's CSV export and text rendering both drop formatting, so the
+highlighting is invisible through them.
+
+The underlying 500-row list is the 2026 US Fortune 500, scraped and validated
+as recorded in [`2026-09-04-fortune-lists-notes.md`](2026-09-04-fortune-lists-notes.md).
+
+## Why Salesforce is not used
+
+It was tried first and it disagreed with the sheet **in both directions**:
+
+| Failure | Case |
+|---|---|
+| **`ARR > 0` hides the self-service book** | Nvidia is `Type='Software Customer'`, `Active`, with a live Maxio Advanced Billing record — and **ARR 0**. Every ARR-filtered pull misses it. 154,651 of 156,668 active accounts carry no ARR |
+| **Account hierarchy is unresolved** | Merck's live record is `Merck RAHWAY, NJ PLANT`, whose `Ultimate_Parent_Name__c` is *itself*, with `NumberOfEmployees` 11. No size gate or parent rollup can reach it |
+| **`Ultimate_Parent_Revenue__c` is empty** | Populated on **0 of 2,017** ARR-bearing accounts |
+| **ARR lags cancellation** | Leidos shows `Active` with ARR; the sheet marks it churned |
+
+The sheet's annotations agreed with the Salesforce filter on all eight churned
+companies it named, so the filter was not wrong about churn — it was wrong
+about reach. Firmographic size-gating cannot find customers whose CRM record
+is small, mislabelled, or unlinked from its parent.
+
+## Grouping
+
+Fortune's 66 industry labels map to a slide header via
+[`verticals.py`](../../decks/f500-logos/verticals.py) — the seven ICP verticals
+where they fit, plus honest extras (Manufacturing, Energy & Utilities, Retail &
+Consumer, Transportation & Logistics, Real Estate & Construction,
+Telecommunications) where they do not. All 66 are mapped; none falls through.
+
+**Education and Government produce no slides.** The US Fortune 500 ranks public
+filers, so no school system or agency appears on it. Two of our seven ICP
+verticals therefore cannot be spoken to from this deck at all.
+
+**Finance was split by buyer** — 19 logos is too many for one readable grid, and
+a bank and a payments network are different conversations:
+
+- *Banking & Capital Markets* (9)
+- *Insurance, Payments & Market Data* (10)
+
+### Four per-company corrections
+
+Fortune's label described the business correctly but put the logo on the wrong
+slide:
+
+| Company | Fortune label | Moved to | Why |
+|---|---|---|---|
+| Chewy | Internet Services and Retailing | Retail & Consumer | Filed with Alphabet and Meta; it is a pet-supplies e-commerce retailer |
+| GuideWell | Insurance: Life, Health | Healthcare | Florida Blue's parent, a health insurer. UnitedHealth, an equivalent business, was already in Healthcare |
+| Corteva | Food Production | Manufacturing | Agriscience — seeds and crop protection. It read oddly beside Estee Lauder |
+
+### One exclusion
+
+**Fidelity National Financial (#311)** is highlighted yellow but excluded. The
+sheet's own note reads *"we have Fidelity Investments"* — a different company.
+Fidelity Investments (FMR) is privately held and is not on the Fortune 500 at
+all. Yellow says customer; shipping the logo would claim one we do not have.
+
+**44 of the 45 highlighted companies reach a slide.**
+
+## Logo artwork
+
+Fetched from Wikimedia Commons by
+[`fetch-logos.py`](../../decks/f500-logos/fetch-logos.py) via Wikidata P154,
+with every source file recorded in `assets/manifest.csv`. 42 of 44 resolved.
+
+Four wrong grabs were caught on the contact sheet and fixed by pinning the
+entity or file, so a re-run cannot regress:
+
+- **Merck** resolved to **Merck KGaA of Darmstadt** — a different company from
+  Fortune #68 Merck & Co. Pinned to `Q247489`. This one would have been a
+  factual error in front of a pharma prospect.
+- **Fox** resolved to Fox Broadcasting Company, not Fox Corporation. Pinned to
+  `Q60238941`.
+- **Edward Jones** and **Chewy** resolved to low-resolution PNGs with baked-in
+  background blocks; both have clean SVGs on Commons that P154 does not
+  reference.
+
+Two genuine bugs in the fetcher were fixed rather than worked around:
+
+- `best_logo_claim` scored Wikidata's `preferred` rank but never penalised
+  `deprecated`, so **CBRE** got the logo Wikidata marks dead ("till 2021").
+  Rank is now a three-way score.
+- The Commons fallback accepted JPEGs, and returned
+  *"Mutual of Omaha HQ south building.jpg"* — a photograph of an office block —
+  as that company's logo. JPEGs are now rejected: logos on Commons are SVG or
+  PNG, and a missing logo is recoverable where a silently-placed building photo
+  is not.
+
+**No artwork exists on Commons for GuideWell Mutual Holding or Mutual of
+Omaha.** Both appear on their slides as a named cell rather than being dropped,
+so no real customer is silently removed. Drop a PNG into
+`decks/f500-logos/assets/overrides/<slug>.png` and rebuild to replace them.
+
+## Open items
+
+- **Chevron's status is unconfirmed.** The sheet note reads *"Adrian Kruszewski
+  worth veryfing"*. It is the **only** logo on the Energy & Utilities slide, so
+  if it is wrong that entire slide is wrong.
+- **Merck lapses in February.** The note says they churn in 2027 but are a
+  customer until February. The Healthcare slide has a shelf life.
+- **No logo-usage clearance.** These slides are built to be shown to prospects,
+  and the artwork is Wikimedia-sourced with no permission from the customers
+  named. Every slide says so in its speaker notes. This is unresolved.
 
 
 ================================================================
