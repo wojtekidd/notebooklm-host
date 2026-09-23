@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-09-09 13:52 UTC
-Commit: de9a63d7d7a74d042e96b93756b5742e9ba2c69c
-Files included: 24
+Last updated: 2026-09-23 10:16 UTC
+Commit: ad7dd693c1a8f3c181cd22e958ba9ef1c284b348
+Files included: 29
 ================================================================
 
 
@@ -39,7 +39,7 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 | **AI Review (on-demand quality check)** | ✅ 5 built-in checks — Proofread, Improve Clarity, Improve Readability, Adjust Length, Adjust Tone and Style — plus ad-hoc custom commands and saved custom reviews; per-review model choice and RBAC; chunks long documents across parallel LLM calls | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ⚠️ No dedicated mode — AI Toolkit ships a `proofread` tool for you to build around | ⚠️ **[updated 5.4]** No dedicated review mode, but AI Improve Writing now returns edits as accept/reject changes | ❌ | ❌ | ❌ |
 | **AI Translations (dedicated mode)** | ✅ Dedicated full-document translate mode — **10 built-in languages** (EN, ES, FR, DE, ZH-Hans, JA, RU, PT, KO, IT) plus configurable additional ones; original stays in the sidebar for segment-by-segment review | ⚠️ Via Quick Actions | ❌ No dedicated AI Translations mode | ❌ | ❌ | ❌ | ❌ |
 | **Multi-LLM provider support** | ✅ Curated OpenAI, Anthropic, and Google models out of the box, **plus Auto/Agent mode** that picks the best model per task on quality, speed, and cost | ✅ OpenAI (GPT-5.5/5.4/5.2/5.1/5, GPT-4.1 + Mini), Anthropic (Opus 4.8/4.7, Sonnet 4.6/4.5, Haiku 4.5), Google (Gemini 3.1 Pro, 3.5/3/2.5 Flash) + `agent-1` auto mode | ✅ Any text-capable model incl. open-source and self-hosted — via Vercel AI SDK, LangChain, OpenAI SDK, Anthropic SDK, or custom (AI Toolkit). No end-user model picker | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
-| **Bring your own LLM / custom endpoint** | ✅ On-premises — your own OpenAI/Anthropic/Google keys, Amazon Bedrock, Azure OpenAI, Google Vertex AI, or **any OpenAI API-compatible endpoint** (self-hosted, fine-tuned, OpenRouter, Together AI). Models configured server-side appear in the editor's model selector automatically | ⚠️ **[corrected]** On-premises docs now document seven provider types — `openai`, `anthropic`, `google`, `azure`, `bedrock`, `vertex`, `openai-compatible` (Ollama, vLLM, LM Studio, llama.cpp, LocalAI, OpenRouter, Together, Groq, Fireworks). Marketing still labels BYO-LLM early access; the docs carry no gating notice | ✅ Any text-capable model, incl. self-hosted — but you wire it up yourself | ✅ Self-hosted models and custom backends | ❌ | ❌ | ❌ |
+| **Bring your own LLM / custom endpoint** | ✅ On-premises — your own OpenAI/Anthropic/Google keys, Amazon Bedrock, Azure OpenAI, Google Gemini Enterprise, or **any OpenAI API-compatible endpoint** (self-hosted, fine-tuned, OpenRouter, Together AI). Models configured server-side appear in the editor's model selector automatically | ⚠️ **[corrected]** On-premises docs now document seven provider types — `openai`, `anthropic`, `google`, `azure`, `bedrock`, `vertex`, `openai-compatible` (Ollama, vLLM, LM Studio, llama.cpp, LocalAI, OpenRouter, Together, Groq, Fireworks). Marketing still labels BYO-LLM early access; the docs carry no gating notice | ✅ Any text-capable model, incl. self-hosted — but you wire it up yourself | ✅ Self-hosted models and custom backends | ❌ | ❌ | ❌ |
 | **Reasoning** | ✅ Yes | ✅ Reasoning mode in Chat | ⚠️ No built-in reasoning mode — depends on the model the integrator supplies | ⚠️ Not confirmed | ❌ | ❌ | ❌ |
 | **Custom prompts & commands** | ✅ Custom AI actions define the name, the UI label, the governing prompt, which models run it, and whether it applies to a selection, the full document, or both — via `extraCommands`; `removeCommands` strips built-in defaults; `AIActions#executeAction()` runs one programmatically. Custom Reviews supported. **Custom prompts** apply the same pattern more broadly — preload domain context, persona instructions, or constraint rules that shape every AI interaction, not just one action | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ Custom Quick Actions | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
 | **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control (build it yourself) | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
@@ -88,7 +88,7 @@ CKEditor AI works natively with the same document model the editor uses — HTML
 CKEditor shipped MCP first (March 2026), but TinyMCE shipped it in 8.7 on June 30, 2026, self-hosted only. **Stop saying "we're the only editor with MCP."** The remaining edge is what CKEditor runs on your behalf: per-tenant session isolation, on-demand connection pooling and cleanup, server-enforced tool allowlists, and per-message metadata passed to tools so they scope results to the right user and environment. TinyMCE exposes a streaming callback for tool results; CKEditor manages the multi-tenant lifecycle around them. That is a real argument for anyone embedding an editor in a multi-tenant product — but it is a depth argument, not an existence argument, and it needs a technical audience to land.
 
 **3. On-premises AI with custom LLM support** ⚠️ *narrowed September 2026*
-CKEditor's On-Premises distribution has supported custom LLMs since March 2026 — your own keys, Bedrock, Azure OpenAI, Vertex AI, or any OpenAI API-compatible endpoint. Every competitor has now closed part of this: Tiptap's AI Toolkit runs on-prem and takes any text-capable model, Froala supports self-hosted models, and TinyMCE's on-premises docs now describe seven provider types including `openai-compatible` with Ollama, vLLM, LM Studio, and OpenRouter named explicitly. Tiny's *marketing* still calls BYO-LLM early access while the docs carry no gating notice — verify before leaning on the GA-vs-early-access distinction in a call, because it may not survive the prospect opening the docs. Compete on what surrounds the model instead: models configured server-side appear in the editor's model selector automatically, output arrives in one format regardless of provider, and switching is a config value.
+CKEditor's On-Premises distribution has supported custom LLMs since March 2026 — your own keys, Bedrock, Azure OpenAI, Gemini Enterprise, or any OpenAI API-compatible endpoint. Every competitor has now closed part of this: Tiptap's AI Toolkit runs on-prem and takes any text-capable model, Froala supports self-hosted models, and TinyMCE's on-premises docs now describe seven provider types including `openai-compatible` with Ollama, vLLM, LM Studio, and OpenRouter named explicitly. Tiny's *marketing* still calls BYO-LLM early access while the docs carry no gating notice — verify before leaning on the GA-vs-early-access distinction in a call, because it may not survive the prospect opening the docs. Compete on what surrounds the model instead: models configured server-side appear in the editor's model selector automatically, output arrives in one format regardless of provider, and switching is a config value.
 
 **4. AI usage monitoring & analytics** ⚠️ *narrowed September 2026*
 TinyMCE states "usage tracking and quota management built in," so the old "no confirmed equivalent" line is wrong — **drop it.** What holds is depth and destination: CKEditor breaks credit consumption down by user in the Insights Panel with per-request business logs behind it, exposes per-user usage through a REST billing endpoint so integrators can build their own quotas and tier-based lockout, and on-premises exports full LLM usage and cost into the customer's own observability stack over OpenTelemetry with native Langfuse support. Neither TinyMCE nor Tiptap documents an export path into the customer's own stack. That last point is the one to lead with for enterprise cost governance.
@@ -3825,13 +3825,538 @@ Examples:
 
 
 ================================================================
+FILE: ./research/ai-governance/2026-09-21-findings.md
+================================================================
+
+# AI governance in content workflows — what enterprise and regulated buyers actually ask
+
+*Findings. 2026-09-21. Evidence base: [`2026-09-21-governance-question-ledger.csv`](2026-09-21-governance-question-ledger.csv) — 46 questions, 41 grade A. Spec: [design](../../docs/superpowers/specs/2026-09-21-ai-governance-research-design.md).*
+
+---
+
+## The headline: we had the spine wrong
+
+The brief asked how buyers shield content workflows against uncontrolled AI slop. The
+governance narrative in [`content/blog/ai-governance-layer-document-editing.md`](../../content/blog/ai-governance-layer-document-editing.md)
+is built on that premise — document corruption, integrity, review before commit.
+
+The evidence does not support it as an entry point.
+
+| Cluster | Themes | Questions |
+|---|---|---|
+| **Perimeter and proof** | data perimeter, regulatory conformance, audit trail, vendor assurance | **32** |
+| **Slop and integrity** | attribution, human-in-the-loop, content integrity, accuracy | **8** |
+
+Four to one. Across internal calls, regulatory texts and procurement questionnaires alike,
+buyers open with *where does our content go* and *which rule applies and who proves it*.
+Nobody in the internal evidence opened with "will the AI write badly."
+
+This is not an argument that the integrity story is wrong. It is an argument about
+**sequence**. The perimeter question is the gate. Content integrity is what buyers care
+about *after* they have been let through it — and it is where we differentiate, because
+most vendors can answer the perimeter question and very few can answer the integrity one.
+
+Practical consequence: a governance pillar that opens on document corruption is answering
+question four before question one. Lead with perimeter and proof; deliver integrity as the
+payload once the reader is engaged.
+
+---
+
+## Finding 1 — The blocking questions are about data movement, not AI quality
+
+Seventeen questions carry `deal-blocker` from internal evidence. Fourteen concern whether
+content leaves a boundary, who controls the model, and who can audit it. The language is
+absolute:
+
+> "If any data goes out of our boundary, that is a deal breaker." — Technology Trends Group, Apr 2026
+
+> "I just wanted to surface that question because I think it would be a non-starter if we couldn't connect to our own LLM." — KPMG LLP, Jul 2026
+
+> "We need everything done on our platform... Our clients are every federal agency, the department of justice, homeland security. None of their data can leave this platform." — Jan 2026
+
+> "We have to really make sure that the data is not leaving Switzerland. If you say that the AI feature is only possible with sharing data with the US AI models, then the client pretty sure will not book at any time." — Liip, May 2026
+
+Two of these are already well answered by on-premises deployment and BYO LLM. That is the
+good news and also the problem: **the answers exist and the questions keep getting asked**,
+which means the failure is in how findable and pre-answered the proof is, not in the product.
+
+---
+
+## Finding 2 — The real bottleneck is time, and nobody is selling against it
+
+The most striking quote in the whole corpus is not about a feature:
+
+> "We have developed some AI capabilities within the platform. It's been more than a year and we have not been able to get a sign off from risk and compliance." — PwC, May 2026
+
+It is corroborated across segments:
+
+- **A year** for a bank to complete review before use — South Australia Police, Jan 2026
+- **12–18 months** from signed agency sponsorship to FedRAMP authorization
+- Legal review restarting from zero over paper: *"they're not going to sign a document with a supplier on supplier paper"* — Citi, Jan 2026
+
+The hoop is not a control. The hoop is **elapsed time in internal review**, and it is
+measured in quarters and years. Both time questions — GQ-007 and GQ-014 — have
+`ck_answer_status: none`. We have no trust centre, no pre-answered questionnaire pack, and
+no material that helps a champion move an AI capability through their own risk committee.
+
+This is the single largest unclaimed position in the research. Every competitor is selling
+AI capability. Nobody is selling *shortened time to governed deployment*.
+
+---
+
+## Finding 3 — Most gaps are documents we have not written, not features we have not built
+
+Sixteen of 46 questions have no answer today. Sorted by what closing them would require:
+
+**Publishable artifacts — no engineering** (11 of 16): AI subprocessor register · AI Act
+provider/deployer responsibility split · ISO 42001 and NIST AI RMF alignment statement ·
+tenant-isolation statement for the AI path · prompt-injection position · liability and IP
+indemnity position for AI output · PHI-derivation position · DORA position · model-risk
+position given the SR 26-2 gap · client-consent guidance for law firms · a trust centre
+with pre-answered CAIQ/SIG AI modules.
+
+**Genuine product gaps** (4): AI interaction export as retainable records (FINRA 17a-4 and
+FOIA both demand it) · machine-readable AI marking format · records-retention export ·
+FedRAMP authorization.
+
+**Commercial process, not product** (1): contracting on customer paper.
+
+The ratio matters for the roadmap conversation. This is roughly a two-to-one
+documentation-to-engineering problem, and documentation ships faster.
+
+---
+
+## Finding 4 — SOC 2 has stopped being sufficient
+
+Enterprise risk templates now carry AI-specific modules covering model provenance, training
+data rights, hallucination controls, AI subprocessor transparency, and alignment with
+ISO 42001 and the NIST AI RMF. Vendors presenting only SOC 2 documentation are reported to
+be failing the AI module and putting enterprise deals at risk.
+
+Our current assurance claim — "SOC 2 Type 2 certified and HIPAA compliant," which appears
+in CLAUDE.md as an always-use line — is now table stakes rather than a differentiator, and
+on its own it fails the question being asked. It needs an AI-layer companion.
+
+---
+
+## Finding 5 — The EU AI Act clock has already started
+
+Article 50 transparency obligations became enforceable **2 August 2026**. Providers of AI
+systems generating synthetic text must mark outputs in a **machine-readable format**,
+detectable as AI-generated. Systems placed on the market before that date have until
+**2 December 2026** — roughly ten weeks from today — to meet the machine-readable marking
+requirement. The obligations are not limited to high-risk systems; they reach any business
+using generative AI to produce content.
+
+CKEditor AI already marks AI-generated suggestions. **Whether that marking is machine-readable
+in the Article 50 sense is unverified and should be checked immediately** — it is either a
+strong, timely, and almost unclaimed position, or a gap with a hard deadline. Either way the
+answer is needed in weeks, not months.
+
+---
+
+## Finding 6 — Vertical SaaS inherits these questions and has nothing to hand downstream
+
+Four questions come from software vendors being asked these questions *by their own
+customers*. All four are deal-blockers.
+
+> "It has to be self hosted because of the nature of our customers. Their banks are paranoid about security... they do not like when we have externally hosted content served up in our web pages." — Jul 2026
+
+> "Our approach is that you can choose from six different LLM providers... our clients can be confident that the data is not going to the provider." — Creative Force, Feb 2026
+
+Technology is 33.6% of ARR and 240 of 666 Technology accounts are vertical SaaS. These
+customers do not need to be convinced; they need **collateral they can forward to their own
+customers' security teams**. That artifact does not exist, and it is cheap to produce.
+
+---
+
+## Per-segment overlay
+
+| Segment | The distinctive hoop |
+|---|---|
+| **Finance** | Whether AI output is a business record under Exchange Act Rule 17a-4 (FINRA RN 25-07); FINRA's 2026 report targets agents acting without human validation; SR 26-2 replaced SR 11-7 in April 2026 but **excludes generative AI**, leaving firms to improvise; DORA applies to EU entities |
+| **Healthcare** | AI output derived from PHI **is itself PHI**; BAAs must now cover model training restrictions, subcontractor disclosure and model weight disposition; per-access PHI logging is a required technical safeguard |
+| **Government** | Prompts and AI outputs are retainable official records subject to FOIA; FedRAMP authorization runs 12–18 months; air-gapped deployment is a real requirement, not a preference |
+| **Legal & professional** | ABA Formal Opinion 512: client **informed consent** before client information enters a GAI tool, and boilerplate engagement-letter consent is explicitly inadequate; privilege waiver risk if processing constitutes third-party disclosure; disclosure duty when AI is used substantially in work product |
+| **Vertical SaaS** | Must answer all of the above on behalf of customers they do not control |
+
+Note the pattern: finance and government both ask a **records** question, healthcare and
+legal both ask a **derivation and consent** question. Two artifacts, not four.
+
+---
+
+## Where CKEditor stands
+
+| Status | Count | Reading |
+|---|---|---|
+| Answered | 9 | Concentrated in perimeter and model choice — our genuine strengths |
+| Partial | 20 | The capability exists; the proof or the framing does not |
+| None | 16 | See Finding 3 |
+
+The 20 partials are the most actionable number in this study. In almost every case the
+product already does the thing and no public artifact says so in the language the question
+was asked in.
+
+---
+
+## Limitations — read before citing this
+
+- **No new internal collection.** The Gong MCP server failed to connect
+  (`CLIENT_HTTP_UNEXPECTED_CONTENT`). Every internal row was mined from the four existing
+  Gong-derived theme files in [`research/customer-insights/`](../customer-insights/).
+- **Sampling bias in the internal evidence.** Those files were themed through a
+  pricing/objection lens. Governance questions that did not cluster into those themes are
+  invisible to this study. The 4:1 ratio in the headline is therefore directionally sound
+  but not a precise measurement — and if anything the bias would *understate* governance
+  questions, not inflate them.
+- **Salesforce excluded** by decision, 2026-09-21.
+- **No search volumes.** Ahrefs is unauthorized. Stream 3 contributed 3 rows against 20 and
+  23 from the other streams. Demand ranking rests on cross-stream convergence, not volume.
+- **Five grade-B rows** may not support public claims without promotion.
+- Statistic corrections for existing content are tracked separately in
+  [`2026-09-21-stat-verification.md`](2026-09-21-stat-verification.md) — one published claim
+  is wrong and needs fixing.
+
+## Recommended next moves
+
+1. **Verify the Article 50 machine-readable marking question this week.** It has a December deadline.
+2. **Fix the Gartner claim** in the published blog post.
+3. **Build the trust centre / pre-answered AI questionnaire pack.** It closes the largest gap and attacks the time bottleneck simultaneously.
+4. **Restore Gong** and re-run Stream 1 with a governance lens to firm up the ratio in Finding 1.
+
+
+================================================================
+FILE: ./research/ai-governance/2026-09-21-stat-verification.md
+================================================================
+
+# Statistic verification — governance claims in existing content
+
+*Phase 0 of the [AI governance research](../../docs/superpowers/specs/2026-09-21-ai-governance-research-design.md). Run 2026-09-21.*
+
+Three figures in [`content/blog/ai-governance-layer-document-editing.md`](../../content/blog/ai-governance-layer-document-editing.md)
+were traced to primary sources before a governance content pillar amplifies them.
+
+---
+
+## 1. "Over 60% of enterprises now require formal AI governance frameworks, according to Gartner"
+
+**Verdict: does not hold. Do not reuse. Correct the source post.**
+
+No Gartner research says this. The 60% figure in Gartner's AI governance material is a
+*conditional failure prediction*, not an adoption or requirement figure:
+
+> Gartner predicts that by 2027, 60% of organizations that have failed to address the
+> cultural challenges associated with data governance will fail to govern AI successfully.
+
+Three things changed in transmission, and each one matters:
+
+| Gartner | Our blog |
+|---|---|
+| A prediction for 2027 | "now" |
+| Of organizations *that ignore governance culture challenges* — a subset, not all enterprises | "enterprises" |
+| Will **fail to govern AI** | **require formal AI governance frameworks** |
+
+The claim as written asserts near-universal current adoption of AI governance frameworks.
+The available evidence points the other way — coverage of Gartner's 2026 AI governance
+platform research cites a far smaller share of organizations having any framework in place.
+
+**Evidence grade: B.** Gartner's own newsroom returns HTTP 403 to automated fetch, so this
+rests on consistent reporting across several trade outlets rather than the primary release.
+Confirm against the primary before the correction is published.
+
+**Action:** fix the sentence in the source blog post. It is the single most load-bearing
+market-context claim in the piece, and it is the kind of number a regulated buyer checks.
+
+### Verified Gartner figures usable in its place
+
+All on-point for a governance pillar, all from 2026 Gartner releases:
+
+- AI governance spending reaches **$492M in 2026**, surpassing **$1B by 2030**
+- By 2030, fragmented AI regulation **quadruples and reaches 75% of the world's economies**
+- By 2027, **40% of enterprises will demote or decommission autonomous AI agents** because
+  governance gaps surfaced only after production incidents
+- By 2028, **50% of organizations adopt zero-trust data governance** as unverified
+  AI-generated data grows
+- Gartner established **AI Governance Platforms as a standalone Magic Quadrant category in
+  June 2026** — the category itself is new
+
+The 40% figure is the strongest substitute: it says governance gaps get found in production,
+which is the same argument the blog is making, with a real number behind it.
+
+---
+
+## 2. "An estimated 47% of enterprise AI users access tools through personal, unmanaged accounts"
+
+**Verdict: holds. Add the attribution it is currently missing.**
+
+- **Netskope, 2025 Cloud and Threat Report** — 47% of GenAI platform users access these
+  tools through personal, unmonitored accounts
+- **Akamai, 2026** — 47.11% of enterprise AI conversations run through personal accounts
+
+Two independent sources landing on the same number a year apart is unusually strong. The
+blog currently hedges with "an estimated" and names no source, which is weaker than the
+evidence warrants.
+
+**Evidence grade: B.** Corroborated across two vendor studies; neither primary report was
+fetched directly in this pass.
+
+**Action:** attribute it. Netskope is the original.
+
+Useful corroborating detail for the shadow-AI theme: consumer-grade tools run majority
+personal-account (ChatGPT ~61%, Copilot ~64%, Claude ~61%), while enterprise-provisioned
+equivalents invert it (Gemini Enterprise ~98% corporate, Copilot for M365 ~91% corporate).
+That is a direct argument for sanctioned, governed AI inside the application — it shows
+the displacement effect is real and measurable, which is theme 12 in the ledger taxonomy.
+
+---
+
+## 3. The Microsoft Research document-corruption findings
+
+**Verdict: holds. Cite it by name.**
+
+- **Paper:** "LLMs Corrupt Your Documents When You Delegate"
+- **Authors:** Philippe Laban, Tobias Schnabel, Jennifer Neville — Microsoft Research
+- **Benchmark:** DELEGATE-52 — 19 LLMs, 52 professional domains, 20 editing interactions
+- **Finding:** frontier models (Gemini 3.1 Pro, Claude 4.6 Opus, GPT 5.4) corrupted an
+  average of **25% of document content** by the end of long editing workflows
+- **Wider finding:** average degradation reached **50% across all 19 models tested**
+
+The blog's "average of 25%" is correct and correctly scoped to frontier models. The 50%
+all-model average is a stronger number the post currently leaves on the table.
+
+**Evidence grade: A** for the paper's existence, authorship and headline findings.
+**Not yet verified:** the blog's claim that "about 80% of the damage comes from sudden,
+severe losses." That specific breakdown was not confirmed in this pass — read it out of
+the paper before reuse.
+
+**Sources:** [Microsoft Research publication page](https://www.microsoft.com/en-us/research/publication/llms-corrupt-your-documents-when-you-delegate/) · [alphaXiv 2604.15597](https://www.alphaxiv.org/abs/2604.15597)
+
+---
+
+## Summary
+
+| Claim | Verdict | Action |
+|---|---|---|
+| 60% of enterprises require AI governance frameworks (Gartner) | **Wrong** | Correct the blog; substitute a verified Gartner figure |
+| 47% use personal, unmanaged AI accounts | Holds | Add Netskope attribution |
+| 25% document corruption, 19 models, 52 domains (Microsoft Research) | Holds | Name the paper; consider adding the 50% all-model figure |
+| 80% of damage from sudden severe losses | **Unverified** | Read the paper before reuse |
+
+
+================================================================
+FILE: ./research/ai-governance/capability-gaps.md
+================================================================
+
+# Capability and proof gaps — AI governance
+
+*For product and roadmap. Derived from [`2026-09-21-governance-question-ledger.csv`](2026-09-21-governance-question-ledger.csv). 2026-09-21.*
+
+Sixteen of 46 evidenced buyer questions have no answer today. The important structural
+finding: **most are documents we have not written, not features we have not built** —
+roughly two to one. Sorting them that way changes who owns the fix.
+
+---
+
+## A. Product gaps — engineering required
+
+| # | Gap | Driver | Evidence |
+|---|---|---|---|
+| A1 | **Export of AI interactions as retainable records** — prompts, outputs, who requested, when, in a form a records system can ingest | Finance and government both require it, independently | GQ-035 (FINRA RN 25-07, Exchange Act Rule 17a-4), GQ-039 (NARA; US Army AI compliance memorandum) |
+| A2 | **Machine-readable marking of AI-generated output**, per EU AI Act Article 50(2) | Enforceable since 2 Aug 2026; grace period for pre-existing systems ends **2 Dec 2026** | GQ-021 |
+| A3 | **FedRAMP authorization** for the AI capability | Federal and federal-adjacent buyers | GQ-040 |
+| A4 | **Air-gapped deployment confirmation** for the AI Service specifically | Defence, intelligence and government-adjacent SaaS | GQ-002 |
+
+**A2 is urgent and possibly already solved.** CKEditor AI marks AI-generated suggestions.
+Whether that marking is machine-readable in the Article 50 sense is unverified. Answer this
+first — it is either a timely and largely unclaimed position or a gap with a hard deadline
+about ten weeks out.
+
+**A1 is the highest-value new capability** in the list. It is the only gap demanded by two
+independent regulated segments for the same underlying reason, and it converts an audit
+trail we already keep into a compliance artifact buyers are obliged to produce.
+
+---
+
+## B. Proof gaps — documentation, no engineering
+
+These are the two-thirds. Each closes one or more evidenced deal-blocking questions and none
+requires a roadmap slot.
+
+| # | Artifact | Closes |
+|---|---|---|
+| B1 | **Trust centre with pre-answered CAIQ and SIG AI modules** | GQ-014, GQ-031 — and attacks the time bottleneck directly |
+| B2 | **AI subprocessor register**, with a change-notification policy | GQ-029 |
+| B3 | **EU AI Act provider/deployer responsibility split** — what we are liable for, what the customer is | GQ-022 |
+| B4 | **ISO/IEC 42001 and NIST AI RMF alignment statement** | GQ-028 |
+| B5 | **Tenant-isolation statement for the AI path** | GQ-026 |
+| B6 | **Prompt-injection controls position** | GQ-025 |
+| B7 | **Liability and IP indemnity position for AI output** | GQ-011 |
+| B8 | **PHI-derivation position** — AI output derived from PHI is itself PHI | GQ-034 |
+| B9 | **AI-specific BAA provisions** — training restrictions, subcontractor disclosure, model weight disposition | GQ-032 |
+| B10 | **DORA position** for EU financial entities | GQ-038 |
+| B11 | **Model-risk position** given SR 26-2 replaced SR 11-7 in April 2026 but excludes generative AI | GQ-037 |
+| B12 | **Client-consent guidance for law firms** under ABA Formal Opinion 512 | GQ-041 |
+
+B1 is the highest-leverage single item in this document. It closes the largest gap and
+directly addresses the bottleneck identified in the findings — elapsed time in the buyer's
+own internal review, measured in quarters and years.
+
+---
+
+## C. The twenty partials
+
+Twenty questions sit at `ck_answer_status: partial`. In almost every case **the product
+already does the thing and no public artifact says so in the language the question was asked
+in.** These are not product gaps; they are findability and framing gaps, and they are the
+cheapest wins available.
+
+Examples: on-premises deployment answers the privilege-waiver question (GQ-042) but we have
+never made that argument to a law firm. Track Changes review of AI edits answers the FINRA
+human-validation requirement (GQ-036) but is never framed as supervision evidence.
+
+---
+
+## D. Not product problems
+
+- **GQ-013** — contracting on customer paper. Commercial process.
+- **GQ-007** — time to internal risk sign-off. Partly addressed by B1, but fundamentally the
+  buyer's own organisational constraint. Worth designing *for* rather than trying to remove.
+
+---
+
+## Caveats
+
+Derived from 46 questions, 41 grade A. Internal evidence comes entirely from existing
+Gong-derived files themed through a pricing and objection lens — the Gong connector was
+unavailable, so no fresh internal collection was possible, and governance questions that did
+not cluster into those existing themes are invisible here. Several `ck_answer_status` values
+are marked unverified in the ledger and were assessed from marketing and feature
+documentation rather than from engineering. **Confirm each one with product before it drives
+a roadmap decision.**
+
+
+================================================================
+FILE: ./research/ai-governance/content-backlog.md
+================================================================
+
+# AI governance content backlog
+
+*Derived from [`2026-09-21-governance-question-ledger.csv`](2026-09-21-governance-question-ledger.csv). 2026-09-21.*
+
+Ranking is cross-stream convergence — a question asked on a call, required by a regulation,
+*and* discussed in the open outranks one that appears in a single stream. No search volumes:
+Ahrefs is unauthorized, so nothing here is ranked by traffic estimate.
+
+**Structural note carried from the findings:** lead with perimeter and proof, deliver
+integrity as the payload. The evidence puts perimeter questions ahead of AI-quality
+questions four to one. A pillar that opens on document corruption is answering question
+four first.
+
+---
+
+## Tier 1 — publish first
+
+### 1. "What actually happens to your content when AI edits it" — pillar page
+**Answers:** GQ-001, GQ-005, GQ-017, GQ-019, GQ-023, GQ-024, GQ-026
+**Why first:** the highest-frequency, highest-blocking cluster in the entire ledger, and we
+have real answers. Seven questions, one page.
+**Must contain:** the actual data path, on-premises and cloud, side by side. A no-training
+and no-retention statement. Tenant isolation on the AI path. What is logged and where it goes.
+**Gap it depends on:** the tenant-isolation statement (GQ-026) does not exist yet.
+
+### 2. "The AI Act is already in force — what Article 50 means for anyone generating text" — blog, 1200–1800 words
+**Answers:** GQ-021, GQ-022, GQ-043
+**Why first:** hard deadline. Enforceable since 2 August 2026; machine-readable marking
+grace period ends 2 December 2026. Roughly ten weeks of relevance advantage, then it is
+commodity content.
+**Blocked on:** verifying whether our AI-suggestion marking is machine-readable in the
+Article 50 sense. Do not publish before that is confirmed.
+
+### 3. "How to get AI through your own risk committee" — eBook or long guide
+**Answers:** GQ-007, GQ-014, GQ-031, GQ-028
+**Why first:** the single unclaimed position in the research. Everyone sells AI capability;
+nobody sells shortened time to governed deployment. PwC spent over a year failing to get
+sign-off. This is written *for the champion to forward internally*, which is a different
+document from one written to persuade the champion.
+**Note:** this is the piece that carries the integrity and slop material, as the answer to
+"how do I show my risk committee the AI cannot quietly wreck a document."
+
+---
+
+## Tier 2 — segment overlays
+
+The findings show finance and government share a **records** question, healthcare and legal
+share a **derivation and consent** question. Two artifacts cover four segments.
+
+### 4. "Is AI output a record you have to keep?" — finance + government
+**Answers:** GQ-035, GQ-039, GQ-036
+**Hooks:** FINRA Regulatory Notice 25-07 and Exchange Act Rule 17a-4; NARA guidance and the
+US Army AI compliance memorandum on prompts and outputs as FOIA-responsive records.
+**Gap:** we have no AI-interaction export capability. This piece cannot claim we solve it.
+
+### 5. "When AI touches privileged or protected content" — healthcare + legal
+**Answers:** GQ-032, GQ-034, GQ-041, GQ-042
+**Hooks:** AI output derived from PHI is itself PHI. ABA Formal Opinion 512 requires client
+informed consent, and says boilerplate engagement-letter consent is not adequate.
+**Strong angle:** on-premises deployment materially weakens the privilege-waiver argument.
+We have never said this out loud, and it is the sharpest thing we can say to a law firm.
+
+### 6. "What to hand your customer's security team" — vertical SaaS enablement
+**Answers:** GQ-018, GQ-005, GQ-006, GQ-026
+**Format:** a co-brandable one-pager our customers forward to *their* customers, not a blog.
+**Why:** four deal-blocking questions, 240 vertical SaaS accounts, and the artifact costs
+almost nothing to produce.
+
+---
+
+## Tier 3 — supporting
+
+| # | Piece | Answers |
+|---|---|---|
+| 7 | Prompt injection and the editor: what the attack surface actually is | GQ-025 |
+| 8 | Model choice without lock-in: BYO LLM, routing, version pinning | GQ-003, GQ-004, GQ-027, GQ-015 |
+| 9 | What an audit trail for AI document editing should store | GQ-045, GQ-010, GQ-033 |
+| 10 | Who is liable for what the AI wrote | GQ-011 |
+| 11 | Turning AI off: selective enablement and role-based access | GQ-008, GQ-009 |
+
+---
+
+## Do not lead with these
+
+- **AI slop as an opening frame.** Real, and ours to win, but it is question four. It belongs
+  inside Tier 1 #3, not on the front of the pillar.
+- **FedRAMP** (GQ-040). We are not authorized. Sales conversation only — no content.
+- **Contract paper** (GQ-013). Commercial process, not a content problem.
+
+---
+
+## Reusable evidence
+
+Verified in [`2026-09-21-stat-verification.md`](2026-09-21-stat-verification.md):
+
+- **Microsoft Research, DELEGATE-52** (Laban, Schnabel, Neville): 19 LLMs, 52 professional
+  domains; frontier models corrupt ~25% of document content in long editing workflows;
+  ~50% average degradation across all 19 models
+- **Netskope 2025 Cloud and Threat Report**: 47% of GenAI platform users access tools through
+  personal, unmonitored accounts. Corroborated by Akamai 2026 at 47.11%
+- **Gartner 2026**: AI governance spending reaches $492M in 2026, passing $1B by 2030; by 2027
+  40% of enterprises will demote or decommission autonomous AI agents over governance gaps
+  found only after production incidents
+- **SIG 2025**: SIG Lite 128 questions, SIG Core 627, SIG Detail 1,936, across 21 risk domains
+
+**Do not reuse:** "over 60% of enterprises require formal AI governance frameworks." It is a
+misreading of a Gartner failure prediction. The correction is pending in
+[`content/blog/ai-governance-layer-document-editing.md`](../../content/blog/ai-governance-layer-document-editing.md).
+
+
+================================================================
 FILE: ./research/competitive-analysis.md
 ================================================================
 
 # CKEditor Competitive Analysis
 
-**Last updated:** September 7, 2026 — general competitor sweep. TinyMCE AI section corrected for 8.7 (MCP, on-prem AI GA, AI attribution, usage tracking) and re-verified through 8.9.0; Froala updated to 5.4.0; the MCP market-gap section rewritten because the gap closed; RichTextEditor added as a watch item. (Prior: July 27 — Tiptap Find and Replace, AI Toolkit beta, pre-1.0 Tracked Changes.)
-**Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical, Eddyter, RichTextEditor
+**Last updated:** September 23, 2026 — general competitor sweep. **Claude Docs added as a tracked substitute** (new section 9). Tiptap's AI Toolkit dropped its beta label; Quill's release history corrected (the "September 2019" claim was wrong); Eddyter's real-time collaboration moved from "not offered" to "announced, unverified"; TinyMCE re-verified through 8.9.1 with no strategic change. (Prior: September 7 — TinyMCE 8.7 corrections, Froala 5.4.0, MCP gap closed, RichTextEditor added as a watch item.)
+**Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical, Eddyter, RichTextEditor. Adjacent substitutes — Claude Docs.
 
 > ⚠️ **Retired claims — do not use.** "No editor has MCP," "TinyMCE has no on-premises AI," "TinyMCE has no AI usage analytics," and "no competitor marks AI-generated edits" were all true in April 2026 and are all false now. TinyMCE 8.7 (June 30, 2026) shipped every one of them. For AI-specific detail see `features/ckeditor ai/AI-competitive-comparison.md`.
 
@@ -3866,6 +4391,7 @@ CKEditor competes across all three patterns. For pattern 1 and 2 buyers who are 
 - **AI parity arrived fast.** In the twelve months to September 2026, TinyMCE, Froala, and Tiptap all shipped substantial AI. Individual AI features are converging on table stakes; the differentiation is moving to what surrounds them — governance, cost control, deployment, and whether the vendor ships a finished product or a toolkit
 - MCP is no longer a CKEditor exclusive — TinyMCE shipped it in 8.7 (June 30, 2026), self-hosted only
 - **A new category of competitor is winning the comparison keywords.** Eddyter and RichTextEditor rank on "best rich text editor 2026" and similar terms with content describing CKEditor's retired AI Assistant as our current AI. Share of search is now a competitive surface in its own right
+- **The AI labs entered the document market.** Anthropic launched Claude Docs on September 16, 2026 — a collaborative editor inside the Claude app, agent-writable over MCP. It competes for internal content budget rather than for editor deals, and in accounts with a large frontier-lab contract it can stop an embedding project from being scoped at all. Expect an OpenAI equivalent. See section 9
 
 ---
 
@@ -3995,7 +4521,7 @@ Developers building modern, custom editor experiences — particularly in SaaS p
 - Real-time collaboration via Yjs (native to the platform tier), presence, live cursors
 - Inline, threaded, and real-time comments; comments archive
 - Revision history and document versioning (named revisions, autosave, comparison, restore)
-- AI: basic in-editor chat plus Quick Actions ("Basic AI"), and **AI Toolkit** — server-side, model-agnostic agent tooling that reached beta on July 15, 2026, with AI edits rendered as tracked changes. Still no dedicated AI Review or AI Translations mode, no file/URL context, no chat history, no shipped AI UI, and no MCP
+- AI: basic in-editor chat plus Quick Actions ("Basic AI"), and **AI Toolkit** — server-side, model-agnostic agent tooling that reached beta on July 15, 2026 and **dropped its beta label in the week of September 22, 2026**, with AI edits rendered as tracked changes. Still no dedicated AI Review or AI Translations mode, no file/URL context, no chat history, no shipped AI UI, and no MCP
 - Tracked Changes extension (`@tiptap-pro/extension-tracked-changes`, paid add-on) — accept/reject by selection, ID, range, or user; pre-1.0 and flagged unstable by Tiptap
 - Find and Replace in the MIT core (`@tiptap/extension-find-and-replace`) — headless: highlighting, wrapping navigation, replace all, regex; no UI
 - Import/Export: native DOCX import and export; bidirectional Markdown (no native PDF export from the editor)
@@ -4038,7 +4564,7 @@ Tiptap's real-time editing and comments are solid. Its track-changes story is no
 | AI Review (dedicated mode) | **No** — a `proofread` tool ships in AI Toolkit for integrators to build around |
 | AI Translations (dedicated mode) | **No** |
 | Custom Quick Actions | **Yes** |
-| Server-side AI without a browser or editor instance | **Yes** — AI Toolkit, beta since July 15, 2026; supports long-running workflows |
+| Server-side AI without a browser or editor instance | **Yes** — AI Toolkit; beta July 15, 2026, beta label removed Sept 22, 2026; supports long-running workflows |
 | AI edits as tracked changes | **Yes** — via AI Toolkit plus the pre-1.0 tracked-changes extensions |
 | Bring your own model | **Yes** — any text-capable model incl. open-source and self-hosted, from any framework (Vercel AI SDK, LangChain, OpenAI SDK, Anthropic SDK, custom) |
 | Shipped AI UI | **No** — headless; the integrator builds every screen |
@@ -4098,7 +4624,11 @@ Developers who need a lightweight, modular rich text editor for relatively simpl
 Free. No commercial tier. No vendor.
 
 #### Unique Positioning
-Once positioned as the modern, lightweight alternative to TinyMCE. That positioning has aged: Quill's last meaningful release was September 2019. The project is largely in maintenance mode. Its primary value proposition now is zero cost and zero lock-in — which matters only if you're prepared to accept the maintenance burden.
+Once positioned as the modern, lightweight alternative to TinyMCE. That positioning has aged.
+
+⚠️ **Corrected September 23, 2026.** This profile previously said "Quill's last meaningful release was September 2019." That is wrong and a prospect will correct a rep who says it. Quill 2.0 shipped **April 17, 2024**, followed by 2.0.1 (May 1), 2.0.2 (May 13) and **2.0.3 (November 30, 2024)**, which remains the latest release. There has been **no release activity in 2025 or 2026**.
+
+The accurate line is stronger anyway: Quill shipped a major version in 2024 and has published nothing since — roughly two years of silence on a package still pulling ~6.9 million npm downloads a week. The project is in maintenance mode at best; npm ecosystem trackers classify its maintenance status as inactive. Its primary value proposition now is zero cost and zero lock-in — which matters only if you're prepared to accept the maintenance burden.
 
 #### Collaboration Readiness
 | Feature | Status |
@@ -4375,12 +4905,18 @@ SEO-heavy content marketing — extensive comparison blog posts positioning agai
 #### Collaboration Readiness
 | Feature | Status |
 |---------|--------|
-| Real-time collaboration | **No** — not offered |
+| Real-time collaboration | **Announced for Q3 2026 — unverified** *(was: "No — not offered")* |
 | Async collaboration (comments) | **Not confirmed** |
 | Track changes | **Not confirmed** |
 | Revision history | **Not confirmed** |
 
-No real-time collaboration. Eddyter's own comparison content explicitly acknowledges this gap vs. CKEditor. For any team with collaborative editing requirements, Eddyter is not a viable option.
+⚠️ **Updated September 23, 2026.** Eddyter now markets native real-time collaboration as launching in **Q3 2026** — the quarter that ends this month. Their content describes a Yjs-compatible CRDT foundation included in the base subscription, presence indicators with cursors and avatars, and "mid-generation AI edit reconciliation," and it positions BlockNote + Liveblocks as the stopgap for teams that need RTC before the launch.
+
+**Treat this as an announcement, not a shipped feature.** Every claim traces to Eddyter's own blog. There is no release note, no changelog entry, and no third-party confirmation. Do not say "Eddyter has no real-time collaboration" as a flat statement any more — say it is announced and unshipped, and ask the prospect whether they have seen it working.
+
+If it does ship as described, the gap that made Eddyter easy to dismiss closes, and the remaining arguments become compliance, self-hosting and track record rather than capability. **Action:** verify before the next Eddyter-competitive call.
+
+One useful development: independent scrutiny of their pricing claims has appeared. A [DEV Community teardown](https://dev.to/rudrabuilds/what-rich-text-editors-actually-cost-in-2026-i-checked-every-pricing-page-today-4o2c) checked every editor's pricing page and could not substantiate Eddyter's "3x cheaper" claim. Eddyter has also acquired Capterra and Software Advice listings since the last sweep, so the "no third-party coverage" note is now only partly true — the listings exist, but carry no meaningful review volume.
 
 #### AI Readiness
 | Feature | Status |
@@ -4442,6 +4978,67 @@ The framing is accurate on the facts and unflattering in the aggregate — it re
 
 ---
 
+### 9. Claude Docs — adjacent substitute, added September 2026
+
+**Vendor:** Anthropic
+**Model:** A feature of Claude, included with Pro, Max, Team and Enterprise plans; not sold as a component
+**Full battlecard:** `research/competitors/Claude Docs.md`
+
+Not a rich text editor vendor and not a head-to-head competitor. Added to this document because it competes for the same internal budget and, in accounts with an Anthropic contract, can prevent a project from ever being scoped as "embed an editor in our internal app."
+
+#### What it is
+
+A collaborative rich-text editor [inside the Claude app](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs), launched in beta on **16 September 2026** alongside Claude Slides, as part of folding Cowork into Claude chat. Claude drafts the document, asks clarifying questions, and leaves comments explaining its choices. People edit alongside it in real time.
+
+#### Why it belongs in this document
+
+The buying pattern it threatens is different from the other eight. Nobody evaluates Claude Docs against CKEditor on a feature matrix. The risk is upstream of that: a company with a large Anthropic contract decides Claude Docs covers internal content work, and the internal application that would have embedded CKEditor AI never gets built.
+
+Compare it to SharePoint or Word 365, not to TinyMCE. The buyer is not choosing an editor — they are choosing not to need one.
+
+#### Capability summary
+
+Verified directly against the Claude Docs connector on 23 September 2026, not from press coverage.
+
+| Area | Status |
+|---|---|
+| Content model | Tabs with nesting, prose, tables, live charts, Mermaid diagrams, LaTeX, CSV grids, uploads, and dropdown columns backed by shared option sets |
+| Real-time collaboration | **Yes** — per-author attribution, content-hash conflict handling where the human edit wins |
+| Comments | **Yes** — anchored to text ranges, threaded, resolvable, @Claude addressable |
+| Version history | **No UI** — but the revision store, past-revision reads and a restore operation all exist underneath |
+| Track changes / suggestion mode | **No** |
+| Comment-only role | **No** |
+| Agent / programmatic authoring | **Yes** — fully driveable over MCP by any Claude client |
+| Embeddable in a product | **No** — structural |
+| Custom plugins or schema | **No** — structural |
+| Model choice | **No** — Claude only |
+| External sharing | **No** on Team/Enterprise; link sharing on Pro/Max |
+| Export | Word, PDF, Markdown, Google Docs |
+| Regulated deployments | **Unavailable** to CMEK, ZDR and HIPAA-ready orgs |
+| Audit | Doc-level events only; in-doc edits and comments not yet in the Compliance API |
+| Reader access | Every reader needs a Claude account; not on Free |
+
+#### The two findings that matter
+
+1. **Claude Docs is agent-writable.** Documents can be created, filled, charted, commented on and maintained programmatically over MCP, with no human in the editor. An internal workflow where an agent drafts and people review works today with zero engineering. That is a genuine substitute for a project we would have scoped as an embed.
+2. **Version history is a UI gap, not an architectural one.** The revision data and a restore operation already exist. Do not build a pitch on its absence.
+
+#### Where CKEditor still wins, structurally
+
+The document cannot be embedded in a product, white-labeled, shown to end users, extended with custom elements, governed by the customer's own identity and audit systems, or run on a model the customer chooses. Export produces a disconnected copy. These follow from the architecture and will not change with a beta update.
+
+#### The battlecard argument
+
+> Claude Docs is where your team writes. CKEditor AI is where your product writes. If the document is something a person emails, Claude Docs is fine and cheaper than us. If the document is something your system owns — with an ID, a workflow state, an approver and an audience outside your Claude org — it has to live in your application, and that application needs an editor.
+
+An Anthropic contract is a reason to sell harder, not to retreat. It funds internal applications, and Claude Docs cannot be embedded in them.
+
+#### Watch triggers
+
+Escalate on any embeddable or white-label surface — that would make Claude Docs a direct competitor. Also watch for suggestion mode, a comment-only role, CMEK/ZDR/HIPAA support, and an equivalent from OpenAI or Google. Full trigger table in the battlecard.
+
+---
+
 ## Head-to-Head Comparison
 
 ### Feature Matrix
@@ -4452,7 +5049,7 @@ The framing is accurate on the facts and unflattering in the aggregate — it re
 | **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ | ❓ Not confirmed |
 | **Track changes** | ✅ | ✅ | ❌ | ⚠️ Limited | ❌ | ✅ | ❌ | ❓ Not confirmed |
 | **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ | ❓ Not confirmed |
-| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ⚠️ Basic chat + Quick Actions; AI Toolkit (beta) for developers | ❌ | ❌ | ✅ AI Assist plugin (5.4) | ❌ | ✅ Built-in (chat, autocomplete, tone) |
+| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ⚠️ Basic chat + Quick Actions; AI Toolkit (beta label removed Sept 2026) for developers | ❌ | ❌ | ✅ AI Assist plugin (5.4) | ❌ | ✅ Built-in (chat, autocomplete, tone) |
 | **Dedicated AI Review mode** | ✅ 5 checks + custom | ✅ 5 types + custom | ❌ `proofread` tool only | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **Dedicated AI Translate mode** | ✅ 10 languages + configurable | ❌ Quick Action only | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **Custom LLM support** | ✅ Any OpenAI-compatible endpoint (on-prem) | ✅ 7 provider types (on-prem) **[corrected]** | ✅ Any text-capable model via AI Toolkit (no end-user picker) | ❌ | ❌ | ✅ | ❌ | ✅ (BYOK tier) |
@@ -4488,7 +5085,7 @@ The framing is accurate on the facts and unflattering in the aggregate — it re
 |--------|----------|------------|------------|---------|
 | **CKEditor** | Chat, 5-check Review + custom, Quick Actions, dedicated 10-language Translate; context injection; multi-root/multi-editor; front-end + REST + server-side headless APIs; MCP | ✅ Any OpenAI-compatible endpoint on-prem | ✅ Full — RBAC, MCP, per-tier model routing, usage analytics with OTel/Langfuse export | **Strong** |
 | TinyMCE | Chat (history, file/URL context, web search, reasoning), Review (5 types + custom), Quick Actions (customizable), MCP, AI edit attribution. Classic-mode only; no dedicated Translate mode | ✅ **[corrected]** 7 provider types documented on-prem; marketing still says early access | ✅ JWT-based RBAC; custom prompts/actions; usage tracking and quotas; limited UI override | **Strong — near parity** |
-| Tiptap | Basic in-editor chat + Quick Actions, plus AI Toolkit (**still beta** as of Sept 2026): server-side agents, AI edits as tracked changes. No AI Review or Translations mode, no file/URL context, no chat history, no MCP | ✅ Any text-capable model, any framework | ⚠️ Headless — total control, and you build the entire AI UI | **Toolkit, not a product** |
+| Tiptap | Basic in-editor chat + Quick Actions, plus AI Toolkit (**beta label removed Sept 22, 2026; no GA announcement**): server-side agents, AI edits as tracked changes — but Tracked Changes itself is still pre-1.0. No AI Review or Translations mode, no file/URL context, no chat history, no MCP | ✅ Any text-capable model, any framework | ⚠️ Headless — total control, and you build the entire AI UI | **Toolkit, not a product** |
 | Quill | None | ❌ | ❌ | **None** |
 | ProseMirror | None | ❌ | ❌ | **None** |
 | Froala | **AI Assist 5.4 (Aug 2026):** docked side-panel chat, AI Improve Writing as accept/reject edits, Quick Actions, tone, translation; LLM-agnostic. No Review or Translate mode, no context injection, no confirmed history | ✅ (customer-controlled backend) | ⚠️ Limited — custom tone presets, programmatic API, response interception; no RBAC or analytics | **Moderate — rising** |
@@ -4592,7 +5189,226 @@ Neither describes CKEditor AI as it exists in September 2026: Chat with threaded
 
 **Sweep log — September 7, 2026.** Verified: TinyMCE changelog through 8.9.0 (Aug 31) — no AI changes after 8.7; TinyMCE on-premises LLM provider and getting-started docs; TinyMCE AI models page; Tiptap release notes (latest: Search and Replace, Aug 6) and pricing page; Tiptap AI Toolkit overview — still beta, Shorthand still alpha; Froala 5.4.0 (Aug 19); Eddyter and RichTextEditor comparison content. Not reachable: froala.com blog and changelog returned HTTP 403, so Froala 5.4 detail comes from search result excerpts and their release post title rather than a direct read — **re-verify Froala 5.4 against the source before using it in a customer-facing document.**
 
-**Next sweep due:** November 2026 — earlier if TinyMCE ships 8.10 or Tiptap takes AI Toolkit to GA.
+**Sweep log — September 23, 2026.** Verified: Claude Docs help centre and the Claude Docs connector's own tool surface and capability documentation (first-hand); Anthropic launch coverage in VentureBeat, Axios and Computerworld; Claude release notes through Sept 22. TinyMCE release notes index plus 8.9.0 (Aug 31) and 8.9.1 (Sep 9) release pages, with 8.9.2 in documentation review. Tiptap live AI Toolkit overview — beta label gone, Shorthand now beta; tiptap-docs PR #1012 (open, not merged) declaring AI Toolkit and Client AI Toolkit stable; Tracked Changes docs — still pre-1.0. Quill GitHub releases — latest 2.0.3, Nov 30 2024, no 2025–2026 activity. Eddyter RTC roadmap content and third-party pricing teardown. RichTextEditor `/compare/ckeditor` — unchanged, still no customers or certifications beyond a WCAG 2.2 AA accessibility checker.
+
+Not reachable: froala.com blog and changelog still return HTTP 403, so Froala 5.4.0 (Aug 19) detail continues to come from search excerpts rather than a direct read. **The re-verify action from September 7 is still open** — do not use Froala 5.4 detail in a customer-facing document until someone reads the source.
+
+**Open actions carried forward:** TinyMCE BYO-LLM early-access question (open since Sept 7, now overdue); Froala 5.4 source verification; Eddyter RTC verification (new); RichTextEditor verification (open since Sept 7).
+
+**Next sweep due:** November 2026 — earlier if any of these land: TinyMCE 8.10, a Tiptap AI Toolkit GA announcement or Tracked Changes 1.0, Eddyter shipping real-time collaboration, or Claude Docs gaining version history, suggestion mode, or any embeddable surface.
+
+
+================================================================
+FILE: ./research/competitors/Claude Docs.md
+================================================================
+
+# Claude Docs: how sales should frame it
+
+**Last updated:** September 23, 2026 — promoted from a first-look note to a tracked competitor. Added a verified capability inventory taken directly from the Claude Docs connector (first-hand, not press coverage), a corrected read on version history, and the agent-surface finding that changes the sharpest line in the pitch. The original strategic framing below is unchanged and still holds.
+**Status:** Substitute, not a head-to-head competitor. Track quarterly.
+
+> ⚠️ **One claim from the first draft needs retiring.** "No version history" is true of the interface and false of the architecture. The document store keeps every revision, serves reads at any past revision, and exposes a restore operation. Version history is a UI gap Anthropic can close in a release. Do not build the pitch on it. See [What we verified](#what-we-verified-first-hand).
+
+---
+
+## What it is
+
+Anthropic released [Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs) in beta on 16 Sep 2026 ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides)), a rich-text editor inside Claude. Claude drafts the doc, asks clarifying questions first and leaves comments explaining its choices; colleagues can edit alongside it in real time. Docs sit in the Artifacts tab of the owner's Claude account, and the editor itself can hold tabs, tables and charts (and other components).
+
+* **Sharing** ([help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_ae5fbf45f7)). Private by default. On Team and Enterprise you can share with people, groups or the whole org, but not outside the org yet. On Pro and Max anyone with the link can open it. Every reader needs a Claude account. Access is viewer or editor; there is no comment-only role.
+
+* **Export** ([help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_9920271284)). Word (.docx), PDF, Markdown, Google Docs. You can also ask Claude to turn a doc into a deck with Claude Slides.
+
+* **Availability.** Pro, Max, Team and Enterprise; not Free. On Enterprise it is [off by default](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_0d542c911e) until an owner turns it on, and Enterprise custom roles can enable it for specific groups. Orgs on CMEK, ZDR or a HIPAA-ready configuration can't use it yet.
+
+* **Known limitations** ([help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_2c226ed01d)). Version history "isn't available yet", in-doc edits and comments are "not yet" in the Compliance API, charts don't auto-update, mobile is view-only.
+
+The same release folded Cowork into Claude chat and launched Claude Slides ([Axios](https://www.axios.com/2026/09/16/anthropic-claude-docs-microsoft)). Anthropic is merging chat, Cowork and Artifacts into one interface ([Computerworld](https://www.computerworld.com/article/4223177/anthropic-tries-to-make-claude-stickier-with-launch-of-docs-and-slides.html)).
+
+---
+
+## What we verified first-hand
+
+The first draft closed with "we'll run a deeper capabilities check via the Solutions team." Part of that check is done. The findings below come from the Claude Docs connector itself — its own tool surface and capability documentation, read directly on **23 Sep 2026** — not from the help centre or press. They describe the beta as it stands today.
+
+### Content model
+
+Richer than "a rich-text editor." What a Claude doc can hold:
+
+| Element | Detail |
+|---|---|
+| Tabs | Multiple tabs per doc, orderable, with nested sub-tabs |
+| Prose | Headings, paragraphs, bullet/ordered/checkbox lists, links |
+| Tables | Pipe tables with row and column operations, cell-level addressing |
+| Charts | Live chart widgets with a declarative grammar — bar, line, area, point, tile/heatmap; dual axes; grouped, stacked and faceted series; annotations; KPI stat tiles; sparkline tables |
+| Diagrams | Mermaid blocks — flowcharts, sequence, state diagrams |
+| Formulas | LaTeX blocks |
+| Data | CSV blocks rendered as read-only grids; file and image uploads |
+| Chips | @mentions of people, cross-tab and cross-doc links, date chips, and **dropdown columns backed by shared option sets** — enough to build a status tracker |
+
+That dropdown-column capability matters. It puts Claude Docs closer to a lightweight Notion page than to a Word document, and it covers a slice of internal workflow tooling teams would otherwise build.
+
+### Collaboration
+
+- Real-time co-editing with per-author attribution.
+- Comments anchored to text ranges, with threads, replies and resolve.
+- @Claude inside a thread, with the system tracking whether Claude has already answered.
+- Limits: 1,000 threads per doc, 100 comments per thread, 4,096-byte comment bodies.
+- Conflict handling is serious. Every block carries a content hash; a write against a stale hash is refused, and the human edit wins. Comments detach rather than break when the text they hang on is removed.
+
+This is real collaborative-editing engineering, not a veneer. Do not pitch against it as if it were flaky.
+
+### Revision data exists
+
+The store keeps numbered revisions per document, serves a read of any past revision, and exposes a restore operation that rewinds a tab. The help centre is accurate that *version history* is not in the product. The substrate for it is already built.
+
+**What this means:** treat version history as a feature Anthropic can ship whenever they choose the UI, not as an architectural gap. Reps should stop leading with it.
+
+### Claude Docs is agent-writable
+
+The finding that most changes our pitch. Claude Docs is fully driveable over MCP. An agent can create documents, add and nest tabs, insert and rewrite blocks, build charts from uploaded CSVs, post and resolve comments, and read the doc back — programmatically, with no human in the editor.
+
+So "Claude writes into a document" is not confined to a person chatting in the Claude app. Any Claude client — Claude chat, Claude Code, a scheduled agent — can author and maintain Claude Docs as a background process.
+
+**Why it cuts both ways:**
+
+- **Against us:** an internal workflow where an agent drafts and maintains documents, and people review them, works today with zero engineering. That is a real substitute for a project we would otherwise scope as "embed CKEditor AI in the internal app."
+- **For us:** the output still lands inside Anthropic's app. It cannot be embedded in a product, shown to end users, styled, or governed by the customer's own systems. The agent story is portable; the surface is not.
+
+---
+
+## Where it sits on the market
+
+Claude Docs and CKEditor sit in different corners of the market.
+
+* **Them (Claude Docs):** the provider's environment. Lives inside Anthropic's app, similar to Google Docs and Notion.
+
+* **Us (CKEditor):** your environment. Data on your servers, your processes, your plugins (custom rich-text elements in the editor). The editor a company builds into its products.
+
+It's not that we don't affect each other; we're more like substitutes than direct competitors. Claude Docs would compete with us the way SharePoint or Word 365 does: the buyer isn't choosing CKEditor, they're choosing an alternative solution for managing content.
+
+---
+
+## Differences to tap into
+
+1. **Closed environment.** The doc lives in Anthropic's app, so identity, permissions, storage, and audit are Anthropic's, and every reader needs a Claude account. Our buyers need the editor inside their product, on their infrastructure, under their governance. Today Claude Docs is unavailable to CMEK, ZDR and HIPAA orgs and does not log in-doc activity to the Compliance API ([known limitations](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_2c226ed01d)). *\[For now, we need to assume it will happen later.\]*
+
+2. **Sharing stops at the workspace.** A doc can be shared with people in the Claude org or exported as a file. It cannot be embedded in a product, white-labeled, or shown to a customer's own end users. Export gives you a copy; nothing stays connected.
+
+3. **Fixed feature set.** You get what Anthropic ships. There are no custom plugins and no control over the content model, schema or workflow-specific behavior. Our segment is business-critical rich-text workflows, and those always need customization. **[strengthened]** The content model is broader than the first draft assumed — tabs, charts, diagrams, status columns — but it is still closed. You cannot define a clause element, a merge field, a claim-number block, or any schema the workflow needs.
+
+4. **One vendor, one model.** Claude Docs runs on Claude only. Our customers choose their model, and some run it on-prem or inside the EU.
+
+5. **Collaboration depth.** It has real-time co-editing, anchored comments with threads (you can @Claude in one) and per-author attribution of changes. It has no version history **in the UI**, no track changes or suggestion mode, no comment-only role and no reviewable diffs. Regulated document workflows need those, and that is where our roadmap goes. **[corrected]** Lead on suggestion mode and the comment-only role. Do not lead on version history — see the warning at the top.
+
+6. **Seat-gated readership. [new]** Every reader needs a Claude account, and Claude Docs is not on Free. A doc that 500 people in the company need to read is 500 Claude seats. An internal app built on CKEditor serves everyone who can log into the app.
+
+---
+
+## Structural vs. temporary
+
+**Structural — architecture, will not change with a beta update:**
+
+- Points 1 to 4 above. The doc lives in Anthropic's environment, cannot be embedded, cannot be extended, runs on Claude.
+- Point 6, the seat wall, follows from point 1.
+
+**Temporary — marked "yet" by Anthropic, or already built underneath:**
+
+- Version history. The revision store and restore already exist. Assume this ships.
+- External sharing, CMEK/ZDR/HIPAA support, in-doc Compliance API events, mobile editing, auto-updating charts. All flagged "not yet" in the [help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_2c226ed01d).
+
+Build the pitch on the structural list only.
+
+---
+
+## How sales should think about it
+
+* **Treat it as proof of the category.** Anthropic decided the document editor is where AI output lands. That is the same claim we make when we sell the editor as the AI surface inside a customer's product.
+
+* **The objection.** When a prospect asks why not use Claude Docs, ask whether they would build their product on Google Docs. It works for internal memos and fails as a product component.
+
+* **Internal applications, especially where there is an Anthropic deal.** Large companies with a big Anthropic contract will build internal applications around Claude. That is where CKEditor's *Editing Toolkit* fits: the editor inside those applications, with Claude reading and writing the content through MCP (the KPMG/PwC pattern). An Anthropic deal is a reason to sell us harder, because Claude Docs cannot be embedded in those applications.
+
+* **Where it does bite.** Teams that need internal AI docs and nothing embedded, which we don't win regardless. And large accounts where an existing AI-provider contract shapes the decision: they standardize on the provider's stack and settle for Claude Docs (and soon an OpenAI equivalent?) for internal use.
+
+  We lose those on the contract, not on features, so the *pitch there is the previous point*: the frontier-lab contract funds internal applications, and those applications need a more advanced rich text editor, the possibility to build custom features, general data storage, and custom workflows. Even if they assume everyone will work from Claude. We can make this happen with the best real-time collaboration text editor.
+
+---
+
+## The internal-workflow question
+
+The sharpest version of the risk: a company with an Anthropic contract decides Claude Docs covers internal content work, so it never scopes the project that would have embedded CKEditor AI. Here is where that decision holds and where it breaks.
+
+### Claude Docs genuinely covers this
+
+- Memos, research write-ups, plans, status docs and meeting notes that Claude drafts and a team edits.
+- Lightweight trackers — a table with status dropdowns, owners and dates.
+- Analysis docs with charts built from an uploaded CSV.
+- Anything whose endpoint is a .docx or PDF someone emails out.
+- Agent-maintained documents: a weekly report an agent rewrites on a schedule.
+
+We do not win this work, and we should not spend cycles trying. It is the Google Docs and Notion budget, not ours.
+
+### It breaks when the document is part of a system
+
+Qualify with these. Any "yes" means Claude Docs cannot be the answer:
+
+1. **Is the document a record?** Does it carry an ID, a workflow state, an approval chain, or a link to a case, claim, policy, contract or patient? Records live in the system of record, and the editor has to live there too.
+2. **Does anyone outside the Claude org need to read or sign it?** Customers, applicants, patients, counsel, auditors, regulators. Team and Enterprise docs cannot be shared outside the org, and every reader needs a Claude account.
+3. **Does review need suggestion mode?** Proposed edits that a named approver accepts or rejects, with an audit trail. Claude Docs has comments, not tracked changes.
+4. **Do reviewers need comment-only access?** External counsel and auditors must not be able to edit. There is no comment-only role.
+5. **Is the org on CMEK, ZDR or HIPAA-ready?** Then Claude Docs is unavailable to them today.
+6. **Does in-doc activity need to be auditable?** Edits and comments are not yet in the Compliance API.
+7. **Does the content need custom elements?** Merge fields, clause libraries, structured sections, product-specific blocks. The content model is Anthropic's and closed.
+8. **Must the content render inside the product?** In a portal, an email, a PDF template, a customer-facing page. Export gives a disconnected copy.
+9. **Is the model choice constrained?** EU residency, on-prem inference, a non-Anthropic model, or a mix. Claude Docs runs on Claude only.
+10. **How many people need to read it?** Wide internal readership means a Claude seat each.
+
+### The line to use
+
+> Claude Docs is where your team writes. CKEditor AI is where your product writes. If the document is something a person emails, Claude Docs is fine and cheaper than us. If the document is something your system owns — with an ID, a state, an approver and an audience outside your Claude org — it has to live in your application, and that application needs an editor.
+
+---
+
+## Watch list
+
+Revisit this file if any of these land. The first three would each remove a line we currently use.
+
+| Trigger | What it would change |
+|---|---|
+| Version history ships in the UI | Drop it from the pitch entirely. Already expect this. |
+| Suggestion mode / tracked changes ships | Removes our strongest collaboration-depth argument. Escalate. |
+| Comment-only role ships | Removes the external-reviewer objection. |
+| CMEK / ZDR / HIPAA support ships | Opens regulated accounts that are closed to it today. |
+| In-doc events reach the Compliance API | Removes the audit objection. |
+| External sharing on Team/Enterprise | Weakens the "stops at the workspace" point, but not the embedding point. |
+| **Any embeddable or white-label surface** | **Structural change. This would make Claude Docs a direct competitor. Escalate immediately.** |
+| An OpenAI or Google equivalent ships | The pattern generalizes; rewrite the framing as provider-stack lock-in. |
+
+---
+
+## Still open for the Solutions team
+
+The connector check answered the capability questions. These need a hands-on account:
+
+- What a Team/Enterprise admin actually sees — audit surface, retention, export, eDiscovery, DLP.
+- Whether doc content is reachable through the Compliance API today, even at doc level.
+- Real behaviour of concurrent human + Claude editing in a doc with 5–10 active editors.
+- Whether Claude Docs consumes usage/credits against the org's plan, and how that scales.
+- Enterprise pricing of the seats needed for read-only access.
+
+---
+
+## Sources
+
+| Source | Checked |
+|---|---|
+| [Get started with Claude Docs — help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs) | 23 Sep 2026 |
+| Claude Docs connector — tool surface and capability docs, read directly | 23 Sep 2026 |
+| [VentureBeat — Cowork folded into Claude, Docs and Slides launch](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides) | 16 Sep 2026 |
+| [Axios — Anthropic debuts Claude Docs](https://www.axios.com/2026/09/16/anthropic-claude-docs-microsoft) | 16 Sep 2026 |
+| [Computerworld — Anthropic launches Docs and Slides](https://www.computerworld.com/article/4223177/anthropic-tries-to-make-claude-stickier-with-launch-of-docs-and-slides.html) | 16 Sep 2026 |
+| [Claude Compliance API — platform docs](https://platform.claude.com/docs/en/manage-claude/compliance-api) | 23 Sep 2026 |
 
 
 ================================================================
@@ -4601,7 +5417,7 @@ FILE: ./research/competitors/ckeditor-vs-tinymce.md
 
 # CKEditor vs. TinyMCE
 
-**Last updated:** September 7, 2026 — re-verified against the changelog through 8.9.0 and the on-premises AI docs. Two corrections since August: TinyMCE 8.7 shipped **June 30, 2026** (the August file said July 15, which is 8.8.0's date), and **the BYO-LLM "early access" distinction no longer looks safe** — see the September addendum. Everything else in the August verification still holds. See [Verified TinyMCE Updates](#verified-tinymce-updates-august-2026) at the end of this file.
+**Last updated:** September 23, 2026 — re-checked against the changelog through 8.9.1 and the 8.9.2 documentation in preparation. **No strategic change since September 7:** 8.9.0 (Aug 31) and 8.9.1 (Sep 9) are polish and bug fixes, not new capability. The BYO-LLM question flagged on September 7 is **still open and still the top priority**. See the [September 23 re-check](#september-23-2026-re-check--maintenance-only) at the end of this file. (Prior: September 7 — 8.7 date corrected to June 30, 2026; BYO-LLM early-access distinction judged unsafe.)
 **Source:** Extracted from `research/competitive-analysis.md`
 
 > ⚠️ **The April 2026 version of this file overstated CKEditor's position on seven points.** Rows marked **[corrected]** below were wrong or stale — including three claims a rep should stop making immediately: that TinyMCE has no MCP integration, no self-hosting, and no on-premises AI. All three are false as of TinyMCE 8.7 (July 15, 2026). Every correction is sourced in the addendum.
@@ -4707,7 +5523,7 @@ That history is the argument. Tiny shipped RTC, learned what it costs to run, an
 | Dedicated AI Translate mode | ✅ Full document in one pass, 10 built-in languages plus configurable ones, original held in the sidebar for segment-by-segment review | ❌ Translation is a Quick Action only — **the clearest remaining AI feature gap** |
 | Context injection (files, URLs) | ✅ Documents, URLs, reference content | ✅ PDF, DOCX, images, MD, HTML, text; URLs; custom external sources |
 | Model support | ✅ OpenAI, Anthropic, Google Gemini + Auto | ✅ OpenAI (GPT-5.5/5.4/5.2/5.1/5, GPT-4.1), Anthropic (Opus 4.8/4.7, Sonnet 4.6/4.5, Haiku 4.5), Google (Gemini 3.1 Pro, 3.5/3/2.5 Flash) + `agent-1` auto |
-| Bring your own LLM | ✅ GA on-premises — your own OpenAI/Anthropic/Google keys, Amazon Bedrock, Azure OpenAI, Google Vertex AI, or any OpenAI API-compatible endpoint; server-side models appear in the editor's model selector automatically | ⚠️ **[narrowed Sept 2026]** Marketing says early access. Docs describe seven provider types — `openai`, `anthropic`, `google`, `azure`, `bedrock`, `vertex`, `openai-compatible` — with no gating notice. **Do not lead with the GA-vs-early-access distinction until confirmed** |
+| Bring your own LLM | ✅ GA on-premises — your own OpenAI/Anthropic/Google keys, Amazon Bedrock, Azure OpenAI, Google Gemini Enterprise, or any OpenAI API-compatible endpoint; server-side models appear in the editor's model selector automatically | ⚠️ **[narrowed Sept 2026]** Marketing says early access. Docs describe seven provider types — `openai`, `anthropic`, `google`, `azure`, `bedrock`, `vertex`, `openai-compatible` — with no gating notice. **Do not lead with the GA-vs-early-access distinction until confirmed** |
 | Custom prompts / commands | ✅ Custom Quick Actions via `extraCommands` — id, label, prompt, delivery type; `removeCommands` for built-ins; `AIActions#executeAction()`. Custom Reviews supported. | ✅ Custom Quick Actions via config; Custom Reviews via API (8.7) |
 | RBAC for AI features | ✅ Per-user, per-tier, per-feature | ✅ JWT-based — per-user, per-model, per-provider, per-feature |
 | Web search in AI | ✅ | ✅ |
@@ -4900,6 +5716,36 @@ The only early-access language sits in their marketing and roadmap content, whic
 
 ---
 
+## September 23, 2026 re-check — maintenance only
+
+Checked September 23, 2026 against the TinyMCE release notes index and the 8.9.0 and 8.9.1 release pages. **Nothing here changes a battlecard row.** Two releases shipped since the last sweep, both incremental.
+
+### Releases since the last check
+
+| Version | Date | Substance |
+|---|---|---|
+| 8.9.0 | Aug 31, 2026 | Resizable sidebars (`sidebar_width`, `sidebar_min_width`, `sidebar_max_width`, plus `SidebarResizeStart` / `SidebarResized` events). Comments sidebar now 440px by default and resizable, with `tinycomments_always_show_highlights`. TinyMCE AI gains external review commands (`TinyMCEAIReviewProofread`, `TinyMCEAIReviewCustom`), default context sources via `tinymceai_chat_fetch_sources`, better error messages and scroll-position preservation. |
+| 8.9.1 | Sep 9, 2026 | Premium plugin fixes only, no core changes. `body_class` / `body_id` now applied to preview iframes in AI Assistant, TinyMCE AI, Revision History and Suggested Edits; stylesheet precedence fixes; sidebar scrollbar fix. |
+| 8.9.2 | In preparation (~Sep 22–23) | Documentation in review. Known content: a diff API fix where identical tables were reported as replacements because of input whitespace. |
+
+### The one item worth noting
+
+The 8.9.0 AI review commands (`TinyMCEAIReviewProofread`, `TinyMCEAIReviewCustom`) let an **external interface** trigger a review. That is a small step toward the programmatic and headless AI control we sell as a CKEditor differentiator. It is a command API for an existing in-editor feature, not a server-side or REST surface, so the differentiator holds — but this is the direction to watch in 8.10.
+
+### Still open, still the priority
+
+The BYO-LLM question from September 7 is unresolved. The on-premises AI provider docs remain fully documented with no early-access notice, while Tiny's marketing and roadmap content still carries early-access language. **Do not use GA-vs-early-access as a differentiator until someone confirms the gating is real.** This needs a direct check with Tiny's sales or a trial signup, and it has now been open for over two weeks.
+
+### Revised action items
+
+1. **Resolve the BYO-LLM question.** Unchanged, and now overdue. Assign it.
+2. **Lead with real-time collaboration and the dedicated AI Translate mode.** Both survived this sweep unchanged.
+3. **Re-check with 8.10.** Tiny's cadence has slowed from the 8.7–8.9 burst to point releases; 8.10 is the next meaningful trigger.
+
+**Sources added:** [TinyMCE 8.9.0 release notes](https://www.tiny.cloud/docs/tinymce/latest/8.9.0-release-notes/) · [TinyMCE 8.9.1 release notes](https://www.tiny.cloud/docs/tinymce/latest/8.9.1-release-notes/) · [TinyMCE release notes index](https://www.tiny.cloud/docs/tinymce/latest/release-notes/)
+
+---
+
 *For the full competitive landscape across all editors, see `research/competitive-analysis.md`. For persona-level messaging, see `brand/personas/`.*
 
 
@@ -4909,7 +5755,7 @@ FILE: ./research/competitors/ckeditor-vs-tiptap.md
 
 # CKEditor vs. Tiptap
 
-**Last updated:** September 7, 2026 — re-checked against Tiptap's release notes, pricing page, and AI Toolkit docs. Nothing in the July corrections has changed: AI Toolkit is **still beta**, Tiptap Shorthand is **still alpha**, Tracked Changes is **still pre-1.0**. Two additions: a Search and Replace release (Aug 6) and AI Toolkit / Tracked Changes moving to custom pricing. See [Verified Tiptap Updates](#verified-tiptap-updates-july-2026) and the September addendum at the end of this file.
+**Last updated:** September 23, 2026 — **the September 7 conclusion has expired.** Tiptap's AI Toolkit dropped its beta label in the week of Sep 22; Tiptap Shorthand moved alpha → beta; AI Toolkit streaming moved alpha → beta. Tracked Changes is **still pre-1.0**. Stop using the "beta since July, components still alpha" timeline argument. See the [September 23 re-check](#september-23-2026-re-check--ai-toolkit-leaves-beta) at the end of this file. (Prior: September 7 — nothing had moved; Search and Replace Aug 6; AI Toolkit / Tracked Changes moved to custom pricing.)
 **Base:** https://ckeditor.com/ckeditor-vs-tiptap/ — this battlecard was transcribed from the published page and still mirrors it everywhere except the rows listed in the addendum.
 
 > ⚠️ **The public page is now out of date on three points.** The rows marked **[updated]** below reflect what Tiptap actually ships as of July 2026; the live page still shows the old values. Until the web team updates the page, a prospect reading it will see claims a rep should not repeat. Use this file, not the page, on those three topics. Everything unmarked still matches the page.
@@ -5381,7 +6227,58 @@ No dedicated AI Review mode, no AI Translations mode, no file or URL context, no
 
 ---
 
-*Transcribed from https://ckeditor.com/ckeditor-vs-tiptap/ in July 2026, with rows corrected against verified Tiptap releases on July 27, 2026 and re-verified September 7, 2026. For the broader analytical landscape across all editors, see `research/competitive-analysis.md`. For AI-only detail, see `features/ckeditor ai/AI-competitive-comparison.md`.*
+## September 23, 2026 re-check — AI Toolkit leaves beta
+
+Checked September 23, 2026 against the live AI Toolkit docs, the Tiptap docs repository, and the Tracked Changes documentation. **Sixteen days after we concluded "nothing moved," Tiptap moved.**
+
+### What changed
+
+| Component | Sep 7 status | Sep 23 status |
+|---|---|---|
+| AI Toolkit | Beta | **Beta label removed from the live docs** |
+| Client AI Toolkit | Beta | **Beta label removed from the live docs** |
+| AI Toolkit streaming | Alpha | **Beta** |
+| Tiptap Shorthand | Alpha | **Beta** |
+| Tracked Changes | Pre-1.0, unstable | Pre-1.0, unstable — **unchanged** |
+
+The [live AI Toolkit overview](https://tiptap.dev/docs/ai/ai-toolkit/overview) no longer carries a beta badge on the toolkit itself. The only beta marker left on that page is on Tiptap Shorthand, which was alpha when we checked on September 7.
+
+**One caveat, and reps should hold it.** The documentation change that formally declares AI Toolkit and Client AI Toolkit *stable* is [PR #1012](https://github.com/ueberdosis/tiptap-docs/pull/1012) in Tiptap's docs repo, and as of September 23 that PR is **open, not merged**. Tiptap has not published a GA announcement or a release-notes post. So the accurate statement is that the beta label is gone from the product docs and a stable declaration is queued — not that Tiptap has announced GA.
+
+### What to stop saying
+
+Retire the timeline argument built on September 7. "Beta since July, two components still alpha in September" is no longer true and a prospect who reads the docs will catch it. Retire it this week.
+
+### What still holds
+
+Everything in the capability gap is unchanged. Tiptap still has:
+
+- No dedicated AI Review mode and no AI Translations mode
+- No file or URL context, no chat history
+- No per-feature AI RBAC, no MCP
+- No shipped AI UI — the integrator builds every toolbar, panel and dialog
+- No end-user model picker
+- **Tracked Changes still pre-1.0**, with Tiptap's own docs stating versions below 1.0.0 are expected to be unstable
+
+Pricing is unchanged: AI Toolkit and Tracked Changes are both custom-quoted, the launch promotion closed August 15, and there is no free plan.
+
+### The revised argument
+
+The maturity-timeline line is gone, so lead with the two that are stronger and durable:
+
+1. **Tracked Changes is the load-bearing piece and it is still pre-1.0.** Tiptap's AI writes its edits as tracked changes. Their AI story is now labelled ready while the mechanism it depends on is documented by Tiptap as unstable. That is the sharper version of the old timeline argument, and it survives a GA announcement.
+2. **Toolkit versus product.** A stable toolkit is still a toolkit. They ship tools; we ship Review, Translations, chat history, context, permissions and the UI.
+
+### Revised action items
+
+1. **Brief reps this week.** The "still beta" line is dead. Anyone running it into a call will be corrected by the prospect.
+2. **Watch for the GA post.** PR #1012 merging, or a release-notes entry, is the trigger to re-check the feature gap properly — a GA usually arrives with new capability, and we have only verified the labels.
+3. **The public page is still wrong.** https://ckeditor.com/ckeditor-vs-tiptap/ has now been inaccurate on Find and Replace, Track Changes, and AI for nine weeks. This is the third consecutive re-check flagging it. Escalate.
+4. **Re-check October 2026** — Tracked Changes 1.0 is the trigger that matters now.
+
+---
+
+*Transcribed from https://ckeditor.com/ckeditor-vs-tiptap/ in July 2026, with rows corrected against verified Tiptap releases on July 27, 2026, re-verified September 7, 2026, and re-checked September 23, 2026. For the broader analytical landscape across all editors, see `research/competitive-analysis.md`. For AI-only detail, see `features/ckeditor ai/AI-competitive-comparison.md`.*
 
 
 ================================================================
