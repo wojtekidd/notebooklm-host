@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-09-23 10:16 UTC
-Commit: ad7dd693c1a8f3c181cd22e958ba9ef1c284b348
-Files included: 29
+Last updated: 2026-10-05 12:51 UTC
+Commit: cbc96d0809c9140cd54f01e2fb9fb57951a405b9
+Files included: 30
 ================================================================
 
 
@@ -3777,6 +3777,95 @@ and almost nothing under 200.
 
 Caution: `NumberOfEmployees` is whole-company ZoomInfo data, not the size of the
 team using the editor. A 273,000-employee account may have 30 people in it.
+
+
+================================================================
+FILE: ./research/2026-09-28-ckeditor-ai-docs-rewrite-messaging-gap.md
+================================================================
+
+# CKEditor AI docs rewrite vs. our messaging
+
+**Date:** 2026-09-28
+**Source:** [CKEditor AI Cloud Services docs](https://ckeditor.com/docs/cs/latest/guides/ckeditor-ai/overview.html). All 28 pages were read.
+**Compared against:** positioning source of truth, AI layer value map, three-layer deck and challenge scenarios, landing pages, blogs, internal product guide, AI governance answer bank, personas.
+
+## TL;DR
+
+- The docs call CKEditor AI **an agent you extend**.
+- Our materials call it **an AI layer** that we split into features and layers and sell on governance.
+- Most facts still match. The framing, the vocabulary and several specific claims have moved.
+
+## 1. Framing
+
+| | Our materials | New docs |
+|---|---|---|
+| What it is | "AI content layer", "One infrastructure layer for trust, collaboration, and governance", "Bring AI where content happens" | "CKEditor AI turns your editor into **an agent** that reads, writes, and edits documents, and keeps your markup intact." |
+| Structure | Three layers (deck) or five layers (value map) | Four editor features, plus Document Processing, plus five extensions: Context library, Model providers, MCP tools, Hooks, Skills |
+| Lead argument | "Chat is parity. Governance is not." | What a general-purpose agent lacks: maintained CKEditor 5 compatibility, humans in the loop, **markup stays intact**, long-document support |
+| Proof | Stats, analyst figures, customer names | Technical numbers only. No marketing stats and no customer quotes |
+
+**Key tension:** our guardrail says "Avoid 'AI agents' as a capability claim". The docs use "agent" everywhere: the product is an agent, the default model is `Agent` (`agent-1`), and one use case is "Extend your agent".
+
+## 2. New concepts we don't message yet
+
+- **Skills:** the agent knows the markup behind CKEditor 5 features. This is our "editor feature understanding" under a new name.
+- **Hooks:** your service can Halt or Continue a chat turn. On-premises only. The docs pitch: "You keep your agent, and CKEditor AI does not replace it."
+- **Fragment responses:** only the changed elements come back. "You pay for fewer tokens and wait less time."
+- **`Agent` model + compatibility versions:** we move `Agent` to better models and your requests stay the same.
+- **Guardrails:** prompt injection and jailbreak protection, plus phrase blocklists.
+- **Per-user OAuth for MCP:** "Access is the user's own", "Actions are attributed".
+- **Five vertical use cases:**
+  - medical publisher style guide
+  - pharma clinical reports
+  - advisory firm deal agent
+  - law firm ethical walls
+  - regulatory filings
+
+## 3. Contradictions to fix
+
+| # | Topic | Our materials | Docs |
+|---|---|---|---|
+| 1 | MCP on SaaS | "On-premises only / SaaS support in progress", "Roadmap item", "Custom plan only" | Works "on SaaS and on-premises". "No deployment step is needed." |
+| 2 | EU data | "Inside your perimeter" framing | "An EU environment keeps your stored data in the EU, but model processing stays in the US." |
+| 3 | HIPAA | "HIPAA compliant" (CLAUDE.md), "out of the box", "Custom (HIPAA architecture)" | "Meets the requirements to support customers subject to HIPAA" (since May 2026) |
+| 4 | Training | Answer bank: don't assert no-training for cloud without checking | "We do not use customer data to train AI models." |
+| 5 | Human approval | "A person approves every change", "Nothing commits automatically" | Suggestions arrive as track changes. However, "CKEditor AI calls tools without asking the user", and guardrails and moderation "fail open" |
+| 6 | Headless | "Programmatic/headless API" | "Document Processing" ("no editor open"). The word "headless" never appears |
+| 7 | Google provider | "Google Gemini Enterprise" (Sep 17 commit) | "Google Vertex AI" |
+| 8 | Competitor names | Never in public content | `how-it-works` names Claude Code, Cursor and Codex |
+
+## 4. Where we agree
+
+- Feature names match: AI Chat, AI Quick Actions, AI Review, AI Translate. "AI Assistant" is gone from the docs.
+- BYO LLM is on-premises only (Azure OpenAI, Bedrock, Vertex AI, any OpenAI-compatible service).
+- Usage is credits-based, with overage on paid plans and no credit allowance on-premises.
+- The REST families match our value map: Conversations, Actions, Reviews, Document Processing.
+- MCP is backend integration setup, reached through Chat and Document Processing. Actions and Reviews don't use it.
+- SOC 2 Type 2: the docs say the service has been certified since January 2025.
+
+## 5. What we lead with that the docs omit
+
+- Marking AI-generated suggestions, and multi-root/multi-editor. These may live in the CKEditor 5 feature docs, which weren't checked.
+- RBAC framed as governance: "per-user, per-feature, per-model". The docs list the permission scopes as reference material only.
+- Insights Panel, OpenTelemetry/Langfuse.
+- Our "Always Use" phrases: "Bring AI where content happens", "Collaboration-ready", "1000 API methods".
+
+## 6. Recommended next steps
+
+1. **Decide on "agent".** Either adopt it and map our layers to the docs' structure (editor features → agent with skills and fragment responses → extensions and APIs), or agree with product on where the terms differ.
+2. **Fix the facts:**
+   - MCP availability on SaaS
+   - HIPAA wording, including CLAUDE.md
+   - EU processing caveat
+   - No-training claim in the answer bank
+   - Vertex vs. Gemini Enterprise
+   - Soften the absolute "nothing commits" lines
+3. **Borrow proof points from the docs:**
+   - "markup stays intact"
+   - fragment responses (fewer tokens, less wait)
+   - the `Agent` model that upgrades with no rework
+   - per-user MCP OAuth and attribution
+   - the five vertical use cases
 
 
 ================================================================
