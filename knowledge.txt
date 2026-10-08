@@ -1,8 +1,8 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-10-05 12:51 UTC
-Commit: cbc96d0809c9140cd54f01e2fb9fb57951a405b9
-Files included: 30
+Last updated: 2026-10-08 09:44 UTC
+Commit: 93e39096559e3123c0905ac026354451ea2ee46a
+Files included: 33
 ================================================================
 
 
@@ -12,11 +12,11 @@ FILE: ./features/ckeditor ai/AI-competitive-comparison.md
 
 # AI Features: CKEditor vs. Competitors
 
-**Last updated:** September 7, 2026 — CKEditor column rebuilt from the current AI feature landing pages (`content/landing-pages/ai-features/`). TinyMCE column synced with the August 17 battlecard and re-verified against live docs. Froala updated to **5.4.0** (August 19, 2026). Tiptap re-checked — AI Toolkit still beta.
+**Last updated:** October 8, 2026 — Froala to **5.5.0** (Sept 30: AI image generation, Headless Mode) with 5.4 now verified at source; Tiptap AI Toolkit beta label removed (Sept 22) but no GA and still 0.x; new section comparing how AI touches the document in **Claude Docs, Claude for Google Workspace and ChatGPT Pages**; Lexxy and Velt noted. (Prior: September 7 — CKEditor column rebuilt from the current AI feature landing pages (`content/landing-pages/ai-features/`). TinyMCE column synced with the August 17 battlecard and re-verified against live docs. Froala updated to **5.4.0** (August 19, 2026). Tiptap re-checked — AI Toolkit still beta.)
 
 > ⚠️ **Three CKEditor-only claims in the July version are now dead.** TinyMCE shipped MCP (8.7, June 30 2026), on-premises AI GA, AI edit attribution, and AI usage tracking, and its on-premises docs now document seven LLM provider types including `openai-compatible`. Do not say "we're the only editor with MCP," "TinyMCE has no on-prem AI," or "TinyMCE has no AI usage analytics." See the Key Differentiators section for what still holds.
 
-> ⚠️ **Tiptap's AI is a developer toolkit, not a product.** AI Toolkit reached beta July 15, 2026 — server-side, agent-oriented, model-agnostic, AI edits as tracked changes — and is *still* beta as of September 7. Do not say "Tiptap's AI is just basic chat." Say they ship no AI product UI and no dedicated AI modes. Detail in `research/competitors/ckeditor-vs-tiptap.md`.
+> ⚠️ **Tiptap's AI is a developer toolkit, not a product.** AI Toolkit reached beta July 15, 2026 — server-side, agent-oriented, model-agnostic, AI edits as tracked changes. The beta label came off the docs around September 22, but as of October 8 there is no GA announcement, the stable-declaration PR is still open, and the npm package is 0.4.0. Do not say "still beta" any more. Do not say "Tiptap's AI is just basic chat." Say they ship no AI product UI and no dedicated AI modes. Detail in `research/competitors/ckeditor-vs-tiptap.md`.
 
 **Scope:** AI capabilities only — writing assistance, LLM integration, customization, and deployment
 **Editors covered:** CKEditor, TinyMCE, Tiptap, Froala, Quill, ProseMirror, Lexical (see `research/competitive-analysis.md` for Eddyter and RichTextEditor)
@@ -33,8 +33,8 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 
 | Feature | CKEditor | TinyMCE | Tiptap | Froala | Quill | ProseMirror | Lexical |
 |---|---|---|---|---|---|---|---|
-| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ⚠️ Basic in-editor chat + Quick Actions ("Basic AI"); **AI Toolkit (beta, July 2026)** adds server-side agent tooling — you build the experience | ✅ AI Assist plugin, **5.4.0 (Aug 19, 2026)** | ❌ | ❌ | ❌ |
-| **AI Chat interface** | ✅ Full chat with context, reasoning, web search; sidebar or overlay; threads pinnable, renameable, searchable, private to their author | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ Very basic chat — limited support | ⚠️ **[updated 5.4]** Docked side-panel AI Chat Assistant with multi-turn conversation; no file/URL context or persistent history confirmed | ❌ | ❌ | ❌ |
+| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ⚠️ Basic in-editor chat + Quick Actions ("Basic AI"); **AI Toolkit (beta July 2026; label removed Sept 2026, no GA)** adds server-side agent tooling — you build the experience | ✅ AI Assist plugin, **5.5.0 (Sept 30, 2026)** — adds AI image generation | ❌ | ❌ | ❌ |
+| **AI Chat interface** | ✅ Full chat with context, reasoning, web search; sidebar or overlay; threads pinnable, renameable, searchable, private to their author | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ Very basic chat — limited support | ⚠️ **[verified 5.4; 5.5 adds web-search/reasoning capability flags]** Docked side-panel AI Chat Assistant with multi-turn conversation; no file/URL context or persistent history confirmed | ❌ | ❌ | ❌ |
 | **Inline AI commands / Quick Actions** | ✅ On selected text — improve writing, continue writing, fix grammar & spelling, make shorter/longer, change tone (5 presets), translate (7 languages), Chat Commands (Explain, Summarize, Highlight key points), and Ask AI to escalate the selection into Chat | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Custom Quick Actions + one-click text transformations (no search/filter in dropdown) | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
 | **AI Review (on-demand quality check)** | ✅ 5 built-in checks — Proofread, Improve Clarity, Improve Readability, Adjust Length, Adjust Tone and Style — plus ad-hoc custom commands and saved custom reviews; per-review model choice and RBAC; chunks long documents across parallel LLM calls | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ⚠️ No dedicated mode — AI Toolkit ships a `proofread` tool for you to build around | ⚠️ **[updated 5.4]** No dedicated review mode, but AI Improve Writing now returns edits as accept/reject changes | ❌ | ❌ | ❌ |
 | **AI Translations (dedicated mode)** | ✅ Dedicated full-document translate mode — **10 built-in languages** (EN, ES, FR, DE, ZH-Hans, JA, RU, PT, KO, IT) plus configurable additional ones; original stays in the sidebar for segment-by-segment review | ⚠️ Via Quick Actions | ❌ No dedicated AI Translations mode | ❌ | ❌ | ❌ | ❌ |
@@ -113,7 +113,43 @@ Model selection per subscription tier means a free-tier user runs a lighter mode
 
 ---
 
+## "Headless" means different things — keep them apart
+
+Froala 5.5 (Sept 30, 2026) shipped **Headless Mode**: the Froala editing engine with its toolbar, popups and styling removed, so you build your own UI. That is a client-side editor without chrome — the same idea as Tiptap's headless architecture.
+
+CKEditor's **programmatic and headless AI API** is something else: AI that runs on content server-side, without a browser or a visible editor, for pipelines and agents. Tiptap's AI Toolkit and Compare are the closest equivalents. Froala has no server-side AI API.
+
+If a prospect says "Froala has headless now too," the accurate answer is: headless UI, yes; headless AI, no.
+
+---
+
+## AI-lab document apps: how the AI touches the document
+
+Claude Docs (Sept 16), ChatGPT Pages (Sept 29) and Claude for Google Workspace (Oct 6) are substitutes, not editors anyone can embed — full detail in `research/competitors/Claude Docs.md` and `research/competitors/ChatGPT Pages.md`. They matter here because they set what our customers' users will expect from AI in a document. The biggest difference is **when a person decides**.
+
+| | CKEditor AI | Claude Docs | Claude for Google Workspace | ChatGPT Pages |
+|---|---|---|---|---|
+| How AI edits land | Previewed; apply, reject, or add as a **tracked suggestion** | **Directly** — no preview, no accept step | Approval card per edit by default; once approved, **applied directly**, not as a Google suggestion | Not verified |
+| Undo an AI edit | Like any other edit | Not with Cmd+Z — via version history | Google version history | Not verified |
+| AI attribution | In Track Changes and Revision History | Per version, not per change | Google version history | "Show attribution" view (reported) |
+| AI in comment threads | Not yet | ✅ @Claude edits in scope | ❌ Cannot read or resolve comments | ✅ @ChatGPT, Codex, Dots |
+| Review | Dedicated mode, 5 checks + custom | Excellent via chat (11/11 planted errors found), as comments | Via chat | Not verified |
+| Translation | Dedicated mode, original alongside | Overwrites the original | Via chat | Not verified |
+| Model choice | OpenAI, Anthropic, Google; any OpenAI-compatible on-prem | Claude only | Claude, with model selector | OpenAI only |
+| Embeddable in your product | ✅ | ❌ | ❌ | ❌ |
+| On-premises / HIPAA | ✅ | ❌ | ❌ HIPAA, ZDR | Not found |
+
+Sources: internal hands-on tests October 3–6 (Claude Docs), the [Claude for Google Workspace help centre](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides), and press for ChatGPT Pages (OpenAI sites blocked our fetches).
+
+**Lead with:** "accept or reject each AI change before it lands, and undo it like any other edit." In our Claude Docs test, a "plainer language" request silently turned "use all reasonable endeavours to perform" into "shall perform" — an absolute obligation — visible only afterwards in version history.
+
+**Concede:** Claude Docs' review quality is excellent, and @AI in comment threads is a pattern we don't have yet. Do not give dates for ours.
+
+---
+
 ## Notes on Competitors Without AI
+
+**Lexxy** (37signals, 1.0 on September 28, 2026) is a new free Rails editor built on Lexical, with no AI features. **Velt** is a collaboration layer, not an editor; it offers AI review agents that post comments and an AI Rewriter, but no in-editor AI writing suite. See `research/competitive-analysis.md`.
 
 **Quill, ProseMirror, and Lexical** have no AI features and no published AI roadmap. Any AI capability on these platforms requires the application developer to build the full integration layer — LLM orchestration, prompt management, streaming, UI, formatting preservation, and context handling. This is typically a 3–6 month engineering project before reaching feature parity with CKEditor AI's current baseline.
 
@@ -141,12 +177,16 @@ Their own claim to beat: multi-model AI (GPT-5, Claude Sonnet 5, Haiku 4.5, Gemi
 
 *Review this document quarterly.*
 
+**Verified October 8, 2026:** Froala 5.5.0 and 5.4.0 release posts and changelog read directly (froala.com reachable again) — 5.4's docked chat panel and accept/reject AI Improve Writing confirmed; 5.5 adds AI image generation and Headless Mode. Tiptap AI Toolkit docs, npm (0.4.0) and tiptap-docs PR #1012 (still open). TinyMCE through 8.9.3 — no AI changes. CKEditor AI MCP docs — still on-premises only, APIs subject to change in minor releases; an internal comment says MCP is now available in cloud and no longer experimental — **unconfirmed, do not claim**.
+
 **Verified September 7, 2026:** TinyMCE changelog through 8.9.0 (Aug 31) — no AI changes since 8.7/8.8, so the August battlecard reading still holds; on-premises LLM provider docs re-read and now list seven provider types. Tiptap release notes through Aug 6 (Search and Replace) — AI Toolkit still beta, Tiptap Shorthand still alpha, AI Toolkit and Tracked Changes moved to custom pricing via sales. Froala 5.4.0 confirmed (Aug 19).
 
 **Still to re-validate:**
 - **TinyMCE BYO-LLM** — marketing says early access, docs say otherwise. Get a definitive answer before any sales call that leans on the GA distinction. Re-check with 8.10.
-- **Tiptap AI Toolkit** — streaming of AI changes and Tiptap Shorthand were due out of alpha "within weeks" of July 15 and still are not. Their Tracked Changes extension is still pre-1.0. Re-check November 2026.
-- **Froala** — 5.4 landed a real chat panel and reviewable AI edits in one release. Confirm whether chat history, file/URL context, or a review mode follow. Re-check November 2026.
+- **Tiptap AI Toolkit** — streaming and Shorthand moved to beta by Sept 23; toolkit beta label removed but no GA. Tracked Changes last verified pre-1.0 on Sept 23. Re-check November 2026, or on PR #1012 merging.
+- **Froala** — 5.4 landed a real chat panel and reviewable AI edits; 5.5 added image generation. Confirm whether chat history, file/URL context, or a review mode follow, and whether AI Assist is included in every licence (search excerpt only). Re-check November 2026.
+- **CKEditor AI MCP** — confirm with product whether cloud MCP has shipped; if yes, update the MCP row.
+- **ChatGPT Pages** — every cell above is unverified; needs a hands-on check.
 - **RichTextEditor** — new entrant, claims unverified. Confirm whether their AI Review is a real mode or a prompt preset.
 
 *The public CKEditor vs Tiptap page (https://ckeditor.com/ckeditor-vs-tiptap/) still shows pre-July claims. Keep this file in sync with `research/competitors/ckeditor-vs-tiptap.md` and `research/competitors/ckeditor-vs-tinymce.md`.*
@@ -4444,8 +4484,8 @@ FILE: ./research/competitive-analysis.md
 
 # CKEditor Competitive Analysis
 
-**Last updated:** September 23, 2026 — general competitor sweep. **Claude Docs added as a tracked substitute** (new section 9). Tiptap's AI Toolkit dropped its beta label; Quill's release history corrected (the "September 2019" claim was wrong); Eddyter's real-time collaboration moved from "not offered" to "announced, unverified"; TinyMCE re-verified through 8.9.1 with no strategic change. (Prior: September 7 — TinyMCE 8.7 corrections, Froala 5.4.0, MCP gap closed, RichTextEditor added as a watch item.)
-**Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical, Eddyter, RichTextEditor. Adjacent substitutes — Claude Docs.
+**Last updated:** October 8, 2026 — general competitor sweep plus four new tracked competitors: **Lexxy** (direct, section 10), **ChatGPT Space and Pages** (substitute, section 11), **Velt** (collaboration-layer, section 12), and **Claude for Google Workspace** (folded into section 9). Froala 5.5 (Sept 30) adds Headless Mode and AI image generation, and Froala 5.4 is now verified at source. Tiptap's AI is unchanged but it pushed into document workflow (Compare, Split View, Composable Docs alpha). Claude Docs now has version history. (Prior: September 23 — **Claude Docs added as a tracked substitute** (new section 9). Tiptap's AI Toolkit dropped its beta label; Quill's release history corrected (the "September 2019" claim was wrong); Eddyter's real-time collaboration moved from "not offered" to "announced, unverified"; TinyMCE re-verified through 8.9.1 with no strategic change. September 7 — TinyMCE 8.7 corrections, Froala 5.4.0, MCP gap closed, RichTextEditor added as a watch item.)
+**Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical, Eddyter, RichTextEditor, Lexxy. Collaboration layer — Velt. Adjacent substitutes — Claude Docs (incl. Claude for Google Workspace), ChatGPT Space and Pages.
 
 > ⚠️ **Retired claims — do not use.** "No editor has MCP," "TinyMCE has no on-premises AI," "TinyMCE has no AI usage analytics," and "no competitor marks AI-generated edits" were all true in April 2026 and are all false now. TinyMCE 8.7 (June 30, 2026) shipped every one of them. For AI-specific detail see `features/ckeditor ai/AI-competitive-comparison.md`.
 
@@ -4480,7 +4520,9 @@ CKEditor competes across all three patterns. For pattern 1 and 2 buyers who are 
 - **AI parity arrived fast.** In the twelve months to September 2026, TinyMCE, Froala, and Tiptap all shipped substantial AI. Individual AI features are converging on table stakes; the differentiation is moving to what surrounds them — governance, cost control, deployment, and whether the vendor ships a finished product or a toolkit
 - MCP is no longer a CKEditor exclusive — TinyMCE shipped it in 8.7 (June 30, 2026), self-hosted only
 - **A new category of competitor is winning the comparison keywords.** Eddyter and RichTextEditor rank on "best rich text editor 2026" and similar terms with content describing CKEditor's retired AI Assistant as our current AI. Share of search is now a competitive surface in its own right
-- **The AI labs entered the document market.** Anthropic launched Claude Docs on September 16, 2026 — a collaborative editor inside the Claude app, agent-writable over MCP. It competes for internal content budget rather than for editor deals, and in accounts with a large frontier-lab contract it can stop an embedding project from being scoped at all. Expect an OpenAI equivalent. See section 9
+- **The AI labs entered the document market — both of them, two weeks apart.** Anthropic launched Claude Docs on September 16, 2026; OpenAI launched ChatGPT Space and Pages on September 29; and on October 6 Anthropic put Claude inside Google Docs, Sheets and Slides. All three compete for internal content budget rather than for editor deals, and in accounts with a large frontier-lab contract they can stop an embedding project from being scoped at all. None is embeddable and none has suggestion mode. See sections 9 and 11
+- **The free default is getting better.** 37signals shipped Lexxy 1.0 (September 28) on Meta's Lexical and plans to make it the Rails Action Text default. Rails developers may soon inherit a capable, free editor rather than choose one. See section 10
+- **Collaboration is being unbundled from the editor.** Velt sells comments, real-time co-editing and AI review as a layer on top of any editor — including GPL CKEditor 5, with dedicated packages. That turns our collaboration add-on into something a buyer can source elsewhere. See section 12
 
 ---
 
@@ -4574,6 +4616,8 @@ Real-time collaboration is TinyMCE's most significant structural gap. It is not 
 
 🚨 **Updated September 2026 — the AI gap has largely closed.** TinyMCE 8.7 (June 30, 2026) shipped MCP, on-premises AI GA, integrator-defined Custom Reviews, and AI edit attribution in a single release, and their AI usage tracking claim was confirmed. Four items this file previously listed as CKEditor-only wins are gone. Re-verified against the changelog through 8.9.0 (Aug 31): no further AI changes in 8.8 or 8.9, so this reading is current.
 
+**October 8, 2026 re-check:** 8.9.2 (Sept 23, Premium-plugin fixes only) and 8.9.3 (Oct 6, one stored-XSS fix in media plugin serialization). No AI changes, no 8.10. The September reading stands.
+
 **What genuinely remains against TinyMCE:** real-time collaboration (they retired theirs in 2023 and have no offering), a dedicated full-document AI Translate mode, AI that works in multi-root and inline editors rather than classic mode only, a server-side editor API that instantiates the real editor and document model rather than a content-in/content-out REST endpoint, documented RAG and full-HTML preservation, an OpenTelemetry/Langfuse export path for AI usage into the customer's own stack, and CKBox. Detail in `research/competitors/ckeditor-vs-tinymce.md`.
 
 #### Strengths vs. CKEditor
@@ -4665,6 +4709,8 @@ Tiptap's real-time editing and comments are solid. Its track-changes story is no
 
 **What holds and what to drop.** CKEditor still wins on the finished product: full Chat with file/URL context, reasoning, web search, model selection and history, dedicated AI Review and AI Translations modes, per-feature AI permissions, an AI REST API, MCP support, usage analytics, and AI-vs-human attribution in Track Changes. Tiptap has none of those. Stop saying "Tiptap's AI is very basic chat" or "Tiptap has no server-side or BYO-model AI" — a developer who read the July release notes will correct you. The durable argument is that Tiptap sells the parts and CKEditor ships the product.
 
+⚠️ **Updated October 8, 2026 — Tiptap moves into document workflow.** AI is unchanged: no GA announcement, PR #1012 still open, `@tiptap/ai-toolkit` still 0.4.0 on npm, no MCP. What moved is the contract-editing layer: **Tiptap Compare** became a paid add-on (Oct 6), **Split View** side-by-side diff shipped for Tracked Changes and Pages, and **Composable Docs** entered alpha via a pilot — Slots (templates with validated fields) and Content Protection (who can edit and read). That is aimed at our Merge Fields, Templates and Restricted Editing. Each piece is a separate, sales-priced add-on, several pre-GA, all headless. The Tracked Changes page no longer carries a status label; "pre-1.0" was last verified September 23. Detail in `research/competitors/ckeditor-vs-tiptap.md`.
+
 ⚠️ **Updated May 2026:** Hocuspocus 4 reached stable release on May 8, 2026. Hocuspocus is Tiptap's open-source collaboration backend (WebSocket server, conflict resolution, document persistence). Moving it from beta to stable is meaningful for Tiptap's real-time collaboration stack — which the page grants Tiptap. It does not change Tiptap's AI or track-changes gaps.
 
 #### Strengths vs. CKEditor
@@ -4743,7 +4789,7 @@ No AI features. No roadmap for AI features. Quill is not a viable foundation for
 - No vendor dependency or licensing concerns
 
 #### Weaknesses vs. CKEditor
-- **Effectively unmaintained** since 2019 — this is disqualifying for most production use cases
+- **Effectively unmaintained** — no release since 2.0.3 (November 2024); disqualifying for most production use cases
 - No real-time collaboration
 - No AI features and no credible roadmap for them
 - No commercial support, SLAs, or security patching
@@ -4819,13 +4865,14 @@ No AI features. ProseMirror's philosophy is to provide the minimum necessary too
 **Model:** Perpetual license + annual subscription, tiered by use case
 
 #### Target Audience
-Enterprise organizations prioritizing a polished, lightweight out-of-the-box experience. Froala has a strong Fortune 100 customer list (Samsung, Apple, IBM, Amazon, eBay, Intel) and markets primarily to enterprise design, media, and technology teams. It is not targeting developer-builders in the way Tiptap or ProseMirror do; it targets enterprise buyers who want a finished editor.
+Enterprise organizations prioritizing a polished, lightweight out-of-the-box experience. Froala has a strong Fortune 100 customer list (Samsung, Apple, IBM, Amazon, eBay, Intel) and markets primarily to enterprise design, media, and technology teams. It targets enterprise buyers who want a finished editor, and leaves developer-builders to Tiptap and ProseMirror.
 
 #### Key Features
 - 100+ features with emphasis on performance (40ms load time claim)
 - Real-time collaboration via Codox.io integration (native real-time collab announced as "coming soon" on V5.x roadmap)
 - Track changes built-in
-- AI Assist plugin (5.1): in-editor chat popup, inline commands, tone adjustment, translation; LLM-agnostic (routes to customer-controlled backend)
+- AI Assist plugin (current at 5.5): docked side-panel chat (5.4), AI Improve Writing as accept/reject tracked changes (5.4), **AI image generation (5.5)**, inline commands, tone, translation, speech-to-text; LLM-agnostic (routes to customer-controlled backend)
+- **Headless Mode (5.5, Sept 30, 2026):** the editing engine without Froala's toolbar, popups or styling, so teams build their own UI
 - Filerobot image editor integration (V5.2, May 2026): in-editor advanced image editing (annotations, filters, resize, rotate, watermarks, crop)
 - Full CSP compliance (V5.2, May 2026): no `unsafe-inline` style-src directives required
 - Markdown support
@@ -4856,22 +4903,34 @@ Froala's real-time collaboration is a partnership integration (Codox.io), not a 
 #### AI Readiness
 | Feature | Status |
 |---------|--------|
-| Native AI writing assistance | **Yes** — AI Assist plugin, current at **5.4.0 (Aug 19, 2026)**: docked side-panel AI Chat Assistant with multi-turn conversation, AI Improve Writing, inline commands, tone adjustment, translation |
+| Native AI writing assistance | **Yes** — AI Assist plugin, current at **5.5.0 (Sept 30, 2026)**: docked side-panel AI Chat Assistant with multi-turn conversation, AI Improve Writing, AI image generation, inline commands, tone adjustment, translation |
+| AI image generation | **Yes [new in 5.5]** — describe, preview, regenerate, insert at cursor; any image-capable model via the customer's backend; no models or pricing named |
 | Reviewable AI edits | **Yes [new in 5.4]** — AI Improve Writing surfaces every suggested edit as an accept-or-reject change instead of overwriting the text |
 | Custom LLM support | **Yes** — OpenAI, self-hosted models, or custom backend |
 | Custom prompts / UI | **Partial** — custom tone presets; programmatic API to trigger AI; response interception before insertion |
 | AI Chat history | **Not confirmed** |
 | Context injection (files, URLs) | **No** |
+| Web search / reasoning | **Capability flags respected [5.5]** — toggles disable when the model lacks them |
 | Dedicated AI Review mode | **No** |
 | Dedicated AI Translate mode | **No** |
 | RBAC for AI | **Not confirmed** |
 | MCP integration | **No** |
 
-⚠️ **Updated April 2026:** Froala's AI story changed significantly with the 5.1 release. The previous Gemini-only / SEO-only positioning no longer applies. Froala now has a multi-LLM AI Assist plugin with an in-editor chat popup, inline Quick Actions, tone adjustment, and a developer API for customizing AI behavior. It is not yet at CKEditor's depth (no AI Review, no context injection, no persistent chat history, no RBAC, no MCP), but it is no longer a non-competitor in AI.
+⚠️ **Updated April 2026:** Froala's AI story changed significantly with the 5.1 release. The previous Gemini-only / SEO-only positioning no longer applies. Froala now has a multi-LLM AI Assist plugin with an in-editor chat popup, inline Quick Actions, tone adjustment, and a developer API for customizing AI behavior. It still lacks CKEditor's depth (no AI Review, no context injection, no persistent chat history, no RBAC, no MCP), and it now counts as an AI competitor.
 
 ⚠️ **Updated May 2026:** Froala V5.2 (May 13, 2026) introduced Filerobot image editor integration, full CSP compliance (enterprise-critical for strict security policies), and improved toolbar responsiveness. Real-time collaboration (cursor sync, simultaneous editing) was explicitly named as "coming soon" — the first public acknowledgment of native collab as an imminent feature. No compliance certifications (SOC 2, HIPAA) published.
 
 ⚠️ **Updated September 2026 — Froala 5.4.0 (Aug 19, 2026) is their biggest AI release yet.** Two changes matter competitively. The chat popup became a **collapsible side panel docked to the right of the editor**, supporting a back-and-forth conversation before anything enters the document — structurally the same shape as CKEditor AI Chat, so "Froala only has a popup" no longer holds. And **AI Improve Writing now returns every suggested edit as an accept-or-reject change** rather than overwriting text, which closes the review-model gap that was one of the clearest arguments against them. Track changes also extended to drag-and-drop moves and code snippet edits, and Markdown getter/setter methods were added.
+
+🚨 **Updated October 8, 2026 — Froala 5.5.0 (Sept 30, 2026) and 5.4 now verified at source.** froala.com was reachable this sweep, so the open re-verify action from September 7 is **closed**: the [5.4 release post](https://froala.com/blog/editor/new-releases/froala-v5-4-ai-chat-markdown/) confirms the "collapsible panel docked to the right of the editor" and AI Improve Writing results you "accept or reject each one," as tracked changes in collaboration mode. 5.4 also added speech-to-text.
+
+[Froala 5.5](https://froala.com/blog/editor/new-releases/froala-v5-5-ai-image-generation-headless-mode/) adds three things:
+
+1. **Headless Mode.** Froala's editing engine with no built-in UI — no toolbar, popups, modals or styling. **This is not the same as CKEditor's headless AI.** Froala's is a client-side editor with its UI removed; CKEditor's programmatic and headless AI API runs AI on content server-side without a browser. Keep the two apart in any comparison — a prospect hearing "both have headless" will assume parity.
+2. **AI Image Generation** in AI Assist — provider-agnostic through the customer's backend handler.
+3. **Suggestion Mode on media** — track changes now cover image, video and link edits made in popups.
+
+Still not in 5.5: MCP, compliance claims (SOC 2, HIPAA), or any change to real-time co-editing. A search excerpt says AI Assist is included in every licence at no extra cost — **unverified**, check the cart before using it.
 
 **What still separates us from Froala:** no dedicated AI Review mode, no dedicated AI Translate mode, no confirmed chat history, no file/URL context injection, no RBAC, no MCP, no AI usage analytics, no SOC 2 or HIPAA documentation, and real-time collaboration still third-party. But Froala moved from "shallow AI" to "credible AI" in one release — treat them as a rising AI competitor, not a checkbox one, and re-check in November.
 
@@ -4883,7 +4942,7 @@ Froala's real-time collaboration is a partnership integration (Codox.io), not a 
 
 #### Weaknesses vs. CKEditor
 - Real-time collaboration is a third-party integration, not native
-- AI Assist (5.4) has a real chat panel and reviewable edits, but still no AI Review mode, no AI Translate mode, no context injection, no confirmed chat history, no RBAC, no MCP, no usage analytics
+- AI Assist (5.5) has a real chat panel, reviewable edits and image generation, but still no AI Review mode, no AI Translate mode, no context injection, no confirmed chat history, no RBAC, no MCP, no usage analytics
 - Smaller developer community and ecosystem than CKEditor or TinyMCE
 - Proprietary with no open-source component — no community contribution or transparency
 - SOC 2 / HIPAA compliance documentation not clearly published
@@ -4951,7 +5010,7 @@ No AI features. Lexical's philosophy is a minimal, predictable core — AI integ
 - "Build everything yourself" model is only viable for teams with significant editor engineering capacity
 
 #### The Battlecard Argument
-> Lexical is the right foundation if your use case is a social feed or a messaging input and your team has the engineering bandwidth to build on top of it. It is not a complete editor — it's a framework for building one. For teams that need collaboration, AI writing assistance, and enterprise compliance without a multi-month custom build, CKEditor delivers all of that on a foundation that has been in production for over 20 years.
+> Lexical is the right foundation if your use case is a social feed or a messaging input and your team has the engineering bandwidth to build on top of it. It gives you a framework for building an editor, and your team builds the rest. For teams that need collaboration, AI writing assistance, and enterprise compliance without a multi-month custom build, CKEditor delivers all of that on a foundation that has been in production for over 20 years.
 
 ---
 
@@ -5005,6 +5064,8 @@ SEO-heavy content marketing — extensive comparison blog posts positioning agai
 
 If it does ship as described, the gap that made Eddyter easy to dismiss closes, and the remaining arguments become compliance, self-hosting and track record rather than capability. **Action:** verify before the next Eddyter-competitive call.
 
+**October 8, 2026 re-check — still unconfirmed.** The Eddyter homepage lists AI tools, voice transcription, commenting and image generation, but **not** real-time collaboration. The npm package description claims "real-time collaboration," yet it has no Yjs or other collaboration library among its dependencies. Releases 1.4.26 and 1.4.27 shipped October 1. Q3 has now ended with no release note for RTC. **New:** a homepage banner says "Eddyter MCP is live"; the detail page returned no usable content, so treat MCP as claimed, not verified.
+
 One useful development: independent scrutiny of their pricing claims has appeared. A [DEV Community teardown](https://dev.to/rudrabuilds/what-rich-text-editors-actually-cost-in-2026-i-checked-every-pricing-page-today-4o2c) checked every editor's pricing page and could not substantiate Eddyter's "3x cheaper" claim. Eddyter has also acquired Capterra and Software Advice listings since the last sweep, so the "no third-party coverage" note is now only partly true — the listings exist, but carry no meaningful review volume.
 
 #### AI Readiness
@@ -5017,7 +5078,7 @@ One useful development: independent scrutiny of their pricing claims has appeare
 | Custom LLM (BYOK) | **Yes** — AI Pro BYOK tier ($39/mo) |
 | Managed AI | **Yes** — AI Pro Managed tier ($59/mo, credit-based) |
 | AI Review | **Not confirmed** |
-| MCP integration | **No** |
+| MCP integration | **Claimed, unverified** — "Eddyter MCP is live" banner, Oct 2026 |
 | RBAC for AI | **Not confirmed** |
 | On-premises AI | **No** |
 
@@ -5039,7 +5100,7 @@ One useful development: independent scrutiny of their pricing claims has appeare
 - No confirmed equivalent to AI Review, context injection, MCP, or usage analytics
 
 #### The Battlecard Argument
-> Eddyter competes on price and setup speed, not capability depth. It is a credible option for a solo developer building a simple SaaS content field who wants something running in an afternoon. It is not a viable option for any team that needs real-time collaboration, enterprise compliance (SOC 2, HIPAA), data sovereignty, or a configurable AI writing suite. CKEditor is a platform; Eddyter is a widget. The comparison rarely survives a second conversation with an enterprise buyer.
+> Eddyter competes on price and setup speed. It is a credible option for a solo developer building a simple SaaS content field who wants something running in an afternoon. It is not a viable option for any team that needs real-time collaboration, enterprise compliance (SOC 2, HIPAA), data sovereignty, or a configurable AI writing suite. Eddyter fits a single content field; CKEditor runs the whole content workflow. The comparison rarely survives a second conversation with an enterprise buyer.
 
 ---
 
@@ -5067,7 +5128,7 @@ The framing is accurate on the facts and unflattering in the aggregate — it re
 
 ---
 
-### 9. Claude Docs — adjacent substitute, added September 2026
+### 9. Claude Docs and Claude for Google Workspace — adjacent substitute, added September 2026, updated October 8
 
 **Vendor:** Anthropic
 **Model:** A feature of Claude, included with Pro, Max, Team and Enterprise plans; not sold as a component
@@ -5083,19 +5144,22 @@ A collaborative rich-text editor [inside the Claude app](https://support.claude.
 
 The buying pattern it threatens is different from the other eight. Nobody evaluates Claude Docs against CKEditor on a feature matrix. The risk is upstream of that: a company with a large Anthropic contract decides Claude Docs covers internal content work, and the internal application that would have embedded CKEditor AI never gets built.
 
-Compare it to SharePoint or Word 365, not to TinyMCE. The buyer is not choosing an editor — they are choosing not to need one.
+Compare it to SharePoint or Word 365, not to TinyMCE. A buyer who adopts it for internal content simply stops needing an editor for that work.
 
 #### Capability summary
 
-Verified directly against the Claude Docs connector on 23 September 2026, not from press coverage.
+Verified directly against the Claude Docs connector on 23 September 2026, not from press coverage; version history and AI behaviour updated from internal hands-on tests, October 3–6.
 
 | Area | Status |
 |---|---|
 | Content model | Tabs with nesting, prose, tables, live charts, Mermaid diagrams, LaTeX, CSV grids, uploads, and dropdown columns backed by shared option sets |
 | Real-time collaboration | **Yes** — per-author attribution, content-hash conflict handling where the human edit wins |
 | Comments | **Yes** — anchored to text ranges, threaded, resolvable, @Claude addressable |
-| Version history | **No UI** — but the revision store, past-revision reads and a restore operation all exist underneath |
+| Version history | **Yes [updated Oct 8]** — seen Sept 30, confirmed hands-on Oct 6: each Claude edit is its own attributed version with diff and restore. The help centre still says "not yet" |
+| How AI edits land | **Directly, no accept step [new Oct 8]** — review findings arrive as comments, but applied fixes, rewrites and translations overwrite the text. Cmd+Z does not undo AI edits |
 | Track changes / suggestion mode | **No** |
+| Word round-trip | **Weak [new Oct 8]** — no file import; paste and chat import strip structure, tracked changes and images; export drops comments and Word styles |
+| Editor feature depth | **~26 full / 24 partial / 33 absent** vs. CKEditor 5 in an internal audit — no font controls, footnotes, TOC, multi-level lists, merge fields, templates, page breaks |
 | Comment-only role | **No** |
 | Agent / programmatic authoring | **Yes** — fully driveable over MCP by any Claude client |
 | Embeddable in a product | **No** — structural |
@@ -5107,10 +5171,18 @@ Verified directly against the Claude Docs connector on 23 September 2026, not fr
 | Audit | Doc-level events only; in-doc edits and comments not yet in the Compliance API |
 | Reader access | Every reader needs a Claude account; not on Free |
 
-#### The two findings that matter
+#### The findings that matter
 
 1. **Claude Docs is agent-writable.** Documents can be created, filled, charted, commented on and maintained programmatically over MCP, with no human in the editor. An internal workflow where an agent drafts and people review works today with zero engineering. That is a genuine substitute for a project we would have scoped as an embed.
-2. **Version history is a UI gap, not an architectural one.** The revision data and a restore operation already exist. Do not build a pitch on its absence.
+2. **Version history shipped.** As predicted on September 23. Never claim it is missing.
+3. **AI edits land without review [new Oct 8].** In our test a "plainer language" rewrite silently turned "use all reasonable endeavours to perform the Services" into "shall perform the Services" — an effort obligation became a guarantee, visible only afterwards in version history. **This is now the lead line:** CKEditor AI lets you accept or reject each AI change before it lands, and undo it like any other edit.
+4. **Review quality is excellent.** It found all 11 planted contract errors plus 3 real ones. Do not claim it reviews poorly.
+
+#### Claude for Google Workspace — new October 6, 2026
+
+Anthropic launched a Claude sidebar add-on for Google Docs, Sheets and Slides in public beta, on Pro, Max, Team and Enterprise ([announcement](https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides), [help centre](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides)). By default each edit appears as a card to approve or reject — but approved edits apply directly; they are **not** Google Suggesting-mode suggestions. It cannot read or resolve comments, works only on the open file, offers a model selector, and is not available for HIPAA or ZDR. Enterprise gets Compliance API, CMEK and OpenTelemetry audit export.
+
+It reinforces the substitute pattern: Claude now writes into two document surfaces its customers' products cannot embed. Full detail in the battlecard.
 
 #### Where CKEditor still wins, structurally
 
@@ -5124,7 +5196,95 @@ An Anthropic contract is a reason to sell harder, not to retreat. It funds inter
 
 #### Watch triggers
 
-Escalate on any embeddable or white-label surface — that would make Claude Docs a direct competitor. Also watch for suggestion mode, a comment-only role, CMEK/ZDR/HIPAA support, and an equivalent from OpenAI or Google. Full trigger table in the battlecard.
+Escalate on any embeddable or white-label surface — that would make Claude Docs a direct competitor. Also watch for AI edits landing as proposals in Claude Docs (the Google add-on already asks first), suggestion mode, a comment-only role, and CMEK/ZDR/HIPAA support. The OpenAI equivalent has shipped — see section 11. Full trigger table in the battlecard.
+
+---
+
+### 10. Lexxy — direct competitor, added October 2026
+
+**Vendor:** 37signals (Basecamp, HEY)
+**Model:** MIT-licensed, free; no paid tier or commercial support
+**Full battlecard:** `research/competitors/ckeditor-vs-lexxy.md`
+
+#### What it is
+"A modern rich text editor for Rails," built on Meta's Lexical (0.44) and shipped as a Ruby gem, an npm package and a `<lexxy-editor>` web component. **1.0.0 released September 28, 2026**, after a year of betas. It runs Basecamp 5 and Fizzy in production.
+
+It plugs into Rails Action Text with one config line, replacing Trix. 37signals says they will "make it the default in Rails next." **Not yet** — Rails is at 8.1.4 and Trix is still the default. Rails 8.2 is the release to watch.
+
+#### Capability summary
+| Area | Status |
+|---|---|
+| Core editing | Semantic HTML, Markdown shortcuts and paste, code blocks with syntax highlighting, tables, highlighter, image galleries, PDF/video attachment previews, mentions and prompts, extensions API |
+| Real-time collaboration, comments, track changes, revision history | **None** |
+| AI | **None** |
+| Paste from Word, Import/Export Word or PDF | **Not claimed** |
+| React / Vue / Angular | **No official wrappers** — Rails-first plus web component |
+| SOC 2, HIPAA, SLAs, support | **None** — GitHub Issues only |
+| Adoption (Oct 8) | 1,243 GitHub stars; 890K RubyGems downloads; 118K npm downloads/month |
+
+#### Why it matters
+Today's feature set is modest. The risk is distribution: once it is the Rails default, every new Rails app with rich text starts on a capable, free editor with zero setup. The "free open source is good enough" objection stops being a choice and becomes an inherited default.
+
+#### The battlecard argument
+> Lexxy is a great default for a Rails app that needs a clean text field, and it's free. The moment your product needs people to work on the same document — comments, suggestions, real-time editing, version history — or AI your users can review before it lands, you're building that on top of Lexical yourself. CKEditor ships it today, collaboration-ready, with SLAs and SOC 2 Type 2 behind it.
+
+Don't knock Lexxy's quality or 37signals — Rails developers respect both.
+
+---
+
+### 11. ChatGPT Space and Pages (OpenAI) — adjacent substitute, added October 2026
+
+**Vendor:** OpenAI
+**Model:** A feature of ChatGPT Pro, Business and Enterprise; not sold as a component
+**Full battlecard:** `research/competitors/ChatGPT Pages.md`
+
+⚠️ **Unverified at source.** OpenAI's sites blocked our fetches; everything here comes from search excerpts of OpenAI pages, the DevDay community post and press. Confirm hands-on before customer use.
+
+Launched at DevDay on **September 29, 2026**. Space is a shared workspace in ChatGPT; Pages is its first document type — block-based, with real-time co-editing, comments, and @mentions of ChatGPT, Codex or a "Dot" agent to edit. Collaborative Slides are promised "in the next few weeks."
+
+| Area | Status (reported) |
+|---|---|
+| Real-time co-editing, comments | Yes |
+| Comment-only role | Reported yes — unlike Claude Docs |
+| Track changes / suggestion mode | None documented |
+| Version history, export | **Not yet** |
+| API, embeddability | None |
+| External sharing | Pro only; Business/Enterprise stay inside the workspace |
+| Mobile | Read and share only |
+
+Same architecture and same threat as Claude Docs: content that lives in the AI vendor's app, competing for internal content budget, not for editor deals. **Same answer:** an OpenAI contract funds internal applications, Pages cannot be embedded in them, and CKEditor AI runs on OpenAI models.
+
+**Watch trigger:** any Pages API or embeddable component — escalate immediately.
+
+---
+
+### 12. Velt — collaboration-layer competitor, added October 2026
+
+**Vendor:** Velt (formerly Snippyly), San Francisco; YC W22; ~15 people; last disclosed raise a $2.77M seed in March 2023 (third-party data, unverified)
+**Model:** SDK priced by Monthly Active Documents; free dev tier, Growth and Enterprise on contract
+**Full battlecard:** `research/competitors/ckeditor-vs-velt.md`
+
+#### What it is
+Not an editor. A collaboration and review SDK that sits on top of any editor — comments, presence, Yjs-based real-time co-editing, huddles, recording, notifications — now repositioned as an "embedded review and approval SDK": "Agents propose, humans approve." AI review agents post findings as comments via API or MCP; approval workflows, audit trail and decision memory are in beta.
+
+#### Why it matters to us specifically
+Velt ships **`@veltdev/ckeditor-crdt`** packages that add real-time co-editing to CKEditor 5 — with code samples using `licenseKey: 'GPL'`. A buyer can run free CKEditor 5 plus Velt and skip our collaboration features entirely. Velt runs a [CKEditor landing page](https://velt.dev/libraries/ckeditor) and an [August 12 blog post](https://velt.dev/blog/ckeditor-approval-audit-trail) claiming "CKEditor has no built-in review layer." **That claim is false** — we ship Comments, Track Changes and Revision History natively.
+
+#### Where we win
+- **Real track changes.** Velt Suggestions (beta) are field-level before/after values captured on blur — not in-text tracked insertions and deletions
+- **One document model, one vendor.** Velt's CKEditor adapter syncs normalized HTML; ours is native to the editor
+- **AI that writes as tracked suggestions** inside the same collaboration system
+- **Word and PDF round-trip** with collaboration data intact
+- **Vendor stability** against a ~15-person seed-stage company
+
+#### Where Velt wins
+- One SDK across editors, PDFs, spreadsheets, charts and video
+- Huddles and recording
+- An "agent governance" narrative close to our own
+- Full self-hosting (GA on GCP); claims SOC 2 Type II and HIPAA with BAA (unverified)
+
+#### The battlecard argument
+> Velt adds a review layer around your editor. CKEditor is collaboration-ready inside it. If your reviewers approve a field or comment on a chart, Velt is a good fit. If they need to suggest changes in a contract, see who changed what, and accept or reject AI edits line by line — and export all of that to Word — you need track changes in the editor's own document model.
 
 ---
 
@@ -5132,28 +5292,28 @@ Escalate on any embeddable or white-label surface — that would make Claude Doc
 
 ### Feature Matrix
 
-| Feature | CKEditor | TinyMCE | Tiptap | Quill | ProseMirror | Froala | Lexical | Eddyter |
-|---------|----------|---------|--------|-------|-------------|--------|---------|---------|
-| **Real-time collaboration** | ✅ Native | ❌ Third-party | ✅ Native (paid) | ❌ Third-party | ✅ Native (low-level) | ⚠️ Third-party | ❌ Third-party | ❌ No |
-| **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ | ❓ Not confirmed |
-| **Track changes** | ✅ | ✅ | ❌ | ⚠️ Limited | ❌ | ✅ | ❌ | ❓ Not confirmed |
-| **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ | ❓ Not confirmed |
-| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ⚠️ Basic chat + Quick Actions; AI Toolkit (beta label removed Sept 2026) for developers | ❌ | ❌ | ✅ AI Assist plugin (5.4) | ❌ | ✅ Built-in (chat, autocomplete, tone) |
-| **Dedicated AI Review mode** | ✅ 5 checks + custom | ✅ 5 types + custom | ❌ `proofread` tool only | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Dedicated AI Translate mode** | ✅ 10 languages + configurable | ❌ Quick Action only | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Custom LLM support** | ✅ Any OpenAI-compatible endpoint (on-prem) | ✅ 7 provider types (on-prem) **[corrected]** | ✅ Any text-capable model via AI Toolkit (no end-user picker) | ❌ | ❌ | ✅ | ❌ | ✅ (BYOK tier) |
-| **MCP integration** | ✅ On-prem | ✅ Self-hosted only, since 8.7 **[corrected]** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **AI usage analytics** | ✅ Insights Panel + REST + OTel/Langfuse export | ⚠️ Usage tracking and quotas; no export path **[corrected]** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **SOC 2 Type 2** | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ Not confirmed | ❌ | ❌ Not certified |
-| **HIPAA compliant** | ✅ | ❓ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Enterprise SLAs** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **Import from Word** | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
-| **Export to PDF/Word** | ✅ | ✅ (add-on) | ⚠️ Word only (no native PDF) | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed |
-| **File management (CKBox)** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Managed storage |
-| **Spell check** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❓ Not confirmed |
-| **Open source core** | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| **Self-hostable** | ✅ | ❌ | ✅ (paid) | ✅ | ✅ | ✅ | ✅ | ❌ SaaS only |
-| **20+ year track record** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Feature | CKEditor | TinyMCE | Tiptap | Quill | ProseMirror | Froala | Lexical | Eddyter | Lexxy |
+| --------- | ---------- | --------- | -------- | ------- | ------------- | -------- | --------- | --------- | ------- |
+| **Real-time collaboration** | ✅ Native | ❌ Third-party | ✅ Native (paid) | ❌ Third-party | ✅ Native (low-level) | ⚠️ Third-party | ❌ Third-party | ❓ Announced, unconfirmed | ❌ No |
+| **Async comments** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ⚠️ Limited | ❌ | ❓ Not confirmed | ❌ |
+| **Track changes** | ✅ | ✅ | ⚠️ Paid add-on, pre-1.0 (as of Sept) | ⚠️ Limited | ❌ | ✅ | ❌ | ❓ Not confirmed | ❌ |
+| **Revision history** | ✅ | ✅ | ✅ (paid) | ⚠️ Limited | ❌ | ❌ | ❌ | ❓ Not confirmed | ❌ |
+| **AI writing assistance** | ✅ Deep integration | ✅ Add-on | ⚠️ Basic chat + Quick Actions; AI Toolkit (beta label removed Sept 2026, still 0.x, no GA) for developers | ❌ | ❌ | ✅ AI Assist (5.5) — chat panel, reviewable edits, image generation | ❌ | ✅ Built-in (chat, autocomplete, tone) | ❌ |
+| **Dedicated AI Review mode** | ✅ 5 checks + custom | ✅ 5 types + custom | ❌ `proofread` tool only | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Dedicated AI Translate mode** | ✅ 10 languages + configurable | ❌ Quick Action only | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Custom LLM support** | ✅ Any OpenAI-compatible endpoint (on-prem) | ✅ 7 provider types (on-prem) **[corrected]** | ✅ Any text-capable model via AI Toolkit (no end-user picker) | ❌ | ❌ | ✅ | ❌ | ✅ (BYOK tier) | ❌ |
+| **MCP integration** | ✅ On-prem | ✅ Self-hosted only, since 8.7 **[corrected]** | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ Claimed (Oct 2026), unverified | ❌ |
+| **AI usage analytics** | ✅ Insights Panel + REST + OTel/Langfuse export | ⚠️ Usage tracking and quotas; no export path **[corrected]** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **SOC 2 Type 2** | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ Not confirmed | ❌ | ❌ Not certified | ❌ |
+| **HIPAA compliant** | ✅ | ❓ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Enterprise SLAs** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| **Import from Word** | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed | ❓ Not claimed |
+| **Export to PDF/Word** | ✅ | ✅ (add-on) | ⚠️ Word only (no native PDF) | ⚠️ | ❌ | ✅ | ❌ | ❓ Not confirmed | ❌ |
+| **File management (CKBox)** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Managed storage | ⚠️ Rails Active Storage attachments |
+| **Spell check** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❓ Not confirmed | ❓ Not claimed |
+| **Open source core** | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ MIT |
+| **Self-hostable** | ✅ | ❌ | ✅ (paid) | ✅ | ✅ | ✅ | ✅ | ❌ SaaS only | ✅ |
+| **20+ year track record** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ (1.0 Sept 2026) |
 
 ### Collaboration Readiness Score
 
@@ -5166,7 +5326,9 @@ Escalate on any embeddable or white-label surface — that would make Claude Doc
 | ProseMirror | ✅ Native (low-level) | ❌ Not built in | **Partial** |
 | Froala | ⚠️ Third-party (Codox.io); native collab on roadmap | ⚠️ Limited | **Partial** |
 | Lexical | ❌ Third-party | ❌ Not built in | **Weak** |
-| Eddyter | ❌ No | ❓ Not confirmed | **None** |
+| Eddyter | ❓ Announced for Q3 2026, not confirmed shipped | ❓ Commenting listed on homepage | **Unconfirmed** |
+| Lexxy | ❌ No | ❌ No | **None** |
+| Velt (layer, not an editor) | ✅ Yjs CRDT on top of other editors, incl. GPL CKEditor 5 | ✅ Comments; ⚠️ field-level Suggestions (beta), not in-text track changes | **Strong breadth, shallow in-document depth** |
 
 ### AI Readiness Score
 
@@ -5174,11 +5336,12 @@ Escalate on any embeddable or white-label surface — that would make Claude Doc
 |--------|----------|------------|------------|---------|
 | **CKEditor** | Chat, 5-check Review + custom, Quick Actions, dedicated 10-language Translate; context injection; multi-root/multi-editor; front-end + REST + server-side headless APIs; MCP | ✅ Any OpenAI-compatible endpoint on-prem | ✅ Full — RBAC, MCP, per-tier model routing, usage analytics with OTel/Langfuse export | **Strong** |
 | TinyMCE | Chat (history, file/URL context, web search, reasoning), Review (5 types + custom), Quick Actions (customizable), MCP, AI edit attribution. Classic-mode only; no dedicated Translate mode | ✅ **[corrected]** 7 provider types documented on-prem; marketing still says early access | ✅ JWT-based RBAC; custom prompts/actions; usage tracking and quotas; limited UI override | **Strong — near parity** |
-| Tiptap | Basic in-editor chat + Quick Actions, plus AI Toolkit (**beta label removed Sept 22, 2026; no GA announcement**): server-side agents, AI edits as tracked changes — but Tracked Changes itself is still pre-1.0. No AI Review or Translations mode, no file/URL context, no chat history, no MCP | ✅ Any text-capable model, any framework | ⚠️ Headless — total control, and you build the entire AI UI | **Toolkit, not a product** |
+| Tiptap | Basic in-editor chat + Quick Actions, plus AI Toolkit (**beta label removed Sept 22, 2026; no GA announcement as of Oct 8; npm 0.4.0**): server-side agents, AI edits as tracked changes — but Tracked Changes itself is still pre-1.0. No AI Review or Translations mode, no file/URL context, no chat history, no MCP | ✅ Any text-capable model, any framework | ⚠️ Headless — total control, and you build the entire AI UI | **Toolkit, not a product** |
 | Quill | None | ❌ | ❌ | **None** |
 | ProseMirror | None | ❌ | ❌ | **None** |
-| Froala | **AI Assist 5.4 (Aug 2026):** docked side-panel chat, AI Improve Writing as accept/reject edits, Quick Actions, tone, translation; LLM-agnostic. No Review or Translate mode, no context injection, no confirmed history | ✅ (customer-controlled backend) | ⚠️ Limited — custom tone presets, programmatic API, response interception; no RBAC or analytics | **Moderate — rising** |
+| Froala | **AI Assist 5.5 (Sept 30, 2026):** docked side-panel chat and AI Improve Writing as accept/reject edits (5.4, now verified), AI image generation (5.5), Quick Actions, tone, translation; LLM-agnostic. No Review or Translate mode, no context injection, no confirmed history | ✅ (customer-controlled backend) | ⚠️ Limited — custom tone presets, programmatic API, response interception; no RBAC or analytics | **Moderate — rising** |
 | Lexical | None | ❌ | ❌ | **None** |
+| Lexxy | None | ❌ | ❌ | **None** |
 | Eddyter | Chat, autocomplete, tone refinement, content suggestions; multi-model since Q2 2026 (GPT-5, Claude Sonnet 5, Haiku 4.5, Gemini 3), included in premium tiers rather than sold as an add-on | ✅ (BYOK tier) | ⚠️ Limited — no RBAC or usage analytics confirmed | **Moderate** |
 | RichTextEditor | Claims Ask AI, AI Chat, AI Review with BYOK across OpenAI, Azure, Anthropic, Gemini, Groq, Ollama; no AI add-on fee. **Unverified** | ✅ claimed (BYOK, per-tenant keys) | ❓ Unverified | **Unverified — watch** |
 
@@ -5204,7 +5367,7 @@ Escalate on any embeddable or white-label surface — that would make Claude Doc
 **Key message:** ProseMirror and Lexical are frameworks for building a rich text editor. CKEditor is a rich text editor. Six to twelve months of engineering to build what CKEditor ships with is the real cost of "free."
 
 ### CKEditor vs. Quill
-**Win condition:** Any production use case. Quill has been effectively unmaintained since 2019.
+**Win condition:** Any production use case. Quill has published nothing since 2.0.3 in November 2024.
 **Risk:** Legacy deployments. Teams already running Quill may defer migration.
 **Key message:** Quill was a good choice in 2016. In 2026, it is a migration risk. CKEditor offers a documented migration path and delivers the collaboration and AI features Quill will never have.
 
@@ -5213,10 +5376,25 @@ Escalate on any embeddable or white-label surface — that would make Claude Doc
 **Risk:** Eddyter's transparent pricing and 10-minute setup narrative is compelling at first glance to developers who haven't defined their requirements yet. It can show up early in an evaluation.
 **Key message:** Eddyter doesn't have real-time collaboration. It doesn't have SOC 2 or HIPAA. It can't be self-hosted. It's a good widget for a simple SaaS content field. CKEditor is a production platform for teams that have enterprise requirements, need compliance documentation, or expect to ship collaborative editing. Those requirements emerge quickly — and switching editors mid-product is expensive.
 
+### CKEditor vs. Lexxy
+**Win condition:** Any Rails team whose roadmap includes collaboration, AI, Word/PDF workflows, compliance, or a non-Rails front end.
+**Risk:** Price ($0) and distribution — likely to become the Rails default, used by 37signals in Basecamp 5, respected by Rails developers.
+**Key message:** Lexxy is a great default for a text field. CKEditor is what you graduate to when people need to work on the same document, review AI changes, or round-trip Word. Respect the craft; sell the job it doesn't do.
+
+### CKEditor vs. Velt (+ an open-source or GPL editor)
+**Win condition:** Workflows that need in-text track changes, AI edits as reviewable suggestions, Word/PDF round-trip with comments, or one accountable vendor.
+**Risk:** Velt is cheaper to start, covers PDFs, spreadsheets and video too, and has dedicated packages for GPL CKEditor 5.
+**Key message:** Velt adds a review layer around your editor; CKEditor is collaboration-ready inside it. Correct the "no built-in review layer" claim on sight.
+
+### CKEditor vs. AI-lab document apps (Claude Docs, ChatGPT Pages, Claude in Google Docs)
+**Win condition:** The document is a record the customer's system owns, has readers outside the AI vendor's org, needs suggestion mode, custom elements, model choice, or regulated deployment.
+**Risk:** Accounts with large frontier-lab contracts standardising on the vendor's app for internal content — we lose those on the contract, not on features.
+**Key message:** Those apps are where your team writes. CKEditor AI is where your product writes — and every AI change can be accepted or rejected before it lands.
+
 ### CKEditor vs. Froala
 **Win condition:** Teams that need real-time collaboration, deeper AI, or a more active developer community.
 **Risk:** Froala's perpetual license model appeals to regulated industries that cannot accept SaaS. CKEditor's on-premises deployment option is the counter here.
-**Key message:** Froala's collaboration depends on Codox.io; CKEditor's is native. Froala's AI Assist (5.4, Aug 2026) is a credible feature with a real chat panel and reviewable AI edits — do not undersell it — but it still lacks a dedicated AI Review mode, a dedicated AI Translate mode, context injection, persistent chat history, RBAC, MCP, and usage analytics, and Froala publishes no SOC 2 or HIPAA documentation. CKEditor's open-source community is a transparency and sustainability signal Froala cannot offer.
+**Key message:** Froala's collaboration depends on Codox.io; CKEditor's is native. Froala's AI Assist (5.4–5.5, Aug–Sept 2026) is a credible feature with a real chat panel, reviewable AI edits and image generation — do not undersell it — but it still lacks a dedicated AI Review mode, a dedicated AI Translate mode, context injection, persistent chat history, RBAC, MCP, and usage analytics, and Froala publishes no SOC 2 or HIPAA documentation. CKEditor's open-source community is a transparency and sustainability signal Froala cannot offer.
 
 ---
 
@@ -5224,7 +5402,9 @@ Escalate on any embeddable or white-label surface — that would make Claude Doc
 
 **This section previously said no editor in the set had MCP. That is no longer true and the claim must not be repeated.**
 
-CKEditor shipped MCP first, on-premises, in March 2026. TinyMCE shipped it in 8.7 on June 30, 2026, self-hosted only, connecting services such as Jira and Slack through `tinymceai_tool_data_callback`. Roughly a one-quarter first-mover window, now closed. Tiptap, Froala, Quill, ProseMirror, Lexical, and Eddyter still have none.
+CKEditor shipped MCP first, on-premises, in March 2026. TinyMCE shipped it in 8.7 on June 30, 2026, self-hosted only, connecting services such as Jira and Slack through `tinymceai_tool_data_callback`. Roughly a one-quarter first-mover window, now closed. Tiptap, Froala, Quill, ProseMirror, Lexical and Lexxy still have none. Eddyter claims MCP as of October 2026 (unverified). Velt, the collaboration layer, ships MCP servers for its REST API and review agents.
+
+⚠️ **Open question on our own MCP status (October 8).** An internal comment on the Claude Docs AI-capabilities doc (October 7) says CKEditor AI MCP "is not marked as experimental and is available in the cloud." Our [public MCP docs](https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-mcp.html) still say MCP is "available only in on-premises deployments" and the APIs "may change in minor releases." **Keep saying on-premises only until product confirms and the docs change.** If cloud MCP has shipped, it is a significant new differentiator and every MCP line in this file and the AI comparison needs updating.
 
 **What the first-mover window bought us:** the March-to-June period established CKEditor as the editor that talks to enterprise systems, and that association is worth defending in content even though the feature is no longer unique.
 
@@ -5284,7 +5464,149 @@ Not reachable: froala.com blog and changelog still return HTTP 403, so Froala 5.
 
 **Open actions carried forward:** TinyMCE BYO-LLM early-access question (open since Sept 7, now overdue); Froala 5.4 source verification; Eddyter RTC verification (new); RichTextEditor verification (open since Sept 7).
 
-**Next sweep due:** November 2026 — earlier if any of these land: TinyMCE 8.10, a Tiptap AI Toolkit GA announcement or Tracked Changes 1.0, Eddyter shipping real-time collaboration, or Claude Docs gaining version history, suggestion mode, or any embeddable surface.
+**Sweep log — October 8, 2026.** Verified at source: Lexxy (lexxy.dev, 37signals 1.0 and announcement posts, GitHub, RubyGems, npm); Velt (site, docs, pricing, SDK changelog, CKEditor CRDT setup, YC profile); Froala **5.5.0 (Sept 30) and 5.4.0 blog posts and changelog — froala.com reachable for the first time since August, closing the 5.4 re-verify action**; Tiptap docs, pricing, GitHub releases (core 3.31.4) and merged tiptap-docs PRs #1020, #1023, #1031, #1033, #1039, #1043, #1054 — PR #1012 still open; TinyMCE changelog through 8.9.3 (Oct 6); Claude Docs help centre (unchanged since launch) and release notes; Claude for Google Workspace announcement and help centre; Quill on npm (no release since 2.0.3); CKEditor AI MCP docs. Internal: three CKEditor Google Docs on Claude Docs — AI capabilities hands-on (Oct 3–6), editor-feature audit (Ania Piasecka), and sales framing (Witek).
+
+Not verified at source: **every OpenAI fact** — openai.com, help.openai.com and chatgpt.com returned 403 or a Cloudflare challenge, so ChatGPT Space/Pages detail comes from search excerpts, the DevDay community post and press. Velt funding, customers and certifications are third-party or self-claimed. Eddyter MCP page returned no content. Tiptap Tracked Changes version (private registry). RichTextEditor changelog 404s; homepage shows v2.6.10 with unchanged claims.
+
+**Closed this sweep:** Froala 5.4 source verification.
+
+**Open actions carried forward:** TinyMCE BYO-LLM early-access question (open since Sept 7, overdue); Eddyter RTC verification — Q3 ended with no release note; RichTextEditor verification (open since Sept 7).
+
+**New actions:** confirm CKEditor AI MCP cloud/experimental status with product (internal comment conflicts with public docs); hands-on check of ChatGPT Pages with a Business or Enterprise seat; Solutions test of Velt's CKEditor CRDT adapter on a complex document; decide whether to respond publicly to Velt's "no built-in review layer" claim; re-verify Tiptap Tracked Changes version; watch Rails 8.2 for Lexxy-as-default.
+
+**Next sweep due:** November 2026 — earlier if any of these land: TinyMCE 8.10, Tiptap AI Toolkit GA or Tracked Changes 1.0, Composable Docs leaving alpha, Eddyter shipping real-time collaboration, Rails 8.2 shipping Lexxy as default, Claude Docs AI edits becoming proposals or suggestion mode, a ChatGPT Pages API, or any embeddable surface from an AI lab.
+
+
+================================================================
+FILE: ./research/competitors/ChatGPT Pages.md
+================================================================
+
+# ChatGPT Space and Pages (OpenAI): how sales should frame it
+
+**Last updated:** October 8, 2026 — first profile. Launched at OpenAI DevDay, September 29, 2026.
+**Status:** Substitute, not a head-to-head competitor — the OpenAI counterpart to [Claude Docs](Claude%20Docs.md). Track monthly while it rolls out.
+
+> ⚠️ **Verification caveat.** openai.com, help.openai.com and chatgpt.com all blocked our fetches (403 / Cloudflare challenge). Every fact below comes from search excerpts of OpenAI's own pages, the OpenAI developer community DevDay post (read in full), or press. Nothing here has been checked hands-on. **Do not use any line below in customer-facing material until someone with a ChatGPT Business or Enterprise seat confirms it.**
+
+---
+
+## What it is
+
+At DevDay on **September 29, 2026**, OpenAI launched **ChatGPT Space**, a shared workspace inside ChatGPT, and its first document type, **Pages**. Space replaces the old "Library." Projects stay separate.
+
+The press read it the same way it read Claude Docs: a move onto Microsoft's and Google's turf. TechCrunch's headline called it something that "feels a whole lot like ChatGPT's own office suite."
+
+- **Plans:** Pro, Business and Enterprise. Not Free, Go or Plus.
+- **Platforms:** create and edit on web and desktop. Mobile is find, read and share only.
+- **Rollout:** gradual from September 29.
+- **Coming next:** collaborative Slides "in the next few weeks"; Sheets previewed only.
+
+## What a Page can do
+
+As reported, not verified:
+
+| Area | Status |
+|---|---|
+| Content | Block-based: text, images, charts, checklists, code blocks, interactive content; subpages and folders |
+| Real-time co-editing | **Yes** |
+| Comments | **Yes** |
+| AI in the document | @mention ChatGPT, Codex or a "Dot" (OpenAI's new always-on agent) to edit or take the next step |
+| Attribution | A "show attribution" view of who contributed (press only) |
+| Access levels | View, Comment, Edit (press only) — note this **includes a comment-only role**, which Claude Docs lacks |
+| Track changes / suggestion mode | **None documented** |
+| Version history | **Not available yet** (press, citing OpenAI docs on Sept 30) |
+| Export | **Not available yet** (same source) |
+| Sharing outside the org | Pro: email or link where available. Business/Enterprise: workspace members only |
+| Live sync with Slack, Drive, calendar | Announced; one source says auto-update was not in the first release |
+| Model choice | Not documented; one outlet names "GPT-6.1 Sol" as the model |
+| API / programmatic access | **No Pages or Space API announced** |
+| Embeddable in a product | **No** |
+| HIPAA / regulated | No statement found |
+
+One admin issue worth knowing, from [Beri.net](https://www.beri.net/article/chatgpt-space-shared-pages-inherited-access-no-export-version-history-business-enterprise-admin): removing someone's invite to a page does not remove access they inherit from a parent space.
+
+---
+
+## How it compares to Claude Docs
+
+| | ChatGPT Pages | Claude Docs |
+|---|---|---|
+| Launched | Sept 29, 2026 | Sept 16, 2026 (beta) |
+| Plans | Pro, Business, Enterprise | Pro, Max, Team, Enterprise |
+| Real-time + comments | Yes | Yes |
+| Comment-only role | Reported yes | No |
+| Track changes / suggestions | None documented | No |
+| Version history | Not yet | Yes in the product per our hands-on tests; help centre still says "not yet" |
+| Export | Not yet | Word, PDF, Markdown, Google Docs |
+| Agent / programmatic access | No API; agents act from inside ChatGPT | Fully driveable over MCP |
+| Embeddable | No | No |
+| External sharing on business plans | No | No |
+
+*Analysis:* the two products arrived two weeks apart with the same architecture: a document that lives in the AI vendor's app, with the AI as a co-author. Neither is embeddable. Neither has suggestion mode. That confirms the pattern the Claude Docs battlecard predicted — the threat is provider-stack lock-in for internal content.
+
+---
+
+## Where it sits on the market
+
+Exactly where Claude Docs sits: the provider's environment. ChatGPT Pages competes with Google Docs, Notion and Microsoft Loop. A buyer who adopts it for internal work simply stops needing an editor for that work.
+
+The risk to us is the same too. A company with a large OpenAI contract may decide Pages covers internal content, and never scope the internal application that would have embedded CKEditor AI.
+
+## Where CKEditor wins, structurally
+
+These follow from the architecture and will not change with a rollout update:
+
+1. **Not embeddable.** A Page lives in ChatGPT. It cannot sit inside a customer's product, portal or workflow tool.
+2. **Seat-gated.** Every collaborator needs a Pro, Business or Enterprise seat.
+3. **Closed content model.** No custom elements, merge fields, schema or plugins.
+4. **One vendor, one model.** OpenAI only.
+5. **No external sharing on business plans.** Customers, counsel and auditors outside the workspace cannot be invited.
+
+And today, though these may close:
+
+- No track changes or suggestion mode
+- No version history, no export (so far)
+- No API
+
+## The line to use
+
+> ChatGPT Pages is where your team writes inside ChatGPT. CKEditor AI is where your product writes. If the document is a memo your team shares internally, Pages is fine. If it's a record your system owns — with an ID, an approver, a customer on the other end, and AI changes someone has to accept — it has to live in your application, and that application needs an editor.
+
+An OpenAI contract, like an Anthropic one, funds internal applications. Pages cannot be embedded in them. CKEditor AI works with OpenAI models, so the contract and the editor fit together.
+
+---
+
+## Watch list
+
+| Trigger | What it would change |
+|---|---|
+| **A Pages API or embeddable component** | **Structural change — would make it a direct competitor. Escalate immediately.** |
+| Suggestion mode / tracked changes | Removes our sharpest collaboration-depth line |
+| Version history and export ship | Expected; drop them from any comparison |
+| External sharing on Business/Enterprise | Weakens the "stops at the workspace" point |
+| HIPAA / BAA coverage for Pages | Opens regulated internal use |
+| Slides and Sheets ship | Confirms the office-suite play; no direct impact on us |
+
+## Open for the Solutions team
+
+- Hands-on check with a Business or Enterprise seat: confirm every row in the table above.
+- How AI edits land: direct, or proposed for approval? (Our Claude Docs tests found AI edits applied directly with no accept step.)
+- Does Enterprise compliance logging cover Pages?
+
+---
+
+## Sources
+
+| Source | Type | Date |
+|---|---|---|
+| [OpenAI DevDay 2026 announcements — developer community](https://community.openai.com/t/devday-2026-announcements-and-developer-resources/1402006) | Read in full | Sept 29, 2026 |
+| [OpenAI DevDay 2026 recap](https://openai.com/index/devday-2026-recap/) | Search excerpt only (403) | Sept 29, 2026 |
+| [Getting started with Space in ChatGPT — OpenAI Help](https://help.openai.com/en/articles/20001549-getting-started-with-space-in-chatgpt) | Search excerpt only (403) | Sept 2026 |
+| [TechCrunch](https://techcrunch.com/2026/09/29/openai-takes-on-microsoft-with-the-launch-of-what-feels-a-whole-lot-like-chatgpts-own-office-suite/) | Press | Sept 29, 2026 |
+| [VentureBeat](https://venturebeat.com/technology/openai-launches-dots-always-on-ai-agent-coworkers-and-chatgpt-space-where-they-can-collaborate-with-human-teams) | Press | Sept 29, 2026 |
+| [Android Headlines](https://www.androidheadlines.com/2026/09/openai-launches-chatgpt-space-collaborative-hub.html) | Press | Sept 30, 2026 |
+| [Beri.net — inherited access, no export or version history](https://www.beri.net/article/chatgpt-space-shared-pages-inherited-access-no-export-version-history-business-enterprise-admin) | Press | Oct 4, 2026 |
+| [eesel.ai — ChatGPT Pages](https://www.eesel.ai/blog/chatgpt-pages) | Third-party blog | Oct 2026 |
 
 
 ================================================================
@@ -5293,24 +5615,26 @@ FILE: ./research/competitors/Claude Docs.md
 
 # Claude Docs: how sales should frame it
 
-**Last updated:** September 23, 2026 — promoted from a first-look note to a tracked competitor. Added a verified capability inventory taken directly from the Claude Docs connector (first-hand, not press coverage), a corrected read on version history, and the agent-surface finding that changes the sharpest line in the pitch. The original strategic framing below is unchanged and still holds.
+**Last updated:** October 8, 2026 — added the internal hands-on tests from October 3–6 (AI behaviour) and the editor-feature audit (non-AI), both from the CKEditor team; **version history has now been seen in the product**; new section on **Claude for Google Workspace** (public beta, October 6); OpenAI's equivalent shipped and now has its own file, [ChatGPT Pages.md](ChatGPT%20Pages.md). (Prior: September 23 — promoted to tracked competitor, connector-verified capability inventory, agent-surface finding.)
 **Status:** Substitute, not a head-to-head competitor. Track quarterly.
 
-> ⚠️ **One claim from the first draft needs retiring.** "No version history" is true of the interface and false of the architecture. The document store keeps every revision, serves reads at any past revision, and exposes a restore operation. Version history is a UI gap Anthropic can close in a release. Do not build the pitch on it. See [What we verified](#what-we-verified-first-hand).
+> ⚠️ **Retired: "Claude Docs has no version history."** Our team saw restorable versions on September 30 and confirmed them hands-on on October 6: every Claude edit is its own version, attributed to Claude, with a diff and restore. The [help centre](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_2c226ed01d) still says version history "isn't available yet" — the product has moved ahead of the docs. Never say it is missing.
+>
+> **The line that replaces it is stronger:** Claude Docs AI edits land directly in the text, with no preview and no accept step, and Cmd+Z does not undo them. You find AI mistakes after they land, in version history. CKEditor AI lets you accept or reject each change before it lands. See [Hands-on findings](#hands-on-findings-october-36-2026).
 
 ---
 
 ## What it is
 
-Anthropic released [Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs) in beta on 16 Sep 2026 ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides)), a rich-text editor inside Claude. Claude drafts the doc, asks clarifying questions first and leaves comments explaining its choices; colleagues can edit alongside it in real time. Docs sit in the Artifacts tab of the owner's Claude account, and the editor itself can hold tabs, tables and charts (and other components).
+Anthropic released [Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs) in beta on 16 Sep 2026 ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides)), a rich-text editor inside Claude. Claude drafts the doc, can ask clarifying questions first (not always — in our test it didn't) and leaves comments explaining its choices; colleagues can edit alongside it in real time. Docs sit in the Artifacts tab of the owner's Claude account, and the editor itself can hold tabs, tables and charts (and other components).
 
 * **Sharing** ([help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_ae5fbf45f7)). Private by default. On Team and Enterprise you can share with people, groups or the whole org, but not outside the org yet. On Pro and Max anyone with the link can open it. Every reader needs a Claude account. Access is viewer or editor; there is no comment-only role.
 
 * **Export** ([help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_9920271284)). Word (.docx), PDF, Markdown, Google Docs. You can also ask Claude to turn a doc into a deck with Claude Slides.
 
-* **Availability.** Pro, Max, Team and Enterprise; not Free. On Enterprise it is [off by default](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_0d542c911e) until an owner turns it on, and Enterprise custom roles can enable it for specific groups. Orgs on CMEK, ZDR or a HIPAA-ready configuration can't use it yet.
+* **Availability.** Pro, Max, Team and Enterprise; not Free, per the help centre. *(The September 16 [release notes](https://support.claude.com/en/articles/12138966-release-notes) entry says docs, decks and designs in conversations reach "every plan, including Free" — treat Free access as unclear until confirmed.)* On Enterprise it is [off by default](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_0d542c911e) until an owner turns it on, and Enterprise custom roles can enable it for specific groups. Orgs on CMEK, ZDR or a HIPAA-ready configuration can't use it yet.
 
-* **Known limitations** ([help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_2c226ed01d)). Version history "isn't available yet", in-doc edits and comments are "not yet" in the Compliance API, charts don't auto-update, mobile is view-only.
+* **Known limitations** ([help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_2c226ed01d), unchanged as of October 8). Version history "isn't available yet" (contradicted by our hands-on tests — see warning above), in-doc edits and comments are "not yet" in the Compliance API, charts don't auto-update, mobile is view-only.
 
 The same release folded Cowork into Claude chat and launched Claude Slides ([Axios](https://www.axios.com/2026/09/16/anthropic-claude-docs-microsoft)). Anthropic is merging chat, Cowork and Artifacts into one interface ([Computerworld](https://www.computerworld.com/article/4223177/anthropic-tries-to-make-claude-stickier-with-launch-of-docs-and-slides.html)).
 
@@ -5349,9 +5673,7 @@ This is real collaborative-editing engineering, not a veneer. Do not pitch again
 
 ### Revision data exists
 
-The store keeps numbered revisions per document, serves a read of any past revision, and exposes a restore operation that rewinds a tab. The help centre is accurate that *version history* is not in the product. The substrate for it is already built.
-
-**What this means:** treat version history as a feature Anthropic can ship whenever they choose the UI, not as an architectural gap. Reps should stop leading with it.
+The store keeps numbered revisions per document, serves a read of any past revision, and exposes a restore operation that rewinds a tab. On September 23 we wrote that the UI would follow. **It did:** by September 30 restorable versions were visible in the product, and on October 6 our hands-on test confirmed each Claude edit appears as its own attributed version with a diff and restore.
 
 ### Claude Docs is agent-writable
 
@@ -5366,6 +5688,86 @@ So "Claude writes into a document" is not confined to a person chatting in the C
 
 ---
 
+## Hands-on findings, October 3–6, 2026
+
+Two internal studies by the CKEditor team, summarised here. One run per test, Claude desktop on Opus 5.5 — indicative, not exhaustive.
+
+- *CKEditor AI vs Claude Docs: AI capabilities* ([Google Doc](https://docs.google.com/document/d/1c7nGrwcztmWsgeAwekD8J7cCORboVaj2jfLTV87g0hA/edit))
+- *Claude Docs vs CKEditor (AI features excluded)*, Ania Piasecka ([Google Doc](https://docs.google.com/document/d/1i54HtgiBEWUoQzJ4s4VzDnBZxWN1QHkK4KOYYlQ9-Go/edit))
+
+### How the AI touches the document
+
+The two products make opposite bets. **CKEditor AI is a red pen:** it proposes, a person accepts or rejects. **Claude Docs is a co-author with its own keyboard:** it edits the text directly.
+
+| Test | Result |
+|---|---|
+| Review a contract with 11 planted errors | Found all 11 plus 3 real ones we hadn't planted, in about a minute, as anchored comments. **Review quality is excellent — do not claim otherwise.** |
+| Apply a review fix | Goes straight into the text. No preview, no diff, no accept step |
+| Rewrite a clause "in plainer language" | Silently changed "use all reasonable endeavours to perform the Services" to "shall perform the Services" — an effort obligation became a guarantee. Visible only afterwards, in version history |
+| Undo an AI edit with Cmd+Z | Does not work. Undo reverts your own last edit, never Claude's. The way back is version history or another request to Claude |
+| @Claude in a comment thread | Passage rewritten in under a minute, precisely and in scope. Lands directly; thread stays open. **Their best pattern, and we do not have it yet** |
+| Translate a document | Good German, structure kept — but the English is overwritten in place. No side-by-side view, no accept step |
+| Charts from data | Publication-quality, annotated, multi-panel charts — but only through the AI, not the UI |
+
+Claude itself, asked in the test: "Claude Docs has no tracked-changes or accept/reject mode."
+
+### The editor itself (non-AI)
+
+Against the CKEditor 5 feature set, Claude Docs scored roughly **26 full, 24 partial, 33 absent**.
+
+- **Absent:** font family, size and colour; footnotes; table of contents; multi-level lists; page breaks; subscript and superscript; track changes; merge fields; templates; HTML embed; General HTML Support; media embed; nested tables; word count; format painter; source editing; pagination; document outline; restricted editing.
+- **Partial:** Find works, Replace does not; one highlight colour; basic links only; no list-style options; text alignment only in tables.
+- **Some features are reachable only through AI, Markdown or paste**, not the UI: block quotes, headings below H3, charts, special characters.
+- **No customisation** of toolbars, features, document language or editor type.
+- **Things they have that CKEditor 5 doesn't ship by default:** document tabs, native dropdowns, reactions, table row/column drag and drop, table sorting, a native date element, in-editor image crop, and a comments archive that lists open as well as resolved comments.
+- **They ship fixes fast.** A paste bug found on September 29 was handled by the next day, and the paste limit later rose from 32 KB to 1 MB.
+
+### Word round-trip — the critical gap
+
+- **No file import.** Content arrives by paste or by asking Claude in chat.
+- **Paste** strips most styling and flattens structure: multi-level lists, footnotes, TOC, and tracked changes (insertions stay as plain text, deletions vanish). Images become `[image: description]` text.
+- **Import via chat** is slower and lossier: tracked changes dropped entirely, images removed without placeholders, links sometimes removed, and the model may "improve" formatting — turning tables into lists, dropping underlines. It also refused to import copyrighted content.
+- **Export to Word** drops comments, has no headers, footers or watermarks, and no Word-native styles.
+
+*For workflows built on complex Word documents — legal contract editing especially — Claude Docs is a poor fit today.*
+
+### What not to claim
+
+- That Claude Docs has no version history. It does.
+- That Claude Docs reviews poorly. It found every planted error.
+- That AI edits cannot be undone. They can, through version history — only Cmd+Z doesn't reach them.
+- That it always asks clarifying questions before drafting. In our test it didn't.
+- That CKEditor AI MCP is production-ready or available in cloud — see the open question in `research/competitive-analysis.md`.
+- Dates for @AI in comments on our side.
+
+---
+
+## Claude for Google Workspace — launched October 6, 2026
+
+Anthropic also put Claude *inside Google Docs*, Sheets and Slides. This matters because it reaches the people who will never open Claude Docs: everyone whose team already lives in Google Workspace.
+
+**Verified** against the [Claude announcement](https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides) and the [support article](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides), October 8.
+
+- **Form:** a Google Workspace Marketplace add-on that opens a Claude sidebar in Docs, Sheets and Slides. Separate connectors let Claude create and edit Google files from a claude.ai chat.
+- **Status and plans:** public beta. Pro, Max, Team and Enterprise.
+- **In a Google Doc it can:** draft, rewrite and restructure; answer questions about the open file with citations; edit in place without breaking surrounding formatting.
+- **How edits land:** by default ("Ask before edits") each change appears as a card you approve or reject. "Accept all edits" applies them automatically. **Approved edits go straight into the document** and show in Google's version history — they are **not** Google "Suggesting"-mode suggestions.
+- **Limits:** cannot read, reply to or resolve comments; works only on the open file; no Firefox; each operation capped at 6 minutes.
+- **Model choice:** a model selector in the sidebar.
+- **Admin:** Google admins allowlist and install by domain, group or OU; Claude admins control connectors, skills and models. Claude account sign-in with SSO; no API keys. Enterprise gets Compliance API, CMEK and OpenTelemetry audit export. Not used for training; deleted within 30 days.
+- **Not available:** HIPAA and Zero Data Retention.
+
+### What it means for us
+
+*Analysis.* It reinforces the substitute pattern rather than creating a new one. Claude now writes into **two** document surfaces it doesn't own the governance of — its own Claude Docs and Google's. Neither is embeddable in a customer's product.
+
+Two useful contrasts for sales:
+
+1. **Approval cards are not suggestions.** The Google add-on asks before each edit — a real step up from Claude Docs — but once approved, the change is applied, not tracked. No reviewer downstream sees it as a proposal. CKEditor AI can land changes as tracked suggestions that another person accepts or rejects later, attributed to AI.
+2. **Same model, different home.** Claude in Google Docs proves customers want AI where content already lives. That is our message: bring AI where content happens — and for a product, that's inside the product, not in a sidebar of someone else's app.
+
+---
+
 ## Where it sits on the market
 
 Claude Docs and CKEditor sit in different corners of the market.
@@ -5374,7 +5776,7 @@ Claude Docs and CKEditor sit in different corners of the market.
 
 * **Us (CKEditor):** your environment. Data on your servers, your processes, your plugins (custom rich-text elements in the editor). The editor a company builds into its products.
 
-It's not that we don't affect each other; we're more like substitutes than direct competitors. Claude Docs would compete with us the way SharePoint or Word 365 does: the buyer isn't choosing CKEditor, they're choosing an alternative solution for managing content.
+We do affect each other, as substitutes more than direct competitors. Claude Docs competes with us the way SharePoint or Word 365 does: a buyer picks a different way to manage content, and the editor evaluation never starts.
 
 ---
 
@@ -5388,9 +5790,11 @@ It's not that we don't affect each other; we're more like substitutes than direc
 
 4. **One vendor, one model.** Claude Docs runs on Claude only. Our customers choose their model, and some run it on-prem or inside the EU.
 
-5. **Collaboration depth.** It has real-time co-editing, anchored comments with threads (you can @Claude in one) and per-author attribution of changes. It has no version history **in the UI**, no track changes or suggestion mode, no comment-only role and no reviewable diffs. Regulated document workflows need those, and that is where our roadmap goes. **[corrected]** Lead on suggestion mode and the comment-only role. Do not lead on version history — see the warning at the top.
+5. **Collaboration depth.** It has real-time co-editing, anchored comments with threads (you can @Claude in one), per-author attribution and — as of our October tests — version history with restore. It has no track changes or suggestion mode, no comment-only role, no restricted editing, and AI edits that land without an accept step. Regulated document workflows need those. **[updated Oct 8]** Lead on "accept or reject each AI change before it lands, and undo it like any other edit." Never lead on version history.
 
 6. **Seat-gated readership. [new]** Every reader needs a Claude account, and Claude Docs is not on Free. A doc that 500 people in the company need to read is 500 Claude seats. An internal app built on CKEditor serves everyone who can log into the app.
+
+7. **Word round-trip. [new Oct 8]** No file import; paste and chat import strip structure, tracked changes and images; export drops comments and Word styles. For contract and legal workflows this is decisive. See [Word round-trip](#word-round-trip--the-critical-gap).
 
 ---
 
@@ -5401,9 +5805,13 @@ It's not that we don't affect each other; we're more like substitutes than direc
 - Points 1 to 4 above. The doc lives in Anthropic's environment, cannot be embedded, cannot be extended, runs on Claude.
 - Point 6, the seat wall, follows from point 1.
 
-**Temporary — marked "yet" by Anthropic, or already built underneath:**
+**Already closed:**
 
-- Version history. The revision store and restore already exist. Assume this ships.
+- Version history — seen in the product from September 30, confirmed October 6.
+
+**Temporary — marked "yet" by Anthropic, or likely soon:**
+
+- Suggestion mode and AI edits as proposals. The Google Workspace add-on already asks before each edit, so Anthropic clearly knows the pattern.
 - External sharing, CMEK/ZDR/HIPAA support, in-doc Compliance API events, mobile editing, auto-updating charts. All flagged "not yet" in the [help center](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs#h_2c226ed01d).
 
 Build the pitch on the structural list only.
@@ -5465,14 +5873,16 @@ Revisit this file if any of these land. The first three would each remove a line
 
 | Trigger | What it would change |
 |---|---|
-| Version history ships in the UI | Drop it from the pitch entirely. Already expect this. |
+| ~~Version history ships in the UI~~ | **Landed — seen Sept 30, confirmed Oct 6.** Dropped from the pitch. |
+| AI edits become proposals (approve/reject) in Claude Docs | The Google Workspace add-on already does this. Would remove our sharpest AI-control line. Escalate. |
+| Claude for Google Workspace can read and resolve comments, or write as Google suggestions | Closes the gap between "approval card" and true tracked suggestion. |
 | Suggestion mode / tracked changes ships | Removes our strongest collaboration-depth argument. Escalate. |
 | Comment-only role ships | Removes the external-reviewer objection. |
 | CMEK / ZDR / HIPAA support ships | Opens regulated accounts that are closed to it today. |
 | In-doc events reach the Compliance API | Removes the audit objection. |
 | External sharing on Team/Enterprise | Weakens the "stops at the workspace" point, but not the embedding point. |
 | **Any embeddable or white-label surface** | **Structural change. This would make Claude Docs a direct competitor. Escalate immediately.** |
-| An OpenAI or Google equivalent ships | The pattern generalizes; rewrite the framing as provider-stack lock-in. |
+| ~~An OpenAI or Google equivalent ships~~ | **Landed — OpenAI shipped ChatGPT Space and Pages on Sept 29.** See [ChatGPT Pages.md](ChatGPT%20Pages.md). Framing now generalises to provider-stack lock-in. |
 
 ---
 
@@ -5498,6 +5908,187 @@ The connector check answered the capability questions. These need a hands-on acc
 | [Axios — Anthropic debuts Claude Docs](https://www.axios.com/2026/09/16/anthropic-claude-docs-microsoft) | 16 Sep 2026 |
 | [Computerworld — Anthropic launches Docs and Slides](https://www.computerworld.com/article/4223177/anthropic-tries-to-make-claude-stickier-with-launch-of-docs-and-slides.html) | 16 Sep 2026 |
 | [Claude Compliance API — platform docs](https://platform.claude.com/docs/en/manage-claude/compliance-api) | 23 Sep 2026 |
+| Help centre re-read — unchanged since launch, still says version history "isn't available yet" | 8 Oct 2026 |
+| [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes) — no Claude Docs entries Sept 17–Oct 8 | 8 Oct 2026 |
+| Internal: *CKEditor AI vs Claude Docs: AI capabilities* — hands-on Oct 3–6 ([Google Doc](https://docs.google.com/document/d/1c7nGrwcztmWsgeAwekD8J7cCORboVaj2jfLTV87g0hA/edit)) | 8 Oct 2026 |
+| Internal: *Claude Docs vs CKEditor (AI features excluded)*, Ania Piasecka ([Google Doc](https://docs.google.com/document/d/1i54HtgiBEWUoQzJ4s4VzDnBZxWN1QHkK4KOYYlQ9-Go/edit)) | 8 Oct 2026 |
+| Internal: *Claude Docs: how sales should frame it*, Witek ([Google Doc](https://docs.google.com/document/d/17QPp1_Gf5Pe4F2eg8R_lBTIXno8pQjzNX-et2KZi07w/edit)) — source of the framing in this file | 8 Oct 2026 |
+| [Claude now works in Google Docs, Sheets and Slides — Claude](https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides) | 8 Oct 2026 |
+| [Use Claude in Google Docs, Sheets and Slides — help centre](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides) | 8 Oct 2026 |
+| [9to5Google](https://9to5google.com/2026/10/06/claude-google-docs-sheet-slides/), [Reworked](https://www.reworked.co/digital-workplace/anthropic-opens-claude-for-google-workspace-in-beta/) | 6 Oct 2026 |
+
+
+================================================================
+FILE: ./research/competitors/ckeditor-vs-lexxy.md
+================================================================
+
+# CKEditor vs. Lexxy
+
+**Last updated:** October 8, 2026 — first profile. Lexxy reached 1.0 on September 28, 2026.
+**Status:** Direct competitor. Free, MIT-licensed, Rails-first. Track monthly until Rails makes it the Action Text default, then quarterly.
+
+> **Source note.** Facts below come from [lexxy.dev](https://lexxy.dev/), the [Lexxy 1.0 post](https://dev.37signals.com/lexxy-1-0/), the [original announcement](https://dev.37signals.com/announcing-lexxy-a-new-rich-text-editor-for-rails/), the [GitHub repo](https://github.com/basecamp/lexxy), [RubyGems](https://rubygems.org/gems/lexxy) and [npm](https://www.npmjs.com/package/@37signals/lexxy), all read October 8, 2026. Anything marked *analysis* is ours.
+
+---
+
+## What it is
+
+Lexxy is "a modern rich text editor for Rails," built by 37signals, the company behind Basecamp and HEY. Jorge Manrubia, 37signals' Director of Product Development, leads it.
+
+- **Licence:** MIT. Free. No paid tier, no commercial support.
+- **Foundation:** Meta's [Lexical](https://lexical.dev/) — 1.0.0 depends on `lexical` ^0.44.0 plus 13 `@lexical/*` packages. 37signals describes it as roughly thirteen thousand lines of vanilla JavaScript on top of Lexical.
+- **Why it exists:** 37signals built it because Trix, their previous editor and the current Rails default, "was falling short of expectations."
+- **Distribution:** Ruby gem, npm package (`@37signals/lexxy`), or CDN. Ships a `<lexxy-editor>` web component, so it runs outside Rails too. No React or Vue wrappers found.
+
+### The Rails angle — why this one matters
+
+Lexxy plugs into Action Text, the built-in rich text layer in Ruby on Rails. Switching from Trix is one line: `config.action_text.editor = :lexxy`. It replaces Trix in `form.rich_text_area` on Rails 8.0+.
+
+37signals says they will "make it the default in Rails next." **That has not happened yet.** The latest Rails release is 8.1.4, and Trix is still the default. Rails 8.2 is the release to watch.
+
+*Analysis:* once Lexxy is the Rails default, every new Rails app with rich text gets a capable, free editor with zero setup. That moves the "free open source is good enough" objection from a choice the developer makes to a default they inherit.
+
+---
+
+## Release history
+
+| Date | Milestone |
+|---|---|
+| May 2025 | Repo created; first PR |
+| Sep 4, 2025 | Public beta announced |
+| Dec 2025 | Fizzy (37signals) launches on Lexxy |
+| May 2026 | Basecamp 5 launches on Lexxy |
+| Jun 8, 2026 | 0.9.16 — ".beta" suffix dropped |
+| **Sep 28, 2026** | **1.0.0** on GitHub, RubyGems and npm |
+
+Release cadence is frequent, often weekly. Last push October 7, 2026.
+
+---
+
+## Features
+
+Verified on the README, lexxy.dev and the 1.0 post:
+
+- Semantic HTML output with real `<p>` tags — a deliberate contrast to Trix
+- Markdown shortcuts and auto-formatting of pasted Markdown
+- Code blocks with live syntax highlighting (Prism)
+- Tables
+- Text highlighter
+- Image galleries with keyboard navigation, reordering and drag and drop
+- Attachment previews for PDF and video, via Rails Active Storage
+- Paste a URL over selected text to make a link
+- Configurable prompts and mentions
+- Extensions API, hotkeys, events; accessibility as a stated focus
+
+### What is not there
+
+Not found anywhere in the docs, site or posts:
+
+| Area | Status |
+|---|---|
+| Real-time collaboration | **No** |
+| Comments | **No** |
+| Track changes | **No** |
+| Revision history | **No** |
+| AI features | **No** — AI appears only as a development tool ("We started Lexxy using Claude since day one") |
+| Paste from Word / Office | **Not claimed** |
+| Import from Word / Export to PDF or Word | **No** |
+| SOC 2, HIPAA, SLAs, paid support | **No** — support is GitHub Issues and Discussions |
+| React / Angular / Vue integrations | **No official wrappers** |
+
+---
+
+## Adoption signals
+
+Pulled October 8, 2026:
+
+- **GitHub:** 1,243 stars, 118 forks, 100 open issues
+- **RubyGems:** 890,363 total downloads; 12,529 for 1.0.0
+- **npm:** 118,171 downloads in the month to October 4
+- **In production at 37signals:** Basecamp 5 and Fizzy. HEY is **not confirmed** — do not claim it.
+- **Ecosystem:** Avo (Rails admin framework) ships a Lexxy field. Saeloun published a review.
+- **Hacker News:** low traction — the 2025 announcement drew 32 points, the 1.0 post 3 points.
+
+*Analysis:* modest numbers today. The download curve that matters starts when Rails ships it as default.
+
+---
+
+## How 37signals positions it
+
+- "everything you'd expect, done right"
+- "respect your markup and your users"
+- "the best rich text editor out there right now"
+- "Action Text native"
+
+The pitch is craft and correctness: clean semantic HTML, a small focused feature set, Rails conventions. It is the 37signals house style — opinionated, no enterprise surface.
+
+---
+
+## Where CKEditor wins
+
+- **Collaboration.** Lexxy has no real-time editing, comments, track changes or revision history. CKEditor is collaboration-ready out of the box.
+- **AI.** Lexxy has none. CKEditor AI brings AI where content happens: Chat, Review, Quick Actions, Translate, with every change reviewable before it lands.
+- **Enterprise.** Enterprise-ready with SLAs, various distribution models, SOC 2 Type 2 certified, and HIPAA compliant. Lexxy offers GitHub Issues.
+- **Document workflows.** Import from Word, Export to PDF and Word, Paste from Office Enhanced. Lexxy claims none of them.
+- **Breadth and frameworks.** Highly customizable with more than 1000 API methods, and official React, Angular and Vue integrations. Lexxy is Rails-first with a web component.
+- **Maturity.** CKEditor has 20+ years in production. Lexxy has been 1.0 for ten days with 100 open issues.
+
+## Where Lexxy wins
+
+- **Price.** $0, MIT.
+- **Distribution.** One line in Rails config today; possibly the default tomorrow.
+- **Rails fit.** Native Action Text and Active Storage. No adapter, no glue.
+- **Credibility with Rails developers.** Built and used by the people who created Rails, in Basecamp 5.
+- **Clean output.** A strong, easy-to-explain semantic HTML story.
+
+---
+
+## Qualifying questions
+
+Lexxy is the right answer for a Rails team that needs a solid comment box or content field. Ask:
+
+1. Do two people ever need to edit the same document at once?
+2. Does anyone need to suggest changes for someone else to approve?
+3. Will AI writing help be on the roadmap in the next 12 months?
+4. Do your users bring content in from Word, or need it out as PDF or Word?
+5. Do you sell into regulated industries that ask for SOC 2 or HIPAA?
+6. Does anything outside Rails — a React front end, a mobile web view — need the same editor?
+
+Any "yes" and Lexxy becomes a starting point for a custom build, not a finished solution.
+
+---
+
+## The battlecard argument
+
+> Lexxy is a great default for a Rails app that needs a clean text field, and it's free. The moment your product needs people to work on the same document — comments, suggestions, real-time editing, version history — or needs AI that your users can review before it lands, you're building that yourself on top of Lexical. CKEditor ships it today, collaboration-ready, with SLAs and SOC 2 Type 2 behind it.
+
+**Do not** knock Lexxy's quality or 37signals. Rails developers respect both, and the pitch lands better as "great default, different job."
+
+---
+
+## Watch list
+
+| Trigger | What it would change |
+|---|---|
+| **Rails 8.2 ships with Lexxy as the Action Text default** | Lexxy becomes the editor every new Rails app starts with. Rewrite the Rails-segment pitch around "graduating from the default." |
+| Comments or any collaboration feature | Removes the main capability gap. Escalate. |
+| Official React/Vue wrappers | Takes Lexxy beyond Rails into the general JavaScript market. |
+| Any AI feature | Closes the second gap. |
+| A paid tier or support offering | Signals 37signals sees a business in it. |
+
+---
+
+## Sources
+
+| Source | Checked |
+|---|---|
+| [lexxy.dev](https://lexxy.dev/) and [docs](https://lexxy.dev/docs/) | Oct 8, 2026 |
+| [Lexxy 1.0 — 37signals Dev](https://dev.37signals.com/lexxy-1-0/) | Oct 8, 2026 |
+| [Announcing Lexxy — 37signals Dev](https://dev.37signals.com/announcing-lexxy-a-new-rich-text-editor-for-rails/) | Oct 8, 2026 |
+| [github.com/basecamp/lexxy](https://github.com/basecamp/lexxy) — releases, stars, issues via API | Oct 8, 2026 |
+| [rubygems.org/gems/lexxy](https://rubygems.org/gems/lexxy), [rubygems.org/gems/rails](https://rubygems.org/gems/rails) | Oct 8, 2026 |
+| [npm @37signals/lexxy](https://www.npmjs.com/package/@37signals/lexxy) | Oct 8, 2026 |
+| [Avo Lexxy field](https://docs.avohq.io/4.0/fields/lexxy.html), [Saeloun review](https://blog.saeloun.com/2025/10/14/lexxy-editor/) | Oct 8, 2026 |
 
 
 ================================================================
@@ -5844,7 +6435,7 @@ FILE: ./research/competitors/ckeditor-vs-tiptap.md
 
 # CKEditor vs. Tiptap
 
-**Last updated:** September 23, 2026 — **the September 7 conclusion has expired.** Tiptap's AI Toolkit dropped its beta label in the week of Sep 22; Tiptap Shorthand moved alpha → beta; AI Toolkit streaming moved alpha → beta. Tracked Changes is **still pre-1.0**. Stop using the "beta since July, components still alpha" timeline argument. See the [September 23 re-check](#september-23-2026-re-check--ai-toolkit-leaves-beta) at the end of this file. (Prior: September 7 — nothing had moved; Search and Replace Aug 6; AI Toolkit / Tracked Changes moved to custom pricing.)
+**Last updated:** October 8, 2026 — AI capability unchanged; Tiptap's momentum moved to **document workflow**: Compare became a paid add-on, Split View shipped, and **Composable Docs** (Slots templates + Content Protection) entered alpha. See the [October 8 re-check](#october-8-2026-re-check--the-document-workflow-push). (Prior: September 23 — **the September 7 conclusion has expired.** Tiptap's AI Toolkit dropped its beta label in the week of Sep 22; Tiptap Shorthand moved alpha → beta; AI Toolkit streaming moved alpha → beta. Tracked Changes is **still pre-1.0**. Stop using the "beta since July, components still alpha" timeline argument. See the [September 23 re-check](#september-23-2026-re-check--ai-toolkit-leaves-beta) at the end of this file. (Prior: September 7 — nothing had moved; Search and Replace Aug 6; AI Toolkit / Tracked Changes moved to custom pricing.))
 **Base:** https://ckeditor.com/ckeditor-vs-tiptap/ — this battlecard was transcribed from the published page and still mirrors it everywhere except the rows listed in the addendum.
 
 > ⚠️ **The public page is now out of date on three points.** The rows marked **[updated]** below reflect what Tiptap actually ships as of July 2026; the live page still shows the old values. Until the web team updates the page, a prospect reading it will see claims a rep should not repeat. Use this file, not the page, on those three topics. Everything unmarked still matches the page.
@@ -6367,7 +6958,206 @@ The maturity-timeline line is gone, so lead with the two that are stronger and d
 
 ---
 
-*Transcribed from https://ckeditor.com/ckeditor-vs-tiptap/ in July 2026, with rows corrected against verified Tiptap releases on July 27, 2026, re-verified September 7, 2026, and re-checked September 23, 2026. For the broader analytical landscape across all editors, see `research/competitive-analysis.md`. For AI-only detail, see `features/ckeditor ai/AI-competitive-comparison.md`.*
+## October 8, 2026 re-check — the document-workflow push
+
+Checked October 8, 2026 against tiptap.dev docs and pricing, the Tiptap GitHub releases, npm, and merged PRs in the [tiptap-docs repo](https://github.com/ueberdosis/tiptap-docs).
+
+### AI: nothing moved
+
+| Item | Sep 23 | Oct 8 |
+|---|---|---|
+| AI Toolkit status | Beta label removed | Unchanged — no GA announcement, no stable label |
+| PR #1012 (declares AI Toolkit stable) | Open | **Still open**, last touched Sep 22 |
+| `@tiptap/ai-toolkit` on npm | — | 0.4.0 (Aug 24, 2026) — still 0.x |
+| MCP | None | None |
+| Blog | Last post Aug 6 | Still Aug 6 |
+
+The capability gap from September 23 holds in full: no AI Review or Translations mode, no file/URL context, no chat history, no AI RBAC, no MCP, no shipped AI UI.
+
+### What did move: document workflow
+
+| Change | Detail | Source |
+|---|---|---|
+| **Tiptap Compare → paid add-on** | Beta/pilot labels dropped; buy via sales. Headless; runs "without an editor instance," client- or server-side | [PR #1033](https://github.com/ueberdosis/tiptap-docs/pull/1033), merged Oct 6; [live docs](https://tiptap.dev/docs/compare/getting-started/overview) |
+| **Split View** | Side-by-side diff for Tracked Changes (Sep 25) and Pages (Oct 1); now part of the paid Compare add-on. The AI Toolkit's own split-view guide is deprecated in its favour | PRs #1023, #1031, #1043, #1039 |
+| **Composable Docs (alpha, pilot)** | **Slots** — document templates with inline, block and nested fields plus validation (`@tiptap-pro/extension-slot`, client-side only). **Content Protection** — policies for who can edit and read | [PR #1020](https://github.com/ueberdosis/tiptap-docs/pull/1020), merged Oct 5 |
+| Smaller items | On-prem collaboration auth; comments in code blocks; DOCX export of task lists and whole-node tracked changes; Pages merged cells; a spellcheck guide (browser spellcheck or nspell — not a product) | PRs #1054, #1055, #977, #1008, #1027, #1030 |
+
+Core package: v3.31.4, September 30.
+
+### Tracked Changes status — one caveat
+
+The [Tracked Changes overview](https://tiptap.dev/docs/tracked-changes/getting-started/overview) no longer shows a status label. It describes it as "a paid add-on that isn't included in any plan." The package sits on Tiptap's private registry, so we could not confirm the version number. **"Pre-1.0" was last verified September 23.** Reps can still use it, but say "as of September" until someone with registry access re-checks.
+
+### Pricing — unchanged
+
+Start $49/mo annual ($59 monthly), Team $149 ($179), Business $999 ($1,199), Enterprise custom. AI Toolkit and Tracked Changes custom-priced. Compare and Composable Docs not yet on the pricing page. SOC 2 Type II is listed under Enterprise only. No HIPAA mention.
+
+### What it means
+
+*Analysis.* Tiptap is building toward the contract and regulated-document workflow — templates with fields (our Merge Fields and Templates), content protection (our Restricted Editing), side-by-side compare. That is CKEditor's home ground, and Tiptap is now shipping the parts.
+
+But it is shipping them the Tiptap way: each one a separate add-on, custom-priced, several in alpha or pilot. A buyer who wants templates, protected regions, tracked changes, compare and AI from Tiptap is buying five add-ons, at least two of them pre-GA, and building every UI.
+
+### The argument, updated
+
+> Tiptap is now selling the parts of a contract-editing workflow — templates, protected content, compare, tracked changes, AI — one add-on at a time, each priced through sales, several still in alpha. CKEditor ships Merge Fields, Templates, Restricted Editing, Track Changes, Revision History and AI as one integrated, production product with a UI.
+
+### Action items
+
+1. **Brief reps on Composable Docs.** Expect "Tiptap has templates and protected content now." Answer: alpha, pilot only, client-side only, separate add-on.
+2. **Re-verify Tracked Changes version** with registry access. If it hits 1.0, the load-bearing argument from September 23 goes.
+3. **Watch PR #1012.** Still the GA trigger.
+4. **The public page** https://ckeditor.com/ckeditor-vs-tiptap/ is still wrong on Find and Replace, Track Changes and AI — fourth consecutive re-check flagging it.
+
+---
+
+*Transcribed from https://ckeditor.com/ckeditor-vs-tiptap/ in July 2026, with rows corrected against verified Tiptap releases on July 27, 2026, re-verified September 7, 2026, and re-checked September 23 and October 8, 2026. For the broader analytical landscape across all editors, see `research/competitive-analysis.md`. For AI-only detail, see `features/ckeditor ai/AI-competitive-comparison.md`.*
+
+
+================================================================
+FILE: ./research/competitors/ckeditor-vs-velt.md
+================================================================
+
+# CKEditor vs. Velt
+
+**Last updated:** October 8, 2026 — first profile.
+**Status:** Indirect competitor. Velt is not an editor; it sells the collaboration and review layer that sits on top of one. Track quarterly — sooner if it ships in-editor track changes.
+
+> **Source note.** Capability facts come from [velt.dev](https://velt.dev/), the [Velt docs](https://velt.dev/docs/llms.txt), the [pricing page](https://velt.dev/pricing), the SDK changelog and the [YC profile](https://www.ycombinator.com/companies/velt), read October 8, 2026. Customer logos, stats and certifications are **Velt's own claims, not verified**. Funding comes from third-party databases only. Anything marked *analysis* is ours.
+
+---
+
+## Why this one matters to us
+
+Velt ships packages that add real-time co-editing and comments to **CKEditor 5 running on a GPL licence**:
+
+- `@veltdev/ckeditor-crdt` and `@veltdev/ckeditor-crdt-react` ([setup docs](https://velt.dev/docs/realtime-collaboration/crdt/setup/ckeditor.md))
+- Code samples use `licenseKey: 'GPL'`
+- The adapter "stores normalized HTML in a Yjs XML fragment"
+
+In plain terms: a customer can run the free CKEditor 5 build, bolt on Velt for multi-user editing and comments, and never buy our collaboration features. Velt markets itself as "the review and collaboration layer built for CKEditor" on a [dedicated landing page](https://velt.dev/libraries/ckeditor).
+
+They are also publishing against us. A [blog post from August 12, 2026](https://velt.dev/blog/ckeditor-approval-audit-trail) claims "CKEditor has no built-in review layer." **That is false** — CKEditor ships native Comments, Track Changes and Revision History, and the same post later concedes our revision history tracks changes. Their real point is narrower: CKEditor has no approval-state workflow or immutable audit log.
+
+---
+
+## What it is
+
+- **Company:** Velt (formerly Snippyly), San Francisco. Founded 2020, Y Combinator W22, team of about 15. CEO and co-founder Rakesh Goyal.
+- **Funding (third-party databases only, unverified):** about $3.27M across two rounds; latest a $2.77M seed in March 2023. Investors listed include Y Combinator and Spider Capital. No 2025 or 2026 round found.
+- **Positioning:** has moved from "collaboration SDK" to an "embedded review and approval SDK" — "Agents propose, humans approve."
+
+### What the SDK covers
+
+| Layer | Features |
+|---|---|
+| Async review | Comments, Suggestions (beta), Approval flows, Audit trail, Notifications |
+| Agents | Review Agents that post findings as comments via API or MCP; Agent Comments over REST; Review Workflow Builder (beta); Memory of past review decisions (beta); AI Rewriter with any major LLM |
+| Real-time | Presence (avatars, cursors, follow mode), Velt CRDT multiplayer editing (Yjs-based, offline-first), Huddles (live audio/video), Recording (voice, video, screen) |
+| Version history | Named snapshots and restore on CRDT stores |
+| MCP | REST API MCP server (beta), Docs MCP, Installation MCP; Claude Code and Cursor plugins |
+
+### Where it plugs in
+
+**Comments:** Tiptap, Lexical, Slate, CKEditor 5, TinyMCE, Quill, ProseMirror, Plate, Draft.js, SuperDoc, CodeMirror, Monaco, Ace, plus PDF tools (Apryse, Nutrient), SpreadJS, charts, video and canvas.
+
+**CRDT co-editing:** Tiptap, BlockNote, Lexical, Slate, Quill, TinyMCE, CKEditor, ProseMirror, Draft.js, SuperDoc and others.
+
+*Analysis:* the pitch is one collaboration layer across every surface in the app — editor, PDF viewer, spreadsheet, dashboard. That breadth is something no editor vendor offers, us included.
+
+### Suggestions are not track changes
+
+Velt Suggestions (beta) capture an element's before and after value when it loses focus, and a reviewer accepts or rejects in the comment dialog. "The SDK never mutates your data" — the host app applies the change. This is field-level change approval, not tracked insertions and deletions inside rich text. We found no keystroke-level suggestion markup in any editor integration.
+
+---
+
+## Pricing
+
+Metered by **Monthly Active Documents** — documents with active collaboration — not seats or MAU.
+
+| Tier | Price | Limits |
+|---|---|---|
+| Hacker | Free | 100 active docs, 20 simultaneous connections, 5,000 comments/notifications, 2 GB; "dev environments only" |
+| Growth | Contract | Up to 100,000 connections, 2 TB, 99.999% uptime SLA claimed, Slack support, CSM |
+| Enterprise | Contract | Up to 200,000 connections |
+
+No list prices published. Note the inconsistency: the CKEditor landing page says the free tier covers "development and early production," while the pricing page says dev only.
+
+---
+
+## Enterprise claims (unverified)
+
+- SOC 2 Type II, HIPAA with BAA, GDPR, DPA, EU data residency — all Velt's own claims
+- **Self-hosting is real and documented:** partial (content and PII in your database) and full ("no runtime requests to Velt-owned hosts"), GA on GCP, AWS and Azure in closed beta
+- Customer logos claimed: Google, Freshworks, HCLTech, Pendo, HeyGen, Runway, Leadpages and others. Stats claimed: "500k+ reviews running in production." **Do not repeat these as fact.**
+
+---
+
+## Where CKEditor wins
+
+- **Real track changes.** Suggestions inside the text, keystroke by keystroke, accepted or rejected in place. Velt's Suggestions are field-level value diffs, in beta.
+- **One schema, one vendor.** Our comments, track changes and revision history are part of the editor's document model, not synced HTML layered on top. *Analysis, untested:* Velt's CKEditor adapter syncs normalized HTML, which may lose structure on complex documents.
+- **AI that is collaboration-ready.** CKEditor AI writes its changes as tracked suggestions, attributed to AI, inside the same collaboration system. Velt's agents comment from the outside.
+- **Document workflows.** Import from Word, Export to PDF and Word, and Paste from Office Enhanced all preserve collaboration data. Velt has none.
+- **Vendor stability.** 20+ years, 1,100+ customers, enterprise SLAs. Velt is a ~15-person company whose last disclosed raise was in 2023.
+
+## Where Velt wins or exposes us
+
+- **Cross-surface collaboration.** One SDK for editors, PDFs, spreadsheets, charts and video, plus huddles and recording.
+- **Price of entry.** Free CKEditor 5 plus Velt can undercut our collaboration add-on.
+- **Agent governance narrative.** Approval workflows, audit trails and decision memory map well to "agents propose, humans approve." That is close to our own AI governance story, told by someone else.
+- **SEO.** They target CKEditor directly with a landing page and blog content.
+
+---
+
+## Qualifying questions
+
+1. Is the collaboration only inside the editor, or also across PDFs, dashboards and other app surfaces? (Velt's strongest ground.)
+2. Do reviewers need to propose edits inside the text, or approve a field value? (Ours vs. theirs.)
+3. Do documents round-trip through Word or PDF with comments and suggestions intact?
+4. Is AI expected to write changes that a person approves inside the document?
+5. Who supports the editor and the collaboration layer when they disagree? With Velt, that is two vendors.
+
+---
+
+## The battlecard argument
+
+> Velt adds a review layer around your editor. CKEditor is collaboration-ready inside it. If your reviewers approve a field or comment on a chart, Velt is a good fit. If they need to suggest changes in a contract, see who changed what, and accept or reject AI edits line by line — and export all of that to Word — you need track changes in the editor's own document model. That's CKEditor, from one vendor, with SLAs behind it.
+
+---
+
+## Actions
+
+1. **Correct the record.** Velt's "no built-in review layer" claim is wrong. Consider a short comparison page or blog section showing native Comments, Track Changes and Revision History.
+2. **Sales watch:** prospects running GPL CKEditor 5 with third-party collaboration. That is a licence and upsell conversation.
+3. **Messaging:** strengthen approval and audit-trail language for AI-generated changes, so "agents propose, humans approve" is a story we own inside the editor.
+4. **Solutions team:** test Velt's CKEditor CRDT adapter on a complex document (nested tables, footnotes, track changes) to check whether normalized-HTML sync is lossy.
+
+---
+
+## Watch list
+
+| Trigger | What it would change |
+|---|---|
+| In-editor, keystroke-level suggestions for CKEditor or Tiptap | Removes our strongest structural argument. Escalate. |
+| New funding round | Signals they can scale sales and SEO against us. |
+| More CKEditor-targeted content | Track and respond. |
+| Full self-hosting GA on AWS/Azure | Opens regulated, on-premises buyers. |
+
+---
+
+## Sources
+
+| Source | Checked |
+|---|---|
+| [velt.dev](https://velt.dev/), [pricing](https://velt.dev/pricing), [CKEditor landing page](https://velt.dev/libraries/ckeditor) | Oct 8, 2026 |
+| [Velt docs index](https://velt.dev/docs/llms.txt), [CRDT overview](https://velt.dev/docs/realtime-collaboration/crdt/overview.md), [CKEditor CRDT setup](https://velt.dev/docs/realtime-collaboration/crdt/setup/ckeditor.md), [Suggestions](https://velt.dev/docs/async-collaboration/suggestions/overview.md) | Oct 8, 2026 |
+| Self-hosting: [partial](https://velt.dev/docs/self-hosting/partial/overview.md), [full](https://velt.dev/docs/self-hosting/full/overview.md) | Oct 8, 2026 |
+| [SDK v6 changelog](https://velt.dev/docs/release-notes/version-6/sdk-changelog.md) — v6.0.0 Jul 31, 2026; latest 6.0.16-beta.1 Sep 28, 2026 | Oct 8, 2026 |
+| [Velt blog — CKEditor approval and audit trail](https://velt.dev/blog/ckeditor-approval-audit-trail), Aug 12, 2026 | Oct 8, 2026 |
+| [YC company profile](https://www.ycombinator.com/companies/velt) | Oct 8, 2026 |
+| Funding: [CB Insights](https://www.cbinsights.com/company/velt/financials), [Seedtable](https://seedtable.com/companies/velt/funding-rounds/seed-2023-03) — third-party, unverified | Oct 8, 2026 |
 
 
 ================================================================

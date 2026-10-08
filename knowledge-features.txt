@@ -1,7 +1,7 @@
 ================================================================
 CKEditor FEATURES KNOWLEDGE BASE
-Last updated: 2026-10-05 12:51 UTC
-Commit: cbc96d0809c9140cd54f01e2fb9fb57951a405b9
+Last updated: 2026-10-08 09:44 UTC
+Commit: 93e39096559e3123c0905ac026354451ea2ee46a
 Files included: 23
 ================================================================
 
@@ -246,11 +246,11 @@ FILE: ./features/ckeditor ai/AI-competitive-comparison.md
 
 # AI Features: CKEditor vs. Competitors
 
-**Last updated:** September 7, 2026 — CKEditor column rebuilt from the current AI feature landing pages (`content/landing-pages/ai-features/`). TinyMCE column synced with the August 17 battlecard and re-verified against live docs. Froala updated to **5.4.0** (August 19, 2026). Tiptap re-checked — AI Toolkit still beta.
+**Last updated:** October 8, 2026 — Froala to **5.5.0** (Sept 30: AI image generation, Headless Mode) with 5.4 now verified at source; Tiptap AI Toolkit beta label removed (Sept 22) but no GA and still 0.x; new section comparing how AI touches the document in **Claude Docs, Claude for Google Workspace and ChatGPT Pages**; Lexxy and Velt noted. (Prior: September 7 — CKEditor column rebuilt from the current AI feature landing pages (`content/landing-pages/ai-features/`). TinyMCE column synced with the August 17 battlecard and re-verified against live docs. Froala updated to **5.4.0** (August 19, 2026). Tiptap re-checked — AI Toolkit still beta.)
 
 > ⚠️ **Three CKEditor-only claims in the July version are now dead.** TinyMCE shipped MCP (8.7, June 30 2026), on-premises AI GA, AI edit attribution, and AI usage tracking, and its on-premises docs now document seven LLM provider types including `openai-compatible`. Do not say "we're the only editor with MCP," "TinyMCE has no on-prem AI," or "TinyMCE has no AI usage analytics." See the Key Differentiators section for what still holds.
 
-> ⚠️ **Tiptap's AI is a developer toolkit, not a product.** AI Toolkit reached beta July 15, 2026 — server-side, agent-oriented, model-agnostic, AI edits as tracked changes — and is *still* beta as of September 7. Do not say "Tiptap's AI is just basic chat." Say they ship no AI product UI and no dedicated AI modes. Detail in `research/competitors/ckeditor-vs-tiptap.md`.
+> ⚠️ **Tiptap's AI is a developer toolkit, not a product.** AI Toolkit reached beta July 15, 2026 — server-side, agent-oriented, model-agnostic, AI edits as tracked changes. The beta label came off the docs around September 22, but as of October 8 there is no GA announcement, the stable-declaration PR is still open, and the npm package is 0.4.0. Do not say "still beta" any more. Do not say "Tiptap's AI is just basic chat." Say they ship no AI product UI and no dedicated AI modes. Detail in `research/competitors/ckeditor-vs-tiptap.md`.
 
 **Scope:** AI capabilities only — writing assistance, LLM integration, customization, and deployment
 **Editors covered:** CKEditor, TinyMCE, Tiptap, Froala, Quill, ProseMirror, Lexical (see `research/competitive-analysis.md` for Eddyter and RichTextEditor)
@@ -267,8 +267,8 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 
 | Feature | CKEditor | TinyMCE | Tiptap | Froala | Quill | ProseMirror | Lexical |
 |---|---|---|---|---|---|---|---|
-| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ⚠️ Basic in-editor chat + Quick Actions ("Basic AI"); **AI Toolkit (beta, July 2026)** adds server-side agent tooling — you build the experience | ✅ AI Assist plugin, **5.4.0 (Aug 19, 2026)** | ❌ | ❌ | ❌ |
-| **AI Chat interface** | ✅ Full chat with context, reasoning, web search; sidebar or overlay; threads pinnable, renameable, searchable, private to their author | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ Very basic chat — limited support | ⚠️ **[updated 5.4]** Docked side-panel AI Chat Assistant with multi-turn conversation; no file/URL context or persistent history confirmed | ❌ | ❌ | ❌ |
+| **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ⚠️ Basic in-editor chat + Quick Actions ("Basic AI"); **AI Toolkit (beta July 2026; label removed Sept 2026, no GA)** adds server-side agent tooling — you build the experience | ✅ AI Assist plugin, **5.5.0 (Sept 30, 2026)** — adds AI image generation | ❌ | ❌ | ❌ |
+| **AI Chat interface** | ✅ Full chat with context, reasoning, web search; sidebar or overlay; threads pinnable, renameable, searchable, private to their author | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ Very basic chat — limited support | ⚠️ **[verified 5.4; 5.5 adds web-search/reasoning capability flags]** Docked side-panel AI Chat Assistant with multi-turn conversation; no file/URL context or persistent history confirmed | ❌ | ❌ | ❌ |
 | **Inline AI commands / Quick Actions** | ✅ On selected text — improve writing, continue writing, fix grammar & spelling, make shorter/longer, change tone (5 presets), translate (7 languages), Chat Commands (Explain, Summarize, Highlight key points), and Ask AI to escalate the selection into Chat | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Custom Quick Actions + one-click text transformations (no search/filter in dropdown) | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
 | **AI Review (on-demand quality check)** | ✅ 5 built-in checks — Proofread, Improve Clarity, Improve Readability, Adjust Length, Adjust Tone and Style — plus ad-hoc custom commands and saved custom reviews; per-review model choice and RBAC; chunks long documents across parallel LLM calls | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ⚠️ No dedicated mode — AI Toolkit ships a `proofread` tool for you to build around | ⚠️ **[updated 5.4]** No dedicated review mode, but AI Improve Writing now returns edits as accept/reject changes | ❌ | ❌ | ❌ |
 | **AI Translations (dedicated mode)** | ✅ Dedicated full-document translate mode — **10 built-in languages** (EN, ES, FR, DE, ZH-Hans, JA, RU, PT, KO, IT) plus configurable additional ones; original stays in the sidebar for segment-by-segment review | ⚠️ Via Quick Actions | ❌ No dedicated AI Translations mode | ❌ | ❌ | ❌ | ❌ |
@@ -347,7 +347,43 @@ Model selection per subscription tier means a free-tier user runs a lighter mode
 
 ---
 
+## "Headless" means different things — keep them apart
+
+Froala 5.5 (Sept 30, 2026) shipped **Headless Mode**: the Froala editing engine with its toolbar, popups and styling removed, so you build your own UI. That is a client-side editor without chrome — the same idea as Tiptap's headless architecture.
+
+CKEditor's **programmatic and headless AI API** is something else: AI that runs on content server-side, without a browser or a visible editor, for pipelines and agents. Tiptap's AI Toolkit and Compare are the closest equivalents. Froala has no server-side AI API.
+
+If a prospect says "Froala has headless now too," the accurate answer is: headless UI, yes; headless AI, no.
+
+---
+
+## AI-lab document apps: how the AI touches the document
+
+Claude Docs (Sept 16), ChatGPT Pages (Sept 29) and Claude for Google Workspace (Oct 6) are substitutes, not editors anyone can embed — full detail in `research/competitors/Claude Docs.md` and `research/competitors/ChatGPT Pages.md`. They matter here because they set what our customers' users will expect from AI in a document. The biggest difference is **when a person decides**.
+
+| | CKEditor AI | Claude Docs | Claude for Google Workspace | ChatGPT Pages |
+|---|---|---|---|---|
+| How AI edits land | Previewed; apply, reject, or add as a **tracked suggestion** | **Directly** — no preview, no accept step | Approval card per edit by default; once approved, **applied directly**, not as a Google suggestion | Not verified |
+| Undo an AI edit | Like any other edit | Not with Cmd+Z — via version history | Google version history | Not verified |
+| AI attribution | In Track Changes and Revision History | Per version, not per change | Google version history | "Show attribution" view (reported) |
+| AI in comment threads | Not yet | ✅ @Claude edits in scope | ❌ Cannot read or resolve comments | ✅ @ChatGPT, Codex, Dots |
+| Review | Dedicated mode, 5 checks + custom | Excellent via chat (11/11 planted errors found), as comments | Via chat | Not verified |
+| Translation | Dedicated mode, original alongside | Overwrites the original | Via chat | Not verified |
+| Model choice | OpenAI, Anthropic, Google; any OpenAI-compatible on-prem | Claude only | Claude, with model selector | OpenAI only |
+| Embeddable in your product | ✅ | ❌ | ❌ | ❌ |
+| On-premises / HIPAA | ✅ | ❌ | ❌ HIPAA, ZDR | Not found |
+
+Sources: internal hands-on tests October 3–6 (Claude Docs), the [Claude for Google Workspace help centre](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides), and press for ChatGPT Pages (OpenAI sites blocked our fetches).
+
+**Lead with:** "accept or reject each AI change before it lands, and undo it like any other edit." In our Claude Docs test, a "plainer language" request silently turned "use all reasonable endeavours to perform" into "shall perform" — an absolute obligation — visible only afterwards in version history.
+
+**Concede:** Claude Docs' review quality is excellent, and @AI in comment threads is a pattern we don't have yet. Do not give dates for ours.
+
+---
+
 ## Notes on Competitors Without AI
+
+**Lexxy** (37signals, 1.0 on September 28, 2026) is a new free Rails editor built on Lexical, with no AI features. **Velt** is a collaboration layer, not an editor; it offers AI review agents that post comments and an AI Rewriter, but no in-editor AI writing suite. See `research/competitive-analysis.md`.
 
 **Quill, ProseMirror, and Lexical** have no AI features and no published AI roadmap. Any AI capability on these platforms requires the application developer to build the full integration layer — LLM orchestration, prompt management, streaming, UI, formatting preservation, and context handling. This is typically a 3–6 month engineering project before reaching feature parity with CKEditor AI's current baseline.
 
@@ -375,12 +411,16 @@ Their own claim to beat: multi-model AI (GPT-5, Claude Sonnet 5, Haiku 4.5, Gemi
 
 *Review this document quarterly.*
 
+**Verified October 8, 2026:** Froala 5.5.0 and 5.4.0 release posts and changelog read directly (froala.com reachable again) — 5.4's docked chat panel and accept/reject AI Improve Writing confirmed; 5.5 adds AI image generation and Headless Mode. Tiptap AI Toolkit docs, npm (0.4.0) and tiptap-docs PR #1012 (still open). TinyMCE through 8.9.3 — no AI changes. CKEditor AI MCP docs — still on-premises only, APIs subject to change in minor releases; an internal comment says MCP is now available in cloud and no longer experimental — **unconfirmed, do not claim**.
+
 **Verified September 7, 2026:** TinyMCE changelog through 8.9.0 (Aug 31) — no AI changes since 8.7/8.8, so the August battlecard reading still holds; on-premises LLM provider docs re-read and now list seven provider types. Tiptap release notes through Aug 6 (Search and Replace) — AI Toolkit still beta, Tiptap Shorthand still alpha, AI Toolkit and Tracked Changes moved to custom pricing via sales. Froala 5.4.0 confirmed (Aug 19).
 
 **Still to re-validate:**
 - **TinyMCE BYO-LLM** — marketing says early access, docs say otherwise. Get a definitive answer before any sales call that leans on the GA distinction. Re-check with 8.10.
-- **Tiptap AI Toolkit** — streaming of AI changes and Tiptap Shorthand were due out of alpha "within weeks" of July 15 and still are not. Their Tracked Changes extension is still pre-1.0. Re-check November 2026.
-- **Froala** — 5.4 landed a real chat panel and reviewable AI edits in one release. Confirm whether chat history, file/URL context, or a review mode follow. Re-check November 2026.
+- **Tiptap AI Toolkit** — streaming and Shorthand moved to beta by Sept 23; toolkit beta label removed but no GA. Tracked Changes last verified pre-1.0 on Sept 23. Re-check November 2026, or on PR #1012 merging.
+- **Froala** — 5.4 landed a real chat panel and reviewable AI edits; 5.5 added image generation. Confirm whether chat history, file/URL context, or a review mode follow, and whether AI Assist is included in every licence (search excerpt only). Re-check November 2026.
+- **CKEditor AI MCP** — confirm with product whether cloud MCP has shipped; if yes, update the MCP row.
+- **ChatGPT Pages** — every cell above is unverified; needs a hands-on check.
 - **RichTextEditor** — new entrant, claims unverified. Confirm whether their AI Review is a real mode or a prompt preset.
 
 *The public CKEditor vs Tiptap page (https://ckeditor.com/ckeditor-vs-tiptap/) still shows pre-July claims. Keep this file in sync with `research/competitors/ckeditor-vs-tiptap.md` and `research/competitors/ckeditor-vs-tinymce.md`.*
