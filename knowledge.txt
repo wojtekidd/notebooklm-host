@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-10-08 09:44 UTC
-Commit: 93e39096559e3123c0905ac026354451ea2ee46a
+Last updated: 2026-10-08 10:04 UTC
+Commit: c35c8449141bcd36b6ef718c0d71f0976f866f0f
 Files included: 33
 ================================================================
 
@@ -4687,7 +4687,7 @@ Developer-first: high-quality documentation, active GitHub presence (open-source
 | Track changes | **Yes, but immature** — Tracked Changes extension (paid add-on): suggestion mode per user, accept/reject individually, in bulk, by range, or by user, grouping, nesting, comment-thread links. Pre-1.0 with an API Tiptap flags as unstable; no documented accept/reject preview; suggestions not preserved in DOCX or PDF export |
 | Revision history | **Yes** — named revisions, autosave, comparison, restore |
 
-Tiptap's real-time editing and comments are solid. Its track-changes story is no longer absent — the Tracked Changes extension covers the core accept/reject workflow — so compete on maturity (stable vs. pre-1.0), accept/reject preview, and suggestion preservation through DOCX and PDF export rather than on existence. Collaboration features are platform-tier only, not on the free OSS core, which creates an upsell friction point CKEditor avoids.
+Tiptap's real-time editing and comments are solid. Its track-changes story is no longer absent — the Tracked Changes extension covers the core accept/reject workflow — so compete on maturity (stable vs. pre-1.0), accept/reject preview, and **[corrected Oct 8]** what Word and PDF round-trips keep: Tiptap's suggestions now survive DOCX export and import (add-on; import beta), but comments do not, and there is no native PDF export. Collaboration features are platform-tier only, not on the free OSS core, which creates an upsell friction point CKEditor avoids.
 
 #### AI Readiness
 | Feature | Status |
@@ -4709,7 +4709,7 @@ Tiptap's real-time editing and comments are solid. Its track-changes story is no
 
 **What holds and what to drop.** CKEditor still wins on the finished product: full Chat with file/URL context, reasoning, web search, model selection and history, dedicated AI Review and AI Translations modes, per-feature AI permissions, an AI REST API, MCP support, usage analytics, and AI-vs-human attribution in Track Changes. Tiptap has none of those. Stop saying "Tiptap's AI is very basic chat" or "Tiptap has no server-side or BYO-model AI" — a developer who read the July release notes will correct you. The durable argument is that Tiptap sells the parts and CKEditor ships the product.
 
-⚠️ **Updated October 8, 2026 — Tiptap moves into document workflow.** AI is unchanged: no GA announcement, PR #1012 still open, `@tiptap/ai-toolkit` still 0.4.0 on npm, no MCP. What moved is the contract-editing layer: **Tiptap Compare** became a paid add-on (Oct 6), **Split View** side-by-side diff shipped for Tracked Changes and Pages, and **Composable Docs** entered alpha via a pilot — Slots (templates with validated fields) and Content Protection (who can edit and read). That is aimed at our Merge Fields, Templates and Restricted Editing. Each piece is a separate, sales-priced add-on, several pre-GA, all headless. The Tracked Changes page no longer carries a status label; "pre-1.0" was last verified September 23. Detail in `research/competitors/ckeditor-vs-tiptap.md`.
+⚠️ **Updated October 8, 2026 — Tiptap moves into document workflow.** AI is unchanged: no GA announcement, PR #1012 still open, `@tiptap/ai-toolkit` still 0.4.0 on npm, no MCP. What moved is the contract-editing layer: **Tiptap Compare** became a paid add-on (Oct 6), **Split View** side-by-side diff shipped for Tracked Changes and Pages, and **Composable Docs** entered alpha via a pilot — Slots (templates with validated fields) and Content Protection (who can edit and read). That is aimed at our Merge Fields, Templates and Restricted Editing. Each piece is a separate, sales-priced add-on, several pre-GA, all headless. The Tracked Changes page no longer carries a status label; "pre-1.0" was last verified September 23. **Correction:** Tiptap has documented DOCX export and import of tracked changes since August 21 (add-on; import beta) — retire "suggestions don't survive export." Comments still don't travel to or from Word, and there's no PDF export. Detail in `research/competitors/ckeditor-vs-tiptap.md`.
 
 ⚠️ **Updated May 2026:** Hocuspocus 4 reached stable release on May 8, 2026. Hocuspocus is Tiptap's open-source collaboration backend (WebSocket server, conflict resolution, document persistence). Moving it from beta to stable is meaningful for Tiptap's real-time collaboration stack — which the page grants Tiptap. It does not change Tiptap's AI or track-changes gaps.
 
@@ -4722,7 +4722,7 @@ Tiptap's real-time editing and comments are solid. Its track-changes story is no
 
 #### Weaknesses vs. CKEditor
 - **No built-in UI** — teams build toolbars, dropdowns, and dialogs from scratch
-- **Immature track changes** — Tracked Changes is pre-1.0 with an API Tiptap flags as unstable, has no documented accept/reject preview, and does not preserve suggestions in DOCX or PDF export
+- **Immature track changes** — Tracked Changes is pre-1.0 with an API Tiptap flags as unstable, and has no documented accept/reject preview. **[corrected Oct 8]** Suggestions do survive DOCX export and import with the add-on (import beta); comments do not travel to or from Word, and there is no PDF export
 - **AI without a product** — AI Toolkit gives developers tools, a server-side runtime, and BYO models, but no AI UI, no dedicated AI Review or Translations mode, no file/URL context, no chat history, no AI RBAC, and no MCP. Every screen is the buyer's build
 - **AI is a paid add-on** on top of the base subscription, priced by tool calls
 - **No native PDF export** from the editor; Word export headers/footers are limited
@@ -5321,7 +5321,7 @@ Velt ships **`@veltdev/ckeditor-crdt`** packages that add real-time co-editing t
 |--------|-----------|-------|---------|
 | **CKEditor** | ✅ Native, production-ready | ✅ Full (comments, track changes, history) | **Strong** |
 | TinyMCE | ❌ Third-party only | ✅ Full | **Partial** |
-| Tiptap | ✅ Native (paid tier; Hocuspocus 4 stable May 2026) | ✅ Comments/revisions (paid tier); track changes exists but is **pre-1.0 and unstable**, with no export preservation | **Moderate (with cost)** |
+| Tiptap | ✅ Native (paid tier; Hocuspocus 4 stable May 2026) | ✅ Comments/revisions (paid tier); track changes exists but is **pre-1.0 and unstable**; survives DOCX with the add-on, but comments don't and there's no PDF | **Moderate (with cost)** |
 | Quill | ❌ Third-party | ⚠️ Limited, unmaintained | **Weak** |
 | ProseMirror | ✅ Native (low-level) | ❌ Not built in | **Partial** |
 | Froala | ⚠️ Third-party (Codox.io); native collab on roadmap | ⚠️ Limited | **Partial** |
@@ -5357,7 +5357,7 @@ Velt ships **`@veltdev/ckeditor-crdt`** packages that add real-time co-editing t
 ### CKEditor vs. Tiptap
 **Win condition:** Enterprise buyer who needs proven scale and compliance depth; buyer who wants a complete platform rather than assembling from parts; buyer evaluating total cost of ownership including platform subscription costs at document scale.
 **Risk:** Tiptap's headless flexibility and open-source core appeal strongly to React developers who want full UI control. Developer experience is excellent.
-**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship. Tiptap has no native PDF export, a compliance gap (no WCAG 2.2 / Section 508 / spelling & grammar suite), pre-1.0 track changes that do not survive DOCX or PDF export, and an AI story aimed at developers — AI Toolkit gives you agent tools and a server-side runtime, then leaves the chat UI, review flow, prompt library, and model routing to your team, with no dedicated AI Review or Translations mode and no MCP. It ships no built-in editor UI either, so toolbars, dialogs, scalability, and support all fall to your team. CKEditor delivers the same customizability with the full AI and collaboration stack already finished, a complete UI, SOC 2 / SLA / Fortune 500 backing, and a 20-year track record out of the box.
+**Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship. Tiptap has no native PDF export, a compliance gap (no WCAG 2.2 / Section 508 / spelling & grammar suite), pre-1.0 track changes that round-trip through Word only with a paid add-on (comments don't make the trip, and there's no PDF export), and an AI story aimed at developers — AI Toolkit gives you agent tools and a server-side runtime, then leaves the chat UI, review flow, prompt library, and model routing to your team, with no dedicated AI Review or Translations mode and no MCP. It ships no built-in editor UI either, so toolbars, dialogs, scalability, and support all fall to your team. CKEditor delivers the same customizability with the full AI and collaboration stack already finished, a complete UI, SOC 2 / SLA / Fortune 500 backing, and a 20-year track record out of the box.
 
 **Updated July 27, 2026:** Tiptap shipped Find and Replace in the MIT core, took AI Toolkit to beta, and has a Tracked Changes extension in pre-1.0. Three claims are now retired: "no track changes," "no find and replace," and "AI is just basic chat." See `research/competitors/ckeditor-vs-tiptap.md` → Verified Tiptap Updates before any competitive call.
 
@@ -6438,7 +6438,7 @@ FILE: ./research/competitors/ckeditor-vs-tiptap.md
 **Last updated:** October 8, 2026 — AI capability unchanged; Tiptap's momentum moved to **document workflow**: Compare became a paid add-on, Split View shipped, and **Composable Docs** (Slots templates + Content Protection) entered alpha. See the [October 8 re-check](#october-8-2026-re-check--the-document-workflow-push). (Prior: September 23 — **the September 7 conclusion has expired.** Tiptap's AI Toolkit dropped its beta label in the week of Sep 22; Tiptap Shorthand moved alpha → beta; AI Toolkit streaming moved alpha → beta. Tracked Changes is **still pre-1.0**. Stop using the "beta since July, components still alpha" timeline argument. See the [September 23 re-check](#september-23-2026-re-check--ai-toolkit-leaves-beta) at the end of this file. (Prior: September 7 — nothing had moved; Search and Replace Aug 6; AI Toolkit / Tracked Changes moved to custom pricing.))
 **Base:** https://ckeditor.com/ckeditor-vs-tiptap/ — this battlecard was transcribed from the published page and still mirrors it everywhere except the rows listed in the addendum.
 
-> ⚠️ **The public page is now out of date on three points.** The rows marked **[updated]** below reflect what Tiptap actually ships as of July 2026; the live page still shows the old values. Until the web team updates the page, a prospect reading it will see claims a rep should not repeat. Use this file, not the page, on those three topics. Everything unmarked still matches the page.
+> ⚠️ **The public page is out of date on Track Changes, Word track-changes export/import, and AI** (Find and Replace was fixed by October 8). The rows marked **[updated]** or **[corrected]** below reflect what Tiptap actually ships; the live page still shows the old values on those topics. Until the web team updates the page, a prospect reading it will see claims a rep should not repeat. Use this file, not the page, on those topics. Everything unmarked still matches the page.
 
 ---
 
@@ -6535,7 +6535,7 @@ Transcribed section-by-section from the comparison page. ✓ = available, ✗ = 
 | Suggestions linked to comment threads | ✓ | **[updated]** ✓ |
 | Production-ready / stable API | ✓ | **[updated]** ✗ — under active development, pre-1.0, Tiptap states versions below 1.0.0 are expected to be unstable |
 | Preview content with accepted/rejected suggestions | ✓ | ✗ — not documented |
-| Suggestions preserved in DOCX export | ✓ | ✗ |
+| Suggestions preserved in DOCX export | ✓ | **[corrected Oct 8]** ✓ with the Tracked Changes add-on — exported as Word revisions with author and timestamp; whole blocks since Sept 22. Formatting suggestions are not exported as revisions, and a task item's checkbox is not tracked |
 | Suggestions preserved in PDF export | ✓ | ✗ — no native PDF export |
 
 ### Compliance
@@ -6596,7 +6596,7 @@ Transcribed section-by-section from the comparison page. ✓ = available, ✗ = 
 | Various page sizes | ✓ | ✓ |
 | Headers and footers support | ✓ | Limited support |
 | Custom base URL for handling relative paths | ✓ | ✗ |
-| Export preserves comments & track changes | ✓ | ✗ |
+| Export preserves comments & track changes | ✓ | **[corrected Oct 8]** Partial — track changes ✓ (add-on); comments ✗ |
 | Footnotes support | ✓ | ✗ |
 | Merge fields support | ✓ | ✗ |
 | Table of contents support | ✓ | ✗ |
@@ -6610,7 +6610,7 @@ Transcribed section-by-section from the comparison page. ✓ = available, ✗ = 
 | Content styles from editor or from Word | ✓ | ✗ |
 | Import preserves headers and footers | ✓ | ✗ |
 | Import preserves comments | ✓ | ✗ |
-| Import preserves track changes | ✓ | ✗ |
+| Import preserves track changes | ✓ | **[corrected Oct 8]** ✓ with the Tracked Changes add-on — Word insertions and deletions import as reviewable suggestions; **labelled beta** |
 | Merge fields support | ✓ | ✗ |
 
 **Markdown**
@@ -6765,9 +6765,9 @@ Transcribed section-by-section from the comparison page. ✓ = available, ✗ = 
 ## Where CKEditor Wins (per the page)
 
 - **AI depth as a finished product** — CKEditor ships full AI Chat (context, reasoning, web search, model selection, history), dedicated AI Review and AI Translations modes, AI permissions, an AI REST API, and MCP support. Tiptap's in-editor AI is still basic chat plus Quick Actions; its new AI Toolkit gives developers agent tooling and a server-side runtime, so the buyer supplies the models, the prompts, the orchestration, and the entire UI. Frame the gap as shipped versus buildable. Claiming Tiptap has no real AI will get you corrected.
-- **Track changes maturity** — CKEditor's suggestions workflow is stable and covers preview plus suggestion preservation in DOCX and PDF export. Tiptap now has a Tracked Changes extension with accept/reject by selection, ID, range, and user, but it is pre-1.0 with an API Tiptap itself flags as unstable, has no documented accept/reject preview, and loses suggestions on export. Compete on maturity and export fidelity.
+- **Track changes maturity** — CKEditor's suggestions workflow is stable and covers preview plus suggestion preservation in DOCX and PDF export. Tiptap now has a Tracked Changes extension with accept/reject by selection, ID, range, and user, but it is pre-1.0 with an API Tiptap itself flags as unstable, and has no documented accept/reject preview. **[corrected Oct 8]** Suggestions *do* survive DOCX export and import with the add-on; they do not survive to PDF (no native PDF export), comments do not travel to or from Word, and formatting suggestions are not exported as revisions. Compete on maturity, PDF, and comments in the round-trip.
 - **Compliance** — CKEditor covers 80+ language spelling/grammar, custom dictionaries, style-guide rules, full WCAG 2.2, and Section 508. Tiptap does not.
-- **Content conversion** — CKEditor has native PDF export, full-featured Word export/import (headers/footers, comments, track changes, footnotes, TOC, merge fields, watermarks). Tiptap has native DOCX import/export but not the advanced fidelity or native PDF export.
+- **Content conversion** — CKEditor has native PDF export, full-featured Word export/import (headers/footers, comments, track changes, footnotes, TOC, merge fields, watermarks). Tiptap has native DOCX import/export, including tracked changes with the add-on, but no comments in the round-trip, no footnotes, TOC, merge fields or watermarks in export, and no native PDF export.
 - **Out-of-the-box UI** — CKEditor ships toolbars, menus, dialogs, and multiple editor types. Tiptap is headless — you build the UI from scratch.
 - **Productivity suite** — Merge Fields, Templates, Enhanced Paste from Word/Excel, Case Change, Multi-root editor. Tiptap lacks these. On Find & Replace, Tiptap now matches the search engine (highlighting, cycling, replace all, regex) but ships no UI, so the difference is the dialog and dropdown your team would otherwise build.
 - **Enterprise** — 20+ year track record, enterprise SLAs, and support. With Tiptap, scalability and support fall on your team.
@@ -7005,10 +7005,25 @@ But it is shipping them the Tiptap way: each one a separate add-on, custom-price
 
 ### Action items
 
+1. **Brief reps on the DOCX correction** (see below) — this one is in active use in calls.
 1. **Brief reps on Composable Docs.** Expect "Tiptap has templates and protected content now." Answer: alpha, pilot only, client-side only, separate add-on.
 2. **Re-verify Tracked Changes version** with registry access. If it hits 1.0, the load-bearing argument from September 23 goes.
 3. **Watch PR #1012.** Still the GA trigger.
-4. **The public page** https://ckeditor.com/ckeditor-vs-tiptap/ is still wrong on Find and Replace, Track Changes and AI — fourth consecutive re-check flagging it.
+4. **The public page** https://ckeditor.com/ckeditor-vs-tiptap/ — **Find and Replace has been fixed** (verified against the live HTML, Oct 8). Track Changes, the Word export/import track-changes rows, and the AI section are still wrong or incomplete — fourth consecutive re-check flagging them. Row-by-row change list for the web team: [CKEditor vs Tiptap page: change list](https://claude.ai/code/artifact/1952fa32-b8e3-423b-90f9-3f84ee205607).
+
+### Correction — tracked changes survive DOCX (found October 8)
+
+**Retire "Tiptap's suggestions don't survive export."** It has been wrong since at least **August 21, 2026**, when Tiptap documented DOCX import and export of tracked changes ([PR #938](https://github.com/ueberdosis/tiptap-docs/pull/938)). Our September 7 and 23 sweeps read release notes and missed it, because it shipped as a docs page, not a release post.
+
+What Tiptap documents, with the paid Tracked Changes add-on:
+
+- **Export:** suggestions become Word revisions. Each carries the reviewer's name and a timestamp; replacements are written as a deletion followed by an insertion. Since September 22 ([PR #1008](https://github.com/ueberdosis/tiptap-docs/pull/1008)), whole added or removed blocks — paragraphs, headings, lists, table rows and cells, images, links — are tracked too.
+- **Import (beta):** Word insertions and deletions arrive as reviewable suggestions, or can be applied or discarded during import.
+- **Not covered:** formatting suggestions (exported as formatting, not as a revision); a task item's checkbox; one stacking order of overlapping suggestions; **comments** (no DOCX comments docs exist); **PDF** (no native PDF export).
+
+**What to say instead:** "Tiptap round-trips tracked changes through Word with a paid add-on, and import is still beta. Comments don't make the trip, and there's no PDF export. CKEditor round-trips both suggestions and comments through Word and exports to PDF."
+
+The public page has the same error in three rows: Suggestions preserved in DOCX export, Export preserves comments & track changes, and Import preserves track changes.
 
 ---
 
