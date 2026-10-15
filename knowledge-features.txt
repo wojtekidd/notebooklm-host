@@ -1,8 +1,8 @@
 ================================================================
 CKEditor FEATURES KNOWLEDGE BASE
-Last updated: 2026-10-08 10:04 UTC
-Commit: c35c8449141bcd36b6ef718c0d71f0976f866f0f
-Files included: 23
+Last updated: 2026-10-15 08:42 UTC
+Commit: d42c46a4875eb03c75035448bca8f5ca7c1f7e54
+Files included: 24
 ================================================================
 
 
@@ -246,7 +246,7 @@ FILE: ./features/ckeditor ai/AI-competitive-comparison.md
 
 # AI Features: CKEditor vs. Competitors
 
-**Last updated:** October 8, 2026 — Froala to **5.5.0** (Sept 30: AI image generation, Headless Mode) with 5.4 now verified at source; Tiptap AI Toolkit beta label removed (Sept 22) but no GA and still 0.x; new section comparing how AI touches the document in **Claude Docs, Claude for Google Workspace and ChatGPT Pages**; Lexxy and Velt noted. (Prior: September 7 — CKEditor column rebuilt from the current AI feature landing pages (`content/landing-pages/ai-features/`). TinyMCE column synced with the August 17 battlecard and re-verified against live docs. Froala updated to **5.4.0** (August 19, 2026). Tiptap re-checked — AI Toolkit still beta.)
+**Last updated:** October 15, 2026 — CKEditor column only: v49.0.0 (October 14) redesigned AI Review with a Suggest action that lands changes as Track Changes suggestions, unified the card design across AI features, and moved the AI UI onto the editor's design tokens. v49 also makes CKEditor AI run inside shadow DOM and under enforced Trusted Types (see `features/core-editor/v49-release-product-guide.md`). Competitor columns not re-checked. (Prior: October 8, 2026 — Froala to **5.5.0** (Sept 30: AI image generation, Headless Mode) with 5.4 now verified at source; Tiptap AI Toolkit beta label removed (Sept 22) but no GA and still 0.x; new section comparing how AI touches the document in **Claude Docs, Claude for Google Workspace and ChatGPT Pages**; Lexxy and Velt noted. (Prior: September 7 — CKEditor column rebuilt from the current AI feature landing pages (`content/landing-pages/ai-features/`). TinyMCE column synced with the August 17 battlecard and re-verified against live docs. Froala updated to **5.4.0** (August 19, 2026). Tiptap re-checked — AI Toolkit still beta.))
 
 > ⚠️ **Three CKEditor-only claims in the July version are now dead.** TinyMCE shipped MCP (8.7, June 30 2026), on-premises AI GA, AI edit attribution, and AI usage tracking, and its on-premises docs now document seven LLM provider types including `openai-compatible`. Do not say "we're the only editor with MCP," "TinyMCE has no on-prem AI," or "TinyMCE has no AI usage analytics." See the Key Differentiators section for what still holds.
 
@@ -270,13 +270,13 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 | **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ⚠️ Basic in-editor chat + Quick Actions ("Basic AI"); **AI Toolkit (beta July 2026; label removed Sept 2026, no GA)** adds server-side agent tooling — you build the experience | ✅ AI Assist plugin, **5.5.0 (Sept 30, 2026)** — adds AI image generation | ❌ | ❌ | ❌ |
 | **AI Chat interface** | ✅ Full chat with context, reasoning, web search; sidebar or overlay; threads pinnable, renameable, searchable, private to their author | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ Very basic chat — limited support | ⚠️ **[verified 5.4; 5.5 adds web-search/reasoning capability flags]** Docked side-panel AI Chat Assistant with multi-turn conversation; no file/URL context or persistent history confirmed | ❌ | ❌ | ❌ |
 | **Inline AI commands / Quick Actions** | ✅ On selected text — improve writing, continue writing, fix grammar & spelling, make shorter/longer, change tone (5 presets), translate (7 languages), Chat Commands (Explain, Summarize, Highlight key points), and Ask AI to escalate the selection into Chat | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Custom Quick Actions + one-click text transformations (no search/filter in dropdown) | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
-| **AI Review (on-demand quality check)** | ✅ 5 built-in checks — Proofread, Improve Clarity, Improve Readability, Adjust Length, Adjust Tone and Style — plus ad-hoc custom commands and saved custom reviews; per-review model choice and RBAC; chunks long documents across parallel LLM calls | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ⚠️ No dedicated mode — AI Toolkit ships a `proofread` tool for you to build around | ⚠️ **[updated 5.4]** No dedicated review mode, but AI Improve Writing now returns edits as accept/reject changes | ❌ | ❌ | ❌ |
+| **AI Review (on-demand quality check)** | ✅ 5 built-in checks — Proofread, Improve Clarity, Improve Readability, Adjust Length, Adjust Tone and Style — plus ad-hoc custom commands and saved custom reviews; per-review model choice and RBAC; chunks long documents across parallel LLM calls. **v49 (Oct 14, 2026):** redesigned, with a **Suggest** action that adds changes as Track Changes suggestions (previously apply-only in the UI), an in-content navigation panel, and a progress bar | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ⚠️ No dedicated mode — AI Toolkit ships a `proofread` tool for you to build around | ⚠️ **[updated 5.4]** No dedicated review mode, but AI Improve Writing now returns edits as accept/reject changes | ❌ | ❌ | ❌ |
 | **AI Translations (dedicated mode)** | ✅ Dedicated full-document translate mode — **10 built-in languages** (EN, ES, FR, DE, ZH-Hans, JA, RU, PT, KO, IT) plus configurable additional ones; original stays in the sidebar for segment-by-segment review | ⚠️ Via Quick Actions | ❌ No dedicated AI Translations mode | ❌ | ❌ | ❌ | ❌ |
 | **Multi-LLM provider support** | ✅ Curated OpenAI, Anthropic, and Google models out of the box, **plus Auto/Agent mode** that picks the best model per task on quality, speed, and cost | ✅ OpenAI (GPT-5.5/5.4/5.2/5.1/5, GPT-4.1 + Mini), Anthropic (Opus 4.8/4.7, Sonnet 4.6/4.5, Haiku 4.5), Google (Gemini 3.1 Pro, 3.5/3/2.5 Flash) + `agent-1` auto mode | ✅ Any text-capable model incl. open-source and self-hosted — via Vercel AI SDK, LangChain, OpenAI SDK, Anthropic SDK, or custom (AI Toolkit). No end-user model picker | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
 | **Bring your own LLM / custom endpoint** | ✅ On-premises — your own OpenAI/Anthropic/Google keys, Amazon Bedrock, Azure OpenAI, Google Gemini Enterprise, or **any OpenAI API-compatible endpoint** (self-hosted, fine-tuned, OpenRouter, Together AI). Models configured server-side appear in the editor's model selector automatically | ⚠️ **[corrected]** On-premises docs now document seven provider types — `openai`, `anthropic`, `google`, `azure`, `bedrock`, `vertex`, `openai-compatible` (Ollama, vLLM, LM Studio, llama.cpp, LocalAI, OpenRouter, Together, Groq, Fireworks). Marketing still labels BYO-LLM early access; the docs carry no gating notice | ✅ Any text-capable model, incl. self-hosted — but you wire it up yourself | ✅ Self-hosted models and custom backends | ❌ | ❌ | ❌ |
 | **Reasoning** | ✅ Yes | ✅ Reasoning mode in Chat | ⚠️ No built-in reasoning mode — depends on the model the integrator supplies | ⚠️ Not confirmed | ❌ | ❌ | ❌ |
 | **Custom prompts & commands** | ✅ Custom AI actions define the name, the UI label, the governing prompt, which models run it, and whether it applies to a selection, the full document, or both — via `extraCommands`; `removeCommands` strips built-in defaults; `AIActions#executeAction()` runs one programmatically. Custom Reviews supported. **Custom prompts** apply the same pattern more broadly — preload domain context, persona instructions, or constraint rules that shape every AI interaction, not just one action | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ Custom Quick Actions | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
-| **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control (build it yourself) | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
+| **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability. **v49:** one shared card design across Review, Quick Actions, and Chat Proposed Changes; the whole AI UI follows the editor's design tokens, so one token override re-themes AI with the rest of the editor (old AI token names have no fallback — renames required) | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control (build it yourself) | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
 | **Context injection (files, URLs, text)** | ✅ Inject documents, URLs, or reference content into chat | ✅ File uploads (PDF, DOCX, images, MD, HTML, text), URLs, custom external data sources | ❌ No context awareness with files/URLs | ❌ | ❌ | ❌ | ❌ |
 | **AI Chat history (per document)** | ✅ Persistent, renameable, resumable per document | ✅ Persistent, filterable, organized by date; 12-month retention | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **Model selection per user** | ✅ Users choose model; integrators define available options | ✅ User model switching configurable; availability controlled per subscription tier via JWT | ❌ | ⚠️ Custom metadata (user ID, model settings) passed per request | ❌ | ❌ | ❌ |
@@ -344,6 +344,9 @@ CKEditor AI works in a multi-root editor and across several editors sharing a Co
 
 **10. Cost governance, not just cost reporting**
 Model selection per subscription tier means a free-tier user runs a lighter model than a paid one, so spend scales with the value of the user. Permissions restrict which roles reach which models and features. On Cloud, one credit unit folds in tokens and storage, so finance tracks a single metric. No competitor documents this combination of per-tier model routing plus per-user attribution plus an export path into the customer's own observability stack.
+
+**11. AI that runs where locked-down apps run** ✨ *new October 2026, v49*
+Since v49, CKEditor AI works inside a shadow root (web components, design systems, platforms like Salesforce, ServiceNow, and SAP) and under an enforced Trusted Types policy, because the whole editor does. Per the v49 enablement grids, TinyMCE documents shadow DOM as "not, currently, supported" and fails to load under Trusted Types. Tiptap's shadow DOM support is unofficial and its HTML loading fails under Trusted Types. Lexical supports shadow DOM and partly supports Trusted Types, but ships no first-party AI. The argument: an AI feature the security team blocks, or that won't render in the host platform, is no AI feature. This is an **inference from editor-level support**. Neither competitor's AI plugin was tested in these environments. Detail and sources: `features/core-editor/v49-release-product-guide.md`.
 
 ---
 
@@ -2367,10 +2370,11 @@ Use this after discovery to identify which capabilities to prioritize in your de
 **Lead with:**
 - AI Review — grammar, tone, style, clarity — inline suggestions with accept/reject
 - Custom review checks (legal formatting, brand voice rules, compliance language)
-- Track Changes integration — AI suggestions as reviewable edits
+- Track Changes integration — since v49, AI Review's **Suggest** action adds proposed changes as Track Changes suggestions, so a second person can accept or reject them like any other suggestion. Applying directly is still an option. Suggest needs Track Changes (Pro add-on / Custom)
+- Guided pass through the changes (v49) — a navigation panel moves from one proposed change to the next in the content, and a progress bar shows how many are done
 - RBAC — control who can trigger which AI operations
 
-**Demo anchor:** Run a review on a document with intentional brand/style issues. Show custom check definitions.
+**Demo anchor:** Run a review on a document with intentional brand/style issues. Show custom check definitions. On v49+, click Suggest instead of Apply and show the change landing in Track Changes with the AI marker.
 
 ---
 
@@ -2588,6 +2592,7 @@ Website
 - https://ckeditor.com/ckeditor-5/capabilities/ai-features/
 - https://ckeditor.com/blog/why-embedded-ai-wins-over-saas-overlays/
 - https://ckeditor.com/blog/what-is-ckeditor-ai/
+- https://ckeditor.com/blog/ckeditor-5-v4900-release-highlights-new-features/#ckeditor-ai-unified-design-and-ai-review-with-tracked-suggestions (v49: AI Review Suggest action, unified AI design)
 
 Documentation
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/
@@ -2602,6 +2607,8 @@ Documentation
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-mcp.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-integration.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-deployment.html
+- https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-to-refreshed-theme.html#ai-package-domain-first-component-first (v49: AI theme token renames, no legacy fallback)
+
 
 ================================================================
 FILE: ./features/collaboration/collaboration-product-guide.md
@@ -2847,6 +2854,8 @@ A single editor instance managing multiple independent editing areas simultaneou
 ### Headless Mode
 The full editing engine with no CKEditor UI at all. Developers build their own toolbar and UI on top. Best for: applications with a strong design system that cannot accommodate CKEditor's default look, or deeply embedded editors in design tools.
 
+Since v49, design tokens give design-system teams a middle path: keep CKEditor's UI and re-skin it by overriding tokens (see Theming below). Reach for Headless when the UI itself has to change.
+
 **Demo:** https://ckeditor.com/ckeditor-5/demo/editor-types/
 
 ---
@@ -2940,6 +2949,45 @@ All integrations support two-way data binding and reactive updates.
 
 ---
 
+## Embedding: Shadow DOM and Web Components (v49+)
+
+Since v49.0.0 (October 2026), CKEditor 5 runs inside a shadow root out of the box. That opens web components, design systems, and micro-frontends, and enterprise platforms built on them such as Salesforce, ServiceNow, and SAP.
+
+- Selection, focus, scrolling, drag and drop, and all floating UI work inside a shadow root
+- Premium features work there too: comments, track changes, real-time collaboration, and CKEditor AI
+- Style isolation both ways: host page CSS can't break the editor, and editor CSS can't leak into the app
+- `config.ui.overlayContainer` sets where balloons, dialogs, and tooltips render. Useful outside shadow DOM too, when a parent container clips the floating UI
+- Shadow-aware helpers are a public API for custom plugin authors
+- Official React, Vue, and Angular guides
+
+**Limits:** styles load into each shadow root; CSS variables are overridden on the shadow host, not `:root`; closed shadow roots aren't supported.
+
+Before v49, putting CKEditor on a Salesforce Lightning page meant a Visualforce page embedded through an iframe.
+
+Full enablement, competitor grid, and Q&A: [v49-release-product-guide.md](v49-release-product-guide.md).
+
+---
+
+## Theming & Design Tokens (v49+)
+
+v49 ships a refreshed default theme across the whole UI, premium features and CKEditor AI included. The theme is built on design tokens (CSS variables) in three layers:
+
+- **Foundation tokens** — primitives: base scale, colors, geometry (e.g. `--ck-radius-md`)
+- **Semantic tokens** — design-intent roles shared across components (e.g. `--ck-border-radius-control`)
+- **Component tokens** — one component only (e.g. `--ck-button-border-radius`)
+
+Override a token in your own stylesheet at runtime. No build step. The layers map to design-tool variables (e.g. Figma), which makes dark mode, high-contrast, and multi-brand skins practical.
+
+**Upgrade notes:** existing core variable overrides carry over. The default look and some content styles (block quotes, code blocks, horizontal lines, comment/suggestion markers) change. A legacy theme preset and content rollback snippets restore the old look. CKEditor AI token names have **no** legacy fallback, so custom AI styling must be renamed.
+
+---
+
+## Error Handling (v49+)
+
+v49 removed the Watchdog (`@ckeditor/ckeditor5-watchdog`) and its automatic restart. A crashed editor now stays in place with its content and undo history intact, so users keep their work. The new `onEditorError()` function reports errors that escape an editor without restarting it. Breaking change for `EditorWatchdog` / `ContextWatchdog` users. See the migration guide in [core-editor-urls.md](core-editor-urls.md).
+
+---
+
 ## Plugin Ecosystem
 
 CKEditor 5 has 100+ plugins. Developers include only what they need — no bloated bundles. The plugin system allows:
@@ -2968,6 +3016,8 @@ The open-source GPL plugins (available for open-source projects) include: Page B
 - HIPAA compliant architecture (Custom plan / on-premises)
 - GDPR-ready
 - On-premises deployment for full data sovereignty (Custom plan)
+- Content Security Policy compatibility — the CSP guide documents every directive the editor needs and the strictest configuration it runs with
+- **Trusted Types support (v49+)** — runs in apps that enforce `require-trusted-types-for 'script'`, with no CSP exceptions. Every HTML insertion, premium features included, goes through one policy, `ckeditor5`, plus a few documented names that depend on setup. Parts that can't comply (custom color picker, Uploadcare dialog, Uploadcare and CKBox image editors) switch off with a console warning. The policy does **not** sanitize content
 - Read-only mode — lock the editor for viewing without editing (free)
 - Restricted Editing — define editing zones; some users can only edit designated areas (Essential+)
 
@@ -3063,6 +3113,26 @@ FILE: ./features/core-editor/core-editor-urls.md
 - Document editor: https://ckeditor.com/docs/ckeditor5/latest/examples/builds/document-editor.html
 - Balloon block editor: https://ckeditor.com/docs/ckeditor5/latest/examples/builds/balloon-block-editor.html
 
+## Docs — v49.0.0 (October 2026)
+
+- Release highlights blog: https://ckeditor.com/blog/ckeditor-5-v4900-release-highlights-new-features/
+- v49 update guide (breaking changes): https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-49.html
+- Changelog: https://ckeditor.com/docs/ckeditor5/latest/updating/guides/changelog.html
+- Shadow DOM integration guide: https://ckeditor.com/docs/ckeditor5/latest/getting-started/setup/shadow-dom.html
+- Shadow DOM deep dive (plugin authors): https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/shadow-dom.html
+- Theme customization: https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/ui/theme-customization.html
+- Theme token naming: https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/ui/theme-token-naming.html
+- Migrating to the refreshed theme: https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-to-refreshed-theme.html
+  - Keeping the old look (legacy preset): https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-to-refreshed-theme.html#keeping-the-old-look
+  - Published content rollback: https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-to-refreshed-theme.html#published-content
+  - CKEditor AI token renames: https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-to-refreshed-theme.html#ai-package-domain-first-component-first
+- CSP guide: https://ckeditor.com/docs/ckeditor5/latest/getting-started/setup/csp.html
+  - Trusted Types section: https://ckeditor.com/docs/ckeditor5/latest/getting-started/setup/csp.html#trusted-types
+- `trustedHtml()` API: https://ckeditor.com/docs/ckeditor5/latest/api/module_utils_dom_trustedtypes.html#function-trustedHtml
+- Error handling: https://ckeditor.com/docs/ckeditor5/latest/getting-started/setup/error-handling.html
+- Migrating from the Watchdog: https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-from-watchdog.html
+- AI coding agents (incl. `ckeditor-update` skill): https://ckeditor.com/docs/ckeditor5/latest/getting-started/ai-coding-agents.html#update-ckeditor-5
+
 ## Framework Integrations
 
 - React: https://ckeditor.com/ckeditor-5/react/
@@ -3078,6 +3148,447 @@ FILE: ./features/core-editor/core-editor-urls.md
 - Kanbanize/Businessmap: https://ckeditor.com/case-studies/kanbanize/
 - Plutio: https://ckeditor.com/case-studies/plutio/
 - Four Kitchens / Poets & Writers (Drupal): https://ckeditor.com/case-studies/four-kitchens/
+
+
+================================================================
+FILE: ./features/core-editor/v49-release-product-guide.md
+================================================================
+
+# CKEditor 5 v49.0.0 — Internal Product Guide
+
+*Released October 14, 2026. Built from the v49 Internal Product Guide (Sales and Support enablement
+deck) and the public [v49.0.0 release highlights post](https://ckeditor.com/blog/ckeditor-5-v4900-release-highlights-new-features/).
+Internal only — the competitor grids below never go into public content (`CLAUDE.md`).*
+
+v49 is a major release. It's focused on getting CKEditor into compliance-heavy enterprise systems
+that couldn't run it before. Three headline features, plus three smaller changes:
+
+| Feature | Status | One line |
+|---|---|---|
+| **Shadow DOM support** | NEW | Run the editor inside web components, design systems, and micro-frontends, with no iframes |
+| **Refreshed theme and design tokens** | NEW / IMPROVED | A new default look, re-skinned by overriding a few CSS tokens that survive upgrades |
+| **Trusted Types support** | NEW | Run the editor in apps that enforce Trusted Types, with no CSP exceptions |
+| CKEditor AI unified design + AI Review Suggest | IMPROVED | AI Review changes can land as Track Changes suggestions; one card design across AI features |
+| `ckeditor-update` agent skill | NEW | Your AI coding agent works through the update guides for you |
+| Error handling without the Watchdog | IMPROVED | A crashed editor stays in place with content and undo history intact |
+
+**Before anyone promises a smooth upgrade:** v49.0.0 has several major and minor breaking changes.
+Point customers to the [v49 update guide](https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-49.html)
+and the [changelog](https://ckeditor.com/docs/ckeditor5/latest/updating/guides/changelog.html#major-breaking-changes).
+
+**Tiering:** all three headline features are framework capabilities in the core `ckeditor5`
+package, and they also cover premium features (collaboration, CKEditor AI). None of them is a priced
+line item on the pricing page. *Inferred from the release material — confirm with product before
+quoting a tier.*
+
+---
+
+## 1. Shadow DOM support
+
+### Customer-facing pitch
+
+Run CKEditor 5 inside web components, design systems, and micro-frontends, with no iframes or
+workarounds.
+
+- Selection, focus, scrolling, drag and drop, and all floating UI work inside a shadow root
+- So do comments, track changes, real-time collaboration, and CKEditor AI
+- Style isolation out of the box: the host page's CSS can't break the editor, and the editor's CSS
+  can't leak into the app
+- Embed CKEditor inside Salesforce, ServiceNow, SAP, and other enterprise applications that demand
+  shadow DOM
+
+### Why it matters
+
+Shadow DOM keeps a component's styles and structure isolated from the rest of the page. Design
+systems and micro-frontends use it, and so do the enterprise platforms built on them. Rich text
+editors struggle there, because they rely on browser APIs that assume a single, shared page.
+
+**Salesforce is the clearest example.** Lightning is built from Lightning Web Components, and each
+one renders inside a shadow root. Until v49, the only way to put CKEditor 5 on a Lightning page was
+to wrap it in a Visualforce page and embed that through an iframe.
+
+Shadow DOM support was one of our community's long-standing requests.
+
+### What ships
+
+- The editor runs inside a shadow root out of the box
+- Loading the editor's CSS into the shadow root is part of setup (a constructed stylesheet via
+  `adoptedStyleSheets`)
+- **`config.ui.overlayContainer`** — choose where balloons, dialogs, and tooltips render. It also
+  helps outside shadow DOM, for example when a parent container clips anything past its edges
+- The shadow-aware helpers are now a **public API**, so plugin authors can make custom features
+  work in a shadow root
+- Official React, Vue, and Angular guides
+
+### Customer pain points to address
+
+Teams building on shadow DOM architectures today face:
+
+- Editors that break inside a shadow root (selection, focus, floating UI)
+- Iframe workarounds: custom toolbars, focus bugs, and extra tests to maintain
+- Host app CSS leaking into the editor and breaking its UI
+- Collaboration and AI features that don't work in component-based apps
+- Settling for a lesser editor just because it runs in shadow DOM
+
+### What customers will be most…
+
+| Excited about | Disappointed about |
+|---|---|
+| No more iframe workarounds | Styles must be loaded into each shadow root |
+| Premium features, including collaboration and AI, just work inside their app | CSS variables are overridden on the shadow host, not `:root` |
+| Host page CSS no longer breaks the editor | Closed shadow roots are not supported |
+| Official React, Vue, and Angular guides | Balloon toolbar placement on backward mouse selections (browser limitation) |
+
+### Use cases
+
+- **Design system component** — ship the editor as a reusable rich-text web component every product
+  team can drop in
+- **Micro-frontends** — independent apps mount the editor in their own shadow roots, with no CSS
+  conflicts between teams
+- **Embeddable widgets and SDKs** — vendors embed the editor in their customers' pages without host
+  styles breaking it. The blog's example: a help desk widget embedded across many customer sites
+- **CMS and platform components** — CMS back-offices and platforms like Salesforce Lightning get a
+  full editor with collaboration and AI. *(Salesforce Lightning is marked "to verify" in the
+  enablement deck. The blog uses it as the motivating example, but don't promise a tested Lightning
+  integration until product confirms one.)*
+
+### Customer evidence we already have
+
+- **Gong, objections theme "Technical feasibility, performance, and security":** customers name
+  compatibility with their infrastructure, *"e.g., on-premise, Shadow DOM,"* as an evaluation
+  criterion. See [`research/customer-insights/most-common-objections-opps-2026`](../../research/customer-insights/most-common-objections-opps-2026).
+- **BlackRock/Aladdin** is embedding a themed CKEditor 5 web component across the Aladdin Design
+  System on a three-year licence ([positioning source of truth](../../brand/ckeditor-positioning-source-of-truth.md),
+  Q4). Shadow DOM and design tokens both apply directly. *Named account — internal only.*
+- **Procore** raised conflicts from *"multiple instances of CK editor instantiated on the same page
+  from different sources"* in a micro-frontend architecture ([concerns theme](../../research/customer-insights/most-common-concerns-opps-2026)).
+  ⚠️ **Don't present v49 as the fix for this.** Shadow DOM removes CSS conflicts between teams'
+  editors. It doesn't, by itself, address loading several editor copies from different sources.
+  Confirm the architecture with Solutions first.
+
+### Competitor grid
+
+| Competitor | Their status | Detail | Gap | What's different about ours |
+|---|---|---|---|---|
+| **TinyMCE** | Not supported | Docs say shadow DOM is "not, currently, supported", yet the official web component renders TinyMCE inside a shadow root. Closed roots unsupported | Closing & creating | Officially supported and documented, including premium features |
+| **Tiptap** | Unofficial (via ProseMirror) | Works via ProseMirror; no official guide. Open bugs in Safari, iOS, and Firefox; built-in styles don't reach the shadow root | Closing & creating | Official support and docs; premium features covered |
+| **Froala** | Partial fixes | Individual bug fixes only; no support statement | Creating | Complete, documented support |
+| **Lexical** | Supported (v0.46) | Solid engine support. Framework only: no first-party comments, track changes, or AI | Closing | Full product: collaboration, review, AI, ready-made UI |
+| **Quill** | Not supported | Open issue: cursor, toolbar, and shortcut bugs | Creating | Works out of the box |
+
+**Watch Lexical.** It's the one competitor with real engine-level support, so the argument there is
+"full product versus framework", not "we support it and they don't."
+
+### Bill of materials
+
+| Deliverable | Description | Buying stage | Owner |
+|---|---|---|---|
+| [v49 release blog post](https://ckeditor.com/blog/ckeditor-5-v4900-release-highlights-new-features/#shadow-dom-support) | Shadow DOM support highlight | Awareness | Product Marketing |
+| Docs demo | Light vs. shadow DOM side by side | Consideration | Product + Documentation |
+| [Integration guide](https://ckeditor.com/docs/ckeditor5/latest/getting-started/setup/shadow-dom.html) | Setup, styles, and floating UI in a shadow root | Consideration | Documentation |
+| [Framework deep dive](https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/shadow-dom.html) | Shadow-aware helpers for plugin authors | Decision | Documentation |
+| [v49 update guide](https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-49.html) | What changes for existing integrations | Decision | Documentation |
+| Internal Product Guide | Full Shadow DOM guide for Sales and Support | Enablement | Product Marketing |
+
+---
+
+## 2. Refreshed theme and design tokens
+
+### Customer-facing pitch
+
+Match CKEditor 5 to your product by overriding a few design tokens. Your overrides keep working
+across updates.
+
+- A refreshed default theme covers the whole UI: toolbar, dropdowns, dialogs, premium features, and
+  CKEditor AI
+- Three token layers: change the palette everywhere with foundation tokens, or one component with
+  its own token, without side effects
+- Existing customizations keep working, and a legacy preset restores the previous look
+
+### How the tokens work
+
+Design tokens are CSS variables, organized in three layers:
+
+| Layer | Scope | Example |
+|---|---|---|
+| **Foundation** | The whole editor: base scale, colors, geometry | `--ck-radius-md: 4px` |
+| **Semantic** | Every control sharing a design-intent role | `--ck-border-radius-control` |
+| **Component** | One component only | `--ck-button-border-radius` |
+
+A customer's override, e.g. `:root { --ck-radius-md: 6px; }`, flows up through every layer that uses
+it.
+
+Why this is easier to maintain:
+
+- Each value is defined once, so one change reaches the core UI, open-source features, and premium
+  features (AI, collaboration) alike
+- The structure maps to variables in design tools such as Figma, so teams can bring an existing
+  design system in, or build a dark or high-contrast variant by redefining the semantic roles
+- Semantic tokens describe intent (e.g. hover color of interactive elements), so overrides keep
+  applying as components are added or redesigned
+- Token names are independent of default values, so we can change the default look later without
+  breaking overrides
+- Names follow a predictable convention (component + property), and custom plugins can use the same
+  tokens
+
+### What changes on upgrade
+
+- **The UI gets the new look automatically**, everywhere
+- **Published content looks slightly different too.** Content styles change the colors of block
+  quotes, code blocks, horizontal lines, and comment/suggestion markers
+- To keep the old look: load the **legacy theme preset** after the editor styles, and use the
+  **content styles rollback snippets** for published content
+- Existing core variable overrides carry over
+- ⚠️ **CKEditor AI is the exception.** AI components don't fall back to legacy variable names, so
+  customers who themed the AI UI must rename their overrides. The migration guide's AI package
+  section lists the mappings. Flag this to anyone running CKEditor AI with custom styling.
+
+### Customer pain points to address
+
+Teams matching the editor to their product today face:
+
+- A flat set of CSS variables, with no clear layer for each design decision
+- Custom CSS written against internal `.ck-*` class names, which is fragile to maintain
+- Changing a single value, such as corner radius, across dozens of components
+- CKEditor AI panels that need their own, separate theming
+- A default look that feels dated next to a modern product UI
+
+### What customers will be most…
+
+| Excited about | Disappointed about |
+|---|---|
+| A more modern default look, with no extra work | The UI and published content look different after upgrading |
+| Brand the editor by overriding a few tokens | Restoring the old look means pasting a legacy preset |
+| Existing overrides keep working after the upgrade | CSS that reads old token names needs opt-in aliases |
+| CKEditor AI and premium features follow the same tokens | Old CKEditor AI token names have no fallback |
+
+### Use cases
+
+- **Design system alignment** — map the design system's colors, radii, and spacing onto foundation
+  tokens once
+- **Multi-brand products** — ship one editor build and re-skin it per brand or customer with token
+  overrides
+- **Dark mode** — switch to a dark theme by overriding tokens, as the theme customization guide shows
+- **Low-risk upgrades** — teams that already customized the editor move to v49 and keep their
+  overrides
+
+### Competitor grid
+
+| Competitor | Their feature | Detail | Gap | What's different about ours |
+|---|---|---|---|---|
+| **TinyMCE** | Skins (Oxide) | About 300 Less variables, compiled into a skin with a build step | Creating | Runtime CSS tokens: override in your stylesheet, no build step |
+| **Tiptap** | Headless + UI Components | No theme in core. Optional UI components use `--tt-*` CSS variables | Closing | Complete themed UI, premium features and AI included |
+| **Froala** | Color themes | Dark, gray, and royal theme files. Custom themes are hand-written CSS under a class prefix | Creating | Token layers instead of rule-by-rule CSS overrides |
+| **Lexical** | Theme class map | Maps node types to your own CSS class names. Ships no CSS or UI | Creating | Ready-made, token-driven UI out of the box |
+| **Quill** | Snow and Bubble themes | Two themes. Customizing means overriding CSS rules found in devtools | Creating | Documented tokens instead of internal selectors |
+
+**This also answers an old objection.** We've told buyers to use Headless mode when "a strong design
+system can't accommodate CKEditor's default look" ([core editor guide](core-editor-guide.md)). Tokens
+give those buyers a middle path: keep our UI and re-skin it.
+
+### Bill of materials
+
+| Deliverable | Description | Buying stage | Owner |
+|---|---|---|---|
+| [v49 release blog post](https://ckeditor.com/blog/ckeditor-5-v4900-release-highlights-new-features/#a-refreshed-default-theme) | Refreshed theme and design tokens highlight | Awareness | Product Marketing |
+| Docs demo | Default theme restyled as dark with tokens | Consideration | Product + Documentation |
+| CKEditor AI theme demo | Recoloring CKEditor AI with tokens | Consideration | Product + Documentation |
+| [Theme customization guide](https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/ui/theme-customization.html) | Override tokens per layer, globally or scoped | Consideration | Documentation |
+| [Theme token naming](https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/ui/theme-token-naming.html) | The three token layers and naming rules | Decision | Documentation |
+| [Migration guide](https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-to-refreshed-theme.html) | Keep overrides working or restore the old look | Decision | Documentation |
+| [v49 update guide](https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-49.html) | Summary of the theme changes in v49 | Decision | Documentation |
+
+---
+
+## 3. Trusted Types support
+
+### Customer-facing pitch
+
+Run CKEditor 5 in applications that enforce Trusted Types, with no need to weaken the security
+policy or add exceptions.
+
+- Before v49, the browser blocked the editor in these apps. Now every place it inserts HTML, premium
+  features included, goes through one policy: `ckeditor5`
+- A short, explicit allowlist: `ckeditor5`, plus a few documented names that depend on your setup
+- Where third-party code can't comply, such as the color picker, the editor turns that part off and
+  logs a warning instead of failing
+
+```
+Content-Security-Policy:
+  require-trusted-types-for 'script';
+  trusted-types ckeditor5;
+```
+
+Same page, same policy: **v48 is blocked by the browser. v49 runs, and the policy stays on.**
+
+### What Trusted Types is, in one paragraph
+
+[Trusted Types](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API) is a browser
+feature that helps prevent cross-site scripting (XSS). It blocks raw HTML strings from reaching the
+page unless they pass through a named policy. Apps switch it on in their Content Security Policy
+with `require-trusted-types-for 'script'`. Until v49 that blocked CKEditor completely.
+
+It builds on our existing CSP compatibility: the [CSP guide](https://ckeditor.com/docs/ckeditor5/latest/getting-started/setup/csp.html)
+lists every directive the editor needs, how each affects specific features, and the strictest
+configuration the editor runs with.
+
+### Customer pain points to address
+
+Teams that enforce Trusted Types today face:
+
+- Editors that stop loading as soon as the policy is switched on
+- Pressure to weaken the CSP or add exceptions just for the editor
+- Unclear lists of policy names to allow, which slow down security reviews
+- Collaboration and AI features that can't run inside the secured app
+- Settling for a weaker editor just because it passes the security review
+
+### What customers will be most…
+
+| Excited about | Disappointed about |
+|---|---|
+| Runs under an enforced policy, with no exceptions | No custom color picker; palettes and document colors still work |
+| Premium features, including collaboration and AI, are covered too | The Uploadcare dialog and the Uploadcare and CKBox image editors aren't supported yet |
+| A short allowlist: `ckeditor5`, plus a few documented names | Markdown with entities such as `&nbsp;` fails to parse |
+| Unsupported parts switch off with a warning instead of failing | **No sanitization** — checking content safety stays with the app |
+
+⚠️ **Never describe Trusted Types support as sanitization.** The policy doesn't sanitize content.
+Validating the data loaded into the editor remains the customer's responsibility. Security teams
+will ask.
+
+⚠️ **CKBox and Image Optimizer accounts:** the CKBox and Uploadcare image editors and the Uploadcare
+dialog are switched off under an enforced policy. Check this before pitching Trusted Types to a
+customer that also runs those add-ons.
+
+### Use cases
+
+- **Security-reviewed apps** — apps whose CSP must pass an internal security review get a full
+  editor with no exceptions
+- **Regulated industries** — finance, healthcare, and public-sector apps that mandate Trusted Types
+  can adopt the editor
+- **SaaS platforms** — vendors hardening their product against DOM XSS keep a strict policy and
+  still ship rich text
+- **Tightening an existing CSP** — teams turning on Trusted Types in a live app keep CKEditor
+  instead of replacing it
+
+### Customer evidence we already have
+
+The Gong objections theme quotes buyers with *"a very strict infrastructure with a lot of security
+rules"* (NCGR, Saudi government) and *"not going to compromise on … security"* (PwC). Neither quote
+names Trusted Types. Both describe the security-review gate this feature clears. Source:
+[`research/customer-insights/most-common-objections-opps-2026`](../../research/customer-insights/most-common-objections-opps-2026).
+
+### Competitor grid
+
+| Competitor | Their status | Detail | Gap | What's different about ours |
+|---|---|---|---|---|
+| **TinyMCE** | Not supported | Editor fails to load. Request open since 2021, no timeline | Creating | Supported and documented, premium features included |
+| **Tiptap** | Not supported | Loading HTML content fails; bug open since 2024. ProseMirror fixed pasting only | Creating | Whole editor works, premium features included |
+| **Froala** | Not documented | No Trusted Types docs or issues. v5.2 claims strict CSP for styles (changelog: "partially") | Creating (to verify) | Documented support with fixed policy names |
+| **Lexical** | Partial, undocumented | Paste only, via an undocumented policy. No first-party collaboration or AI | Closing | Documented, editor-wide support; full product with collaboration and AI |
+| **Quill** | Not supported | UI breaks with "requires 'TrustedHTML' assignment"; bug open since 2025 | Creating | Works out of the box |
+
+**This is the strongest of the three grids.** No tracked competitor documents editor-wide Trusted
+Types support. Froala is the one to verify before saying that to a customer.
+
+### Bill of materials
+
+| Deliverable | Description | Buying stage | Owner |
+|---|---|---|---|
+| [v49 release blog post](https://ckeditor.com/blog/ckeditor-5-v4900-release-highlights-new-features/#trusted-types-support) | Trusted Types support highlight | Awareness | Product Marketing |
+| [CSP guide: Trusted Types](https://ckeditor.com/docs/ckeditor5/latest/getting-started/setup/csp.html#trusted-types) | Directives, policy names, known limitations | Consideration | Documentation |
+| Enabling Trusted Types | The CSP header and policy names to allow | Decision | Documentation |
+| Content safety | The policy does not sanitize content | Decision | Documentation |
+| [`trustedHtml()` API](https://ckeditor.com/docs/ckeditor5/latest/api/module_utils_dom_trustedtypes.html#function-trustedHtml) | Helper for custom plugins and UI | Decision | Documentation |
+| Docs demo | **Not available yet** | Consideration | Product + Documentation (TBD) |
+
+---
+
+## 4. Other v49 changes Sales and Support should know
+
+### CKEditor AI: unified design and AI Review with tracked suggestions
+
+- AI Review, AI Quick Actions, and Proposed Changes in AI Chat now share the same cards and controls
+- The whole AI interface, AI Translate included, uses the refreshed theme and follows the same token
+  overrides
+- **AI Review has a new design and a Suggest action.** Before v49, AI Review changes could only be
+  applied directly. Now, as in AI Chat, they can also be added as Track Changes suggestions, to
+  accept or reject like any other suggestion. Track Changes is a Professional add-on and included in
+  Custom ([feature tiers](../feature-tiers.md))
+- A navigation panel moves with the user from one proposed change to the next, in the content, and a
+  progress bar shows how many they've reviewed
+- Custom AI theming must be renamed (see section 2)
+
+Detail: [`features/ckeditor ai/`](../ckeditor%20ai/) and the
+[AI Review landing page](../../content/landing-pages/ai-features/%5BCKEditor%5D%20CKEditor%20AI%20Review%20landing%20page.md).
+
+### Update CKEditor 5 with an AI coding agent
+
+The new official **`ckeditor-update`** skill works through every update guide between the customer's
+version and the target. Tell the agent *"Update CKEditor 5 to the latest version"* or name a
+version. The agent applies the changes and then checks that the editor still works as before.
+
+- Open Agent Skills format: Claude Code, Cursor, Codex, GitHub Copilot, and other agents that
+  support it
+- Install: `npx skills add ckeditor/skills`
+- Docs: [Using CKEditor 5 with AI coding agents](https://ckeditor.com/docs/ckeditor5/latest/getting-started/ai-coding-agents.html#update-ckeditor-5)
+
+**Sales angle:** upgrade effort is a recorded objection, especially for teams on old versions. A
+skill that works through the update guides is a concrete answer for a major release with breaking
+changes. Still set expectations: the customer reviews and tests the result.
+
+### Error handling without the Watchdog
+
+- If an editor crashes, it now **stays in place with its content and undo history intact**, so users
+  keep their work
+- The `@ckeditor/ckeditor5-watchdog` package and its automatic restart are **removed**. This is a
+  breaking change for anyone using `EditorWatchdog` or `ContextWatchdog`
+- New `onEditorError()` reports any error that escapes an editor, with the editor or context it came
+  from. It only observes: nothing restarts, and the error still reaches the console
+- `ContextWatchdog` users now create the `Context` themselves and pass it into each editor's config
+- Guides: [Error handling](https://ckeditor.com/docs/ckeditor5/latest/getting-started/setup/error-handling.html) ·
+  [Migrating from the Watchdog](https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-from-watchdog.html)
+  (plain JS, React, Vue, Angular)
+
+---
+
+## Questions to expect
+
+**"Does it work in Salesforce Lightning?"**
+Lightning Web Components render in shadow roots, and that's the scenario the release targets. The
+enablement deck still marks Lightning "to verify", so confirm with product before promising a tested
+integration.
+
+**"Do we need closed shadow roots?"**
+They aren't supported. Open roots only.
+
+**"Will our existing styling break?"**
+Core variable overrides carry over. The default look and published content styles change, and a
+legacy preset plus content rollback snippets restore the old look. Custom CKEditor AI styling needs
+renaming.
+
+**"Does Trusted Types support sanitize content?"**
+No. The app stays responsible for validating content it loads into the editor.
+
+**"Which policy names do we allowlist?"**
+`ckeditor5`, plus a few documented names depending on how the editor loads and which features run.
+The CSP guide lists them.
+
+**"What stops working under Trusted Types?"**
+The custom color picker (palettes and document colors still work), the Uploadcare dialog, the
+Uploadcare and CKBox image editors, and Markdown containing entities such as `&nbsp;`.
+
+**"We use the Watchdog. What happens?"**
+The package is gone in v49. A crashed editor stays in place with content intact, and
+`onEditorError()` handles notifications. Follow the migration guide.
+
+---
+
+## Sources
+
+- v49 Internal Product Guide (enablement deck, last updated October 14, 2026)
+- [CKEditor 5 v49.0.0 Release Highlights & New Features](https://ckeditor.com/blog/ckeditor-5-v4900-release-highlights-new-features/), October 14, 2026
+- Competitor grids: from the enablement deck, not re-verified in this repo. Items marked "to
+  verify" there stay marked here
 
 
 ================================================================
@@ -3475,6 +3986,8 @@ Full reference: https://ckeditor.com/docs/ckeditor5/latest/getting-started/licen
 - **AI** is an add-on at Essential and Professional; included in Custom.
 - **On-premises** is Custom-only — critical for healthcare, government, finance customers.
 - **Pagination** is Custom-only — important for document-centric use cases.
+- **v49 platform capabilities (Shadow DOM support, design tokens / refreshed theme, Trusted Types support)** are framework capabilities in the core `ckeditor5` package, not priced line items, and they also cover premium features. They don't appear on the pricing page. *Inferred from the v49 release material — confirm with product before quoting a tier.* Detail: `features/core-editor/v49-release-product-guide.md`.
+- **AI Review's Suggest action (v49)** adds AI Review changes as Track Changes suggestions, so it needs Track Changes (Pro add-on / included in Custom). Applying AI Review changes directly works without it.
 
 
 ================================================================

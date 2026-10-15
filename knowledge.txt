@@ -1,7 +1,7 @@
 ================================================================
 CKEditor AI KNOWLEDGE BASE
-Last updated: 2026-10-08 10:04 UTC
-Commit: c35c8449141bcd36b6ef718c0d71f0976f866f0f
+Last updated: 2026-10-15 08:42 UTC
+Commit: d42c46a4875eb03c75035448bca8f5ca7c1f7e54
 Files included: 33
 ================================================================
 
@@ -12,7 +12,7 @@ FILE: ./features/ckeditor ai/AI-competitive-comparison.md
 
 # AI Features: CKEditor vs. Competitors
 
-**Last updated:** October 8, 2026 — Froala to **5.5.0** (Sept 30: AI image generation, Headless Mode) with 5.4 now verified at source; Tiptap AI Toolkit beta label removed (Sept 22) but no GA and still 0.x; new section comparing how AI touches the document in **Claude Docs, Claude for Google Workspace and ChatGPT Pages**; Lexxy and Velt noted. (Prior: September 7 — CKEditor column rebuilt from the current AI feature landing pages (`content/landing-pages/ai-features/`). TinyMCE column synced with the August 17 battlecard and re-verified against live docs. Froala updated to **5.4.0** (August 19, 2026). Tiptap re-checked — AI Toolkit still beta.)
+**Last updated:** October 15, 2026 — CKEditor column only: v49.0.0 (October 14) redesigned AI Review with a Suggest action that lands changes as Track Changes suggestions, unified the card design across AI features, and moved the AI UI onto the editor's design tokens. v49 also makes CKEditor AI run inside shadow DOM and under enforced Trusted Types (see `features/core-editor/v49-release-product-guide.md`). Competitor columns not re-checked. (Prior: October 8, 2026 — Froala to **5.5.0** (Sept 30: AI image generation, Headless Mode) with 5.4 now verified at source; Tiptap AI Toolkit beta label removed (Sept 22) but no GA and still 0.x; new section comparing how AI touches the document in **Claude Docs, Claude for Google Workspace and ChatGPT Pages**; Lexxy and Velt noted. (Prior: September 7 — CKEditor column rebuilt from the current AI feature landing pages (`content/landing-pages/ai-features/`). TinyMCE column synced with the August 17 battlecard and re-verified against live docs. Froala updated to **5.4.0** (August 19, 2026). Tiptap re-checked — AI Toolkit still beta.))
 
 > ⚠️ **Three CKEditor-only claims in the July version are now dead.** TinyMCE shipped MCP (8.7, June 30 2026), on-premises AI GA, AI edit attribution, and AI usage tracking, and its on-premises docs now document seven LLM provider types including `openai-compatible`. Do not say "we're the only editor with MCP," "TinyMCE has no on-prem AI," or "TinyMCE has no AI usage analytics." See the Key Differentiators section for what still holds.
 
@@ -36,13 +36,13 @@ Use this table in sales and product conversations when a prospect asks how CKEdi
 | **Native AI writing assistance** | ✅ Deep integration | ✅ Chat, Review, Actions — deeply featured | ⚠️ Basic in-editor chat + Quick Actions ("Basic AI"); **AI Toolkit (beta July 2026; label removed Sept 2026, no GA)** adds server-side agent tooling — you build the experience | ✅ AI Assist plugin, **5.5.0 (Sept 30, 2026)** — adds AI image generation | ❌ | ❌ | ❌ |
 | **AI Chat interface** | ✅ Full chat with context, reasoning, web search; sidebar or overlay; threads pinnable, renameable, searchable, private to their author | ✅ Full AI Chat with history, file/URL context, web search, reasoning mode | ⚠️ Very basic chat — limited support | ⚠️ **[verified 5.4; 5.5 adds web-search/reasoning capability flags]** Docked side-panel AI Chat Assistant with multi-turn conversation; no file/URL context or persistent history confirmed | ❌ | ❌ | ❌ |
 | **Inline AI commands / Quick Actions** | ✅ On selected text — improve writing, continue writing, fix grammar & spelling, make shorter/longer, change tone (5 presets), translate (7 languages), Chat Commands (Explain, Summarize, Highlight key points), and Ask AI to escalate the selection into Chat | ✅ Built-in + fully customizable Quick Actions with custom prompts | ✅ Custom Quick Actions + one-click text transformations (no search/filter in dropdown) | ✅ Select text → choose action → instant improvement | ❌ | ❌ | ❌ |
-| **AI Review (on-demand quality check)** | ✅ 5 built-in checks — Proofread, Improve Clarity, Improve Readability, Adjust Length, Adjust Tone and Style — plus ad-hoc custom commands and saved custom reviews; per-review model choice and RBAC; chunks long documents across parallel LLM calls | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ⚠️ No dedicated mode — AI Toolkit ships a `proofread` tool for you to build around | ⚠️ **[updated 5.4]** No dedicated review mode, but AI Improve Writing now returns edits as accept/reject changes | ❌ | ❌ | ❌ |
+| **AI Review (on-demand quality check)** | ✅ 5 built-in checks — Proofread, Improve Clarity, Improve Readability, Adjust Length, Adjust Tone and Style — plus ad-hoc custom commands and saved custom reviews; per-review model choice and RBAC; chunks long documents across parallel LLM calls. **v49 (Oct 14, 2026):** redesigned, with a **Suggest** action that adds changes as Track Changes suggestions (previously apply-only in the UI), an in-content navigation panel, and a progress bar | ✅ 5 built-in types (Proofread, Clarity, Readability, Length, Tone) + custom reviews via API | ⚠️ No dedicated mode — AI Toolkit ships a `proofread` tool for you to build around | ⚠️ **[updated 5.4]** No dedicated review mode, but AI Improve Writing now returns edits as accept/reject changes | ❌ | ❌ | ❌ |
 | **AI Translations (dedicated mode)** | ✅ Dedicated full-document translate mode — **10 built-in languages** (EN, ES, FR, DE, ZH-Hans, JA, RU, PT, KO, IT) plus configurable additional ones; original stays in the sidebar for segment-by-segment review | ⚠️ Via Quick Actions | ❌ No dedicated AI Translations mode | ❌ | ❌ | ❌ | ❌ |
 | **Multi-LLM provider support** | ✅ Curated OpenAI, Anthropic, and Google models out of the box, **plus Auto/Agent mode** that picks the best model per task on quality, speed, and cost | ✅ OpenAI (GPT-5.5/5.4/5.2/5.1/5, GPT-4.1 + Mini), Anthropic (Opus 4.8/4.7, Sonnet 4.6/4.5, Haiku 4.5), Google (Gemini 3.1 Pro, 3.5/3/2.5 Flash) + `agent-1` auto mode | ✅ Any text-capable model incl. open-source and self-hosted — via Vercel AI SDK, LangChain, OpenAI SDK, Anthropic SDK, or custom (AI Toolkit). No end-user model picker | ✅ OpenAI, self-hosted models, custom backends | ❌ | ❌ | ❌ |
 | **Bring your own LLM / custom endpoint** | ✅ On-premises — your own OpenAI/Anthropic/Google keys, Amazon Bedrock, Azure OpenAI, Google Gemini Enterprise, or **any OpenAI API-compatible endpoint** (self-hosted, fine-tuned, OpenRouter, Together AI). Models configured server-side appear in the editor's model selector automatically | ⚠️ **[corrected]** On-premises docs now document seven provider types — `openai`, `anthropic`, `google`, `azure`, `bedrock`, `vertex`, `openai-compatible` (Ollama, vLLM, LM Studio, llama.cpp, LocalAI, OpenRouter, Together, Groq, Fireworks). Marketing still labels BYO-LLM early access; the docs carry no gating notice | ✅ Any text-capable model, incl. self-hosted — but you wire it up yourself | ✅ Self-hosted models and custom backends | ❌ | ❌ | ❌ |
 | **Reasoning** | ✅ Yes | ✅ Reasoning mode in Chat | ⚠️ No built-in reasoning mode — depends on the model the integrator supplies | ⚠️ Not confirmed | ❌ | ❌ | ❌ |
 | **Custom prompts & commands** | ✅ Custom AI actions define the name, the UI label, the governing prompt, which models run it, and whether it applies to a selection, the full document, or both — via `extraCommands`; `removeCommands` strips built-in defaults; `AIActions#executeAction()` runs one programmatically. Custom Reviews supported. **Custom prompts** apply the same pattern more broadly — preload domain context, persona instructions, or constraint rules that shape every AI interaction, not just one action | ✅ Custom Quick Actions via config; custom Reviews via API | ✅ Custom Quick Actions | ⚠️ Custom tone presets (Professional, Casual, Enthusiastic); custom request handler | ❌ | ❌ | ❌ |
-| **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control (build it yourself) | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
+| **AI UI customization** | ✅ Sidebar or overlay, left/right placement, full configurability. **v49:** one shared card design across Review, Quick Actions, and Chat Proposed Changes; the whole AI UI follows the editor's design tokens, so one token override re-themes AI with the rest of the editor (old AI token names have no fallback — renames required) | ⚠️ Configurable menus and actions; UI framework is Tiny's own — limited structural override | ✅ Headless — full UI control (build it yourself) | ⚠️ Popup UI included; programmatic API to trigger AI from anywhere in your app | ❌ | ❌ | ❌ |
 | **Context injection (files, URLs, text)** | ✅ Inject documents, URLs, or reference content into chat | ✅ File uploads (PDF, DOCX, images, MD, HTML, text), URLs, custom external data sources | ❌ No context awareness with files/URLs | ❌ | ❌ | ❌ | ❌ |
 | **AI Chat history (per document)** | ✅ Persistent, renameable, resumable per document | ✅ Persistent, filterable, organized by date; 12-month retention | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **Model selection per user** | ✅ Users choose model; integrators define available options | ✅ User model switching configurable; availability controlled per subscription tier via JWT | ❌ | ⚠️ Custom metadata (user ID, model settings) passed per request | ❌ | ❌ | ❌ |
@@ -110,6 +110,9 @@ CKEditor AI works in a multi-root editor and across several editors sharing a Co
 
 **10. Cost governance, not just cost reporting**
 Model selection per subscription tier means a free-tier user runs a lighter model than a paid one, so spend scales with the value of the user. Permissions restrict which roles reach which models and features. On Cloud, one credit unit folds in tokens and storage, so finance tracks a single metric. No competitor documents this combination of per-tier model routing plus per-user attribution plus an export path into the customer's own observability stack.
+
+**11. AI that runs where locked-down apps run** ✨ *new October 2026, v49*
+Since v49, CKEditor AI works inside a shadow root (web components, design systems, platforms like Salesforce, ServiceNow, and SAP) and under an enforced Trusted Types policy, because the whole editor does. Per the v49 enablement grids, TinyMCE documents shadow DOM as "not, currently, supported" and fails to load under Trusted Types. Tiptap's shadow DOM support is unofficial and its HTML loading fails under Trusted Types. Lexical supports shadow DOM and partly supports Trusted Types, but ships no first-party AI. The argument: an AI feature the security team blocks, or that won't render in the host platform, is no AI feature. This is an **inference from editor-level support**. Neither competitor's AI plugin was tested in these environments. Detail and sources: `features/core-editor/v49-release-product-guide.md`.
 
 ---
 
@@ -2133,10 +2136,11 @@ Use this after discovery to identify which capabilities to prioritize in your de
 **Lead with:**
 - AI Review — grammar, tone, style, clarity — inline suggestions with accept/reject
 - Custom review checks (legal formatting, brand voice rules, compliance language)
-- Track Changes integration — AI suggestions as reviewable edits
+- Track Changes integration — since v49, AI Review's **Suggest** action adds proposed changes as Track Changes suggestions, so a second person can accept or reject them like any other suggestion. Applying directly is still an option. Suggest needs Track Changes (Pro add-on / Custom)
+- Guided pass through the changes (v49) — a navigation panel moves from one proposed change to the next in the content, and a progress bar shows how many are done
 - RBAC — control who can trigger which AI operations
 
-**Demo anchor:** Run a review on a document with intentional brand/style issues. Show custom check definitions.
+**Demo anchor:** Run a review on a document with intentional brand/style issues. Show custom check definitions. On v49+, click Suggest instead of Apply and show the change landing in Track Changes with the AI marker.
 
 ---
 
@@ -2354,6 +2358,7 @@ Website
 - https://ckeditor.com/ckeditor-5/capabilities/ai-features/
 - https://ckeditor.com/blog/why-embedded-ai-wins-over-saas-overlays/
 - https://ckeditor.com/blog/what-is-ckeditor-ai/
+- https://ckeditor.com/blog/ckeditor-5-v4900-release-highlights-new-features/#ckeditor-ai-unified-design-and-ai-review-with-tracked-suggestions (v49: AI Review Suggest action, unified AI design)
 
 Documentation
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/
@@ -2368,6 +2373,8 @@ Documentation
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-mcp.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-integration.html
 - https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-deployment.html
+- https://ckeditor.com/docs/ckeditor5/latest/updating/guides/migration-to-refreshed-theme.html#ai-package-domain-first-component-first (v49: AI theme token renames, no legacy fallback)
+
 
 ================================================================
 FILE: ./research/2026-08-17-icp-revenue-analysis.md
@@ -4484,7 +4491,7 @@ FILE: ./research/competitive-analysis.md
 
 # CKEditor Competitive Analysis
 
-**Last updated:** October 8, 2026 — general competitor sweep plus four new tracked competitors: **Lexxy** (direct, section 10), **ChatGPT Space and Pages** (substitute, section 11), **Velt** (collaboration-layer, section 12), and **Claude for Google Workspace** (folded into section 9). Froala 5.5 (Sept 30) adds Headless Mode and AI image generation, and Froala 5.4 is now verified at source. Tiptap's AI is unchanged but it pushed into document workflow (Compare, Split View, Composable Docs alpha). Claude Docs now has version history. (Prior: September 23 — **Claude Docs added as a tracked substitute** (new section 9). Tiptap's AI Toolkit dropped its beta label; Quill's release history corrected (the "September 2019" claim was wrong); Eddyter's real-time collaboration moved from "not offered" to "announced, unverified"; TinyMCE re-verified through 8.9.1 with no strategic change. September 7 — TinyMCE 8.7 corrections, Froala 5.4.0, MCP gap closed, RichTextEditor added as a watch item.)
+**Last updated:** October 15, 2026 — **CKEditor 5 v49.0.0** (October 14) adds Shadow DOM support, a design-token theme, and Trusted Types support. Competitor status for all three comes from the v49 enablement grids, not a new sweep. See the new v49 section below the head-to-head comparison and `features/core-editor/v49-release-product-guide.md`. Froala's "full CSP compliance" claim is now flagged: their changelog says "partially." (Prior: October 8, 2026 — general competitor sweep plus four new tracked competitors: **Lexxy** (direct, section 10), **ChatGPT Space and Pages** (substitute, section 11), **Velt** (collaboration-layer, section 12), and **Claude for Google Workspace** (folded into section 9). Froala 5.5 (Sept 30) adds Headless Mode and AI image generation, and Froala 5.4 is now verified at source. Tiptap's AI is unchanged but it pushed into document workflow (Compare, Split View, Composable Docs alpha). Claude Docs now has version history. (Prior: September 23 — **Claude Docs added as a tracked substitute** (new section 9). Tiptap's AI Toolkit dropped its beta label; Quill's release history corrected (the "September 2019" claim was wrong); Eddyter's real-time collaboration moved from "not offered" to "announced, unverified"; TinyMCE re-verified through 8.9.1 with no strategic change. September 7 — TinyMCE 8.7 corrections, Froala 5.4.0, MCP gap closed, RichTextEditor added as a watch item.))
 **Scope:** Rich text editor market — TinyMCE, Tiptap, Quill, ProseMirror, Froala, Lexical, Eddyter, RichTextEditor, Lexxy. Collaboration layer — Velt. Adjacent substitutes — Claude Docs (incl. Claude for Google Workspace), ChatGPT Space and Pages.
 
 > ⚠️ **Retired claims — do not use.** "No editor has MCP," "TinyMCE has no on-premises AI," "TinyMCE has no AI usage analytics," and "no competitor marks AI-generated edits" were all true in April 2026 and are all false now. TinyMCE 8.7 (June 30, 2026) shipped every one of them. For AI-specific detail see `features/ckeditor ai/AI-competitive-comparison.md`.
@@ -4537,6 +4544,7 @@ Before analyzing competitors, here is CKEditor's position in the market:
 | **Collaboration** | Native real-time + async — the only editor with both built in |
 | **AI** | CKEditor AI: Chat, Quick Actions, 5-check Review, dedicated 10-language Translate; custom LLM via any OpenAI-compatible endpoint on-prem; full UI control; programmatic & headless API (front-end + REST + server-side), AI suggestion attribution in Track Changes, multi-root/multi-editor support, MCP, and AI cost governance with OpenTelemetry/Langfuse export |
 | **Enterprise** | SOC 2 Type 2, HIPAA compliant, enterprise SLAs, 70+ engineers, 1,100+ customers, 20+ years |
+| **Embedding & security (v49)** | Runs inside shadow DOM (web components, micro-frontends, Salesforce/ServiceNow/SAP-style platforms) and under enforced Trusted Types, premium features included; three-layer design tokens for theming |
 | **Unique claim** | The only AI-powered rich text editor your application will ever need |
 
 ---
@@ -4874,7 +4882,7 @@ Enterprise organizations prioritizing a polished, lightweight out-of-the-box exp
 - AI Assist plugin (current at 5.5): docked side-panel chat (5.4), AI Improve Writing as accept/reject tracked changes (5.4), **AI image generation (5.5)**, inline commands, tone, translation, speech-to-text; LLM-agnostic (routes to customer-controlled backend)
 - **Headless Mode (5.5, Sept 30, 2026):** the editing engine without Froala's toolbar, popups or styling, so teams build their own UI
 - Filerobot image editor integration (V5.2, May 2026): in-editor advanced image editing (annotations, filters, resize, rotate, watermarks, crop)
-- Full CSP compliance (V5.2, May 2026): no `unsafe-inline` style-src directives required
+- Full CSP compliance (V5.2, May 2026): no `unsafe-inline` style-src directives required. ⚠️ **Flagged October 15, 2026:** the v49 enablement grid reads Froala's own changelog as strict CSP for styles "partially." Froala has no Trusted Types docs or issues. Re-verify before calling it "full" in a call
 - Markdown support
 - Smart paste from Word and Excel
 - Autosave
@@ -5314,6 +5322,9 @@ Velt ships **`@veltdev/ckeditor-crdt`** packages that add real-time co-editing t
 | **Open source core** | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ MIT |
 | **Self-hostable** | ✅ | ❌ | ✅ (paid) | ✅ | ✅ | ✅ | ✅ | ❌ SaaS only | ✅ |
 | **20+ year track record** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ (1.0 Sept 2026) |
+| **Shadow DOM support** (v49) | ✅ Official, premium features included | ❌ Docs: "not, currently, supported" (yet its own web component uses a shadow root) | ⚠️ Unofficial via ProseMirror; Safari/iOS/Firefox bugs | ❌ Open bugs | ⚠️ Works (basis of Tiptap's unofficial support) | ⚠️ Individual bug fixes only | ✅ Since v0.46 (engine only) | ❓ Not assessed | ❓ Not assessed |
+| **Trusted Types support** (v49) | ✅ Editor-wide, documented policy names | ❌ Fails to load; request open since 2021 | ❌ HTML loading fails; bug open since 2024 | ❌ UI breaks; bug open since 2025 | ⚠️ Paste only | ❓ Not documented (to verify) | ⚠️ Paste only, undocumented policy | ❓ Not assessed | ❓ Not assessed |
+| **Theming model** (v49) | ✅ Runtime CSS design tokens, 3 layers, no build step | ⚠️ Skins: ~300 Less variables, build step | ⚠️ No core theme; optional UI components with `--tt-*` vars | ⚠️ Two themes; override CSS rules | ❓ Not assessed | ⚠️ 3 theme files; hand-written CSS for custom | ⚠️ Class map, ships no CSS/UI | ❓ Not assessed | ❓ Not assessed |
 
 ### Collaboration Readiness Score
 
@@ -5353,11 +5364,13 @@ Velt ships **`@veltdev/ckeditor-crdt`** packages that add real-time co-editing t
 **Win condition:** Real-time collaboration requirement, deeper AI integration need, or enterprise buyer who values SOC 2 documentation and a cleaner compliance story.
 **Risk:** TinyMCE has larger developer mindshare and more community content. CKEditor must win on capability and enterprise trust, not awareness.
 **Key message:** TinyMCE has async collaboration. CKEditor has both. When real-time collaboration lands on the roadmap — and it will — TinyMCE requires a separate infrastructure project. CKEditor includes it.
+**v49 adds:** TinyMCE fails to load under an enforced Trusted Types policy (request open since 2021), and its docs call shadow DOM "not, currently, supported." CKEditor supports both, premium features included. Its Less-based skins need a build step; our tokens override at runtime.
 
 ### CKEditor vs. Tiptap
 **Win condition:** Enterprise buyer who needs proven scale and compliance depth; buyer who wants a complete platform rather than assembling from parts; buyer evaluating total cost of ownership including platform subscription costs at document scale.
 **Risk:** Tiptap's headless flexibility and open-source core appeal strongly to React developers who want full UI control. Developer experience is excellent.
 **Key message:** Tiptap is excellent if you want to build. CKEditor is the choice if you want to ship. Tiptap has no native PDF export, a compliance gap (no WCAG 2.2 / Section 508 / spelling & grammar suite), pre-1.0 track changes that round-trip through Word only with a paid add-on (comments don't make the trip, and there's no PDF export), and an AI story aimed at developers — AI Toolkit gives you agent tools and a server-side runtime, then leaves the chat UI, review flow, prompt library, and model routing to your team, with no dedicated AI Review or Translations mode and no MCP. It ships no built-in editor UI either, so toolbars, dialogs, scalability, and support all fall to your team. CKEditor delivers the same customizability with the full AI and collaboration stack already finished, a complete UI, SOC 2 / SLA / Fortune 500 backing, and a 20-year track record out of the box.
+**v49 adds:** Tiptap's HTML loading fails under Trusted Types (bug open since 2024), and its shadow DOM support is unofficial, with open Safari, iOS, and Firefox bugs. Design tokens also weaken the "headless to match our design system" argument: buyers can keep a finished, themed UI.
 
 **Updated July 27, 2026:** Tiptap shipped Find and Replace in the MIT core, took AI Toolkit to beta, and has a Tracked Changes extension in pre-1.0. Three claims are now retired: "no track changes," "no find and replace," and "AI is just basic chat." See `research/competitors/ckeditor-vs-tiptap.md` → Verified Tiptap Updates before any competitive call.
 
@@ -5365,11 +5378,13 @@ Velt ships **`@veltdev/ckeditor-crdt`** packages that add real-time co-editing t
 **Win condition:** Any buyer who has estimated the engineering cost of building on a low-level toolkit and is willing to pay for integration speed and ongoing maintenance savings.
 **Risk:** These tools have zero cost and attract developers who want full control. CKEditor must make the TCO argument credible — not dismiss the value of control.
 **Key message:** ProseMirror and Lexical are frameworks for building a rich text editor. CKEditor is a rich text editor. Six to twelve months of engineering to build what CKEditor ships with is the real cost of "free."
+**v49 note:** Lexical has solid shadow DOM support (v0.46) and partial, undocumented Trusted Types support (paste only). Don't claim we beat it on shadow DOM. Claim the full product on top: collaboration, review, AI, ready-made UI.
 
 ### CKEditor vs. Quill
 **Win condition:** Any production use case. Quill has published nothing since 2.0.3 in November 2024.
 **Risk:** Legacy deployments. Teams already running Quill may defer migration.
 **Key message:** Quill was a good choice in 2016. In 2026, it is a migration risk. CKEditor offers a documented migration path and delivers the collaboration and AI features Quill will never have.
+**v49 adds:** Quill breaks under Trusted Types ("requires 'TrustedHTML' assignment", bug open since 2025) and has open shadow DOM bugs. Both work out of the box in CKEditor.
 
 ### CKEditor vs. Eddyter
 **Win condition:** Any enterprise, compliance-sensitive, or collaboration-requiring buyer — which is most of CKEditor's target market.
@@ -5395,6 +5410,7 @@ Velt ships **`@veltdev/ckeditor-crdt`** packages that add real-time co-editing t
 **Win condition:** Teams that need real-time collaboration, deeper AI, or a more active developer community.
 **Risk:** Froala's perpetual license model appeals to regulated industries that cannot accept SaaS. CKEditor's on-premises deployment option is the counter here.
 **Key message:** Froala's collaboration depends on Codox.io; CKEditor's is native. Froala's AI Assist (5.4–5.5, Aug–Sept 2026) is a credible feature with a real chat panel, reviewable AI edits and image generation — do not undersell it — but it still lacks a dedicated AI Review mode, a dedicated AI Translate mode, context injection, persistent chat history, RBAC, MCP, and usage analytics, and Froala publishes no SOC 2 or HIPAA documentation. CKEditor's open-source community is a transparency and sustainability signal Froala cannot offer.
+**v49 adds:** Froala has only individual shadow DOM bug fixes and no Trusted Types documentation (to verify). Its "full CSP compliance" reads as "partially" in its own changelog, so check it before conceding the CSP point.
 
 ---
 
@@ -5422,6 +5438,33 @@ This is a stronger technical argument than "we have MCP and they don't," but it 
 
 ---
 
+## v49 Platform Release — Shadow DOM, Design Tokens, Trusted Types (October 2026)
+
+CKEditor 5 v49.0.0 shipped October 14, 2026. Three features change the competitive picture for embedding and security. Competitor status below comes from the **v49 enablement deck's grids**. It hasn't been re-swept here, and items marked "to verify" there stay marked. Full grids, limits, and Q&A: `features/core-editor/v49-release-product-guide.md`.
+
+| Feature | Gap we create | Gap we close | Who already has it |
+|---|---|---|---|
+| **Shadow DOM support** | Against Froala, Quill; against TinyMCE and Tiptap on *official, documented* support with premium features covered | Against Lexical (engine support since v0.46); partly against TinyMCE and Tiptap, where it works unofficially | Lexical only, and with no first-party collaboration or AI |
+| **Trusted Types support** | Against TinyMCE, Tiptap, Quill (editor fails or breaks); Froala (undocumented, to verify) | Against Lexical (paste only, undocumented policy) | Nobody in the tracked set documents editor-wide support |
+| **Design tokens** | Against TinyMCE (build-step Less skins), Froala, Lexical, Quill | Against Tiptap's optional `--tt-*` UI components | Nobody ships a complete themed UI driven by runtime tokens |
+
+**What it means:**
+
+- **Trusted Types is the cleanest win of the release.** It's a binary gate: if the CSP enforces it, TinyMCE, Tiptap, and Quill don't run. It lands with security reviewers in finance, healthcare, and government, where we already lead on compliance. Lead with it whenever a security review is in the deal path.
+- **Shadow DOM opens doors more than it beats competitors.** Salesforce Lightning, ServiceNow, SAP, design systems, and micro-frontends were hard or impossible for us before (Lightning needed a Visualforce iframe). The argument against Lexical is "full product versus framework", the same as everywhere else.
+- **Premium features are the differentiator inside both.** Comments, track changes, real-time collaboration, and CKEditor AI all work in a shadow root and under Trusted Types. Where a competitor's core works unofficially, nobody documents that their collaboration or AI does.
+- **Tokens answer a design-system objection.** Buyers who'd otherwise pick a headless toolkit to match their design system can keep our UI and re-skin it.
+
+**Don't overclaim:**
+
+- Closed shadow roots aren't supported.
+- Trusted Types support doesn't sanitize content.
+- Several Uploadcare and CKBox editing UIs, and the custom color picker, switch off under Trusted Types.
+- Salesforce Lightning is "to verify" in the enablement deck.
+- Upgrading to v49 has breaking changes. Don't sell it as a drop-in upgrade.
+
+---
+
 ## Summary: Where CKEditor Wins
 
 | Buying scenario | CKEditor's position |
@@ -5433,6 +5476,7 @@ This is a stronger technical argument than "we have MCP and they don't," but it 
 | Migration from TinyMCE | Native real-time collaboration, stronger AI, cleaner compliance documentation |
 | File management + editor in one | CKBox integration is unique — no direct competitor bundles this |
 | Deployment flexibility | Cloud, on-premises, hybrid — more options than TinyMCE or Tiptap |
+| Locked-down or component-based host apps (v49) | Only editor in the set with documented Trusted Types support; official shadow DOM support with collaboration and AI included |
 
 ---
 
@@ -6075,6 +6119,7 @@ Any "yes" and Lexxy becomes a starting point for a custom build, not a finished 
 | Official React/Vue wrappers | Takes Lexxy beyond Rails into the general JavaScript market. |
 | Any AI feature | Closes the second gap. |
 | A paid tier or support offering | Signals 37signals sees a business in it. |
+| Lexxy moves to Lexical ≥ 0.46 *(added Oct 15, 2026)* | Lexical added shadow DOM support in v0.46 (per the CKEditor v49 enablement grid). Lexxy 1.0 depends on `lexical` ^0.44.0, which resolves below 0.45. Lexxy already ships a `<lexxy-editor>` web component, so a move to 0.46+ would let it compete for the web-component use case we opened in v49. Not assessed yet: whether Lexxy uses a shadow root today. |
 
 ---
 
@@ -6097,7 +6142,7 @@ FILE: ./research/competitors/ckeditor-vs-tinymce.md
 
 # CKEditor vs. TinyMCE
 
-**Last updated:** September 23, 2026 — re-checked against the changelog through 8.9.1 and the 8.9.2 documentation in preparation. **No strategic change since September 7:** 8.9.0 (Aug 31) and 8.9.1 (Sep 9) are polish and bug fixes, not new capability. The BYO-LLM question flagged on September 7 is **still open and still the top priority**. See the [September 23 re-check](#september-23-2026-re-check--maintenance-only) at the end of this file. (Prior: September 7 — 8.7 date corrected to June 30, 2026; BYO-LLM early-access distinction judged unsafe.)
+**Last updated:** October 15, 2026 — **CKEditor v49.0.0 (Oct 14) adds three rows in our favour:** Trusted Types, Shadow DOM, and the theming model. See the [October 15 section](#october-15-2026--ckeditor-v49-adds-three-rows) at the end. TinyMCE itself was not re-checked this time. (Prior: September 23, 2026 — re-checked against the changelog through 8.9.1 and the 8.9.2 documentation in preparation. **No strategic change since September 7:** 8.9.0 (Aug 31) and 8.9.1 (Sep 9) are polish and bug fixes, not new capability. The BYO-LLM question flagged on September 7 is **still open and still the top priority**. See the [September 23 re-check](#september-23-2026-re-check--maintenance-only) at the end of this file. (Prior: September 7 — 8.7 date corrected to June 30, 2026; BYO-LLM early-access distinction judged unsafe.))
 **Source:** Extracted from `research/competitive-analysis.md`
 
 > ⚠️ **The April 2026 version of this file overstated CKEditor's position on seven points.** Rows marked **[corrected]** below were wrong or stale — including three claims a rep should stop making immediately: that TinyMCE has no MCP integration, no self-hosting, and no on-premises AI. All three are false as of TinyMCE 8.7 (July 15, 2026). Every correction is sourced in the addendum.
@@ -6174,6 +6219,9 @@ Developer surveys and industry reports (they publish an annual "State of Rich Te
 | **Self-hostable** | ✅ | ✅ Open source, or Enterprise plan **[corrected]** |
 | **20+ year track record** | ✅ | ✅ |
 | **Pricing model** | Per editor load | Per editor load — ~50% lower list on base tiers **[corrected]** |
+| **Trusted Types** | ✅ Supported and documented, premium features included (v49) | ❌ Editor fails to load; request open since 2021, no timeline **[new Oct 2026]** |
+| **Shadow DOM** | ✅ Official, documented, premium features included (v49) | ❌ Docs: "not, currently, supported" — yet its official web component renders inside a shadow root; closed roots unsupported **[new Oct 2026]** |
+| **Theming** | ✅ Runtime CSS design tokens in 3 layers, no build step (v49) | ⚠️ Oxide skins: ~300 Less variables compiled with a build step **[new Oct 2026]** |
 
 ---
 
@@ -6235,6 +6283,9 @@ That history is the argument. Tiny shipped RTC, learned what it costs to run, an
 - **AI across every editor type** — CKEditor AI works in multi-root editors and editors sharing a Context. TinyMCE's AI plugin supports classic mode only and is explicitly unsupported in inline mode.
 - **Documented RAG and full-HTML preservation** — both documented for CKEditor, neither documented for TinyMCE.
 - **File management** — CKBox has no TinyMCE equivalent.
+- **Trusted Types** ⭐ *new October 2026, v49* — if the customer's CSP enforces `require-trusted-types-for 'script'`, TinyMCE doesn't load. CKEditor runs under the policy with one allowlisted name, `ckeditor5`, plus a few documented ones. A binary security-review win. Lead with it wherever a security team signs off.
+- **Shadow DOM** *new October 2026, v49* — officially supported in CKEditor, collaboration and AI included. TinyMCE's docs say it isn't supported. Relevant for design systems, micro-frontends, and platforms like Salesforce, ServiceNow, and SAP.
+- **Runtime theming** *new October 2026, v49* — CKEditor design tokens override in the customer's stylesheet. TinyMCE skins need a Less build step.
 - **Bundle economics at scale** — CKEditor's overage rate falls to $30/1,000 loads at Professional against TinyMCE's flat $40, and several capabilities TinyMCE meters separately (Word/PDF conversion allowances) come bundled. This is a total-cost argument that needs the prospect's actual volumes to land.
 
 ## Where TinyMCE Wins
@@ -6256,7 +6307,7 @@ That history is the argument. Tiny shipped RTC, learned what it costs to run, an
 
 ## Win Condition Summary
 
-**When CKEditor wins:** Real-time collaboration is a requirement or a near-term roadmap item; the buyer needs custom or self-hosted LLMs in production now; AI has to run headless server-side at document scale; the editor is multi-root or inline.
+**When CKEditor wins:** Real-time collaboration is a requirement or a near-term roadmap item; the buyer needs custom or self-hosted LLMs in production now; AI has to run headless server-side at document scale; the editor is multi-root or inline; the app enforces Trusted Types or renders the editor in a shadow root (v49).
 
 **Risks to manage:**
 1. **Price.** TinyMCE is roughly half the list price on base tiers. Move the conversation to total cost at real volume and to what each bundle includes.
@@ -6426,6 +6477,27 @@ The BYO-LLM question from September 7 is unresolved. The on-premises AI provider
 
 ---
 
+## October 15, 2026 — CKEditor v49 adds three rows
+
+CKEditor 5 v49.0.0 shipped October 14, 2026. TinyMCE status below comes from the **v49 enablement deck's competitor grid**. It hasn't been re-verified against Tiny's docs in this file.
+
+| Feature | TinyMCE today | Gap | Our line |
+|---|---|---|---|
+| Trusted Types | Not supported. Editor fails to load. Request open since 2021, no timeline | We create it | Supported and documented, premium features included |
+| Shadow DOM | Not supported per docs, though the official web component renders TinyMCE in a shadow root. Closed roots unsupported | We close and create it | Officially supported and documented, including premium features |
+| Theming | Oxide skins, ~300 Less variables, build step | We create it | Runtime CSS tokens, no build step |
+
+**How to use it:**
+
+- **Trusted Types first.** It's the only one of the three that decides whether the editor runs at all. Ask early: *"Does your CSP enforce Trusted Types, or will it?"*
+- **Be precise on shadow DOM.** TinyMCE's docs say "not supported", but their own web component uses a shadow root. Say "not officially supported or documented". Don't say "doesn't work".
+- **Don't overclaim on our side.** Closed shadow roots aren't supported. Trusted Types support doesn't sanitize content. The custom color picker and some Uploadcare/CKBox editing UIs switch off under Trusted Types.
+- **Remember the portfolio.** TinyMCE is a Tiugo sister brand. If Trusted Types or shadow DOM is a hard requirement, the lead fits us. Otherwise, route-don't-fight still applies (`brand/ckeditor-positioning-source-of-truth.md`, Q5).
+
+Full detail: `features/core-editor/v49-release-product-guide.md`.
+
+---
+
 *For the full competitive landscape across all editors, see `research/competitive-analysis.md`. For persona-level messaging, see `brand/personas/`.*
 
 
@@ -6435,7 +6507,7 @@ FILE: ./research/competitors/ckeditor-vs-tiptap.md
 
 # CKEditor vs. Tiptap
 
-**Last updated:** October 8, 2026 — AI capability unchanged; Tiptap's momentum moved to **document workflow**: Compare became a paid add-on, Split View shipped, and **Composable Docs** (Slots templates + Content Protection) entered alpha. See the [October 8 re-check](#october-8-2026-re-check--the-document-workflow-push). (Prior: September 23 — **the September 7 conclusion has expired.** Tiptap's AI Toolkit dropped its beta label in the week of Sep 22; Tiptap Shorthand moved alpha → beta; AI Toolkit streaming moved alpha → beta. Tracked Changes is **still pre-1.0**. Stop using the "beta since July, components still alpha" timeline argument. See the [September 23 re-check](#september-23-2026-re-check--ai-toolkit-leaves-beta) at the end of this file. (Prior: September 7 — nothing had moved; Search and Replace Aug 6; AI Toolkit / Tracked Changes moved to custom pricing.))
+**Last updated:** October 15, 2026 — **CKEditor v49.0.0 (Oct 14)** adds Trusted Types, official Shadow DOM support, and design tokens. Tiptap fails under Trusted Types and has only unofficial shadow DOM support. See the [October 15 section](#october-15-2026--ckeditor-v49-security-and-embedding-rows) at the end. Tiptap itself was not re-checked. (Prior: October 8, 2026 — AI capability unchanged; Tiptap's momentum moved to **document workflow**: Compare became a paid add-on, Split View shipped, and **Composable Docs** (Slots templates + Content Protection) entered alpha. See the [October 8 re-check](#october-8-2026-re-check--the-document-workflow-push). (Prior: September 23 — **the September 7 conclusion has expired.** Tiptap's AI Toolkit dropped its beta label in the week of Sep 22; Tiptap Shorthand moved alpha → beta; AI Toolkit streaming moved alpha → beta. Tracked Changes is **still pre-1.0**. Stop using the "beta since July, components still alpha" timeline argument. See the [September 23 re-check](#september-23-2026-re-check--ai-toolkit-leaves-beta) at the end of this file. (Prior: September 7 — nothing had moved; Search and Replace Aug 6; AI Toolkit / Tracked Changes moved to custom pricing.)))
 **Base:** https://ckeditor.com/ckeditor-vs-tiptap/ — this battlecard was transcribed from the published page and still mirrors it everywhere except the rows listed in the addendum.
 
 > ⚠️ **The public page is out of date on Track Changes, Word track-changes export/import, and AI** (Find and Replace was fixed by October 8). The rows marked **[updated]** or **[corrected]** below reflect what Tiptap actually ships; the live page still shows the old values on those topics. Until the web team updates the page, a prospect reading it will see claims a rep should not repeat. Use this file, not the page, on those topics. Everything unmarked still matches the page.
@@ -6555,6 +6627,7 @@ Transcribed section-by-section from the comparison page. ✓ = available, ✗ = 
 | Restricted Editing | ✓ | ✗ |
 | SOC2 Type 2 | ✓ | ✓ |
 | Text Part Language | ✓ | ✗ |
+| Trusted Types support **[new Oct 2026, v49 — not on the public page]** | ✓ | ✗ HTML loading fails; bug open since 2024 (ProseMirror fixed paste only) |
 
 ### Content Conversion & Embedding
 
@@ -6723,6 +6796,8 @@ Transcribed section-by-section from the comparison page. ✓ = available, ✗ = 
 | Editing View Decorations | ✓ | ✓ |
 | Server-side editor API | ✓ | ✓ |
 | TypeScript Support | ✓ | ✓ |
+| Shadow DOM support **[new Oct 2026, v49 — not on the public page]** | ✓ Official, premium features included | ⚠️ Unofficial via ProseMirror; open Safari/iOS/Firefox bugs; built-in styles don't reach the shadow root |
+| Themed UI driven by design tokens **[new Oct 2026, v49 — not on the public page]** | ✓ 3-layer runtime tokens, AI and premium features included | ⚠️ No core theme; optional UI components with `--tt-*` variables |
 
 ### Page Management
 
@@ -6771,6 +6846,7 @@ Transcribed section-by-section from the comparison page. ✓ = available, ✗ = 
 - **Out-of-the-box UI** — CKEditor ships toolbars, menus, dialogs, and multiple editor types. Tiptap is headless — you build the UI from scratch.
 - **Productivity suite** — Merge Fields, Templates, Enhanced Paste from Word/Excel, Case Change, Multi-root editor. Tiptap lacks these. On Find & Replace, Tiptap now matches the search engine (highlighting, cycling, replace all, regex) but ships no UI, so the difference is the dialog and dropdown your team would otherwise build.
 - **Enterprise** — 20+ year track record, enterprise SLAs, and support. With Tiptap, scalability and support fall on your team.
+- **Security and embedding (v49, October 2026)** — CKEditor runs under enforced Trusted Types and inside shadow roots, with collaboration and AI included. Tiptap's HTML loading fails under Trusted Types, and its shadow DOM support is unofficial.
 
 ## Where Tiptap Wins (per the page)
 
@@ -7024,6 +7100,28 @@ What Tiptap documents, with the paid Tracked Changes add-on:
 **What to say instead:** "Tiptap round-trips tracked changes through Word with a paid add-on, and import is still beta. Comments don't make the trip, and there's no PDF export. CKEditor round-trips both suggestions and comments through Word and exports to PDF."
 
 The public page has the same error in three rows: Suggestions preserved in DOCX export, Export preserves comments & track changes, and Import preserves track changes.
+
+---
+
+## October 15, 2026 — CKEditor v49: security and embedding rows
+
+CKEditor 5 v49.0.0 shipped October 14, 2026. Tiptap status below comes from the **v49 enablement deck's competitor grid**. It hasn't been re-verified against Tiptap's docs or issue tracker here.
+
+| Feature | Tiptap today | Gap | Our line |
+|---|---|---|---|
+| Trusted Types | Not supported. Loading HTML content fails; bug open since 2024. ProseMirror fixed pasting only | We create it | Whole editor works, premium features included |
+| Shadow DOM | Unofficial, via ProseMirror. No official guide. Open bugs in Safari, iOS, and Firefox; built-in styles don't reach the shadow root | We close and create it | Official support and docs; premium features covered |
+| Theming | Headless. No theme in core; optional UI components use `--tt-*` CSS variables | We close it | Complete themed UI, premium features and AI included |
+
+**How it changes the argument:**
+
+- **Trusted Types gives us a hard gate.** Tiptap's maturity and "build versus ship" arguments are judgement calls. "Your CSP enforces Trusted Types, and Tiptap fails to load HTML under it" is a fact a security team checks in an afternoon.
+- **Tokens take the sting out of "headless for our design system."** Teams that picked Tiptap to match their design system can now re-skin a finished CKEditor UI instead of building one.
+- **Say "unofficial", not "broken".** Tiptap does run in a shadow root via ProseMirror. The gap is documentation, cross-browser bugs, and whether paid features (Tracked Changes, AI Toolkit, Collaboration) are covered. With no official guide, nothing documents that they are.
+
+**Action item:** propose Trusted Types and Shadow DOM rows for the public https://ckeditor.com/ckeditor-vs-tiptap/ page, after verifying the Tiptap bugs are still open.
+
+Full detail: `features/core-editor/v49-release-product-guide.md`.
 
 ---
 
