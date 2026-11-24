@@ -1,8 +1,8 @@
 ================================================================
 CKEditor FEATURES KNOWLEDGE BASE
-Last updated: 2026-10-15 08:42 UTC
-Commit: d42c46a4875eb03c75035448bca8f5ca7c1f7e54
-Files included: 24
+Last updated: 2026-11-24 14:43 UTC
+Commit: c4a0ccc66d87683da42841640717f96343c5ea56
+Files included: 27
 ================================================================
 
 
@@ -3796,6 +3796,822 @@ FILE: ./features/document-converters/document-converters-urls.md
 
 
 ================================================================
+FILE: ./features/editing-toolkit/editing-toolkit-product-guide.md
+================================================================
+
+# Editing Toolkit — Product Guide
+
+*Built from the Editing Toolkit product guide deck (last updated November 18, 2026) and the public
+[Editing Toolkit documentation](https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/editing-toolkit-overview.html),
+both read on November 24, 2026.*
+
+*Companion files: [technical reference](editing-toolkit-technical-reference.md) (APIs, flows, error
+codes) and [URLs](editing-toolkit-urls.md).*
+
+---
+
+## 1. What it is
+
+The Editing Toolkit applies content changes from a customer's own AI agents, chat, backend
+workflows, scripts, files, or structured HTML to CKEditor 5 documents. Users review and accept each
+change in the editor. It's a set of building blocks for teams that build comparing and AI editing
+features in their own app.
+
+**Docs definition (quote this one):** "Use the Editing Toolkit to apply content changes from your
+own AI agents, chat interfaces, backend workflows, or scripts to CKEditor 5 documents. Your code or
+service produces the revised content, and the toolkit compares it with the original so users can
+review and accept the changes in the editor."
+
+**The core idea:** every difference is a separate, granular change. A reworded phrase can show up
+as an individual change to review, land as a Track Changes suggestion, or apply directly.
+
+**Who buys it:** teams that run their own AI and their own interface. Their AI decides what to
+write. We turn it into reviewable, correctly formatted changes in the document.
+
+**The pattern:** their AI, their interface, our editing engine.
+
+### Pitch lines
+
+- Compare content changes and apply them granularly. Works with your own AI agents and chat through
+  CKEditor MCP, and with non-AI scripts, files, and structured content.
+- Every change stays reviewable. The toolkit compares new content with the current document and
+  shows each difference as a change users can apply, reject, or turn into a suggestion.
+- Keep your own AI, chat, and agents. We supply the editing engine that lands AI changes precisely
+  and safely in the document.
+- Compare: "Your users see exactly what changed."
+- Coauthor: "What your AI writes is what your users get formatted in the editor."
+
+### Why it exists
+
+- CKEditor AI gives teams our agent and our ready-made features.
+- A second group of teams wants building blocks to build their own agents and features for their
+  customers. Some go one step further and build their own connectors on top of ours, because their
+  customers want to connect their own agents.
+- The Editing Toolkit is the answer for that group.
+
+---
+
+## 2. Two components
+
+| | **Compare** | **Coauthor (CKEditor MCP)** |
+|---|---|---|
+| Status | Available (November 2026) | Early access. GA planned for Q1 2027 |
+| Where it runs | In the browser, and inside the server-side editor | On the server (Cloud Services) |
+| What it is | Frontend APIs: `DocumentCompare` plus the Proposed changes UI (`ProposedChanges`) | Skills + tools (MCP and REST) + a server-side CKEditor 5 instance |
+| What it does | Takes new content from an AI agent, a script, a Word file, or processed HTML. Finds the differences and applies them directly, as suggestions, or in a review panel | Lets agents read, edit, verify, and comment on documents on the server, with nobody in the editor |
+| Needs AI? | No | Any agent or model over MCP. Backend code can call the same tools over REST with no model |
+| Sold on its own | Yes | No. Requires Compare |
+| Deployment | SaaS and on-premises | SaaS |
+
+### Compare
+
+- Unlike `editor.setData()`, Compare never replaces the whole document. That's why comments, Track
+  Changes, revision history, and real-time collaboration keep working.
+- Changes can be marked as made by AI (`aiSource`). The label shows in Track Changes and Revision
+  History.
+- Users can keep editing while the agent works. Compare merges the agent's changes with every edit
+  made in the meantime, including other people's edits in real-time collaboration.
+- The Proposed changes UI is a standalone panel you place anywhere in your layout: a sidebar, a
+  dialog, or a chat. Users apply, suggest, or reject each change, or handle all of them at once.
+
+### Coauthor (CKEditor MCP)
+
+Agents get three things:
+
+- **Skills:** help agents understand the editor's features and what the document supports
+- **Tools (MCP and REST):** read, edit, and verify content, and add comments
+- **Server-side editor:** a CKEditor 5 instance on the backend, with Compare inside. It runs the
+  same editor bundle the customer uploads to Cloud Services, so it has the same features, plugins,
+  and configuration as the editor users see
+
+Why a server-side editor matters: an editor keeps only the HTML its features support. Coauthor
+checks each edit against the real editor and tells the agent what would break, so the agent fixes
+it first. Without that, unsupported markup gets dropped and the agent never learns about it.
+
+Coauthor works with real-time collaboration and with non-real-time setups.
+
+### Why two components
+
+Customers can license Compare separately for imports and scripted changes, without using AI.
+Coauthor depends on Compare technically, so it sells only inside the toolkit.
+
+---
+
+## 3. Editing Toolkit vs. CKEditor AI
+
+| | **CKEditor AI** | **Editing Toolkit** |
+|---|---|---|
+| What you get | Features (for example AI Chat) | APIs to build features (for example the Proposed changes UI, the Compare API) |
+| Shape | Off-the-shelf, with our agent and our AI service | Building blocks for teams with their own AI infrastructure |
+| Tokens | Consumes tokens directly | Doesn't consume tokens. The agents that connect to it do |
+| Relationship | Works with the toolkit | Separate product. Doesn't require CKEditor AI |
+
+- The toolkit is a separate product. The customer doesn't need CKEditor AI.
+- Customers who want both buy them as one bundle.
+
+### Which one to pitch
+
+| Pitch **CKEditor AI** when they… | Pitch the **Editing Toolkit** when they… |
+|---|---|
+| Are still planning, with no AI features deployed | Already invested in app-wide AI features, like their own chat |
+| Lack AI specialization, with a small team maintaining the editor | Have dedicated AI teams and capacity |
+| Focus on assisted AI and writer productivity | Already run agentic, backend flows, or show interest in them |
+| Want ready-made chat, quick actions, and review | Want to own the AI experience and the models |
+| | Say "we only need the diff" or "we can't buy the whole package" |
+| | Say "no new backend" or "our people work from Claude now" |
+
+**Both fit? Sell the bundle.** A team can keep its own chat (toolkit) and still add Quick Actions
+and AI Review (CKEditor AI).
+
+---
+
+## 4. Five ways customers use it
+
+| Workflow | Who produces the change | How it works | Components |
+|---|---|---|---|
+| **Workflows without AI** | The customer's scripts, or an updated Word file | Compare finds the differences. The customer applies them directly or as suggestions | Compare |
+| **Custom AI features** | The customer's own chat and agent | Their agent reads and edits the document through Coauthor. Compare shows the changes for review | Coauthor + Compare |
+| **With CKEditor AI** | The customer's chat, plus our AI Service | Their agent hands the document task to our agent, which handles the HTML. Compare shows the changes | Compare + CKEditor AI |
+| **Backend agent workflows** | The customer's agents, directly or through their own MCP | Agents draft, review, and comment in the background. A person reviews the result at the end | Coauthor + Compare |
+| **Claude or ChatGPT** | The AI workspace the user already works in | The task starts in the chat. Changes land in the document inside the customer's app | Coauthor + Compare |
+
+### Workflows without AI
+
+- A script finds and replaces text, updates terminology, or changes formatting. Or the customer
+  gets an updated Word file and wants those changes in CKEditor as suggestions.
+- The classic case: someone edits a Word file without Track Changes, so there are no tracked
+  changes to import. Compare checks the updated file against the current document and generates
+  suggestions from the differences.
+- If the Word file already has tracked changes, point them to Import from Word with Track Changes
+  enabled. It imports them as suggestions with the authors' names.
+
+### Custom AI features
+
+- The user asks in the customer's chat. Their agent uses Coauthor to read and edit the document.
+  Compare turns the result into changes the user reviews in the editor.
+- Customers connect their own AI to CKEditor without adopting our chat, quick actions, and review
+  interface.
+
+### With CKEditor AI
+
+- The customer keeps its chat but doesn't want to generate the HTML that updates the document.
+- Their agent passes the document task to our agent through the CKEditor AI Document Processing
+  endpoint. Our agent edits the content and handles the HTML. Compare shows the changes for review.
+- They can also add CKEditor AI features in the editor, such as Quick Actions for selected text.
+
+### Backend agent workflows
+
+- Agents work on documents in the background, with nobody in the editor. They start on an event, a
+  schedule, or a request from another agent, not only when a person types a prompt.
+- Each agent is a specialist with its own context, tools, and permissions. One knows the policy
+  library, another knows the brand guide.
+- Agents leave comments, not just edits. A reviewing agent flags a clause, and the drafting agent
+  picks up the thread and fixes it.
+- A person still reviews the result at the end.
+- Coauthor runs a real CKEditor instance on the server, so Compare works there too and applies
+  changes directly or as suggestions.
+- A customer with its own MCP server can pass document-editing requests through to Coauthor. Their
+  MCP handles the wider application, ours handles the document.
+
+### Working from Claude or ChatGPT
+
+- The user starts in an AI workspace such as Claude or ChatGPT and asks it to work on a document in
+  the customer's application.
+- The trend behind it: companies make an AI workspace the starting point for work across their
+  internal apps. People start tasks in the chat instead of opening each application. What's written
+  in the chat has to land back in the proper place: content in the company's app.
+- Example scenario: ask the AI workspace to update an executive summary using a new source file. It
+  gathers the information, drafts the update, and uses our tools to write it into the right section
+  as direct edits or tracked suggestions. The user then reviews the result in CKEditor. Other people
+  keep working on the same document.
+- The docs describe three ways to connect: your own app inside the agent app, a connector to
+  Coauthor, or a developer tool such as Claude Code. Details in the
+  [technical reference](editing-toolkit-technical-reference.md).
+
+---
+
+## 5. Packaging and availability
+
+| | **Compare** | **Coauthor (CKEditor MCP)** |
+|---|---|---|
+| Status | Available | Early access. GA planned for Q1 2027 |
+| What's included | Document compare API, Proposed changes components | Editor skills for AI agents, MCP tools for HTML editing |
+| Sold on its own | Yes | No. Requires Compare |
+| Channel | Sales-assisted | Sales-assisted |
+| Deployment | SaaS and on-premises | SaaS |
+| Trial | Yes, in the free trial | Not in the trial by default. We enable it on request |
+
+- **Premium, closed source.** It ships in the commercial premium features package and needs a
+  license key.
+- **Sales-assisted only.** The docs describe it as "a premium add-on in the CKEditor Custom Plan."
+  It isn't available on the self-service Free, Essential, or Professional plans.
+- **Bundle:** available in a bundle with CKEditor AI.
+- **Pricing:** not recorded in this knowledge base.
+
+### Timeline
+
+| When | What |
+|---|---|
+| November 2026 | Compare available. Coauthor in early access |
+| Q1 2027 | Coauthor GA (planned) |
+
+---
+
+## 6. Required plugins and compatibility
+
+| Name | Identifier | What it does | New? |
+|---|---|---|---|
+| Compare: Document compare | `DocumentCompare` | Takes a snapshot of the document, computes the differences from the new content, and applies them as granular changes or suggestions | Net new |
+| Compare: Proposed changes | `ProposedChanges` | Review panel that lists changes before they reach the document. Users apply, reject, or record each one as a suggestion. Requires `config.collaboration.channelId` | Net new |
+| Track Changes (optional) | `TrackChanges` | Needed only to apply changes as suggestions. Must be fully set up, including registering the current user | Existing premium feature |
+| Coauthor (CKEditor MCP) | Server-side, on Cloud Services | MCP and REST tools plus a server-side editor. Runs the customer's editor bundle, which must include `DocumentCompare` | Net new |
+
+- Plugins ship in `ckeditor5-premium-features` (npm) and need a license key.
+- The optional balloon preview in the Proposed changes UI needs the `AIChatBalloon` plugin.
+- Setting `channelId` doesn't enable Cloud Services or real-time collaboration.
+- The docs don't state a minimum editor version.
+
+**Compatibility:**
+
+- Works with comments, Track Changes, revision history, and real-time collaboration
+- Works with any agent or model. Agents connect to Coauthor over MCP. Backend code calls the same
+  tools over REST, without an AI model
+- Works with CKEditor AI and with multi-editor setups
+
+---
+
+## 7. Customer context
+
+### Pain points to address
+
+Teams that connect their own AI to a rich text editor face:
+
+- AI output that replaces the whole document and breaks comments, suggestions, and history
+- Reviewers who can't see what the AI changed, so they re-read everything
+- No clear record of what the AI changed and who approved it
+- Building and maintaining their own diffing for rich text content
+- AI-generated HTML the editor doesn't support, so content gets lost
+- Agents that can't work on a document unless someone has it open
+- Word files edited without Track Changes, with no changes to import
+
+### Personas
+
+- **Buyer:** Head of AI or AI Platform Lead, Engineering Manager, Product Lead
+- **Industries:** financial services, professional services, life sciences, SaaS platforms
+- **Use cases:** own AI chat that edits documents, backend agent workflows, MCP access from Claude
+  or ChatGPT, Word and script imports
+- **End users:**
+  - Reviewer who accepts or rejects AI changes in the document
+  - Writer who asks the company's AI chat to update a document
+  - Knowledge worker who starts tasks in Claude or ChatGPT
+
+### Before and after narratives
+
+*Illustrative. The people are fictional, so never present them as real customers.*
+
+| Persona | Before | After |
+|---|---|---|
+| **Anna**, reviewer at a consulting firm | The company's AI assistant rewrites whole sections, so she can't tell what changed. She re-reads every page, although the AI touched only a small part | AI edits arrive as tracked suggestions, marked as made by AI. She reviews only what changed and accepts or rejects each suggestion |
+| **Tom**, quality manager | He copies the AI chat's answer, pastes it into the document, and fixes the formatting by hand. Comments on the old text disappear, and nobody can see what the AI wrote | He asks the chat to update the procedure, and the changes appear in the document for review. Comments and history stay intact, and colleagues keep editing at the same time |
+| **Priya**, product manager at a SaaS company | She already ships an AI chat across her product. Customers expect it to edit documents too, with every change visible and reversible. Her AI team doesn't want a second assistant inside the editor. Enterprise customers ask for an MCP server, and her roadmap has no room for a diffing engine and a server-side editor | Her team keeps its chat, agent, and models. The toolkit adds reviewable AI edits to the editor and gives customers' agents a way to work on documents through MCP |
+| **Sam**, AI engineer | Each update replaces the whole document, which breaks comments, suggestions, and revision history. His own HTML diffing takes more and more time. The model returns markup the editor doesn't support, and that content gets lost | He uses `DocumentCompare`: take a snapshot, pass it to the agent, compute the changes, and apply them directly or as suggestions. On the backend, the agent connects to Coauthor over MCP |
+
+Anna and Tom review AI changes the same way they review a colleague's edits. Priya and Sam keep
+ownership of the AI experience and build it on our editing engine.
+
+### What customers will be most excited about
+
+- Keeping their own AI stack, chat, and models
+- Granular, reviewable AI changes
+- Agents that work on the server, with nobody in the editor
+- AI output that fits their editor
+- People keep editing while an agent works
+- Compare works without AI, for scripts and Word files
+
+### What customers will be most disappointed about
+
+- Coauthor is in early access. GA is planned for Q1 2027
+- Coauthor isn't available on-premises yet
+- Sales-assisted only, with no self-service plan
+- Changes apply only within the editing session of their snapshot. A page reload or a new editor
+  instance starts a new session, and changes must be recomputed
+
+---
+
+## 8. Selling it
+
+### Customer profile
+
+- Sales-assisted CKEditor 5 customers
+- Already invested in app-wide AI features, like their own chat
+- Dedicated AI teams and capacity
+- Running agentic, backend flows, or planning an MCP server
+- Want to own the AI experience
+- Users who start work in Claude or ChatGPT
+- Regulated, review-heavy content in finance, professional services, or life sciences
+- An internal AI platform that must stay the only thing touching the model
+- Asked for Word compare or more granular change tracking
+- Use Track Changes or real-time collaboration
+- CKEditor AI prospects who also want custom flows (sell the bundle)
+
+### Discovery questions
+
+- How does your AI's output get into the editor today, and what happens to comments, suggestions,
+  and history when it does?
+- Which parts of your AI stack do you own (models, chat, agents, pipelines), and is any of it
+  something you would not replace?
+- When the AI changes a document, how does a reviewer see what changed, and how much of the text
+  does it usually touch?
+- Have you tried building the diffing yourselves? What happened?
+- Does AI only run when a user asks, or also on its own: pipelines, scheduled jobs, several agents
+  working on parts of a document?
+- Is your company standardising on an AI workspace (Claude, ChatGPT, Copilot) as the way into
+  internal apps, and are your apps expected to expose MCP servers?
+- Outside AI, do you ever need to compare two versions of a document, for example last year's and
+  this year's, or an updated Word file?
+
+### Objection handling
+
+| Objection | Response |
+|---|---|
+| "We already built our own AI." | Keep it. Your AI decides what to write. We make its changes reviewable and correctly formatted |
+| "We can build the diffing ourselves." | That's a lot of work and edge cases we know how to handle. Compare and Coauthor keep all editor features working and assure content quality |
+| "We don't want another backend service." | Compare runs in the browser on your existing editor. Coauthor is optional, for agents on the server |
+| "We need it on-premises." | Compare runs on-premises today. Coauthor runs on Cloud Services |
+| "Why not just use CKEditor AI?" | For out-of-the-box AI features, use CKEditor AI. For your own chat and models, use the toolkit. You can combine both |
+
+### FAQ
+
+| Question | Answer |
+|---|---|
+| Is it a core or premium feature? | Premium. A commercial add-on with two components: Compare and Coauthor (CKEditor MCP) |
+| How is it hosted? | Compare runs in the editor. Coauthor runs on the server, on Cloud Services |
+| How is it deployed? | Compare: add the plugins from the premium features package. Coauthor: contact us, and we help with the setup |
+| How is it licensed? | Sales-assisted only, as a premium add-on in the Custom plan. Not available on Free, Essential, or Professional |
+| Open or closed source? | Closed source (commercial premium features package) |
+| Does the customer need CKEditor AI? | No. The toolkit is a separate product. Customers who want both buy them as one bundle |
+| Does it only work with AI? | No. Compare also applies changes from scripts, Word files, or HTML edited elsewhere |
+| Which LLMs and agents does it support? | Any. The customer brings the agent and the model. Agents connect over MCP, backend code over REST |
+| Do they need Track Changes or collaboration? | Not for direct edits. Suggestions need Track Changes. Real-time collaboration is optional |
+| Can they try it? | Compare: yes, in the free trial. Coauthor: not in the trial by default. We enable it on request |
+| Can they buy Coauthor alone? | No. Coauthor depends on Compare, so it sells only in the toolkit. Compare sells on its own |
+| How does it differ from CKEditor AI? | CKEditor AI is off-the-shelf, with our agent and AI service. The toolkit gives building blocks to teams with their own AI infrastructure |
+
+
+================================================================
+FILE: ./features/editing-toolkit/editing-toolkit-technical-reference.md
+================================================================
+
+# Editing Toolkit — Technical Reference
+
+*Extracted from the nine public Editing Toolkit documentation pages on November 24, 2026. Use it to
+answer "how does it work" questions accurately. The docs are the source of truth: check them before
+quoting an API detail to a customer, because early-access features change. Positioning, packaging,
+and sales material live in the [product guide](editing-toolkit-product-guide.md). Links are in
+[editing-toolkit-urls.md](editing-toolkit-urls.md).*
+
+*Not covered here: the individual Coauthor MCP tool names, REST endpoints, and token permissions.
+Those are in the Cloud Services Coauthor guides (quick start, environment setup, authentication, API
+reference), which haven't been read into this knowledge base yet.*
+
+---
+
+## 1. Architecture at a glance
+
+| Piece | Type | Role |
+|---|---|---|
+| `DocumentCompare` | Editor plugin | Snapshot the document, compute the differences from revised HTML, apply them directly or as suggestions |
+| `ProposedChanges` | Editor (or Context) plugin | The Proposed changes UI: a review panel, with an optional balloon preview |
+| `ProposedChangesCollection` | Class you create (not a plugin) | Holds the changes and tracks their state |
+| `ProposedChangesController` | Created by `createController()` | Binds a collection to the editor. Apply, reject, preview |
+| Coauthor (CKEditor MCP) | Server-side, on Cloud Services | MCP and REST tools, skills, and a server-side CKEditor 5 instance that uses Compare |
+| `TrackChanges` | Existing premium plugin | Needed only to record changes as suggestions |
+| `AIChatBalloon` | Existing plugin | Needed only for the balloon preview in the Proposed changes UI |
+
+Both plugins come from `ckeditor5-premium-features` (npm) or `CKEDITOR_PREMIUM_FEATURES` (CDN). The
+editor config needs a `licenseKey`.
+
+---
+
+## 2. Comparing documents (`DocumentCompare`)
+
+Updates the editor content with HTML produced outside the editor: by an AI agent, a script, or a
+converted Word file. It compares that HTML with the current document and applies only the
+differences as granular changes. Unlike `editor.setData()`, it doesn't replace the whole document,
+so comments, Track Changes, revision history, and real-time collaboration keep working.
+
+### The four steps
+
+1. **Snapshot:** `makeSnapshot()` captures the current document.
+2. **Process:** your code, your backend, or CKEditor AI transforms the HTML.
+3. **Compare:** `computePatch()` compares the processed HTML with the snapshot and returns one
+   patch for the whole document.
+4. **Apply:** `applyPatch()` applies the patch, directly or as suggestions.
+
+Before applying, `DocumentCompare` validates the patch against a copy of the document. If validation
+fails, it throws and leaves the document unchanged.
+
+```js
+const documentCompare = editor.plugins.get( 'DocumentCompare' );
+
+// One-call pipeline
+await documentCompare.process( async snapshot => externalDataProcessing( snapshot.content ) );
+```
+
+### What's in a snapshot
+
+A plain, serializable object:
+
+- `content`: HTML per editor root, keyed by root name (only `main` in a single-root editor)
+- `editorConfig`: loaded features, their configuration (for example allowed heading levels and font
+  sizes), and the CKEditor 5 version
+- The document version and editing session ID, used for merging
+
+### Pairing elements: `data-id` modes
+
+- **Default (with IDs):** snapshot HTML carries a `data-id` on every structural element (paragraph,
+  heading, list item). The comparison pairs elements by these IDs. Rules for whatever processes the
+  HTML:
+  - Keep the `data-id` of elements that stay
+  - Don't add a `data-id` to new elements
+  - Don't reuse an ID for a different element
+- **Without IDs:** `makeSnapshot( { useDataIds: false } )`. Pairs elements by content similarity.
+  Use it for Markdown or plain-text processors, external versions (for example a Word file converted
+  with the Import from Word REST API), or processors that can't be trusted to keep IDs. It's slower
+  and less precise.
+- If the customer's content already uses `data-id`, it may conflict. The docs point to the
+  "Conflicts with the `data-id` attribute" section in the CKEditor AI overview.
+
+### Direct edits or suggestions
+
+- Default: changes apply directly. No Track Changes and no AI service needed.
+- `asSuggestions: true` in `computePatch()` or `process()` records Track Changes suggestions. This
+  needs `TrackChanges` loaded **and fully set up, including registering the current user**. Loading
+  the plugin alone isn't enough.
+- Suggestions are always created by the current user.
+- `aiSource` (for example `'myAgent'`) labels the changes as AI-made. Display is governed by
+  `config.trackChanges.showAISource` and `config.revisionHistory.showAISource`. It only labels the
+  changes.
+- For review before anything lands in the document, use Proposed changes.
+
+### Editing while the agent works
+
+- The original snapshot is kept while processing runs.
+- On apply, the changes merge with every later edit, including other users' edits in real-time
+  collaboration. They're adjusted the same way real-time collaboration merges different users' edits.
+- Non-overlapping edits in the same paragraph are both kept.
+
+### Editing session rules
+
+- Without real-time collaboration, the session lasts as long as the editor instance. Reloading or
+  recreating the editor starts a new session.
+- With real-time collaboration, the session is the real-time collaboration session.
+- There's no time limit. Applying after the session ends throws `documentcompare-session-mismatch`.
+
+### `config.collaboration.channelId`
+
+- Not required for `DocumentCompare`. If set, it checks that the patch targets the right document.
+- **Required for the Proposed changes UI.**
+- Setting it doesn't enable Cloud Services or real-time collaboration.
+
+### Multi-root note
+
+In multi-root editors, an inline root's content is wrapped in an artificial `<p data-id="...">` in
+the snapshot. Process only the inline content inside it.
+
+### Error codes
+
+All are checked before any change, so the document stays unchanged (except the last one).
+
+| Code | Meaning |
+|---|---|
+| `documentcompare-channel-mismatch` | Patch applied to a different document |
+| `documentcompare-session-mismatch` | Snapshot comes from an earlier session (for example before a reload) |
+| `documentcompare-invalid-patch` | Patch can't apply to the current document |
+| `documentcompare-unsupported-patch` | Patch has operations `computePatch()` never produces |
+| `documentcompare-no-track-changes` | Suggestions requested, but Track Changes isn't loaded |
+| `documentcompare-apply-failed` | Validation passed but applying failed. The patch might be applied only partially |
+
+### API summary
+
+- Methods: `makeSnapshot()`, `computePatch()`, `applyPatch()`, `process()`, `computeChanges()`
+- Types: `DocumentCompareSnapshot`, `DocumentComparePatch`, `DocumentCompareSnapshotOptions`,
+  `DocumentCompareComputePatchOptions`, `DocumentCompareProcessOptions`
+
+---
+
+## 3. Proposing changes (`ProposedChanges`)
+
+Lets users review changes from an AI agent, a script, or a service before anything reaches the
+document. Users apply a change directly, record it as a Track Changes suggestion, or reject it.
+They can also apply or suggest all remaining changes at once.
+
+### The six steps
+
+1. **Snapshot:** `makeSnapshot()`.
+2. **Process:** your code or service.
+3. **Compare:** `computeChanges()` returns one change per reviewable part (`computePatch()` returns
+   a single patch instead).
+4. **Collect:** `new ProposedChangesCollection( changes )` holds the changes and their state.
+5. **Control:** `proposedChanges.createController( collection )` binds the collection to the editor.
+6. **Present:** `proposedChanges.createView()`, then `controller.attachView( view )`, then add
+   `view.element` to the page.
+
+Cleanup: `controller.destroy()` and `view.destroy()`.
+
+The UI takes the changes computed by `DocumentCompare`. It doesn't accept raw HTML or patches.
+
+### Setup requirements
+
+- Load `DocumentCompare` and `ProposedChanges`, with a `licenseKey`.
+- **`config.collaboration.channelId` is required**, even for a single editor without real-time
+  collaboration. The controller uses it to match each change to its editor. Without it, the editor
+  throws an error.
+- Balloon preview: also load `AIChatBalloon`.
+- Recording suggestions: set up Track Changes, including registering the current user.
+
+### How changes are grouped
+
+- Adjacent related edits form one change.
+- All edits inside a table (except layout tables), or inside an element without paragraphs (for
+  example an image with a caption), always form one change.
+- `isAtomic` option: called for each element present in both versions. Return `true` to keep its
+  changes together, `false` to allow separate changes, `undefined` for the defaults. Useful for
+  custom widgets.
+- `aiSource` passed to `computeChanges()` marks applied or suggested changes as AI-made in Track
+  Changes and revision history.
+
+### Presentation modes
+
+- **Panel (default):** lists the changes with per-change and bulk actions.
+  - "Record as suggestions" appears only if every reviewed editor loads `TrackChanges`.
+  - "Apply directly" disappears if a user turns on Track Changes in any reviewed editor.
+  - Shows a diff by default. `controller.setShowDiff( false )` shows only the proposed content.
+- **Balloon preview:** pass `hasPreview` to `createController()`. Clicking a change in the panel
+  opens the balloon, scrolls to the content, and shows apply, suggest, reject, and next/previous
+  buttons.
+  - `autoAdvanceDelay`: the wait before moving to the next change after an action. Default 600 ms.
+    `0` means immediate.
+
+### Controller methods
+
+- `applyChange( index, false )` applies directly. `applyChange( index, true )` applies as a
+  suggestion.
+- `applyAllChanges()` applies all applicable changes, with one undo step per document.
+- `rejectChange()` rejects one change. **There's no method to reject all changes at once.**
+- `scrollToChange()`, `highlightChange()`, `previewChange()` help users find a change.
+- Changes are addressed by their index in the collection.
+
+### Change states
+
+- `state`: `pending`, `accepted` (applied directly or as a suggestion), or `rejected`. Undo sets an
+  applied change back to `pending`.
+- A pending change can't be applied when:
+  - its content was removed or its editor was destroyed (`outdatedState`)
+  - there's nothing to apply (`emptyReason`)
+  - its content is read-only (`isReadOnly`)
+- Changes apply only in the editing session where their snapshot was taken. After a reload,
+  recompute.
+
+### Restoring a review
+
+Listen for `changeUpdated` on the collection to save each change's `state`. Pass the saved states
+back when recreating the collection. Changes without a `state` start as `pending`.
+
+### Multi-editor setups
+
+- Load `ProposedChanges` in a shared `Context`. Load `DocumentCompare` in each editor.
+- Give each editor a distinct `config.collaboration.channelId`.
+- Combine the changes from each editor into one collection. Create the controller from the context:
+  `context.plugins.get( 'ProposedChanges' ).createController( collection )`.
+- `channelId` identifies the editor. A change's `rootName` identifies the root within it.
+- If an editor is destroyed mid-review, its changes become outdated with the `editor-removed` state.
+
+### API summary
+
+- `ProposedChanges` (plugin): `createController()`, `createView()`
+- `ProposedChangesController`, `ProposedChangesControllerOptions` (`hasPreview`, `autoAdvanceDelay`)
+- `ProposedChangesCollection` (fires `changeUpdated`)
+- `DocumentChange`, `ProposedChange`, `ProposedChangeState`
+
+---
+
+## 4. Coauthor (CKEditor MCP)
+
+The backend part of the Editing Toolkit. AI agents read and edit documents on the server through
+the Model Context Protocol (MCP), with nobody having the document open in a browser. Agents connect
+to its MCP server for direct edits or Track Changes suggestions. Backend code can call the same
+tools over REST without an AI model.
+
+### What agents get
+
+1. **Skills** (through MCP tools) that describe how the editor works and which features the
+   document supports.
+2. **Tools** (MCP and REST) to read, edit, and verify content, and add comments.
+3. **A server-side CKEditor 5 instance** that uses Compare to apply direct edits or Track Changes
+   suggestions. These work with real-time collaboration, comments, and revision history.
+
+The server-side editor runs the same editor bundle the customer uploads to Cloud Services, so it
+uses the same features, plugins, and configuration as the user-facing editor.
+
+**Why it matters:** an editor retains only the HTML its features support, so unsupported markup can
+be lost during import. With Coauthor, agents check their output against the editor's features and
+configuration and revise it before applying. Coauthor refuses unsupported edits and explains why.
+
+### Setup
+
+- Early access. The customer contacts us to enable it, in a trial or an existing environment. It
+  isn't enabled in the free trial by default.
+- GA is planned for Q1 2027.
+- Then the Cloud Services Coauthor guides:
+  - Quick start: connect Claude Code and a small agent to a trial environment
+  - Set up your environment: add `DocumentCompare` to the editor bundle and find the MCP address
+  - Authentication: sign the tokens for the backend and the agent
+  - API reference: every endpoint, tool, and error
+- Document storage: with real-time collaboration, storage follows the collaboration setup.
+  Otherwise the integration decides (see the "Document types" guide).
+
+### Sessions, actors, and modes
+
+- The backend opens a Coauthor session per document and agent, and names the agent (or user) as the
+  session actor.
+- **Suggest mode** makes every edit a suggestion. A token signed for suggest mode allows nothing
+  else, so the agent can't switch to direct edits.
+- `applyOn: "everyWrite"` sends each accepted edit to the document at once. With real-time
+  collaboration, the suggestion reaches collaborators under the agent's name.
+- Without real-time collaboration, the backend uploads the document when opening the session and
+  gets the changed document back to save.
+
+---
+
+## 5. Use-case flows from the docs
+
+### Backend agent workflows (Coauthor)
+
+**When:** many documents drafted or processed before users open them (a new regulation, a product
+rename). Agents do review steps and leave comments. People keep editing while the job runs and
+decide on every change later.
+
+**The risk it removes:** a job that rewrites document HTML directly can overwrite what a colleague
+typed in the meantime, drop markup the editor needs, and leave no trace of who changed what.
+
+**Flow:**
+
+1. A trigger starts the job in the backend.
+2. For each document and agent, the backend opens a Coauthor session, names the agent as actor, and
+   sets suggest mode.
+3. The backend starts the agent with a session-only token.
+4. The agent reads and edits through Coauthor MCP tools. Coauthor checks each edit and explains
+   refusals.
+5. Each accepted edit reaches the document (`applyOn: "everyWrite"`).
+6. The backend closes the session and opens one for the next agent.
+7. A second (review) agent reads the document with the earlier suggestions and fixes what was missed.
+8. People accept or reject each suggestion later. Tell users that suggestions are waiting, for
+   example in an application inbox.
+
+**Requirements:** Coauthor access. An editor bundle with the editor's plugins, including
+`DocumentCompare` and Track Changes. A backend that signs tokens and runs agents with an MCP client.
+Track Changes integration in the editor. Real-time collaboration for live documents, or your own
+document storage. The browser editor needs neither `DocumentCompare` nor `ProposedChanges` for this
+approach.
+
+### Agent apps such as Claude or ChatGPT (Coauthor)
+
+**When:** users already work in an agent app and want edits in the application's documents without
+copying text. People review each change in the application before it becomes part of the document.
+
+**Three ways to connect:**
+
+| Option | How it works | Notes |
+|---|---|---|
+| **Your own app in the agent app** | You build an app or plugin backed by your backend. It signs users in, offers your own tools (for example finding a document by name), and passes document tools to Coauthor's MCP endpoint in a session it opens for the user | Works for all users of your application. Can show its own UI through MCP Apps |
+| **A connector to Coauthor** | Users add Coauthor as a custom connector using the environment's MCP address, and sign in at your login server over OAuth | You build no app. Tested with Microsoft Entra ID as the login server. Users name the document by ID. Needs real-time collaboration |
+| **A developer tool** | Technical users connect a tool such as Claude Code to the MCP address with a token your backend signs | Nobody signs in. Needs real-time collaboration |
+
+**Requirements:** Coauthor access, an editor bundle with `DocumentCompare` and Track Changes, and
+Track Changes integration in the editor. Your own app needs a backend that signs users in, signs
+tokens, and works as an MCP server. A connector needs a login server Coauthor accepts.
+
+### Custom chat implementation (Coauthor + Compare)
+
+**When:** you run your own assistant next to documents, connected to your own systems. Users approve
+each change in the editor. The AI makes small, precise edits rather than replacing blocks.
+
+**Flow:**
+
+1. The user asks in the chat.
+2. The application takes a snapshot (HTML with IDs, plus editor state). The user keeps editing.
+3. The application sends the request and snapshot to the agent.
+4. The backend opens a Coauthor session on the snapshot, naming the assistant as actor. Comments and
+   suggestions travel with the snapshot, so the agent sees them.
+5. The agent reads and edits the session's working copy through Coauthor MCP tools, alongside its
+   own tools.
+6. The backend reads the working copy and closes the session.
+7. The backend returns the new HTML and the chat reply.
+8. The application passes the new HTML and the original snapshot to Compare.
+9. Changes appear in the Proposed changes UI, or land immediately as Track Changes suggestions.
+   `aiSource` marks them as AI changes.
+10. The user accepts or rejects each change.
+
+Works with and without real-time collaboration.
+
+### With CKEditor AI (Compare + CKEditor AI)
+
+**When:** you already use CKEditor AI and build your own AI features or agent workflows. The
+Document Processing endpoint lets your agent delegate document editing to the CKEditor AI agent.
+
+**Flow:** the application takes a snapshot, the agent calls the CKEditor AI Document Processing
+endpoint with the prompt and HTML, the service returns processed HTML with retained IDs, and Compare
+computes grouped changes. The Proposed changes UI shows them without applying. The user applies
+directly, records a suggestion, or rejects.
+
+**Requirements:** `DocumentCompare` and `ProposedChanges` with a license key. Access to the CKEditor
+AI service and a token with AI permissions (Cloud or on-premises). Track Changes if users record
+suggestions. No Coauthor needed.
+
+### Scripts and external versions (Compare, no AI)
+
+**When:** find-and-replace, terminology changes, product renames, or standardized processing,
+followed by user review. Comparing an external version such as an updated Word copy, even when the
+author didn't track edits. Regenerating content from a data source.
+
+**Docs demo:** a browser script renames "IT helpdesk" to "Service Desk" and "onboarding buddy" to
+"onboarding mentor." A second action converts a prepared Word file through the Import from Word REST
+API and compares it with the current document.
+
+**For a Word file:**
+
+- Convert it to HTML, then take a fresh snapshot with `makeSnapshot( { useDataIds: false } )` right
+  before the comparison.
+- Conversion can introduce formatting differences. Review the result in the editor configuration
+  the application uses.
+- If the Word file already contains tracked changes, use Import from Word with Track Changes
+  enabled. It imports them as suggestions with the authors' names.
+
+**Requirements:** `DocumentCompare` with a license key. `ProposedChanges` for the review UI. For
+Word files, access to the Import from Word converter and an authorized token. Track Changes if
+recording suggestions.
+
+---
+
+## 6. Limits worth knowing before a customer finds them
+
+- Changes apply only in the editing session of their snapshot. A reload means recomputing.
+- There's no "reject all" method in the Proposed changes controller.
+- Comparing without IDs is slower and less precise.
+- `documentcompare-apply-failed` can leave a patch partially applied.
+- The Proposed changes UI needs a `channelId`, even without collaboration.
+- Suggestions need Track Changes fully integrated, with a registered user.
+- Coauthor's connector and developer-tool options need real-time collaboration.
+- Coauthor is early access, cloud only, and not in the default trial.
+
+
+================================================================
+FILE: ./features/editing-toolkit/editing-toolkit-urls.md
+================================================================
+
+# Editing Toolkit — URLs Reference
+
+## Docs
+
+- Editing Toolkit overview: https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/editing-toolkit-overview.html
+- Coauthor (CKEditor MCP): https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/editing-toolkit-coauthor.html
+
+### Compare
+
+- Comparing documents (`DocumentCompare`): https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/compare/editing-toolkit-comparing-documents.html
+- Proposing changes (`ProposedChanges`, Proposed changes UI): https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/compare/editing-toolkit-proposing-changes.html
+
+### Use cases
+
+- Backend agent workflows: https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/use-cases/editing-toolkit-backend-agents.html
+- Agent apps such as Claude or ChatGPT: https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/use-cases/editing-toolkit-agent-apps.html
+- Custom chat implementation: https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/use-cases/editing-toolkit-custom-chat.html
+- With CKEditor AI: https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/use-cases/editing-toolkit-with-ckeditor-ai.html
+- Scripts and external versions (no AI): https://ckeditor.com/docs/ckeditor5/latest/features/editing-toolkit/use-cases/editing-toolkit-deterministic-scripts.html
+
+### Sample file
+
+- Updated Word file used in the scripts demo: https://ckeditor.com/docs/ckeditor5/latest/assets/docx/onboarding-guide-updated.docx
+
+## Related docs
+
+- Track Changes (needed to record suggestions): https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/track-changes/track-changes.html
+- CKEditor AI overview: https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-overview.html
+- CKEditor AI programmatic API (Document Processing): https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-programmatic.html
+- Marking AI-generated suggestions (`showAISource`): https://ckeditor.com/docs/ckeditor5/latest/features/ai/ckeditor-ai-generated-suggestions.html
+- MCP Apps (UI inside agent apps): https://apps.extensions.modelcontextprotocol.io
+
+## Not captured yet
+
+- Cloud Services Coauthor guides: quick start, environment setup, authentication, document types,
+  permissions, and the API reference with the MCP tool names and REST endpoints. The feature docs
+  name them, but their URLs aren't recorded here.
+- No public landing page, demo page, blog post, or case study is recorded for the Editing Toolkit
+  yet.
+
+
+================================================================
 FILE: ./features/feature-tiers.md
 ================================================================
 
@@ -3882,6 +4698,27 @@ GPL/open-source plugins: https://ckeditor.com/docs/ckeditor5/latest/getting-star
 **AI add-on pricing (annual):** $133/mo (small, 100M credits) · $300/mo (medium, 400M credits) · $467/mo (large, 800M credits)
 
 **Included in the AI add-on (not separately priced):** programmatic & headless AI API (front-end editor API + REST API + server-side editor API), marking AI-generated suggestions in Track Changes, and multi-root/multi-editor support for AI Chat, Review, and Translate. Marking AI-generated suggestions requires the Track Changes plugin (Pro add-on / included in Custom).
+
+---
+
+## Editing Toolkit
+
+A separate product from CKEditor AI, for teams that run their own AI, chat, and agents. Sales-assisted only.
+
+| Component | Free | Essential | Pro | Custom |
+|---|---|---|---|---|
+| Compare (`DocumentCompare` + Proposed changes UI) | ✗ | ✗ | ✗ | Add-on (sales-assisted) |
+| Coauthor (CKEditor MCP) — early access, GA planned Q1 2027 | ✗ | ✗ | ✗ | Add-on (sales-assisted, requires Compare) |
+
+- Compare sells on its own. Coauthor sells only with Compare.
+- Compare is in the free trial. Coauthor is enabled on request.
+- Compare runs on SaaS and on-premises. Coauthor is SaaS only.
+- Available in a bundle with CKEditor AI. The customer doesn't need CKEditor AI to buy the toolkit.
+- Recording changes as suggestions needs Track Changes. Direct edits don't.
+- The docs describe it as a "premium add-on in the CKEditor Custom Plan."
+- Pricing isn't recorded in this knowledge base.
+
+Detail: `features/editing-toolkit/editing-toolkit-product-guide.md`.
 
 ---
 
